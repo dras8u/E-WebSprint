@@ -1146,7 +1146,7 @@
     <li><a onclick="scrollToSection('curriculum')">Curriculum</a></li>
     <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
     <li><a onclick="scrollToSection('instructor')">About</a></li>
-    <li><a onclick="showLesson()" class="nav-cta">Start Free →</a></li>
+    <li><a onclick="showEmailModal()" class="nav-cta">Start Free →</a></li>
   </ul>
 
   <!-- Lesson nav -->
@@ -1170,7 +1170,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <span class="hero-badge animate">Free Day 1 — No credit card</span>
+      <span class="hero-badge animate">100% Free — All 7 Days</span>
       <h1 class="hero-title animate animate-d1">Build your first<br>website <em>in 7 days.</em></h1>
       <p class="hero-sub animate animate-d2">Learn HTML & CSS from zero. No experience needed. By the end, you'll have a real, live website — deployed and yours forever.</p>
       <div class="hero-actions animate animate-d3">
@@ -1211,7 +1211,7 @@
       <p class="section-sub">Every day you learn one concept and immediately build something with it. No fluff. No theory overload. Just code you can see.</p>
     </div>
     <div class="days-grid">
-      <div class="day-card free-day" onclick="showLesson()">
+      <div class="day-card free-day" onclick="showEmailModal()">
         <div class="day-num">Day 01</div>
         <div class="day-topic">Your First HTML Page</div>
         <div class="day-desc">Tags, structure, and your first words on a screen.</div>
@@ -1260,43 +1260,30 @@
     </div>
   </section>
 
-  <!-- PRICING -->
+  <!-- FREE CTA -->
   <section class="pricing-section home-section" id="pricing">
     <div class="pricing-header">
-      <p class="section-label">Simple pricing</p>
-      <h2 class="section-title">Start free.<br>Upgrade when ready.</h2>
-      <p class="section-sub">Day 1 is completely free. No card required. If you love it, unlock all 7 days for less than a coffee a week.</p>
-      <div class="lang-pills">
+      <p class="section-label">100% Free</p>
+      <h2 class="section-title">All 7 days.<br>Completely free.</h2>
+      <p class="section-sub">No credit card. No signup wall. Just click start and begin learning. Available in English and Spanish.</p>
+      <div class="lang-pills" style="margin-top:2rem;">
         <span class="lang-pill active">English</span>
         <span class="lang-pill">Español</span>
       </div>
     </div>
-    <div class="price-cards">
-      <div class="price-card">
-        <div class="price-label">Free</div>
-        <div class="price-big">$0</div>
-        <div class="price-per">Day 1 only — forever free</div>
-        <ul class="price-features">
-          <li class="price-feature"><span class="price-feature-dot"></span>Full Day 1 lesson</li>
-          <li class="price-feature"><span class="price-feature-dot"></span>English & Spanish</li>
-          <li class="price-feature"><span class="price-feature-dot"></span>No account needed</li>
-        </ul>
-        <button class="btn-primary" style="width:100%;" onclick="showEmailModal()">Start Day 1 →</button>
-      </div>
-      <div class="price-card featured">
-        <span class="price-badge">Most popular</span>
-        <div class="price-label">Full Course</div>
-        <div class="price-big">$45</div>
-        <div class="price-per" style="color:rgba(255,255,255,0.5);">one-time payment · lifetime access</div>
-        <ul class="price-features">
-          <li class="price-feature"><span class="price-feature-dot"></span>All 7 days unlocked</li>
+    <div style="display:flex;flex-direction:column;gap:1.25rem;">
+      <div class="price-card featured" style="padding:3rem;">
+        <div class="price-label">The full course</div>
+        <div class="price-big">Free</div>
+        <div class="price-per" style="color:rgba(255,255,255,0.5);">All 7 days · No credit card · Forever</div>
+        <ul class="price-features" style="margin-top:1.5rem;">
+          <li class="price-feature"><span class="price-feature-dot"></span>All 7 days unlocked from day one</li>
           <li class="price-feature"><span class="price-feature-dot"></span>English + Spanish lessons</li>
           <li class="price-feature"><span class="price-feature-dot"></span>GitHub Pages deploy guide</li>
-          <li class="price-feature"><span class="price-feature-dot"></span>Lifetime access & updates</li>
-          <li class="price-feature"><span class="price-feature-dot"></span>Community support</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>Code examples you can copy</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>Daily challenges to lock in skills</li>
         </ul>
-        <a href="https://buy.stripe.com/test_3cIaEZ2Cq8jb3eJ0FffnO00" target="_blank" class="btn-white">Get full access →</a>
-        <p class="price-note">30-day money back guarantee</p>
+        <button class="btn-white" onclick="showEmailModal()" style="margin-top:0.5rem;">Start learning now →</button>
       </div>
     </div>
   </section>
@@ -1315,7 +1302,7 @@
   <!-- FOOTER -->
   <footer>
     <span class="footer-logo" onclick="showHome()">Esdras Buelvas</span>
-    <p class="footer-copy">© 2026 E-WebSprint.org — All rights reserved</p>
+    <p class="footer-copy">© 2026 esdrasbuelvas.org — All rights reserved</p>
     <ul class="footer-links">
       <li><a href="#">Privacy</a></li>
       <li><a href="#">Terms</a></li>
@@ -1343,13 +1330,13 @@
       <div class="sidebar-divider"></div>
       <p class="sidebar-title">All days</p>
       <ul class="sidebar-days">
-        <li><a class="current">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
-        <li><a onclick="scrollToSection('pricing',true)">Day 2 — Text & Links <span class="day-lock">Pro</span></a></li>
-        <li><a onclick="scrollToSection('pricing',true)">Day 3 — CSS Styling <span class="day-lock">Pro</span></a></li>
-        <li><a onclick="scrollToSection('pricing',true)">Day 4 — Layout & Boxes <span class="day-lock">Pro</span></a></li>
-        <li><a onclick="scrollToSection('pricing',true)">Day 5 — Images & Media <span class="day-lock">Pro</span></a></li>
-        <li><a onclick="scrollToSection('pricing',true)">Day 6 — Full Page Build <span class="day-lock">Pro</span></a></li>
-        <li><a onclick="scrollToSection('pricing',true)">Day 7 — Go Live <span class="day-lock">Pro</span></a></li>
+        <li><a onclick="showLesson('day1')" class="current">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')">Day 2 — Text & Links <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day4')">Day 4 — Layout & Boxes <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day5')">Day 5 — Images & Media <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge">Free</span></a></li>
       </ul>
     </aside>
 
@@ -1502,10 +1489,10 @@
           </ul>
         </div>
 
-        <div class="next-lesson" onclick="window.open('https://buy.stripe.com/test_3cIaEZ2Cq8jb3eJ0FffnO00','_blank')">
+        <div class="next-lesson" onclick="showLesson('day2')">
           <div>
-            <div class="next-label">Ready for more?</div>
-            <div class="next-title">Unlock Days 2–7 for $45</div>
+            <div class="next-label">Up next — Day 2</div>
+            <div class="next-title">Text, Links & Navigation</div>
           </div>
           <div class="next-arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
@@ -1549,6 +1536,316 @@
   </div>
 </div>
 
+<!-- ===================== DAY 2 PAGE ===================== -->
+<div class="page" id="day2Page">
+  <div class="lesson-layout">
+
+    <aside class="sidebar">
+      <p class="sidebar-title">Day 2 — Sections</p>
+      <ul class="sidebar-nav">
+        <li><a href="#d2-intro" class="active"><span class="sidebar-num">01</span> Links in HTML</a></li>
+        <li><a href="#d2-anchor"><span class="sidebar-num">02</span> The anchor tag</a></li>
+        <li><a href="#d2-lists"><span class="sidebar-num">03</span> Lists</a></li>
+        <li><a href="#d2-nav"><span class="sidebar-num">04</span> Navigation</a></li>
+        <li><a href="#d2-build"><span class="sidebar-num">05</span> Build it</a></li>
+        <li><a href="#d2-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
+      </ul>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-title">All days</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day1')">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')" class="current">Day 2 — Text & Links <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day4')">Day 4 — Layout & Boxes <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day5')">Day 5 — Images & Media <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge">Free</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="lesson-main">
+      <div class="lesson-header">
+        <div class="lesson-meta">
+          <span class="lesson-day">Day 02 — Free Lesson</span>
+          <span class="lesson-time">~15 min read · 18 min video</span>
+        </div>
+        <h1 class="lesson-title">Text, Links & Navigation</h1>
+        <p class="lesson-intro">Today you make your pages connect. You'll learn how to create links, build lists, and set up a basic navigation — the building blocks of every website on the internet.</p>
+      </div>
+
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-play">
+            <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg>
+          </div>
+          <p class="video-label">Watch: Day 2 Full Lesson (18 min)</p>
+        </div>
+      </div>
+
+      <div class="lesson-body">
+
+        <div class="lesson-section" id="d2-intro">
+          <h2>What we're building today</h2>
+          <p>On Day 1 you built a single page. Today you learn how to connect pages, create lists, and build navigation — so your site starts feeling like a real website with multiple sections and destinations.</p>
+          <p>By the end of today your page will have working links, an ordered and unordered list, and a simple navigation bar at the top.</p>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>Quick recap from Day 1:</strong> You know HTML structure, headings, paragraphs, bold, italic, and line breaks. Everything today builds directly on top of that.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d2-anchor">
+          <h2>The anchor tag — how links work</h2>
+          <p>Links in HTML are made with the <code>&lt;a&gt;</code> tag — short for <strong>anchor</strong>. It wraps around any text and turns it into a clickable link.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"https://google.com"</span><span class="t-blue">&gt;</span><span class="t-white">Click here to visit Google</span><span class="t-blue">&lt;/a&gt;</span>
+            </div>
+          </div>
+
+          <p>The <code>href</code> attribute is where you put the destination URL. That's it. Any text between the opening and closing tag becomes the clickable link text.</p>
+
+          <h3>Opening links in a new tab</h3>
+          <p>By default, links open in the same tab. If you want a link to open in a new tab — which is best practice for external sites — add <code>target="_blank"</code>:</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"https://google.com"</span> <span class="t-yellow">target</span>=<span class="t-green">"_blank"</span><span class="t-blue">&gt;</span><span class="t-white">Visit Google</span><span class="t-blue">&lt;/a&gt;</span>
+            </div>
+          </div>
+
+          <h3>Linking to another page on your own site</h3>
+          <p>When linking between your own pages, you don't need the full URL — just the filename:</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!-- Link to another page in your project --&gt;</span><br>
+<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"about.html"</span><span class="t-blue">&gt;</span><span class="t-white">About me</span><span class="t-blue">&lt;/a&gt;</span><br>
+<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"contact.html"</span><span class="t-blue">&gt;</span><span class="t-white">Contact</span><span class="t-blue">&lt;/a&gt;</span>
+            </div>
+          </div>
+
+          <h3>Linking to a section on the same page</h3>
+          <p>You can link to a specific section on the same page using an <code>id</code> and the <code>#</code> symbol:</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!-- The link --&gt;</span><br>
+<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#about"</span><span class="t-blue">&gt;</span><span class="t-white">Jump to About section</span><span class="t-blue">&lt;/a&gt;</span><br>
+<br>
+<span class="t-gray">&lt;!-- The destination --&gt;</span><br>
+<span class="t-blue">&lt;h2</span> <span class="t-yellow">id</span>=<span class="t-green">"about"</span><span class="t-blue">&gt;</span><span class="t-white">About Me</span><span class="t-blue">&lt;/h2&gt;</span>
+            </div>
+          </div>
+
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Good to know:</strong> The <code>id</code> attribute can be added to any HTML element — not just headings. It gives that element a unique name so you can link directly to it.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d2-lists">
+          <h2>Lists — ordered and unordered</h2>
+          <p>HTML has two types of lists. An <strong>unordered list</strong> gives you bullet points. An <strong>ordered list</strong> gives you numbers. Both use the <code>&lt;li&gt;</code> tag for each item.</p>
+
+          <h3>Unordered list — bullet points</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;ul&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">HTML</span><span class="t-blue">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">CSS</span><span class="t-blue">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">JavaScript</span><span class="t-blue">&lt;/li&gt;</span><br>
+<span class="t-blue">&lt;/ul&gt;</span>
+            </div>
+          </div>
+
+          <h3>Ordered list — numbered</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;ol&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Buy groceries</span><span class="t-blue">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Cook dinner</span><span class="t-blue">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Eat</span><span class="t-blue">&lt;/li&gt;</span><br>
+<span class="t-blue">&lt;/ol&gt;</span>
+            </div>
+          </div>
+
+          <div class="callout warning">
+            <span class="callout-icon">⚠</span>
+            <p><strong>Common mistake:</strong> Always put <code>&lt;li&gt;</code> items directly inside <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>. Never put raw text directly inside a list tag without wrapping it in <code>&lt;li&gt;</code>.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d2-nav">
+          <h2>Building a simple navigation</h2>
+          <p>A navigation bar is just a list of links at the top of your page. In HTML, we use the <code>&lt;nav&gt;</code> tag to tell the browser "this is navigation", and a <code>&lt;ul&gt;</code> with links inside for the actual items.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;nav&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;ul&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"index.html"</span><span class="t-blue">&gt;</span><span class="t-white">Home</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#about"</span><span class="t-blue">&gt;</span><span class="t-white">About</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#hobbies"</span><span class="t-blue">&gt;</span><span class="t-white">Hobbies</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"contact.html"</span><span class="t-blue">&gt;</span><span class="t-white">Contact</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/ul&gt;</span><br>
+<span class="t-blue">&lt;/nav&gt;</span>
+            </div>
+          </div>
+
+          <p>Right now it looks like a plain vertical list — that's normal. On Day 3 when we add CSS, you'll style it into a real horizontal navbar that looks professional. Today we focus on getting the structure right.</p>
+
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>Why use <code>&lt;nav&gt;</code>?</strong> It's a semantic tag — it tells the browser and screen readers that this section is navigation, not just a random list. Good habit to build early.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d2-build">
+          <h2>Put it all together</h2>
+          <p>Open your <code>index.html</code> from Day 1. Add a navigation at the top, a list of your hobbies, and a few links. Type every line — don't paste.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!DOCTYPE html&gt;</span><br>
+<span class="t-blue">&lt;html</span> <span class="t-yellow">lang</span>=<span class="t-green">"en"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;head&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">charset</span>=<span class="t-green">"UTF-8"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;title&gt;</span><span class="t-white">My Website</span><span class="t-blue">&lt;/title&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/head&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;body&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;nav&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;ul&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#home"</span><span class="t-blue">&gt;</span><span class="t-white">Home</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#about"</span><span class="t-blue">&gt;</span><span class="t-white">About</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#hobbies"</span><span class="t-blue">&gt;</span><span class="t-white">Hobbies</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;/ul&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;/nav&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h1</span> <span class="t-yellow">id</span>=<span class="t-green">"home"</span><span class="t-blue">&gt;</span><span class="t-white">Hello, I'm Esdras.</span><span class="t-blue">&lt;/h1&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I'm learning to build websites from scratch.</span><span class="t-blue">&lt;/p&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;hr&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2</span> <span class="t-yellow">id</span>=<span class="t-green">"about"</span><span class="t-blue">&gt;</span><span class="t-white">About Me</span><span class="t-blue">&lt;/h2&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I'm 17, bilingual, and teaching myself to code.</span><span class="t-blue">&lt;/p&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2</span> <span class="t-yellow">id</span>=<span class="t-green">"hobbies"</span><span class="t-blue">&gt;</span><span class="t-white">My Hobbies</span><span class="t-blue">&lt;/h2&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;ul&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Building websites</span><span class="t-blue">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Learning new things</span><span class="t-blue">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Teaching others</span><span class="t-blue">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;/ul&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">Check out </span><span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"https://github.com"</span> <span class="t-yellow">target</span>=<span class="t-green">"_blank"</span><span class="t-blue">&gt;</span><span class="t-white">my GitHub</span><span class="t-blue">&lt;/a&gt;</span><span class="t-white">.</span><span class="t-blue">&lt;/p&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/body&gt;</span><br>
+<span class="t-blue">&lt;/html&gt;</span>
+            </div>
+          </div>
+
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Notice:</strong> The nav links use <code>#home</code>, <code>#about</code>, <code>#hobbies</code> — and the headings have matching <code>id</code> attributes. Click a nav link and the page jumps straight to that section.</p>
+          </div>
+        </div>
+
+        <div class="challenge" id="d2-challenge">
+          <div class="challenge-label">Day 2 Challenge</div>
+          <h3>Make it yours.</h3>
+          <p>Complete all of these before moving to Day 3. Should take 10–15 minutes.</p>
+          <ul class="challenge-list">
+            <li>Add a 4th nav link that jumps to a new section you create</li>
+            <li>Add an ordered list ranking your top 3 favorite things</li>
+            <li>Add a link to your favorite website that opens in a new tab</li>
+            <li>Add an email link using <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">href="mailto:your@email.com"</code></li>
+            <li>Make sure every nav link jumps to the correct section</li>
+            <li>Add a "Back to top" link at the bottom of the page</li>
+          </ul>
+        </div>
+
+        <div class="next-lesson" onclick="showLesson('day3')">
+          <div>
+            <div class="next-label">Up next — Day 3</div>
+            <div class="next-title">Styling with CSS</div>
+          </div>
+          <div class="next-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <aside class="right-panel">
+      <div>
+        <p class="panel-title">Your progress</p>
+        <div class="progress-card">
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 2 of 7</p>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar2"></div></div>
+          <p class="progress-pct" id="progressPct2">0% complete</p>
+        </div>
+      </div>
+      <div>
+        <p class="panel-title">Lesson checklist</p>
+        <ul class="checklist" id="checklist2">
+          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
+          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Learn the anchor tag</li>
+          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Learn lists (ul & ol)</li>
+          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Build the navigation</li>
+          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the full page</li>
+          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
+        </ul>
+      </div>
+      <div>
+        <p class="panel-title">New tags today</p>
+        <ul class="resource-list">
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>&lt;a&gt; — Anchor / Link</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>&lt;ul&gt; — Unordered List</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>&lt;ol&gt; — Ordered List</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>&lt;nav&gt; — Navigation</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
 <!-- ===== EMAIL MODAL ===== -->
 <div id="emailModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.7);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
   <div style="background:var(--white);border-radius:24px;padding:3rem;max-width:420px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.25);">
@@ -1556,8 +1853,8 @@
     <div style="width:48px;height:48px;background:var(--black);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
     </div>
-    <h2 style="font-family:'DM Serif Display',serif;font-size:1.625rem;letter-spacing:-0.03em;color:var(--black);margin-bottom:0.5rem;">Start Day 1 free</h2>
-    <p style="font-size:0.9rem;color:var(--gray-text);margin-bottom:1.75rem;line-height:1.7;">Enter your email to access the free lesson. No credit card. No spam — just your course.</p>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.625rem;letter-spacing:-0.03em;color:var(--black);margin-bottom:0.5rem;">Get free access</h2>
+    <p style="font-size:0.9rem;color:var(--gray-text);margin-bottom:1.75rem;line-height:1.7;">Enter your email to unlock all 7 days — completely free. No credit card. No spam. Just code.</p>
     <form id="emailForm" action="https://gmail.us4.list-manage.com/subscribe/post?u=01c315b7c0cfdbf7219ec3670&amp;id=22ae5b6f30&amp;f_id=0082c3e5f0" method="POST" target="_blank" onsubmit="handleEmailSubmit(event)">
       <input type="hidden" name="u" value="01c315b7c0cfdbf7219ec3670">
       <input type="hidden" name="id" value="22ae5b6f30">
@@ -1571,7 +1868,7 @@
       <div style="margin-bottom:1.25rem;">
         <input type="email" name="EMAIL" placeholder="Your email address" required style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
       </div>
-      <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Get free access →</button>
+      <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Start learning for free →</button>
       <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;margin-top:0.875rem;">No spam. Unsubscribe anytime.</p>
     </form>
   </div>
@@ -1592,10 +1889,9 @@
   }
 
   function handleEmailSubmit(e) {
-    // Let Mailchimp form submit in new tab, then show lesson
     setTimeout(() => {
       closeEmailModal();
-      showLesson();
+      showLesson('day1');
     }, 400);
   }
 
@@ -1604,15 +1900,34 @@
     if (e.target === this) closeEmailModal();
   });
 
+  function toggleCheck2(li) {
+    li.classList.toggle('done');
+    const items = document.querySelectorAll('#checklist2 li');
+    const done = document.querySelectorAll('#checklist2 li.done').length;
+    const pct = Math.round((done / items.length) * 100);
+    document.getElementById('progressBar2').style.width = pct + '%';
+    document.getElementById('progressPct2').textContent = pct + '% complete';
+  }
+
   // ===== PAGE ROUTING =====
-  function showLesson() {
+  function showLesson(day) {
+    day = day || 'day1';
     document.getElementById('homePage').classList.remove('active');
-    document.getElementById('lessonPage').classList.add('active');
+    document.getElementById('lessonPage').classList.remove('active');
+    document.getElementById('day2Page').classList.remove('active');
     document.getElementById('homeNav').style.display = 'none';
     document.getElementById('lessonNav').style.display = 'flex';
     document.getElementById('navCourse').style.display = 'inline';
+    if (day === 'day2') {
+      document.getElementById('day2Page').classList.add('active');
+      document.getElementById('lessonNav').querySelector('.progress-label').textContent = 'Day 2 of 7';
+      document.title = 'Day 2: Text, Links & Navigation — Esdras Buelvas';
+    } else {
+      document.getElementById('lessonPage').classList.add('active');
+      document.getElementById('lessonNav').querySelector('.progress-label').textContent = 'Day 1 of 7';
+      document.title = 'Day 1: Your First HTML Page — Esdras Buelvas';
+    }
     window.scrollTo(0, 0);
-    document.title = 'Day 1: Your First HTML Page — Esdras Buelvas';
   }
 
   function showHome() {
