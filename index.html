@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your First Website in 7 Days — Esdras Buelvas</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0d0d0d;
+    --white: #fafaf8;
+    --gray-light: #f2f1ee;
+    --gray-mid: #d4d2cc;
+    --gray-text: #888680;
+    --green: #2d6a4f;
+    --green-light: #eaf4ee;
+    --code-bg: #111111;
+    --code-surface: #1a1a1a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===================== NAV ===================== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 3rem;
+    background: rgba(250,250,248,0.93);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-mid);
+    min-height: 57px;
+  }
+
+  .nav-left { display: flex; align-items: center; gap: 1.5rem; }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    cursor: pointer;
+  }
+
+  .nav-course {
+    font-size: 0.8125rem;
+    color: var(--gray-text);
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--gray-mid);
+  }
+
+  /* Home nav links */
+  .nav-home-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-home-links a {
+    font-size: 0.875rem;
+    color: var(--gray-text);
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+
+  .nav-home-links a:hover { color: var(--black); }
+
+  .nav-cta {
+    background: var(--black);
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.8; }
+
+  /* Lesson nav progress */
+  .nav-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .progress-dots { display: flex; gap: 5px; }
+
+  .progress-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gray-mid);
+  }
+
+  .progress-dot.active { background: var(--black); }
+  .progress-dot.done { background: var(--green); }
+  .progress-label { font-size: 0.75rem; color: var(--gray-text); }
+
+  /* ===================== PAGE VIEWS ===================== */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ===================== HOME PAGE ===================== */
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 57px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem;
+    border-right: 1px solid var(--gray-mid);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    width: fit-content;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 4vw, 3.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em { font-style: italic; color: var(--gray-text); }
+
+  .hero-sub {
+    font-size: 1.0625rem;
+    color: var(--gray-text);
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; align-items: center; }
+
+  .btn-primary {
+    background: var(--black);
+    color: var(--white);
+    padding: 0.875rem 2rem;
+    border-radius: 100px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  .btn-ghost {
+    color: var(--gray-text);
+    font-size: 0.875rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-ghost:hover { color: var(--black); }
+
+  .hero-right {
+    background: var(--gray-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem;
+    gap: 1rem;
+  }
+
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+  }
+
+  .stat-card:hover { transform: translateY(-2px); }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.25rem;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .stat-label { font-size: 0.8125rem; color: var(--gray-text); }
+
+  .preview-card {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .preview-icon {
+    width: 48px; height: 48px;
+    background: var(--black);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .preview-icon svg { width: 24px; height: 24px; }
+  .preview-text p { font-size: 0.875rem; color: var(--gray-text); }
+  .preview-text strong { font-size: 0.9375rem; color: var(--black); font-weight: 500; display: block; }
+
+  /* SECTIONS */
+  .home-section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--gray-text);
+    font-weight: 300;
+    max-width: 520px;
+    line-height: 1.8;
+  }
+
+  /* CURRICULUM */
+  .curriculum { border-top: 1px solid var(--gray-mid); }
+  .curriculum-header { max-width: 600px; margin-bottom: 4rem; }
+
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+  }
+
+  .day-card {
+    border: 1px solid var(--gray-mid);
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .day-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--black);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+    transform-origin: left;
+  }
+
+  .day-card:hover { border-color: var(--black); transform: translateY(-3px); }
+  .day-card:hover::after { transform: scaleX(1); }
+  .day-card.free-day { border-color: var(--green); }
+
+  .day-num {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .day-topic {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: var(--black);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .day-desc { font-size: 0.75rem; color: var(--gray-text); line-height: 1.6; }
+
+  .day-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--green-light);
+    color: var(--green);
+    padding: 0.2rem 0.5rem;
+    border-radius: 100px;
+    margin-top: 0.5rem;
+  }
+
+  /* WHAT YOU BUILD */
+  .build-section {
+    border-top: 1px solid var(--gray-mid);
+    background: var(--gray-light);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .build-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+
+  .build-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.9375rem;
+    color: var(--black);
+  }
+
+  .build-check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .build-check svg { width: 10px; height: 10px; }
+
+  .build-visual {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+    border-radius: 20px;
+    padding: 2rem;
+  }
+
+  .code-window { background: #0d0d0d; border-radius: 12px; overflow: hidden; }
+
+  .code-bar {
+    background: #1a1a1a;
+    padding: 0.75rem 1rem;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.r { background: #ff5f57; }
+  .dot.y { background: #ffbd2e; }
+  .dot.g { background: #28c840; }
+
+  /* PRICING */
+  .pricing-section {
+    border-top: 1px solid var(--gray-mid);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .pricing-header { padding-right: 2rem; }
+
+  .lang-pills { display: inline-flex; gap: 0.5rem; margin-top: 2rem; }
+
+  .lang-pill {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    border: 1px solid var(--gray-mid);
+    color: var(--gray-text);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .lang-pill.active { background: var(--black); color: var(--white); border-color: var(--black); }
+
+  .price-cards { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .price-card {
+    background: var(--gray-light);
+    border: 1px solid var(--gray-mid);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .price-card.featured { background: var(--black); border-color: var(--black); }
+  .price-card.featured .price-label,
+  .price-card.featured .price-big,
+  .price-card.featured .price-per,
+  .price-card.featured .price-feature { color: var(--white); }
+  .price-card.featured .price-feature-dot { background: var(--white); }
+  .price-card.featured .price-note { color: rgba(255,255,255,0.5); }
+
+  .price-badge {
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: var(--white);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .price-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 1rem;
+  }
+
+  .price-big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    letter-spacing: -0.04em;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .price-per { font-size: 0.8125rem; color: var(--gray-text); margin-bottom: 2rem; }
+
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 0.875rem; margin-bottom: 2rem; }
+
+  .price-feature { display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: var(--black); }
+
+  .price-feature-dot { width: 5px; height: 5px; background: var(--black); border-radius: 50%; flex-shrink: 0; }
+
+  .price-note { font-size: 0.75rem; color: var(--gray-text); text-align: center; margin-top: 1rem; }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--black);
+    padding: 0.875rem 2rem;
+    border-radius: 100px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    display: block;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-white:hover { opacity: 0.85; }
+
+  /* INSTRUCTOR */
+  .instructor-section {
+    border-top: 1px solid var(--gray-mid);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .instructor-avatar {
+    width: 180px; height: 180px;
+    border-radius: 20px;
+    background: var(--gray-light);
+    border: 1px solid var(--gray-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    color: var(--black);
+    letter-spacing: -0.05em;
+  }
+
+  .instructor-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+  }
+
+  .instructor-role { font-size: 0.875rem; color: var(--gray-text); margin-bottom: 1.5rem; }
+
+  .instructor-bio {
+    font-size: 0.9375rem;
+    color: var(--gray-text);
+    font-weight: 300;
+    line-height: 1.85;
+    max-width: 560px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--gray-mid);
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: var(--black);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .footer-copy { font-size: 0.8125rem; color: var(--gray-text); }
+
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+
+  .footer-links a {
+    font-size: 0.8125rem;
+    color: var(--gray-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--black); }
+
+  /* ===================== LESSON PAGE ===================== */
+  .lesson-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr 280px;
+    min-height: 100vh;
+    padding-top: 57px;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    border-right: 1px solid var(--gray-mid);
+    padding: 2.5rem 1.5rem;
+    position: sticky;
+    top: 57px;
+    height: calc(100vh - 57px);
+    overflow-y: auto;
+  }
+
+  .sidebar-title {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 1.25rem;
+  }
+
+  .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8375rem;
+    color: var(--gray-text);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+
+  .sidebar-nav a:hover { background: var(--gray-light); color: var(--black); }
+  .sidebar-nav a.active { background: var(--black); color: var(--white); }
+
+  .sidebar-num {
+    font-size: 0.6875rem;
+    font-family: 'JetBrains Mono', monospace;
+    opacity: 0.5;
+    min-width: 18px;
+  }
+
+  .sidebar-divider { height: 1px; background: var(--gray-mid); margin: 1.25rem 0; }
+
+  .sidebar-days { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+
+  .sidebar-days a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    color: var(--gray-text);
+    text-decoration: none;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+
+  .sidebar-days a:hover { color: var(--black); }
+  .sidebar-days a.current { color: var(--black); font-weight: 500; }
+
+  .day-lock {
+    font-size: 0.6875rem;
+    background: var(--gray-light);
+    border: 1px solid var(--gray-mid);
+    padding: 0.15rem 0.5rem;
+    border-radius: 100px;
+    color: var(--gray-text);
+  }
+
+  .day-free-badge {
+    font-size: 0.6875rem;
+    background: var(--green-light);
+    color: var(--green);
+    padding: 0.15rem 0.5rem;
+    border-radius: 100px;
+  }
+
+  /* LESSON MAIN */
+  .lesson-main { padding: 3.5rem 4rem; max-width: 780px; }
+
+  .lesson-header { margin-bottom: 3rem; }
+
+  .lesson-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+
+  .lesson-day {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+  }
+
+  .lesson-time {
+    font-size: 0.75rem;
+    color: var(--gray-text);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .lesson-time::before { content: '·'; color: var(--gray-mid); }
+
+  .lesson-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+
+  .lesson-intro {
+    font-size: 1.0625rem;
+    color: var(--gray-text);
+    font-weight: 300;
+    line-height: 1.85;
+    border-left: 2px solid var(--gray-mid);
+    padding-left: 1.25rem;
+  }
+
+  .video-wrap {
+    background: var(--black);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .video-placeholder { text-align: center; color: rgba(255,255,255,0.4); }
+
+  .video-play {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    transition: all 0.2s;
+  }
+
+  .video-wrap:hover .video-play { background: rgba(255,255,255,0.2); transform: scale(1.05); }
+  .video-play svg { width: 22px; height: 22px; margin-left: 3px; }
+  .video-label { font-size: 0.875rem; letter-spacing: 0.02em; }
+
+  .lesson-body { display: flex; flex-direction: column; gap: 2.5rem; }
+
+  .lesson-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.625rem;
+    letter-spacing: -0.025em;
+    color: var(--black);
+    margin-bottom: 0.875rem;
+    line-height: 1.25;
+  }
+
+  .lesson-section h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .lesson-section p {
+    font-size: 0.9375rem;
+    color: #444;
+    line-height: 1.85;
+    margin-bottom: 0.875rem;
+  }
+
+  .lesson-section p:last-child { margin-bottom: 0; }
+
+  /* CALLOUTS */
+  .callout {
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .callout.info { background: #eef4fb; border: 1px solid #c5d9f0; }
+  .callout.tip { background: var(--green-light); border: 1px solid #b7ddc9; }
+  .callout.warning { background: #fdf6e3; border: 1px solid #f0d98a; }
+  .callout-icon { font-size: 1rem; line-height: 1.7; flex-shrink: 0; }
+  .callout p { font-size: 0.875rem !important; color: #333 !important; margin: 0 !important; line-height: 1.7 !important; }
+  .callout strong { color: var(--black); font-weight: 500; }
+
+  /* CODE BLOCKS */
+  .code-block { border-radius: 12px; overflow: hidden; margin: 1.25rem 0; border: 1px solid #222; }
+
+  .code-header {
+    background: var(--code-surface);
+    padding: 0.6rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .code-dots { display: flex; gap: 5px; }
+  .code-dot { width: 9px; height: 9px; border-radius: 50%; }
+  .code-dot.r { background: #ff5f57; }
+  .code-dot.y { background: #ffbd2e; }
+  .code-dot.g { background: #28c840; }
+
+  .code-filename {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .code-copy {
+    font-size: 0.6875rem;
+    color: rgba(255,255,255,0.35);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+
+  .code-copy:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
+
+  .lesson-code-body {
+    background: var(--code-bg);
+    padding: 1.25rem;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    line-height: 1.9;
+  }
+
+  .t-gray { color: #555; }
+  .t-blue { color: #7ab4f5; }
+  .t-green { color: #87c38f; }
+  .t-orange { color: #e8a87c; }
+  .t-yellow { color: #e5c07b; }
+  .t-white { color: #e8e8e8; }
+
+  /* INLINE CODE */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125em;
+    background: var(--gray-light);
+    border: 1px solid var(--gray-mid);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    color: var(--black);
+  }
+
+  /* TAGS TABLE */
+  .tags-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 1.25rem 0; }
+
+  .tags-table th {
+    background: var(--gray-light);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    padding: 0.625rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-mid);
+  }
+
+  .tags-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--gray-light);
+    color: #333;
+    vertical-align: top;
+  }
+
+  .tags-table tr:last-child td { border-bottom: none; }
+  .tags-table tr:hover td { background: #fafaf8; }
+
+  .tag-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8em;
+    color: #185fa5;
+    background: #e6f1fb;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* CHALLENGE */
+  .challenge {
+    background: var(--black);
+    border-radius: 16px;
+    padding: 2rem;
+    color: var(--white);
+  }
+
+  .challenge-label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.75rem;
+  }
+
+  .challenge h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.375rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.875rem;
+    color: var(--white);
+  }
+
+  .challenge p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .challenge-list { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; margin-bottom: 1.5rem; }
+
+  .challenge-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .challenge-list li::before { content: '→'; color: rgba(255,255,255,0.3); flex-shrink: 0; margin-top: 1px; }
+
+  /* NEXT LESSON */
+  .next-lesson {
+    border: 1px solid var(--gray-mid);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+
+  .next-lesson:hover { border-color: var(--black); transform: translateY(-2px); }
+
+  .next-label {
+    font-size: 0.75rem;
+    color: var(--gray-text);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+
+  .next-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    color: var(--black);
+  }
+
+  .next-arrow {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--gray-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .next-lesson:hover .next-arrow { background: var(--black); border-color: var(--black); }
+  .next-lesson:hover .next-arrow svg { stroke: white; }
+  .next-arrow svg { width: 16px; height: 16px; stroke: var(--black); }
+
+  /* RIGHT PANEL */
+  .right-panel {
+    border-left: 1px solid var(--gray-mid);
+    padding: 2.5rem 1.5rem;
+    position: sticky;
+    top: 57px;
+    height: calc(100vh - 57px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .panel-title {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 0.875rem;
+  }
+
+  .progress-card { background: var(--gray-light); border-radius: 12px; padding: 1.25rem; }
+
+  .progress-bar-wrap {
+    height: 4px;
+    background: var(--gray-mid);
+    border-radius: 100px;
+    margin: 0.875rem 0 0.5rem;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--black);
+    border-radius: 100px;
+    transition: width 0.4s ease;
+  }
+
+  .progress-pct { font-size: 0.75rem; color: var(--gray-text); }
+
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    color: var(--gray-text);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    transition: color 0.15s;
+  }
+
+  .checklist li:hover { color: var(--black); }
+  .checklist li.done { color: var(--black); }
+
+  .check-box {
+    width: 16px; height: 16px;
+    border-radius: 4px;
+    border: 1px solid var(--gray-mid);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+
+  .checklist li.done .check-box { background: var(--black); border-color: var(--black); }
+  .check-box svg { width: 9px; height: 9px; display: none; }
+  .checklist li.done .check-box svg { display: block; }
+
+  .resource-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .resource-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    color: var(--gray-text);
+    text-decoration: none;
+    padding: 0.4rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+
+  .resource-list a:hover { background: var(--gray-light); color: var(--black); }
+
+  .resource-icon {
+    width: 24px; height: 24px;
+    border-radius: 6px;
+    background: var(--gray-light);
+    border: 1px solid var(--gray-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .resource-icon svg { width: 12px; height: 12px; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate { animation: fadeUp 0.45s ease both; }
+  .animate-d1 { animation-delay: 0.05s; }
+  .animate-d2 { animation-delay: 0.12s; }
+  .animate-d3 { animation-delay: 0.2s; }
+  .animate-d4 { animation-delay: 0.28s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .lesson-layout { grid-template-columns: 220px 1fr; }
+    .right-panel { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-home-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 5rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--gray-mid); }
+    .hero-right { padding: 3rem 1.5rem; }
+    .days-grid { grid-template-columns: repeat(2, 1fr); }
+    .home-section { padding: 4rem 1.5rem; }
+    .build-section { grid-template-columns: 1fr; }
+    .pricing-section { grid-template-columns: 1fr; }
+    .instructor-section { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+
+  @media (max-width: 768px) {
+    .lesson-layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .lesson-main { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav id="mainNav">
+  <div class="nav-left">
+    <span class="nav-logo" onclick="showHome()">Esdras Buelvas</span>
+    <span class="nav-course" id="navCourse" style="display:none;">Build Your First Website in 7 Days</span>
+  </div>
+
+  <!-- Home nav -->
+  <ul class="nav-home-links" id="homeNav">
+    <li><a onclick="scrollToSection('curriculum')">Curriculum</a></li>
+    <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
+    <li><a onclick="scrollToSection('instructor')">About</a></li>
+    <li><a onclick="showLesson()" class="nav-cta">Start Free →</a></li>
+  </ul>
+
+  <!-- Lesson nav -->
+  <div class="nav-progress" id="lessonNav" style="display:none;">
+    <div class="progress-dots">
+      <div class="progress-dot active"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+    </div>
+    <span class="progress-label">Day 1 of 7</span>
+  </div>
+</nav>
+
+<!-- ===================== HOME PAGE ===================== -->
+<div class="page active" id="homePage">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="hero-badge animate">Free Day 1 — No credit card</span>
+      <h1 class="hero-title animate animate-d1">Build your first<br>website <em>in 7 days.</em></h1>
+      <p class="hero-sub animate animate-d2">Learn HTML & CSS from zero. No experience needed. By the end, you'll have a real, live website — deployed and yours forever.</p>
+      <div class="hero-actions animate animate-d3">
+        <button class="btn-primary" onclick="showEmailModal()">Start for free →</button>
+        <button class="btn-ghost" onclick="scrollToSection('curriculum')">See the curriculum ↓</button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="stat-row animate animate-d1">
+        <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Days to a live website</div></div>
+        <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Experience needed</div></div>
+      </div>
+      <div class="stat-row animate animate-d2">
+        <div class="stat-card"><div class="stat-num">EN</div><div class="stat-label">English lessons</div></div>
+        <div class="stat-card"><div class="stat-num">ES</div><div class="stat-label">Lecciones en español</div></div>
+      </div>
+      <div class="preview-card animate animate-d3">
+        <div class="preview-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <div class="preview-text">
+          <strong>Hosted on GitHub Pages</strong>
+          <p>Free forever. Your domain. Real on the internet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="curriculum home-section" id="curriculum">
+    <div class="curriculum-header">
+      <p class="section-label">The curriculum</p>
+      <h2 class="section-title">Seven days,<br>one real project.</h2>
+      <p class="section-sub">Every day you learn one concept and immediately build something with it. No fluff. No theory overload. Just code you can see.</p>
+    </div>
+    <div class="days-grid">
+      <div class="day-card free-day" onclick="showLesson()">
+        <div class="day-num">Day 01</div>
+        <div class="day-topic">Your First HTML Page</div>
+        <div class="day-desc">Tags, structure, and your first words on a screen.</div>
+        <span class="day-badge">Free</span>
+      </div>
+      <div class="day-card"><div class="day-num">Day 02</div><div class="day-topic">Text & Links</div><div class="day-desc">Headings, paragraphs, and connecting pages together.</div></div>
+      <div class="day-card"><div class="day-num">Day 03</div><div class="day-topic">Styling with CSS</div><div class="day-desc">Colors, fonts, and making things look the way you want.</div></div>
+      <div class="day-card"><div class="day-num">Day 04</div><div class="day-topic">Layout & Boxes</div><div class="day-desc">The box model, Flexbox, and controlling your layout.</div></div>
+      <div class="day-card"><div class="day-num">Day 05</div><div class="day-topic">Images & Media</div><div class="day-desc">Adding images, video embeds, and responsive visuals.</div></div>
+      <div class="day-card"><div class="day-num">Day 06</div><div class="day-topic">Full Page Build</div><div class="day-desc">Put it all together — build a real, complete page.</div></div>
+      <div class="day-card"><div class="day-num">Day 07</div><div class="day-topic">Go Live</div><div class="day-desc">Deploy to GitHub Pages. Your site is on the internet.</div></div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU BUILD -->
+  <section class="build-section home-section">
+    <div>
+      <p class="section-label">What you'll build</p>
+      <h2 class="section-title">A real website.<br>Not a tutorial project.</h2>
+      <ul class="build-list">
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>A personal portfolio page with your name, bio, and links</li>
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>Responsive design that works on phones and computers</li>
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>Deployed live on GitHub Pages with a real URL</li>
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>Clean, readable code you fully understand and own</li>
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>Skills to keep building — this is just day one of forever</li>
+      </ul>
+    </div>
+    <div class="build-visual">
+      <div class="code-window">
+        <div class="code-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        </div>
+        <div class="lesson-code-body">
+          <span class="t-gray">&lt;!-- Your first HTML --&gt;</span><br>
+          <span class="t-blue">&lt;html&gt;</span><br>
+          &nbsp;&nbsp;<span class="t-blue">&lt;head&gt;</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;title&gt;</span><span class="t-white">My Website</span><span class="t-blue">&lt;/title&gt;</span><br>
+          &nbsp;&nbsp;<span class="t-blue">&lt;/head&gt;</span><br>
+          &nbsp;&nbsp;<span class="t-blue">&lt;body&gt;</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h1&gt;</span><span class="t-green">Hello, world.</span><span class="t-blue">&lt;/h1&gt;</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I built this.</span><span class="t-blue">&lt;/p&gt;</span><br>
+          &nbsp;&nbsp;<span class="t-blue">&lt;/body&gt;</span><br>
+          <span class="t-blue">&lt;/html&gt;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section home-section" id="pricing">
+    <div class="pricing-header">
+      <p class="section-label">Simple pricing</p>
+      <h2 class="section-title">Start free.<br>Upgrade when ready.</h2>
+      <p class="section-sub">Day 1 is completely free. No card required. If you love it, unlock all 7 days for less than a coffee a week.</p>
+      <div class="lang-pills">
+        <span class="lang-pill active">English</span>
+        <span class="lang-pill">Español</span>
+      </div>
+    </div>
+    <div class="price-cards">
+      <div class="price-card">
+        <div class="price-label">Free</div>
+        <div class="price-big">$0</div>
+        <div class="price-per">Day 1 only — forever free</div>
+        <ul class="price-features">
+          <li class="price-feature"><span class="price-feature-dot"></span>Full Day 1 lesson</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>English & Spanish</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>No account needed</li>
+        </ul>
+        <button class="btn-primary" style="width:100%;" onclick="showEmailModal()">Start Day 1 →</button>
+      </div>
+      <div class="price-card featured">
+        <span class="price-badge">Most popular</span>
+        <div class="price-label">Full Course</div>
+        <div class="price-big">$45</div>
+        <div class="price-per" style="color:rgba(255,255,255,0.5);">one-time payment · lifetime access</div>
+        <ul class="price-features">
+          <li class="price-feature"><span class="price-feature-dot"></span>All 7 days unlocked</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>English + Spanish lessons</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>GitHub Pages deploy guide</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>Lifetime access & updates</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>Community support</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_3cIaEZ2Cq8jb3eJ0FffnO00" target="_blank" class="btn-white">Get full access →</a>
+        <p class="price-note">30-day money back guarantee</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR -->
+  <section class="instructor-section home-section" id="instructor">
+    <div class="instructor-avatar">EB</div>
+    <div>
+      <p class="section-label">Your instructor</p>
+      <h2 class="instructor-name">Esdras Buelvas</h2>
+      <p class="instructor-role">Web developer · Teacher · Builder</p>
+      <p class="instructor-bio">I've been building websites with HTML & CSS for years, and I know exactly where beginners get lost — because I was one. This course is the guide I wish I had when I started. No jargon. No filler. Just the stuff that actually matters, taught in a way that sticks. Available in English and Spanish so nobody gets left behind.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo" onclick="showHome()">Esdras Buelvas</span>
+    <p class="footer-copy">© 2026 E-WebSprint.org — All rights reserved</p>
+    <ul class="footer-links">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="mailto:hello@esdrasbuelvas.org">Contact</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<!-- ===================== LESSON PAGE ===================== -->
+<div class="page" id="lessonPage">
+  <div class="lesson-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <p class="sidebar-title">Day 1 — Sections</p>
+      <ul class="sidebar-nav">
+        <li><a href="#intro" class="active"><span class="sidebar-num">01</span> What is HTML?</a></li>
+        <li><a href="#structure"><span class="sidebar-num">02</span> Basic structure</a></li>
+        <li><a href="#tags"><span class="sidebar-num">03</span> Essential tags</a></li>
+        <li><a href="#first-page"><span class="sidebar-num">04</span> Your first page</a></li>
+        <li><a href="#browser"><span class="sidebar-num">05</span> Open in browser</a></li>
+        <li><a href="#challenge"><span class="sidebar-num">06</span> Challenge</a></li>
+      </ul>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-title">All days</p>
+      <ul class="sidebar-days">
+        <li><a class="current">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="scrollToSection('pricing',true)">Day 2 — Text & Links <span class="day-lock">Pro</span></a></li>
+        <li><a onclick="scrollToSection('pricing',true)">Day 3 — CSS Styling <span class="day-lock">Pro</span></a></li>
+        <li><a onclick="scrollToSection('pricing',true)">Day 4 — Layout & Boxes <span class="day-lock">Pro</span></a></li>
+        <li><a onclick="scrollToSection('pricing',true)">Day 5 — Images & Media <span class="day-lock">Pro</span></a></li>
+        <li><a onclick="scrollToSection('pricing',true)">Day 6 — Full Page Build <span class="day-lock">Pro</span></a></li>
+        <li><a onclick="scrollToSection('pricing',true)">Day 7 — Go Live <span class="day-lock">Pro</span></a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="lesson-main">
+      <div class="lesson-header">
+        <div class="lesson-meta">
+          <span class="lesson-day">Day 01 — Free Lesson</span>
+          <span class="lesson-time">~15 min read · 18 min video</span>
+        </div>
+        <h1 class="lesson-title">Your First HTML Page</h1>
+        <p class="lesson-intro">Today you write your first line of code. By the end of this lesson you'll have a real HTML file open in your browser — created entirely by you, from scratch.</p>
+      </div>
+
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-play">
+            <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg>
+          </div>
+          <p class="video-label">Watch: Day 1 Full Lesson (18 min)</p>
+        </div>
+      </div>
+
+      <div class="lesson-body">
+
+        <div class="lesson-section" id="intro">
+          <h2>What is HTML?</h2>
+          <p>HTML stands for <strong>HyperText Markup Language</strong>. It is the language that every website in the world is built with. When you visit any page on the internet — Google, YouTube, any news site — your browser is reading HTML and turning it into what you see on screen.</p>
+          <p>HTML is not a programming language. You don't need to do math, logic, or algorithms. You just write structured text using something called <strong>tags</strong>, and the browser handles the rest.</p>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>Think of it this way:</strong> HTML is like the skeleton of a website. It defines what's there — the heading, the paragraph, the image, the link. CSS (which we'll learn on Day 3) is the skin and clothes — it defines how it looks.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="structure">
+          <h2>The basic structure of every HTML file</h2>
+          <p>Every HTML page in the world starts with the same basic structure. You only need to memorize this once — your code editor will often write it for you automatically.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!DOCTYPE html&gt;</span><br>
+<span class="t-blue">&lt;html</span> <span class="t-yellow">lang</span>=<span class="t-green">"en"</span><span class="t-blue">&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;head&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">charset</span>=<span class="t-green">"UTF-8"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;title&gt;</span><span class="t-white">My First Website</span><span class="t-blue">&lt;/title&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/head&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;body&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-gray">&lt;!-- Your content goes here --&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/body&gt;</span><br><br>
+<span class="t-blue">&lt;/html&gt;</span>
+            </div>
+          </div>
+          <p>Let's break down what each line does:</p>
+          <h3><code>&lt;!DOCTYPE html&gt;</code></h3>
+          <p>This tells the browser "this file is HTML5" — the modern version. It always goes on line 1. You'll never change this line.</p>
+          <h3><code>&lt;html lang="en"&gt;</code></h3>
+          <p>This opens the HTML document. The <code>lang="en"</code> tells the browser the page is in English. Everything on your page goes inside this tag.</p>
+          <h3><code>&lt;head&gt;</code></h3>
+          <p>The head section contains information <em>about</em> the page — not content that the visitor sees. The title of the tab in the browser goes here, along with links to CSS files later.</p>
+          <h3><code>&lt;body&gt;</code></h3>
+          <p>Everything inside the body is what the visitor actually sees. All your text, images, links — everything goes here.</p>
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Rule to remember:</strong> Every tag you open must be closed. <code>&lt;body&gt;</code> opens, <code>&lt;/body&gt;</code> closes. Notice the slash <code>/</code> in the closing tag — that's the signal that it's closing.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="tags">
+          <h2>The essential tags you need today</h2>
+          <p>You don't need to know every HTML tag. Here are the 8 tags that will get you through most of Day 1 — and honestly, most of your early web projects.</p>
+          <table class="tags-table">
+            <thead><tr><th>Tag</th><th>What it does</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><span class="tag-code">&lt;h1&gt;</span></td><td>Main heading — the biggest title on the page</td><td><span class="tag-code">&lt;h1&gt;Hello&lt;/h1&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;h2&gt;</span></td><td>Sub-heading — smaller than h1, use for sections</td><td><span class="tag-code">&lt;h2&gt;About me&lt;/h2&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;p&gt;</span></td><td>Paragraph — for regular body text</td><td><span class="tag-code">&lt;p&gt;I am learning HTML.&lt;/p&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;strong&gt;</span></td><td>Bold text — makes words stand out</td><td><span class="tag-code">&lt;strong&gt;Important&lt;/strong&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;em&gt;</span></td><td>Italic text — for emphasis</td><td><span class="tag-code">&lt;em&gt;really&lt;/em&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;br&gt;</span></td><td>Line break — moves to the next line (no closing tag)</td><td><span class="tag-code">Line one&lt;br&gt;Line two</span></td></tr>
+              <tr><td><span class="tag-code">&lt;hr&gt;</span></td><td>Horizontal rule — a divider line (no closing tag)</td><td><span class="tag-code">&lt;hr&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;!-- --&gt;</span></td><td>Comment — notes for you, invisible in the browser</td><td><span class="tag-code">&lt;!-- note --&gt;</span></td></tr>
+            </tbody>
+          </table>
+          <div class="callout warning">
+            <span class="callout-icon">⚠</span>
+            <p><strong>Heads up:</strong> <code>&lt;br&gt;</code> and <code>&lt;hr&gt;</code> are self-closing — they don't need a closing tag. You'll learn more about these on Day 2 when we cover links and images.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="first-page">
+          <h2>Write your first page</h2>
+          <p>Open VS Code. Create a new file. Name it <code>index.html</code>. Then type — don't copy-paste — every single line of this code:</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!DOCTYPE html&gt;</span><br>
+<span class="t-blue">&lt;html</span> <span class="t-yellow">lang</span>=<span class="t-green">"en"</span><span class="t-blue">&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;head&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">charset</span>=<span class="t-green">"UTF-8"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;title&gt;</span><span class="t-white">My First Page</span><span class="t-blue">&lt;/title&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/head&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;body&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h1&gt;</span><span class="t-white">Hello, my name is Esdras.</span><span class="t-blue">&lt;/h1&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I am learning to build websites.</span><span class="t-blue">&lt;/p&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">This is my </span><span class="t-blue">&lt;strong&gt;</span><span class="t-white">first page</span><span class="t-blue">&lt;/strong&gt;</span><span class="t-white"> and I built it from scratch.</span><span class="t-blue">&lt;/p&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;hr&gt;</span><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2&gt;</span><span class="t-white">Why I'm learning HTML</span><span class="t-blue">&lt;/h2&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">Because I want to build things </span><span class="t-blue">&lt;em&gt;</span><span class="t-white">by myself.</span><span class="t-blue">&lt;/em&gt;&lt;/p&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/body&gt;</span><br><br>
+<span class="t-blue">&lt;/html&gt;</span>
+            </div>
+          </div>
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Type it, don't paste it.</strong> Your hands learning the structure is part of the lesson. You'll remember it 10x better if you type every character yourself today.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="browser">
+          <h2>Open it in your browser</h2>
+          <p>Save your file (<code>Cmd+S</code> on Mac, <code>Ctrl+S</code> on Windows). Now open your file explorer, find <code>index.html</code>, and double-click it. It will open in your default browser.</p>
+          <p>You should see your heading, your paragraphs, a horizontal line, and bold/italic text — exactly as you wrote them. That is a real webpage. <em>Your</em> webpage.</p>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>Pro tip:</strong> Install the <strong>Live Server</strong> extension in VS Code. It auto-refreshes your browser every time you save. Right-click your file → "Open with Live Server".</p>
+          </div>
+          <p>Every time you change something in VS Code and save, your browser will update. This is your workflow for the entire course. Get comfortable with it.</p>
+        </div>
+
+        <div class="challenge" id="challenge">
+          <div class="challenge-label">Day 1 Challenge</div>
+          <h3>Make it yours.</h3>
+          <p>Don't move to Day 2 until you've done all of these. They'll take you 10–15 minutes and they'll lock in everything you just learned.</p>
+          <ul class="challenge-list">
+            <li>Change the <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;h1&gt;</code> to use your own name</li>
+            <li>Add a third <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;p&gt;</code> tag with something true about yourself</li>
+            <li>Add an <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;h2&gt;</code> with the title "My Hobbies"</li>
+            <li>Use <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;strong&gt;</code> on at least one word in your page</li>
+            <li>Change the <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;title&gt;</code> and watch the browser tab update</li>
+            <li>Add a comment using <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;!-- --&gt;</code> that only you can see</li>
+          </ul>
+        </div>
+
+        <div class="next-lesson" onclick="window.open('https://buy.stripe.com/test_3cIaEZ2Cq8jb3eJ0FffnO00','_blank')">
+          <div>
+            <div class="next-label">Ready for more?</div>
+            <div class="next-title">Unlock Days 2–7 for $45</div>
+          </div>
+          <div class="next-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside class="right-panel">
+      <div>
+        <p class="panel-title">Your progress</p>
+        <div class="progress-card">
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 1 of 7</p>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
+          <p class="progress-pct" id="progressPct">0% complete</p>
+        </div>
+      </div>
+      <div>
+        <p class="panel-title">Lesson checklist</p>
+        <ul class="checklist" id="checklist">
+          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
+          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Understand the structure</li>
+          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Learn the 8 essential tags</li>
+          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Write your first page</li>
+          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Open it in the browser</li>
+          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
+        </ul>
+      </div>
+      <div>
+        <p class="panel-title">Resources</p>
+        <ul class="resource-list">
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN HTML Reference</a></li>
+          <li><a href="https://code.visualstudio.com" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Download VS Code</a></li>
+          <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Live Server Extension</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ===== EMAIL MODAL ===== -->
+<div id="emailModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.7);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
+  <div style="background:var(--white);border-radius:24px;padding:3rem;max-width:420px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.25);">
+    <button onclick="closeEmailModal()" style="position:absolute;top:1.25rem;right:1.25rem;background:var(--gray-light);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;color:var(--gray-text);display:flex;align-items:center;justify-content:center;">✕</button>
+    <div style="width:48px;height:48px;background:var(--black);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+    </div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.625rem;letter-spacing:-0.03em;color:var(--black);margin-bottom:0.5rem;">Start Day 1 free</h2>
+    <p style="font-size:0.9rem;color:var(--gray-text);margin-bottom:1.75rem;line-height:1.7;">Enter your email to access the free lesson. No credit card. No spam — just your course.</p>
+    <form id="emailForm" action="https://gmail.us4.list-manage.com/subscribe/post?u=01c315b7c0cfdbf7219ec3670&amp;id=22ae5b6f30&amp;f_id=0082c3e5f0" method="POST" target="_blank" onsubmit="handleEmailSubmit(event)">
+      <input type="hidden" name="u" value="01c315b7c0cfdbf7219ec3670">
+      <input type="hidden" name="id" value="22ae5b6f30">
+      <!-- Honeypot anti-bot field — do not remove -->
+      <div style="position:absolute;left:-5000px;" aria-hidden="true">
+        <input type="text" name="b_01c315b7c0cfdbf7219ec3670_22ae5b6f30" tabindex="-1" value="">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <input type="text" name="FNAME" placeholder="First name" required style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+      </div>
+      <div style="margin-bottom:1.25rem;">
+        <input type="email" name="EMAIL" placeholder="Your email address" required style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Get free access →</button>
+      <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;margin-top:0.875rem;">No spam. Unsubscribe anytime.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ===== EMAIL MODAL =====
+  function showEmailModal() {
+    const m = document.getElementById('emailModal');
+    m.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeEmailModal() {
+    const m = document.getElementById('emailModal');
+    m.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function handleEmailSubmit(e) {
+    // Let Mailchimp form submit in new tab, then show lesson
+    setTimeout(() => {
+      closeEmailModal();
+      showLesson();
+    }, 400);
+  }
+
+  // Close modal on backdrop click
+  document.getElementById('emailModal').addEventListener('click', function(e) {
+    if (e.target === this) closeEmailModal();
+  });
+
+  // ===== PAGE ROUTING =====
+  function showLesson() {
+    document.getElementById('homePage').classList.remove('active');
+    document.getElementById('lessonPage').classList.add('active');
+    document.getElementById('homeNav').style.display = 'none';
+    document.getElementById('lessonNav').style.display = 'flex';
+    document.getElementById('navCourse').style.display = 'inline';
+    window.scrollTo(0, 0);
+    document.title = 'Day 1: Your First HTML Page — Esdras Buelvas';
+  }
+
+  function showHome() {
+    document.getElementById('lessonPage').classList.remove('active');
+    document.getElementById('homePage').classList.add('active');
+    document.getElementById('homeNav').style.display = 'flex';
+    document.getElementById('lessonNav').style.display = 'none';
+    document.getElementById('navCourse').style.display = 'none';
+    window.scrollTo(0, 0);
+    document.title = 'Build Your First Website in 7 Days — Esdras Buelvas';
+  }
+
+  function scrollToSection(id, goHome) {
+    if (goHome) {
+      showHome();
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // ===== CODE COPY =====
+  function copyCode(btn) {
+    const body = btn.closest('.code-block').querySelector('.lesson-code-body');
+    navigator.clipboard.writeText(body.innerText).then(() => {
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 2000);
+    });
+  }
+
+  // ===== CHECKLIST =====
+  function toggleCheck(li) {
+    li.classList.toggle('done');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const items = document.querySelectorAll('#checklist li');
+    const done = document.querySelectorAll('#checklist li.done').length;
+    const pct = Math.round((done / items.length) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '% complete';
+  }
+
+  // ===== SIDEBAR SCROLL HIGHLIGHT =====
+  const lessonSections = document.querySelectorAll('.lesson-section, .challenge');
+  const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+
+  window.addEventListener('scroll', () => {
+    if (!document.getElementById('lessonPage').classList.contains('active')) return;
+    let current = '';
+    lessonSections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    sidebarLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
