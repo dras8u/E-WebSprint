@@ -1846,6 +1846,600 @@
   </div>
 </div>
 
+<!-- ===================== DAY 3 PAGE ===================== -->
+<div class="page" id="day3Page">
+  <div class="lesson-layout">
+    <aside class="sidebar">
+      <p class="sidebar-title">Day 3 — Sections</p>
+      <ul class="sidebar-nav">
+        <li><a href="#d3-intro" class="active"><span class="sidebar-num">01</span> What is CSS?</a></li>
+        <li><a href="#d3-howto"><span class="sidebar-num">02</span> Adding CSS</a></li>
+        <li><a href="#d3-selectors"><span class="sidebar-num">03</span> Selectors</a></li>
+        <li><a href="#d3-colors"><span class="sidebar-num">04</span> Colors & fonts</a></li>
+        <li><a href="#d3-build"><span class="sidebar-num">05</span> Style your page</a></li>
+        <li><a href="#d3-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
+      </ul>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-title">All days</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day1')">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')">Day 2 — Text & Links <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day3')" class="current">Day 3 — CSS Styling <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day4')">Day 4 — Layout & Boxes <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day5')">Day 5 — Images & Media <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge">Free</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="lesson-main">
+      <div class="lesson-header">
+        <div class="lesson-meta">
+          <span class="lesson-day">Day 03 — Free Lesson</span>
+          <span class="lesson-time">~15 min read · 18 min video</span>
+        </div>
+        <h1 class="lesson-title">Styling with CSS</h1>
+        <p class="lesson-intro">Today everything changes. You've built the structure — now you make it look good. CSS controls colors, fonts, spacing, and layout. By the end of today your plain HTML page will actually look like a real website.</p>
+      </div>
+
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+          <p class="video-label">Watch: Day 3 Full Lesson (18 min)</p>
+        </div>
+      </div>
+
+      <div class="lesson-body">
+
+        <div class="lesson-section" id="d3-intro">
+          <h2>What is CSS?</h2>
+          <p>CSS stands for <strong>Cascading Style Sheets</strong>. If HTML is the skeleton of your website, CSS is everything that makes it look good — colors, fonts, spacing, borders, backgrounds, layout.</p>
+          <p>Without CSS, every website on the internet would look like a plain text document. With CSS, the same HTML becomes something people actually want to look at.</p>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>How it works:</strong> You write CSS rules that say "find this HTML element and apply these styles to it." The browser reads both files and combines them to display the final page.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d3-howto">
+          <h2>Three ways to add CSS</h2>
+          <p>There are three ways to write CSS. We'll use the best one — an external stylesheet. But here are all three so you know them:</p>
+
+          <h3>1. Inline — directly on the element (avoid this)</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;h1</span> <span class="t-yellow">style</span>=<span class="t-green">"color: red;"</span><span class="t-blue">&gt;</span><span class="t-white">Hello</span><span class="t-blue">&lt;/h1&gt;</span>
+            </div>
+          </div>
+
+          <h3>2. Internal — inside a &lt;style&gt; tag in the head</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;head&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;style&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-yellow">h1</span> { <span class="t-green">color</span>: <span class="t-orange">red</span>; }<br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/style&gt;</span><br>
+<span class="t-blue">&lt;/head&gt;</span>
+            </div>
+          </div>
+
+          <h3>3. External stylesheet — a separate .css file (use this)</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;head&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;link</span> <span class="t-yellow">rel</span>=<span class="t-green">"stylesheet"</span> <span class="t-yellow">href</span>=<span class="t-green">"style.css"</span><span class="t-blue">&gt;</span><br>
+<span class="t-blue">&lt;/head&gt;</span>
+            </div>
+          </div>
+
+          <p>Create a new file called <code>style.css</code> in the same folder as your <code>index.html</code>. Add the link tag to your head. Now everything you write in <code>style.css</code> applies to your page automatically.</p>
+
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Why external?</strong> Because one CSS file can style many HTML pages at once. Change one file — every page updates. That's the power of separation.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d3-selectors">
+          <h2>Selectors — how CSS finds elements</h2>
+          <p>A CSS rule has two parts: a <strong>selector</strong> that finds the element, and <strong>declarations</strong> inside curly braces that apply styles to it.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">/* Select by tag name */</span><br>
+<span class="t-yellow">h1</span> {<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#0d0d0d</span>;<br>
+&nbsp;&nbsp;<span class="t-green">font-size</span>: <span class="t-orange">2rem</span>;<br>
+}<br><br>
+<span class="t-gray">/* Select by class */</span><br>
+<span class="t-yellow">.my-paragraph</span> {<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#555</span>;<br>
+}<br><br>
+<span class="t-gray">/* Select by id */</span><br>
+<span class="t-yellow">#hero</span> {<br>
+&nbsp;&nbsp;<span class="t-green">background-color</span>: <span class="t-orange">#f5f5f5</span>;<br>
+}
+            </div>
+          </div>
+
+          <p>Three selector types to know right now. <strong>Tag selectors</strong> target every element of that type — <code>h1</code> styles every h1. <strong>Class selectors</strong> start with a dot and target elements with that class. <strong>ID selectors</strong> start with a hash and target a single unique element.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!-- Add a class to an element --&gt;</span><br>
+<span class="t-blue">&lt;p</span> <span class="t-yellow">class</span>=<span class="t-green">"my-paragraph"</span><span class="t-blue">&gt;</span><span class="t-white">This paragraph has a class.</span><span class="t-blue">&lt;/p&gt;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d3-colors">
+          <h2>Colors, fonts & spacing</h2>
+          <p>These are the CSS properties you'll use every single day. Learn them well.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-yellow">body</span> {<br>
+&nbsp;&nbsp;<span class="t-green">background-color</span>: <span class="t-orange">#ffffff</span>;<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#0d0d0d</span>;<br>
+&nbsp;&nbsp;<span class="t-green">font-family</span>: <span class="t-orange">Arial, sans-serif</span>;<br>
+&nbsp;&nbsp;<span class="t-green">font-size</span>: <span class="t-orange">16px</span>;<br>
+&nbsp;&nbsp;<span class="t-green">line-height</span>: <span class="t-orange">1.6</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin</span>: <span class="t-orange">0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">padding</span>: <span class="t-orange">0</span>;<br>
+}<br><br>
+<span class="t-yellow">h1</span> {<br>
+&nbsp;&nbsp;<span class="t-green">font-size</span>: <span class="t-orange">2.5rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#0d0d0d</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin-bottom</span>: <span class="t-orange">1rem</span>;<br>
+}<br><br>
+<span class="t-yellow">p</span> {<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#555555</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin-bottom</span>: <span class="t-orange">1rem</span>;<br>
+}<br><br>
+<span class="t-yellow">a</span> {<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#0066cc</span>;<br>
+&nbsp;&nbsp;<span class="t-green">text-decoration</span>: <span class="t-orange">none</span>;<br>
+}<br><br>
+<span class="t-yellow">a:hover</span> {<br>
+&nbsp;&nbsp;<span class="t-green">text-decoration</span>: <span class="t-orange">underline</span>;<br>
+}
+            </div>
+          </div>
+
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>Color formats:</strong> You can write colors as hex codes like <code>#0d0d0d</code>, color names like <code>red</code>, or RGB values like <code>rgb(13,13,13)</code>. Hex codes are the most common — learn to read them.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d3-build">
+          <h2>Style your page</h2>
+          <p>Create a new file called <code>style.css</code>. Link it in your HTML head. Then type this full stylesheet — this will completely transform your page from plain text to a real designed website.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">/* === RESET & BASE === */</span><br>
+<span class="t-yellow">* </span>{<br>
+&nbsp;&nbsp;<span class="t-green">margin</span>: <span class="t-orange">0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">padding</span>: <span class="t-orange">0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">box-sizing</span>: <span class="t-orange">border-box</span>;<br>
+}<br><br>
+<span class="t-yellow">body</span> {<br>
+&nbsp;&nbsp;<span class="t-green">font-family</span>: <span class="t-orange">Arial, sans-serif</span>;<br>
+&nbsp;&nbsp;<span class="t-green">font-size</span>: <span class="t-orange">16px</span>;<br>
+&nbsp;&nbsp;<span class="t-green">line-height</span>: <span class="t-orange">1.6</span>;<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#333</span>;<br>
+&nbsp;&nbsp;<span class="t-green">background-color</span>: <span class="t-orange">#fafafa</span>;<br>
+&nbsp;&nbsp;<span class="t-green">padding</span>: <span class="t-orange">2rem</span>;<br>
+}<br><br>
+<span class="t-gray">/* === NAV === */</span><br>
+<span class="t-yellow">nav</span> {<br>
+&nbsp;&nbsp;<span class="t-green">background-color</span>: <span class="t-orange">#0d0d0d</span>;<br>
+&nbsp;&nbsp;<span class="t-green">padding</span>: <span class="t-orange">1rem 2rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin</span>: <span class="t-orange">-2rem -2rem 2rem -2rem</span>;<br>
+}<br><br>
+<span class="t-yellow">nav ul</span> {<br>
+&nbsp;&nbsp;<span class="t-green">list-style</span>: <span class="t-orange">none</span>;<br>
+&nbsp;&nbsp;<span class="t-green">display</span>: <span class="t-orange">flex</span>;<br>
+&nbsp;&nbsp;<span class="t-green">gap</span>: <span class="t-orange">2rem</span>;<br>
+}<br><br>
+<span class="t-yellow">nav a</span> {<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#ffffff</span>;<br>
+&nbsp;&nbsp;<span class="t-green">text-decoration</span>: <span class="t-orange">none</span>;<br>
+&nbsp;&nbsp;<span class="t-green">font-size</span>: <span class="t-orange">0.9rem</span>;<br>
+}<br><br>
+<span class="t-yellow">nav a:hover</span> {<br>
+&nbsp;&nbsp;<span class="t-green">opacity</span>: <span class="t-orange">0.7</span>;<br>
+}<br><br>
+<span class="t-gray">/* === HEADINGS === */</span><br>
+<span class="t-yellow">h1</span> {<br>
+&nbsp;&nbsp;<span class="t-green">font-size</span>: <span class="t-orange">2.5rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin-bottom</span>: <span class="t-orange">0.5rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#0d0d0d</span>;<br>
+}<br><br>
+<span class="t-yellow">h2</span> {<br>
+&nbsp;&nbsp;<span class="t-green">font-size</span>: <span class="t-orange">1.5rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin-top</span>: <span class="t-orange">2rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin-bottom</span>: <span class="t-orange">0.5rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#0d0d0d</span>;<br>
+}<br><br>
+<span class="t-gray">/* === LINKS === */</span><br>
+<span class="t-yellow">a</span> {<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">#0066cc</span>;<br>
+&nbsp;&nbsp;<span class="t-green">text-decoration</span>: <span class="t-orange">none</span>;<br>
+}<br><br>
+<span class="t-yellow">a:hover</span> { <span class="t-green">text-decoration</span>: <span class="t-orange">underline</span>; }<br><br>
+<span class="t-gray">/* === LISTS === */</span><br>
+<span class="t-yellow">ul, ol</span> {<br>
+&nbsp;&nbsp;<span class="t-green">padding-left</span>: <span class="t-orange">1.5rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin-bottom</span>: <span class="t-orange">1rem</span>;<br>
+}<br><br>
+<span class="t-yellow">li</span> { <span class="t-green">margin-bottom</span>: <span class="t-orange">0.4rem</span>; }<br><br>
+<span class="t-gray">/* === HR === */</span><br>
+<span class="t-yellow">hr</span> {<br>
+&nbsp;&nbsp;<span class="t-green">border</span>: <span class="t-orange">none</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border-top</span>: <span class="t-orange">1px solid #e0e0e0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin</span>: <span class="t-orange">2rem 0</span>;<br>
+}
+            </div>
+          </div>
+
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Watch what happens:</strong> Save style.css and look at your browser. Your nav is now dark with white horizontal links. Your headings are larger. Your page has breathing room. That's the power of CSS — same HTML, completely different look.</p>
+          </div>
+        </div>
+
+        <div class="challenge" id="d3-challenge">
+          <div class="challenge-label">Day 3 Challenge</div>
+          <h3>Make it look like you.</h3>
+          <p>Don't move to Day 4 until you've done all of these.</p>
+          <ul class="challenge-list">
+            <li>Change the body background color to something you like</li>
+            <li>Change the nav background to a color that represents you</li>
+            <li>Change the h1 and h2 colors</li>
+            <li>Add a <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">font-family</code> you like — try Georgia, Verdana, or Courier New</li>
+            <li>Add a <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">max-width</code> to body (e.g. 800px) and center it with <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">margin: 0 auto</code></li>
+            <li>Style the hr to use a different color</li>
+          </ul>
+        </div>
+
+        <div class="next-lesson" onclick="showLesson('day4')">
+          <div>
+            <div class="next-label">Up next — Day 4</div>
+            <div class="next-title">Layout & The Box Model</div>
+          </div>
+          <div class="next-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="right-panel">
+      <div>
+        <p class="panel-title">Your progress</p>
+        <div class="progress-card">
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 3 of 7</p>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar3"></div></div>
+          <p class="progress-pct" id="progressPct3">0% complete</p>
+        </div>
+      </div>
+      <div>
+        <p class="panel-title">Lesson checklist</p>
+        <ul class="checklist" id="checklist3">
+          <li onclick="toggleCheckN(this,'3')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
+          <li onclick="toggleCheckN(this,'3')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Create style.css</li>
+          <li onclick="toggleCheckN(this,'3')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Link CSS to HTML</li>
+          <li onclick="toggleCheckN(this,'3')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Style nav, headings, links</li>
+          <li onclick="toggleCheckN(this,'3')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Understand selectors</li>
+          <li onclick="toggleCheckN(this,'3')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
+        </ul>
+      </div>
+      <div>
+        <p class="panel-title">Resources</p>
+        <ul class="resource-list">
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN CSS Reference</a></li>
+          <li><a href="https://coolors.co" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Coolors — color picker</a></li>
+          <li><a href="https://fonts.google.com" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Google Fonts</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ===================== DAY 4 PAGE ===================== -->
+<div class="page" id="day4Page">
+  <div class="lesson-layout">
+    <aside class="sidebar">
+      <p class="sidebar-title">Day 4 — Sections</p>
+      <ul class="sidebar-nav">
+        <li><a href="#d4-intro" class="active"><span class="sidebar-num">01</span> The Box Model</a></li>
+        <li><a href="#d4-margin"><span class="sidebar-num">02</span> Margin & Padding</a></li>
+        <li><a href="#d4-display"><span class="sidebar-num">03</span> Display types</a></li>
+        <li><a href="#d4-flexbox"><span class="sidebar-num">04</span> Flexbox</a></li>
+        <li><a href="#d4-build"><span class="sidebar-num">05</span> Build a layout</a></li>
+        <li><a href="#d4-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
+      </ul>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-title">All days</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day1')">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')">Day 2 — Text & Links <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day4')" class="current">Day 4 — Layout & Boxes <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day5')">Day 5 — Images & Media <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge">Free</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="lesson-main">
+      <div class="lesson-header">
+        <div class="lesson-meta">
+          <span class="lesson-day">Day 04 — Free Lesson</span>
+          <span class="lesson-time">~15 min read · 18 min video</span>
+        </div>
+        <h1 class="lesson-title">Layout & The Box Model</h1>
+        <p class="lesson-intro">Today you learn how HTML elements take up space and how to control exactly where things go on the page. This is the most important concept in CSS — once you understand the box model and Flexbox, you can build any layout.</p>
+      </div>
+
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+          <p class="video-label">Watch: Day 4 Full Lesson (18 min)</p>
+        </div>
+      </div>
+
+      <div class="lesson-body">
+
+        <div class="lesson-section" id="d4-intro">
+          <h2>The Box Model</h2>
+          <p>Every single HTML element on your page is a box. Even text. Even images. Everything is a box, and every box has four parts: <strong>content</strong>, <strong>padding</strong>, <strong>border</strong>, and <strong>margin</strong>.</p>
+          <p>Understanding this is the key to controlling layout. Once you see the box model, you'll see it everywhere.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">/* Visualize the box model */</span><br>
+<span class="t-yellow">.box</span> {<br>
+&nbsp;&nbsp;<span class="t-green">width</span>: <span class="t-orange">300px</span>;         <span class="t-gray">/* content width */</span><br>
+&nbsp;&nbsp;<span class="t-green">padding</span>: <span class="t-orange">20px</span>;       <span class="t-gray">/* space inside */</span><br>
+&nbsp;&nbsp;<span class="t-green">border</span>: <span class="t-orange">2px solid #333</span>; <span class="t-gray">/* the border line */</span><br>
+&nbsp;&nbsp;<span class="t-green">margin</span>: <span class="t-orange">30px</span>;        <span class="t-gray">/* space outside */</span><br>
+}
+            </div>
+          </div>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>Pro tip:</strong> Open Chrome DevTools (right-click → Inspect) and hover over any element. You'll see the box model diagram — blue is content, green is padding, orange is margin. Use this constantly.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d4-margin">
+          <h2>Margin & Padding — the difference</h2>
+          <p><strong>Padding</strong> is space between the content and the border — it's inside the element. <strong>Margin</strong> is space outside the border — it pushes other elements away.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">/* Shorthand — all four sides */</span><br>
+<span class="t-yellow">p</span> {<br>
+&nbsp;&nbsp;<span class="t-green">padding</span>: <span class="t-orange">10px</span>;               <span class="t-gray">/* all sides */</span><br>
+&nbsp;&nbsp;<span class="t-green">margin</span>: <span class="t-orange">10px 20px</span>;         <span class="t-gray">/* top/bottom left/right */</span><br>
+}<br><br>
+<span class="t-gray">/* Longhand — individual sides */</span><br>
+<span class="t-yellow">h1</span> {<br>
+&nbsp;&nbsp;<span class="t-green">margin-top</span>: <span class="t-orange">0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin-bottom</span>: <span class="t-orange">1rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">padding-left</span>: <span class="t-orange">1rem</span>;<br>
+}
+            </div>
+          </div>
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Remember:</strong> Padding adds space inside, margin adds space outside. If your element needs more breathing room around it — use margin. If it needs space between its edge and its content — use padding.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d4-display">
+          <h2>Display — block vs inline</h2>
+          <p>Every HTML element has a default display type. The two most important are <strong>block</strong> and <strong>inline</strong>.</p>
+          <p><strong>Block elements</strong> take up the full width of their container and always start on a new line — headings, paragraphs, divs. <strong>Inline elements</strong> only take up as much space as their content and don't break the flow — links, spans, strong, em.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">/* Change display type */</span><br>
+<span class="t-yellow">a</span> {<br>
+&nbsp;&nbsp;<span class="t-green">display</span>: <span class="t-orange">inline-block</span>; <span class="t-gray">/* inline but accepts width/height */</span><br>
+&nbsp;&nbsp;<span class="t-green">padding</span>: <span class="t-orange">0.5rem 1rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">background-color</span>: <span class="t-orange">#0066cc</span>;<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">white</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border-radius</span>: <span class="t-orange">4px</span>;<br>
+}
+            </div>
+          </div>
+          <p>That turns any link into a button. <code>inline-block</code> is the sweet spot — it flows like inline but accepts width, height, and padding like a block.</p>
+        </div>
+
+        <div class="lesson-section" id="d4-flexbox">
+          <h2>Flexbox — the modern layout tool</h2>
+          <p>Flexbox lets you arrange elements in a row or column, control spacing between them, and align them — all in a few lines of CSS. It's how almost every modern layout is built.</p>
+          <p>You apply Flexbox to the <strong>parent</strong> element, and it controls the layout of all its <strong>children</strong>.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-yellow">.container</span> {<br>
+&nbsp;&nbsp;<span class="t-green">display</span>: <span class="t-orange">flex</span>;<br>
+&nbsp;&nbsp;<span class="t-green">flex-direction</span>: <span class="t-orange">row</span>;          <span class="t-gray">/* row or column */</span><br>
+&nbsp;&nbsp;<span class="t-green">justify-content</span>: <span class="t-orange">space-between</span>; <span class="t-gray">/* horizontal spacing */</span><br>
+&nbsp;&nbsp;<span class="t-green">align-items</span>: <span class="t-orange">center</span>;          <span class="t-gray">/* vertical alignment */</span><br>
+&nbsp;&nbsp;<span class="t-green">gap</span>: <span class="t-orange">1rem</span>;                   <span class="t-gray">/* space between items */</span><br>
+}
+            </div>
+          </div>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>The most used Flexbox values:</strong> <code>justify-content: center</code> centers horizontally. <code>align-items: center</code> centers vertically. <code>gap</code> adds space between flex items without touching margins.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d4-build">
+          <h2>Build a two-column layout</h2>
+          <p>Let's put it all together. Add a <code>&lt;div class="container"&gt;</code> around two sections in your HTML, then use Flexbox to place them side by side.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;div</span> <span class="t-yellow">class</span>=<span class="t-green">"container"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;div</span> <span class="t-yellow">class</span>=<span class="t-green">"card"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2&gt;</span><span class="t-white">About Me</span><span class="t-blue">&lt;/h2&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I'm learning to build websites.</span><span class="t-blue">&lt;/p&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/div&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;div</span> <span class="t-yellow">class</span>=<span class="t-green">"card"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2&gt;</span><span class="t-white">My Skills</span><span class="t-blue">&lt;/h2&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">HTML, CSS, and growing.</span><span class="t-blue">&lt;/p&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/div&gt;</span><br>
+<span class="t-blue">&lt;/div&gt;</span>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-yellow">.container</span> {<br>
+&nbsp;&nbsp;<span class="t-green">display</span>: <span class="t-orange">flex</span>;<br>
+&nbsp;&nbsp;<span class="t-green">gap</span>: <span class="t-orange">2rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin-top</span>: <span class="t-orange">2rem</span>;<br>
+}<br><br>
+<span class="t-yellow">.card</span> {<br>
+&nbsp;&nbsp;<span class="t-green">flex</span>: <span class="t-orange">1</span>;              <span class="t-gray">/* each card takes equal space */</span><br>
+&nbsp;&nbsp;<span class="t-green">background</span>: <span class="t-orange">#fff</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border</span>: <span class="t-orange">1px solid #e0e0e0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border-radius</span>: <span class="t-orange">8px</span>;<br>
+&nbsp;&nbsp;<span class="t-green">padding</span>: <span class="t-orange">1.5rem</span>;<br>
+}
+            </div>
+          </div>
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong><code>flex: 1</code></strong> tells each card to take up an equal share of the available space. Two cards with <code>flex: 1</code> each take 50%. Three cards each take 33%. It's that simple.</p>
+          </div>
+        </div>
+
+        <div class="challenge" id="d4-challenge">
+          <div class="challenge-label">Day 4 Challenge</div>
+          <h3>Control your layout.</h3>
+          <p>Do all of these before moving to Day 5.</p>
+          <ul class="challenge-list">
+            <li>Add a <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">max-width: 900px</code> and <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">margin: 0 auto</code> to your body to center your content</li>
+            <li>Turn one of your links into a styled button using <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">inline-block</code> and padding</li>
+            <li>Add a two-column card layout somewhere on your page</li>
+            <li>Use <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">border-radius</code> on at least one element</li>
+            <li>Open DevTools and inspect your page — identify margin and padding on 3 elements</li>
+            <li>Use <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">justify-content: space-between</code> on your nav</li>
+          </ul>
+        </div>
+
+        <div class="next-lesson" onclick="showLesson('day5')">
+          <div>
+            <div class="next-label">Up next — Day 5</div>
+            <div class="next-title">Images & Media</div>
+          </div>
+          <div class="next-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="right-panel">
+      <div>
+        <p class="panel-title">Your progress</p>
+        <div class="progress-card">
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 4 of 7</p>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar4"></div></div>
+          <p class="progress-pct" id="progressPct4">0% complete</p>
+        </div>
+      </div>
+      <div>
+        <p class="panel-title">Lesson checklist</p>
+        <ul class="checklist" id="checklist4">
+          <li onclick="toggleCheckN(this,'4')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
+          <li onclick="toggleCheckN(this,'4')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Understand the box model</li>
+          <li onclick="toggleCheckN(this,'4')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Learn margin vs padding</li>
+          <li onclick="toggleCheckN(this,'4')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Understand display types</li>
+          <li onclick="toggleCheckN(this,'4')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Build with Flexbox</li>
+          <li onclick="toggleCheckN(this,'4')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
+        </ul>
+      </div>
+      <div>
+        <p class="panel-title">Resources</p>
+        <ul class="resource-list">
+          <li><a href="https://flexboxfroggy.com" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Flexbox Froggy — practice</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN Flexbox Guide</a></li>
+          <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>CSS Tricks Flexbox Guide</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
 <!-- ===== EMAIL MODAL ===== -->
 <div id="emailModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.7);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
   <div style="background:var(--white);border-radius:24px;padding:3rem;max-width:420px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.25);">
@@ -1900,33 +2494,35 @@
     if (e.target === this) closeEmailModal();
   });
 
-  function toggleCheck2(li) {
+  function toggleCheckN(li, n) {
     li.classList.toggle('done');
-    const items = document.querySelectorAll('#checklist2 li');
-    const done = document.querySelectorAll('#checklist2 li.done').length;
+    const items = document.querySelectorAll('#checklist' + n + ' li');
+    const done = document.querySelectorAll('#checklist' + n + ' li.done').length;
     const pct = Math.round((done / items.length) * 100);
-    document.getElementById('progressBar2').style.width = pct + '%';
-    document.getElementById('progressPct2').textContent = pct + '% complete';
+    document.getElementById('progressBar' + n).style.width = pct + '%';
+    document.getElementById('progressPct' + n).textContent = pct + '% complete';
   }
 
   // ===== PAGE ROUTING =====
   function showLesson(day) {
     day = day || 'day1';
-    document.getElementById('homePage').classList.remove('active');
-    document.getElementById('lessonPage').classList.remove('active');
-    document.getElementById('day2Page').classList.remove('active');
+    ['homePage','lessonPage','day2Page','day3Page','day4Page'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
     document.getElementById('homeNav').style.display = 'none';
     document.getElementById('lessonNav').style.display = 'flex';
     document.getElementById('navCourse').style.display = 'inline';
-    if (day === 'day2') {
-      document.getElementById('day2Page').classList.add('active');
-      document.getElementById('lessonNav').querySelector('.progress-label').textContent = 'Day 2 of 7';
-      document.title = 'Day 2: Text, Links & Navigation — Esdras Buelvas';
-    } else {
-      document.getElementById('lessonPage').classList.add('active');
-      document.getElementById('lessonNav').querySelector('.progress-label').textContent = 'Day 1 of 7';
-      document.title = 'Day 1: Your First HTML Page — Esdras Buelvas';
-    }
+    const dayMap = {
+      day1: { page: 'lessonPage', label: 'Day 1 of 7', title: 'Day 1: Your First HTML Page — Esdras Buelvas' },
+      day2: { page: 'day2Page',   label: 'Day 2 of 7', title: 'Day 2: Text, Links & Navigation — Esdras Buelvas' },
+      day3: { page: 'day3Page',   label: 'Day 3 of 7', title: 'Day 3: Styling with CSS — Esdras Buelvas' },
+      day4: { page: 'day4Page',   label: 'Day 4 of 7', title: 'Day 4: Layout & The Box Model — Esdras Buelvas' },
+    };
+    const target = dayMap[day] || dayMap.day1;
+    document.getElementById(target.page).classList.add('active');
+    document.getElementById('lessonNav').querySelector('.progress-label').textContent = target.label;
+    document.title = target.title;
     window.scrollTo(0, 0);
   }
 
