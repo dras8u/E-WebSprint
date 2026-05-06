@@ -1146,7 +1146,8 @@
     <li><a onclick="scrollToSection('curriculum')">Curriculum</a></li>
     <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
     <li><a onclick="scrollToSection('instructor')">About</a></li>
-    <li><a onclick="showEmailModal()" class="nav-cta">Start Free →</a></li>
+    <li><a onclick="window.showAuthModal('login')" style="font-size:0.875rem;color:var(--gray-text);cursor:pointer;">Log in</a></li>
+    <li><a onclick="window.showAuthModal('signup')" class="nav-cta">Start Free →</a></li>
   </ul>
 
   <!-- Lesson nav -->
@@ -3206,58 +3207,230 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
   </div>
 </div>
 
-<!-- ===== EMAIL MODAL ===== -->
-<div id="emailModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.7);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
-  <div style="background:var(--white);border-radius:24px;padding:3rem;max-width:420px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.25);">
-    <button onclick="closeEmailModal()" style="position:absolute;top:1.25rem;right:1.25rem;background:var(--gray-light);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;color:var(--gray-text);display:flex;align-items:center;justify-content:center;">✕</button>
+<!-- ===== AUTH MODAL ===== -->
+<div id="authModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
+  <div style="background:var(--white);border-radius:24px;padding:3rem;max-width:440px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.3);">
+    <button onclick="closeAuthModal()" style="position:absolute;top:1.25rem;right:1.25rem;background:var(--gray-light);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;color:var(--gray-text);display:flex;align-items:center;justify-content:center;">✕</button>
+
+    <!-- Icon -->
     <div style="width:48px;height:48px;background:var(--black);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
     </div>
-    <h2 style="font-family:'DM Serif Display',serif;font-size:1.625rem;letter-spacing:-0.03em;color:var(--black);margin-bottom:0.5rem;">Get free access</h2>
-    <p style="font-size:0.9rem;color:var(--gray-text);margin-bottom:1.75rem;line-height:1.7;">Enter your email to unlock all 7 days — completely free. No credit card. No spam. Just code.</p>
-    <form id="emailForm" action="https://gmail.us4.list-manage.com/subscribe/post?u=01c315b7c0cfdbf7219ec3670&amp;id=22ae5b6f30&amp;f_id=0082c3e5f0" method="POST" target="_blank" onsubmit="handleEmailSubmit(event)">
-      <input type="hidden" name="u" value="01c315b7c0cfdbf7219ec3670">
-      <input type="hidden" name="id" value="22ae5b6f30">
-      <!-- Honeypot anti-bot field — do not remove -->
-      <div style="position:absolute;left:-5000px;" aria-hidden="true">
-        <input type="text" name="b_01c315b7c0cfdbf7219ec3670_22ae5b6f30" tabindex="-1" value="">
+
+    <!-- Tab switcher -->
+    <div style="display:flex;gap:0;margin-bottom:2rem;border:1px solid var(--gray-mid);border-radius:10px;overflow:hidden;">
+      <button id="tabSignup" onclick="switchTab('signup')" style="flex:1;padding:0.6rem;font-family:'DM Sans',sans-serif;font-size:0.875rem;font-weight:500;border:none;cursor:pointer;background:var(--black);color:white;transition:all 0.15s;">Create account</button>
+      <button id="tabLogin" onclick="switchTab('login')" style="flex:1;padding:0.6rem;font-family:'DM Sans',sans-serif;font-size:0.875rem;font-weight:500;border:none;cursor:pointer;background:transparent;color:var(--gray-text);transition:all 0.15s;">Log in</button>
+    </div>
+
+    <!-- Error message -->
+    <div id="authError" style="display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:0.75rem 1rem;margin-bottom:1.25rem;font-size:0.875rem;color:#dc2626;"></div>
+
+    <!-- Signup form -->
+    <div id="formSignup">
+      <h2 style="font-family:'DM Serif Display',serif;font-size:1.5rem;letter-spacing:-0.03em;color:var(--black);margin-bottom:0.4rem;">Start learning free</h2>
+      <p style="font-size:0.875rem;color:var(--gray-text);margin-bottom:1.5rem;line-height:1.7;">All 7 days. No credit card. Your progress saves automatically.</p>
+      <div style="display:flex;flex-direction:column;gap:0.875rem;">
+        <input id="signupName" type="text" placeholder="Your first name" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+        <input id="signupEmail" type="email" placeholder="Email address" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+        <input id="signupPassword" type="password" placeholder="Create a password (min 6 chars)" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+        <button onclick="handleSignup()" id="signupBtn" class="btn-primary" style="width:100%;text-align:center;padding:0.875rem;">Create account →</button>
       </div>
-      <div style="margin-bottom:1rem;">
-        <input type="text" name="FNAME" placeholder="First name" required style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+      <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;margin-top:1rem;">Already have an account? <span onclick="switchTab('login')" style="color:var(--black);cursor:pointer;font-weight:500;">Log in</span></p>
+    </div>
+
+    <!-- Login form -->
+    <div id="formLogin" style="display:none;">
+      <h2 style="font-family:'DM Serif Display',serif;font-size:1.5rem;letter-spacing:-0.03em;color:var(--black);margin-bottom:0.4rem;">Welcome back</h2>
+      <p style="font-size:0.875rem;color:var(--gray-text);margin-bottom:1.5rem;line-height:1.7;">Log in to continue your course progress.</p>
+      <div style="display:flex;flex-direction:column;gap:0.875rem;">
+        <input id="loginEmail" type="email" placeholder="Email address" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+        <input id="loginPassword" type="password" placeholder="Password" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+        <button onclick="handleLogin()" id="loginBtn" class="btn-primary" style="width:100%;text-align:center;padding:0.875rem;">Log in →</button>
+        <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;cursor:pointer;" onclick="handleForgotPassword()">Forgot password?</p>
       </div>
-      <div style="margin-bottom:1.25rem;">
-        <input type="email" name="EMAIL" placeholder="Your email address" required style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Start learning for free →</button>
-      <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;margin-top:0.875rem;">No spam. Unsubscribe anytime.</p>
-    </form>
+      <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;margin-top:1rem;">No account yet? <span onclick="switchTab('signup')" style="color:var(--black);cursor:pointer;font-weight:500;">Create one free</span></p>
+    </div>
   </div>
 </div>
 
-<script>
-  // ===== EMAIL MODAL =====
-  function showEmailModal() {
-    const m = document.getElementById('emailModal');
-    m.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC0spicLEU2gL6cB2zeIJa02_Ve-rmdUdY",
+    authDomain: "esdrasbuelvas-2acde.firebaseapp.com",
+    projectId: "esdrasbuelvas-2acde",
+    storageBucket: "esdrasbuelvas-2acde.firebasestorage.app",
+    messagingSenderId: "909209488367",
+    appId: "1:909209488367:web:4bb56ae730eaed397ec41a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // ===== AUTH STATE LISTENER =====
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is logged in
+      const firstName = user.displayName ? user.displayName.split(' ')[0] : user.email.split('@')[0];
+      updateNavForUser(firstName);
+    } else {
+      // User is logged out
+      updateNavForGuest();
+    }
+  });
+
+  function updateNavForUser(name) {
+    const navRight = document.getElementById('homeNav');
+    navRight.innerHTML = `
+      <li><a onclick="scrollToSection('curriculum')">Curriculum</a></li>
+      <li><a onclick="scrollToSection('pricing')">About</a></li>
+      <li style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-size:0.875rem;color:var(--gray-text);">Hi, ${name} 👋</span>
+        <a onclick="window.handleLogout()" style="font-size:0.875rem;color:var(--gray-text);cursor:pointer;border:1px solid var(--gray-mid);padding:0.4rem 1rem;border-radius:100px;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--black)';this.style.color='var(--black)'" onmouseout="this.style.borderColor='var(--gray-mid)';this.style.color='var(--gray-text)'">Log out</a>
+        <a onclick="showLesson('day1')" class="nav-cta">Continue →</a>
+      </li>`;
   }
 
-  function closeEmailModal() {
-    const m = document.getElementById('emailModal');
-    m.style.display = 'none';
+  function updateNavForGuest() {
+    const navRight = document.getElementById('homeNav');
+    navRight.innerHTML = `
+      <li><a onclick="scrollToSection('curriculum')">Curriculum</a></li>
+      <li><a onclick="scrollToSection('pricing')">About</a></li>
+      <li><a onclick="window.showAuthModal('login')" style="font-size:0.875rem;color:var(--gray-text);cursor:pointer;">Log in</a></li>
+      <li><a onclick="window.showAuthModal('signup')" class="nav-cta">Start Free →</a></li>`;
+  }
+
+  // ===== SIGNUP =====
+  window.handleSignup = async function() {
+    const name = document.getElementById('signupName').value.trim();
+    const email = document.getElementById('signupEmail').value.trim();
+    const password = document.getElementById('signupPassword').value;
+    const btn = document.getElementById('signupBtn');
+
+    clearAuthError();
+    if (!name) return showAuthError('Please enter your first name.');
+    if (!email) return showAuthError('Please enter your email address.');
+    if (password.length < 6) return showAuthError('Password must be at least 6 characters.');
+
+    btn.textContent = 'Creating account...';
+    btn.disabled = true;
+
+    try {
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(cred.user, { displayName: name });
+      closeAuthModal();
+      showLesson('day1');
+    } catch (err) {
+      btn.textContent = 'Create account →';
+      btn.disabled = false;
+      showAuthError(friendlyError(err.code));
+    }
+  };
+
+  // ===== LOGIN =====
+  window.handleLogin = async function() {
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
+    const btn = document.getElementById('loginBtn');
+
+    clearAuthError();
+    if (!email || !password) return showAuthError('Please fill in all fields.');
+
+    btn.textContent = 'Logging in...';
+    btn.disabled = true;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      closeAuthModal();
+      showLesson('day1');
+    } catch (err) {
+      btn.textContent = 'Log in →';
+      btn.disabled = false;
+      showAuthError(friendlyError(err.code));
+    }
+  };
+
+  // ===== LOGOUT =====
+  window.handleLogout = async function() {
+    await signOut(auth);
+    showHome();
+  };
+
+  // ===== FORGOT PASSWORD =====
+  window.handleForgotPassword = async function() {
+    const email = document.getElementById('loginEmail').value.trim();
+    if (!email) return showAuthError('Enter your email above first.');
+    try {
+      await sendPasswordResetEmail(auth, email);
+      showAuthError('✓ Reset email sent — check your inbox.', true);
+    } catch(err) {
+      showAuthError(friendlyError(err.code));
+    }
+  };
+
+  // ===== HELPERS =====
+  function friendlyError(code) {
+    const map = {
+      'auth/email-already-in-use': 'That email already has an account. Try logging in.',
+      'auth/invalid-email': 'Please enter a valid email address.',
+      'auth/weak-password': 'Password must be at least 6 characters.',
+      'auth/user-not-found': 'No account found with that email.',
+      'auth/wrong-password': 'Incorrect password. Try again.',
+      'auth/invalid-credential': 'Incorrect email or password.',
+      'auth/too-many-requests': 'Too many attempts. Please wait a moment.',
+    };
+    return map[code] || 'Something went wrong. Please try again.';
+  }
+
+  function showAuthError(msg, success = false) {
+    const el = document.getElementById('authError');
+    el.style.display = 'block';
+    el.style.background = success ? '#f0fdf4' : '#fef2f2';
+    el.style.borderColor = success ? '#86efac' : '#fecaca';
+    el.style.color = success ? '#16a34a' : '#dc2626';
+    el.textContent = msg;
+  }
+
+  function clearAuthError() {
+    const el = document.getElementById('authError');
+    el.style.display = 'none';
+    el.textContent = '';
+  }
+</script>
+
+<script>
+  // ===== AUTH MODAL CONTROLS =====
+  function showEmailModal() { showAuthModal('signup'); }
+
+  window.showAuthModal = function(tab = 'signup') {
+    switchTab(tab);
+    document.getElementById('authModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    document.getElementById('authError').style.display = 'none';
+  };
+
+  function closeAuthModal() {
+    document.getElementById('authModal').style.display = 'none';
     document.body.style.overflow = '';
   }
 
-  function handleEmailSubmit(e) {
-    setTimeout(() => {
-      closeEmailModal();
-      showLesson('day1');
-    }, 400);
-  }
+  window.switchTab = function(tab) {
+    const isSignup = tab === 'signup';
+    document.getElementById('formSignup').style.display = isSignup ? 'block' : 'none';
+    document.getElementById('formLogin').style.display = isSignup ? 'none' : 'block';
+    document.getElementById('tabSignup').style.background = isSignup ? 'var(--black)' : 'transparent';
+    document.getElementById('tabSignup').style.color = isSignup ? 'white' : 'var(--gray-text)';
+    document.getElementById('tabLogin').style.background = isSignup ? 'transparent' : 'var(--black)';
+    document.getElementById('tabLogin').style.color = isSignup ? 'var(--gray-text)' : 'white';
+    document.getElementById('authError').style.display = 'none';
+  };
 
-  // Close modal on backdrop click
-  document.getElementById('emailModal').addEventListener('click', function(e) {
-    if (e.target === this) closeEmailModal();
+  document.getElementById('authModal').addEventListener('click', function(e) {
+    if (e.target === this) closeAuthModal();
   });
 
   function toggleCheckN(li, n) {
