@@ -2440,6 +2440,772 @@
   </div>
 </div>
 
+<!-- ===================== DAY 5 PAGE ===================== -->
+<div class="page" id="day5Page">
+  <div class="lesson-layout">
+    <aside class="sidebar">
+      <p class="sidebar-title">Day 5 — Sections</p>
+      <ul class="sidebar-nav">
+        <li><a href="#d5-img" class="active"><span class="sidebar-num">01</span> Images in HTML</a></li>
+        <li><a href="#d5-sizing"><span class="sidebar-num">02</span> Sizing images</a></li>
+        <li><a href="#d5-video"><span class="sidebar-num">03</span> Embedding video</a></li>
+        <li><a href="#d5-hero"><span class="sidebar-num">04</span> Hero section</a></li>
+        <li><a href="#d5-responsive"><span class="sidebar-num">05</span> Responsive images</a></li>
+        <li><a href="#d5-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
+      </ul>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-title">All days</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day1')">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')">Day 2 — Text & Links <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day4')">Day 4 — Layout & Boxes <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day5')" class="current">Day 5 — Images & Media <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge">Free</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="lesson-main">
+      <div class="lesson-header">
+        <div class="lesson-meta">
+          <span class="lesson-day">Day 05 — Free Lesson</span>
+          <span class="lesson-time">~15 min read · 18 min video</span>
+        </div>
+        <h1 class="lesson-title">Images & Media</h1>
+        <p class="lesson-intro">Today your page gets visuals. You'll learn how to add images, control their size, embed YouTube videos, build a hero section, and make everything look good on any screen size.</p>
+      </div>
+
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+          <p class="video-label">Watch: Day 5 Full Lesson (18 min)</p>
+        </div>
+      </div>
+
+      <div class="lesson-body">
+
+        <div class="lesson-section" id="d5-img">
+          <h2>The image tag</h2>
+          <p>Images in HTML use the <code>&lt;img&gt;</code> tag. It's self-closing — no closing tag needed. It takes two important attributes: <code>src</code> for the image path, and <code>alt</code> for a text description.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!-- Local image (file in your project folder) --&gt;</span><br>
+<span class="t-blue">&lt;img</span> <span class="t-yellow">src</span>=<span class="t-green">"photo.jpg"</span> <span class="t-yellow">alt</span>=<span class="t-green">"A photo of me"</span><span class="t-blue">&gt;</span><br><br>
+<span class="t-gray">&lt;!-- Image from the web (URL) --&gt;</span><br>
+<span class="t-blue">&lt;img</span> <span class="t-yellow">src</span>=<span class="t-green">"https://example.com/image.jpg"</span> <span class="t-yellow">alt</span>=<span class="t-green">"Description"</span><span class="t-blue">&gt;</span>
+            </div>
+          </div>
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Always write alt text.</strong> It shows when the image fails to load, helps search engines understand your page, and is required for accessibility. Describe what's actually in the image.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d5-sizing">
+          <h2>Sizing and styling images with CSS</h2>
+          <p>Never set image dimensions in HTML. Always use CSS — it gives you more control and keeps your code clean.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">/* Make all images responsive by default */</span><br>
+<span class="t-yellow">img</span> {<br>
+&nbsp;&nbsp;<span class="t-green">max-width</span>: <span class="t-orange">100%</span>;<br>
+&nbsp;&nbsp;<span class="t-green">height</span>: <span class="t-orange">auto</span>;<br>
+&nbsp;&nbsp;<span class="t-green">display</span>: <span class="t-orange">block</span>;<br>
+}<br><br>
+<span class="t-gray">/* Profile photo — circular */</span><br>
+<span class="t-yellow">.avatar</span> {<br>
+&nbsp;&nbsp;<span class="t-green">width</span>: <span class="t-orange">120px</span>;<br>
+&nbsp;&nbsp;<span class="t-green">height</span>: <span class="t-orange">120px</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border-radius</span>: <span class="t-orange">50%</span>;<br>
+&nbsp;&nbsp;<span class="t-green">object-fit</span>: <span class="t-orange">cover</span>;<br>
+}<br><br>
+<span class="t-gray">/* Full-width banner image */</span><br>
+<span class="t-yellow">.banner</span> {<br>
+&nbsp;&nbsp;<span class="t-green">width</span>: <span class="t-orange">100%</span>;<br>
+&nbsp;&nbsp;<span class="t-green">height</span>: <span class="t-orange">300px</span>;<br>
+&nbsp;&nbsp;<span class="t-green">object-fit</span>: <span class="t-orange">cover</span>;<br>
+&nbsp;&nbsp;<span class="t-green">object-position</span>: <span class="t-orange">center</span>;<br>
+}
+            </div>
+          </div>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong><code>object-fit: cover</code></strong> is the magic property. It makes your image fill its container without stretching or distorting — like background-size: cover but for actual img tags.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d5-video">
+          <h2>Embedding YouTube videos</h2>
+          <p>You don't host videos yourself. You upload to YouTube and embed the player using an <code>&lt;iframe&gt;</code>. YouTube gives you the embed code — you just paste it in.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!-- Responsive video wrapper --&gt;</span><br>
+<span class="t-blue">&lt;div</span> <span class="t-yellow">class</span>=<span class="t-green">"video-container"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;iframe</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-yellow">src</span>=<span class="t-green">"https://www.youtube.com/embed/YOUR_VIDEO_ID"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-yellow">title</span>=<span class="t-green">"Video title"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-yellow">allowfullscreen</span><br>
+&nbsp;&nbsp;<span class="t-blue">&gt;&lt;/iframe&gt;</span><br>
+<span class="t-blue">&lt;/div&gt;</span>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">/* Responsive 16:9 video */</span><br>
+<span class="t-yellow">.video-container</span> {<br>
+&nbsp;&nbsp;<span class="t-green">position</span>: <span class="t-orange">relative</span>;<br>
+&nbsp;&nbsp;<span class="t-green">padding-bottom</span>: <span class="t-orange">56.25%</span>; <span class="t-gray">/* 16:9 ratio */</span><br>
+&nbsp;&nbsp;<span class="t-green">height</span>: <span class="t-orange">0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">overflow</span>: <span class="t-orange">hidden</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border-radius</span>: <span class="t-orange">12px</span>;<br>
+&nbsp;&nbsp;<span class="t-green">margin</span>: <span class="t-orange">2rem 0</span>;<br>
+}<br><br>
+<span class="t-yellow">.video-container iframe</span> {<br>
+&nbsp;&nbsp;<span class="t-green">position</span>: <span class="t-orange">absolute</span>;<br>
+&nbsp;&nbsp;<span class="t-green">top</span>: <span class="t-orange">0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">left</span>: <span class="t-orange">0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">width</span>: <span class="t-orange">100%</span>;<br>
+&nbsp;&nbsp;<span class="t-green">height</span>: <span class="t-orange">100%</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border</span>: <span class="t-orange">none</span>;<br>
+}
+            </div>
+          </div>
+          <p>To get your YouTube embed URL: go to your video → Share → Embed → copy the URL from the src attribute. Replace <code>YOUR_VIDEO_ID</code> with your actual video ID.</p>
+        </div>
+
+        <div class="lesson-section" id="d5-hero">
+          <h2>Building a hero section</h2>
+          <p>A hero section is the big visual area at the top of a page — usually a background image, a headline, and a button. Here's how to build one with CSS background images.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;section</span> <span class="t-yellow">class</span>=<span class="t-green">"hero"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;div</span> <span class="t-yellow">class</span>=<span class="t-green">"hero-content"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h1&gt;</span><span class="t-white">Hello, I'm Esdras.</span><span class="t-blue">&lt;/h1&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I build things for the internet.</span><span class="t-blue">&lt;/p&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#about"</span> <span class="t-yellow">class</span>=<span class="t-green">"button"</span><span class="t-blue">&gt;</span><span class="t-white">See my work</span><span class="t-blue">&lt;/a&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/div&gt;</span><br>
+<span class="t-blue">&lt;/section&gt;</span>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-yellow">.hero</span> {<br>
+&nbsp;&nbsp;<span class="t-green">background-color</span>: <span class="t-orange">#0d0d0d</span>;<br>
+&nbsp;&nbsp;<span class="t-green">background-image</span>: <span class="t-orange">url('hero.jpg')</span>;<br>
+&nbsp;&nbsp;<span class="t-green">background-size</span>: <span class="t-orange">cover</span>;<br>
+&nbsp;&nbsp;<span class="t-green">background-position</span>: <span class="t-orange">center</span>;<br>
+&nbsp;&nbsp;<span class="t-green">min-height</span>: <span class="t-orange">80vh</span>;<br>
+&nbsp;&nbsp;<span class="t-green">display</span>: <span class="t-orange">flex</span>;<br>
+&nbsp;&nbsp;<span class="t-green">align-items</span>: <span class="t-orange">center</span>;<br>
+&nbsp;&nbsp;<span class="t-green">justify-content</span>: <span class="t-orange">center</span>;<br>
+}<br><br>
+<span class="t-yellow">.hero-content</span> {<br>
+&nbsp;&nbsp;<span class="t-green">text-align</span>: <span class="t-orange">center</span>;<br>
+&nbsp;&nbsp;<span class="t-green">color</span>: <span class="t-orange">white</span>;<br>
+&nbsp;&nbsp;<span class="t-green">padding</span>: <span class="t-orange">2rem</span>;<br>
+}
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d5-responsive">
+          <h2>Making images responsive</h2>
+          <p>Responsive means your site looks good on any screen — phone, tablet, desktop. For images, three rules cover 90% of cases:</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">/* Rule 1: Images never overflow their container */</span><br>
+<span class="t-yellow">img</span> { <span class="t-green">max-width</span>: <span class="t-orange">100%</span>; <span class="t-green">height</span>: <span class="t-orange">auto</span>; }<br><br>
+<span class="t-gray">/* Rule 2: Use media queries for different screen sizes */</span><br>
+<span class="t-yellow">@media (max-width: 768px)</span> {<br>
+&nbsp;&nbsp;<span class="t-yellow">.container</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-green">flex-direction</span>: <span class="t-orange">column</span>; <span class="t-gray">/* stack on mobile */</span><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="t-yellow">.hero</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-green">min-height</span>: <span class="t-orange">50vh</span>;<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+<span class="t-gray">/* Rule 3: Use relative units (%, rem, vh) not fixed px */</span><br>
+<span class="t-yellow">.card</span> { <span class="t-green">width</span>: <span class="t-orange">100%</span>; <span class="t-green">max-width</span>: <span class="t-orange">400px</span>; }
+            </div>
+          </div>
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Test on mobile:</strong> In Chrome DevTools, click the device icon (top left of DevTools) to toggle mobile view. Check your site at 375px wide — that's iPhone size. Fix anything that looks broken.</p>
+          </div>
+        </div>
+
+        <div class="challenge" id="d5-challenge">
+          <div class="challenge-label">Day 5 Challenge</div>
+          <h3>Add visuals to your page.</h3>
+          <ul class="challenge-list">
+            <li>Add a profile photo — circular, 120px, using <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">border-radius: 50%</code></li>
+            <li>Add <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">max-width: 100%; height: auto</code> to all images globally</li>
+            <li>Build a hero section with a dark background and centered white text</li>
+            <li>Embed a YouTube video using the responsive iframe technique</li>
+            <li>Add a media query that stacks your flex columns on mobile</li>
+            <li>Test your page in DevTools mobile view at 375px wide</li>
+          </ul>
+        </div>
+
+        <div class="next-lesson" onclick="showLesson('day6')">
+          <div>
+            <div class="next-label">Up next — Day 6</div>
+            <div class="next-title">Full Page Build</div>
+          </div>
+          <div class="next-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="right-panel">
+      <div>
+        <p class="panel-title">Your progress</p>
+        <div class="progress-card">
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 5 of 7</p>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar5"></div></div>
+          <p class="progress-pct" id="progressPct5">0% complete</p>
+        </div>
+      </div>
+      <div>
+        <p class="panel-title">Lesson checklist</p>
+        <ul class="checklist" id="checklist5">
+          <li onclick="toggleCheckN(this,'5')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
+          <li onclick="toggleCheckN(this,'5')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Add an image with alt text</li>
+          <li onclick="toggleCheckN(this,'5')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Style images with CSS</li>
+          <li onclick="toggleCheckN(this,'5')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Embed a YouTube video</li>
+          <li onclick="toggleCheckN(this,'5')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Build a hero section</li>
+          <li onclick="toggleCheckN(this,'5')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
+        </ul>
+      </div>
+      <div>
+        <p class="panel-title">Resources</p>
+        <ul class="resource-list">
+          <li><a href="https://unsplash.com" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Unsplash — free photos</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN img reference</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN Media Queries</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ===================== DAY 6 PAGE ===================== -->
+<div class="page" id="day6Page">
+  <div class="lesson-layout">
+    <aside class="sidebar">
+      <p class="sidebar-title">Day 6 — Sections</p>
+      <ul class="sidebar-nav">
+        <li><a href="#d6-plan" class="active"><span class="sidebar-num">01</span> The plan</a></li>
+        <li><a href="#d6-structure"><span class="sidebar-num">02</span> HTML structure</a></li>
+        <li><a href="#d6-style"><span class="sidebar-num">03</span> Full CSS</a></li>
+        <li><a href="#d6-sections"><span class="sidebar-num">04</span> All sections</a></li>
+        <li><a href="#d6-polish"><span class="sidebar-num">05</span> Polish & review</a></li>
+        <li><a href="#d6-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
+      </ul>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-title">All days</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day1')">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')">Day 2 — Text & Links <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day4')">Day 4 — Layout & Boxes <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day5')">Day 5 — Images & Media <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day6')" class="current">Day 6 — Full Page Build <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge">Free</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="lesson-main">
+      <div class="lesson-header">
+        <div class="lesson-meta">
+          <span class="lesson-day">Day 06 — Free Lesson</span>
+          <span class="lesson-time">~20 min read · 18 min video</span>
+        </div>
+        <h1 class="lesson-title">Full Page Build</h1>
+        <p class="lesson-intro">No new concepts today. We use everything from Days 1–5 and build a complete, real portfolio page from scratch — nav, hero, about section, skills, and footer. This is the page you deploy tomorrow.</p>
+      </div>
+
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+          <p class="video-label">Watch: Day 6 Full Lesson (18 min)</p>
+        </div>
+      </div>
+
+      <div class="lesson-body">
+
+        <div class="lesson-section" id="d6-plan">
+          <h2>The plan</h2>
+          <p>Today we build a complete personal portfolio page. Here's exactly what we're making:</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin:1rem 0;">
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;"><span style="background:#0d0d0d;color:white;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;margin-top:2px;">1</span><span><strong>Nav bar</strong> — fixed at top, logo left, links right</span></li>
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;"><span style="background:#0d0d0d;color:white;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;margin-top:2px;">2</span><span><strong>Hero section</strong> — full-width, dark background, your name, a button</span></li>
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;"><span style="background:#0d0d0d;color:white;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;margin-top:2px;">3</span><span><strong>About section</strong> — photo + bio side by side using Flexbox</span></li>
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;"><span style="background:#0d0d0d;color:white;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;margin-top:2px;">4</span><span><strong>Skills section</strong> — three cards in a row</span></li>
+            <li style="display:flex;gap:0.75rem;align-items:flex-start;"><span style="background:#0d0d0d;color:white;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;margin-top:2px;">5</span><span><strong>Footer</strong> — your name, copyright, social links</span></li>
+          </ul>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>Start fresh.</strong> Create a new folder called <code>portfolio</code>. Inside it: a new <code>index.html</code> and a new <code>style.css</code>. This is the file you'll deploy on Day 7.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d6-structure">
+          <h2>The full HTML</h2>
+          <p>Type all of this into your new <code>index.html</code>. Replace the placeholder content with your real information.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!DOCTYPE html&gt;</span><br>
+<span class="t-blue">&lt;html</span> <span class="t-yellow">lang</span>=<span class="t-green">"en"</span><span class="t-blue">&gt;</span><br>
+<span class="t-blue">&lt;head&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">charset</span>=<span class="t-green">"UTF-8"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">name</span>=<span class="t-green">"viewport"</span> <span class="t-yellow">content</span>=<span class="t-green">"width=device-width, initial-scale=1.0"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;title&gt;</span><span class="t-white">Your Name — Portfolio</span><span class="t-blue">&lt;/title&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;link</span> <span class="t-yellow">rel</span>=<span class="t-green">"stylesheet"</span> <span class="t-yellow">href</span>=<span class="t-green">"style.css"</span><span class="t-blue">&gt;</span><br>
+<span class="t-blue">&lt;/head&gt;</span><br>
+<span class="t-blue">&lt;body&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-gray">&lt;!-- NAV --&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;nav&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;span</span> <span class="t-yellow">class</span>=<span class="t-green">"logo"</span><span class="t-blue">&gt;</span><span class="t-white">Esdras Buelvas</span><span class="t-blue">&lt;/span&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;ul&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#about"</span><span class="t-blue">&gt;</span><span class="t-white">About</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#skills"</span><span class="t-blue">&gt;</span><span class="t-white">Skills</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"mailto:you@email.com"</span><span class="t-blue">&gt;</span><span class="t-white">Contact</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;/ul&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/nav&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-gray">&lt;!-- HERO --&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;section</span> <span class="t-yellow">class</span>=<span class="t-green">"hero"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h1&gt;</span><span class="t-white">Hi, I'm Esdras.</span><span class="t-blue">&lt;/h1&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I build websites from scratch.</span><span class="t-blue">&lt;/p&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#about"</span> <span class="t-yellow">class</span>=<span class="t-green">"btn"</span><span class="t-blue">&gt;</span><span class="t-white">Learn more ↓</span><span class="t-blue">&lt;/a&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/section&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-gray">&lt;!-- ABOUT --&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;section</span> <span class="t-yellow">class</span>=<span class="t-green">"about"</span> <span class="t-yellow">id</span>=<span class="t-green">"about"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;img</span> <span class="t-yellow">src</span>=<span class="t-green">"photo.jpg"</span> <span class="t-yellow">alt</span>=<span class="t-green">"Esdras Buelvas"</span> <span class="t-yellow">class</span>=<span class="t-green">"avatar"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;div&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2&gt;</span><span class="t-white">About Me</span><span class="t-blue">&lt;/h2&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I'm 17, bilingual, and teaching myself to build websites. I created this course to help others learn HTML and CSS for free.</span><span class="t-blue">&lt;/p&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;/div&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/section&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-gray">&lt;!-- SKILLS --&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;section</span> <span class="t-yellow">class</span>=<span class="t-green">"skills"</span> <span class="t-yellow">id</span>=<span class="t-green">"skills"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2&gt;</span><span class="t-white">Skills</span><span class="t-blue">&lt;/h2&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;div</span> <span class="t-yellow">class</span>=<span class="t-green">"cards"</span><span class="t-blue">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;div</span> <span class="t-yellow">class</span>=<span class="t-green">"card"</span><span class="t-blue">&gt;&lt;h3&gt;</span><span class="t-white">HTML</span><span class="t-blue">&lt;/h3&gt;&lt;p&gt;</span><span class="t-white">Structure and content.</span><span class="t-blue">&lt;/p&gt;&lt;/div&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;div</span> <span class="t-yellow">class</span>=<span class="t-green">"card"</span><span class="t-blue">&gt;&lt;h3&gt;</span><span class="t-white">CSS</span><span class="t-blue">&lt;/h3&gt;&lt;p&gt;</span><span class="t-white">Design and layout.</span><span class="t-blue">&lt;/p&gt;&lt;/div&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;div</span> <span class="t-yellow">class</span>=<span class="t-green">"card"</span><span class="t-blue">&gt;&lt;h3&gt;</span><span class="t-white">GitHub</span><span class="t-blue">&lt;/h3&gt;&lt;p&gt;</span><span class="t-white">Version control and deployment.</span><span class="t-blue">&lt;/p&gt;&lt;/div&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;/div&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/section&gt;</span><br><br>
+&nbsp;&nbsp;<span class="t-gray">&lt;!-- FOOTER --&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;footer&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">© 2026 Esdras Buelvas</span><span class="t-blue">&lt;/p&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"https://github.com/dras8u"</span> <span class="t-yellow">target</span>=<span class="t-green">"_blank"</span><span class="t-blue">&gt;</span><span class="t-white">GitHub</span><span class="t-blue">&lt;/a&gt;</span><br>
+&nbsp;&nbsp;<span class="t-blue">&lt;/footer&gt;</span><br><br>
+<span class="t-blue">&lt;/body&gt;</span><br>
+<span class="t-blue">&lt;/html&gt;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d6-style">
+          <h2>The full CSS</h2>
+          <p>Now type this into your new <code>style.css</code>. This is a complete, clean stylesheet for the portfolio.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">style.css</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-yellow">*</span> { <span class="t-green">margin</span>:<span class="t-orange">0</span>; <span class="t-green">padding</span>:<span class="t-orange">0</span>; <span class="t-green">box-sizing</span>:<span class="t-orange">border-box</span>; }<br><br>
+<span class="t-yellow">body</span> { <span class="t-green">font-family</span>:<span class="t-orange">Arial,sans-serif</span>; <span class="t-green">color</span>:<span class="t-orange">#333</span>; <span class="t-green">line-height</span>:<span class="t-orange">1.6</span>; }<br><br>
+<span class="t-gray">/* NAV */</span><br>
+<span class="t-yellow">nav</span> {<br>
+&nbsp;&nbsp;<span class="t-green">position</span>:<span class="t-orange">fixed</span>; <span class="t-green">top</span>:<span class="t-orange">0</span>; <span class="t-green">left</span>:<span class="t-orange">0</span>; <span class="t-green">right</span>:<span class="t-orange">0</span>;<br>
+&nbsp;&nbsp;<span class="t-green">background</span>:<span class="t-orange">#0d0d0d</span>; <span class="t-green">padding</span>:<span class="t-orange">1rem 2rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">display</span>:<span class="t-orange">flex</span>; <span class="t-green">justify-content</span>:<span class="t-orange">space-between</span>; <span class="t-green">align-items</span>:<span class="t-orange">center</span>;<br>
+&nbsp;&nbsp;<span class="t-green">z-index</span>:<span class="t-orange">100</span>;<br>
+}<br>
+<span class="t-yellow">.logo</span> { <span class="t-green">color</span>:<span class="t-orange">white</span>; <span class="t-green">font-weight</span>:<span class="t-orange">bold</span>; <span class="t-green">font-size</span>:<span class="t-orange">1.1rem</span>; }<br>
+<span class="t-yellow">nav ul</span> { <span class="t-green">list-style</span>:<span class="t-orange">none</span>; <span class="t-green">display</span>:<span class="t-orange">flex</span>; <span class="t-green">gap</span>:<span class="t-orange">2rem</span>; }<br>
+<span class="t-yellow">nav a</span> { <span class="t-green">color</span>:<span class="t-orange">rgba(255,255,255,0.7)</span>; <span class="t-green">text-decoration</span>:<span class="t-orange">none</span>; <span class="t-green">font-size</span>:<span class="t-orange">0.9rem</span>; }<br>
+<span class="t-yellow">nav a:hover</span> { <span class="t-green">color</span>:<span class="t-orange">white</span>; }<br><br>
+<span class="t-gray">/* HERO */</span><br>
+<span class="t-yellow">.hero</span> {<br>
+&nbsp;&nbsp;<span class="t-green">min-height</span>:<span class="t-orange">100vh</span>; <span class="t-green">background</span>:<span class="t-orange">#0d0d0d</span>;<br>
+&nbsp;&nbsp;<span class="t-green">display</span>:<span class="t-orange">flex</span>; <span class="t-green">flex-direction</span>:<span class="t-orange">column</span>;<br>
+&nbsp;&nbsp;<span class="t-green">align-items</span>:<span class="t-orange">center</span>; <span class="t-green">justify-content</span>:<span class="t-orange">center</span>;<br>
+&nbsp;&nbsp;<span class="t-green">text-align</span>:<span class="t-orange">center</span>; <span class="t-green">color</span>:<span class="t-orange">white</span>; <span class="t-green">padding</span>:<span class="t-orange">2rem</span>;<br>
+}<br>
+<span class="t-yellow">.hero h1</span> { <span class="t-green">font-size</span>:<span class="t-orange">clamp(2rem,5vw,4rem)</span>; <span class="t-green">margin-bottom</span>:<span class="t-orange">1rem</span>; }<br>
+<span class="t-yellow">.hero p</span> { <span class="t-green">color</span>:<span class="t-orange">rgba(255,255,255,0.6)</span>; <span class="t-green">margin-bottom</span>:<span class="t-orange">2rem</span>; <span class="t-green">font-size</span>:<span class="t-orange">1.1rem</span>; }<br>
+<span class="t-yellow">.btn</span> {<br>
+&nbsp;&nbsp;<span class="t-green">display</span>:<span class="t-orange">inline-block</span>; <span class="t-green">padding</span>:<span class="t-orange">0.75rem 1.75rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">background</span>:<span class="t-orange">white</span>; <span class="t-green">color</span>:<span class="t-orange">#0d0d0d</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border-radius</span>:<span class="t-orange">100px</span>; <span class="t-green">text-decoration</span>:<span class="t-orange">none</span>;<br>
+&nbsp;&nbsp;<span class="t-green">font-weight</span>:<span class="t-orange">500</span>;<br>
+}<br><br>
+<span class="t-gray">/* SECTIONS */</span><br>
+<span class="t-yellow">section</span> { <span class="t-green">padding</span>:<span class="t-orange">5rem 2rem</span>; <span class="t-green">max-width</span>:<span class="t-orange">900px</span>; <span class="t-green">margin</span>:<span class="t-orange">0 auto</span>; }<br>
+<span class="t-yellow">h2</span> { <span class="t-green">font-size</span>:<span class="t-orange">1.75rem</span>; <span class="t-green">margin-bottom</span>:<span class="t-orange">1.5rem</span>; <span class="t-green">color</span>:<span class="t-orange">#0d0d0d</span>; }<br><br>
+<span class="t-gray">/* ABOUT */</span><br>
+<span class="t-yellow">.about</span> { <span class="t-green">display</span>:<span class="t-orange">flex</span>; <span class="t-green">gap</span>:<span class="t-orange">3rem</span>; <span class="t-green">align-items</span>:<span class="t-orange">center</span>; }<br>
+<span class="t-yellow">.avatar</span> {<br>
+&nbsp;&nbsp;<span class="t-green">width</span>:<span class="t-orange">160px</span>; <span class="t-green">height</span>:<span class="t-orange">160px</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border-radius</span>:<span class="t-orange">50%</span>; <span class="t-green">object-fit</span>:<span class="t-orange">cover</span>; <span class="t-green">flex-shrink</span>:<span class="t-orange">0</span>;<br>
+}<br><br>
+<span class="t-gray">/* SKILLS */</span><br>
+<span class="t-yellow">.skills</span> { <span class="t-green">background</span>:<span class="t-orange">#f5f5f5</span>; <span class="t-green">max-width</span>:<span class="t-orange">100%</span>; <span class="t-green">padding</span>:<span class="t-orange">5rem 2rem</span>; }<br>
+<span class="t-yellow">.skills h2</span> { <span class="t-green">max-width</span>:<span class="t-orange">900px</span>; <span class="t-green">margin</span>:<span class="t-orange">0 auto 1.5rem</span>; }<br>
+<span class="t-yellow">.cards</span> { <span class="t-green">display</span>:<span class="t-orange">flex</span>; <span class="t-green">gap</span>:<span class="t-orange">1.5rem</span>; <span class="t-green">max-width</span>:<span class="t-orange">900px</span>; <span class="t-green">margin</span>:<span class="t-orange">0 auto</span>; }<br>
+<span class="t-yellow">.card</span> {<br>
+&nbsp;&nbsp;<span class="t-green">flex</span>:<span class="t-orange">1</span>; <span class="t-green">background</span>:<span class="t-orange">white</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border-radius</span>:<span class="t-orange">12px</span>; <span class="t-green">padding</span>:<span class="t-orange">1.5rem</span>;<br>
+&nbsp;&nbsp;<span class="t-green">border</span>:<span class="t-orange">1px solid #e5e5e5</span>;<br>
+}<br>
+<span class="t-yellow">.card h3</span> { <span class="t-green">margin-bottom</span>:<span class="t-orange">0.5rem</span>; <span class="t-green">color</span>:<span class="t-orange">#0d0d0d</span>; }<br><br>
+<span class="t-gray">/* FOOTER */</span><br>
+<span class="t-yellow">footer</span> {<br>
+&nbsp;&nbsp;<span class="t-green">background</span>:<span class="t-orange">#0d0d0d</span>; <span class="t-green">color</span>:<span class="t-orange">rgba(255,255,255,0.5)</span>;<br>
+&nbsp;&nbsp;<span class="t-green">padding</span>:<span class="t-orange">2rem</span>; <span class="t-green">text-align</span>:<span class="t-orange">center</span>;<br>
+&nbsp;&nbsp;<span class="t-green">display</span>:<span class="t-orange">flex</span>; <span class="t-green">justify-content</span>:<span class="t-orange">space-between</span>; <span class="t-green">align-items</span>:<span class="t-orange">center</span>;<br>
+}<br>
+<span class="t-yellow">footer a</span> { <span class="t-green">color</span>:<span class="t-orange">rgba(255,255,255,0.5)</span>; <span class="t-green">text-decoration</span>:<span class="t-orange">none</span>; }<br>
+<span class="t-yellow">footer a:hover</span> { <span class="t-green">color</span>:<span class="t-orange">white</span>; }<br><br>
+<span class="t-gray">/* RESPONSIVE */</span><br>
+<span class="t-yellow">@media (max-width: 768px)</span> {<br>
+&nbsp;&nbsp;<span class="t-yellow">.about</span> { <span class="t-green">flex-direction</span>:<span class="t-orange">column</span>; <span class="t-green">text-align</span>:<span class="t-orange">center</span>; }<br>
+&nbsp;&nbsp;<span class="t-yellow">.cards</span> { <span class="t-green">flex-direction</span>:<span class="t-orange">column</span>; }<br>
+&nbsp;&nbsp;<span class="t-yellow">footer</span> { <span class="t-green">flex-direction</span>:<span class="t-orange">column</span>; <span class="t-green">gap</span>:<span class="t-orange">1rem</span>; }<br>
+}
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d6-polish">
+          <h2>Polish & review</h2>
+          <p>Before you call it done, go through this checklist on your page:</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin:1rem 0;">
+            <li>✓ Nav stays fixed at top when you scroll</li>
+            <li>✓ Hero fills the full viewport height</li>
+            <li>✓ About section image and bio are side by side on desktop</li>
+            <li>✓ Three skill cards are equal width</li>
+            <li>✓ Footer has your name and a link</li>
+            <li>✓ On mobile everything stacks cleanly</li>
+            <li>✓ No horizontal scroll on any screen size</li>
+            <li>✓ All nav links jump to the correct section</li>
+          </ul>
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Add a real photo.</strong> Put an image file called <code>photo.jpg</code> in your project folder. It can be any photo of you — even a selfie. A real face makes your portfolio 10x more credible.</p>
+          </div>
+        </div>
+
+        <div class="challenge" id="d6-challenge">
+          <div class="challenge-label">Day 6 Challenge</div>
+          <h3>Make it production-ready.</h3>
+          <ul class="challenge-list">
+            <li>Replace all placeholder text with your real name, bio, and info</li>
+            <li>Add a real profile photo to the about section</li>
+            <li>Add a fourth skill card with something you're learning</li>
+            <li>Add a <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">smooth scroll</code> behavior: <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">html { scroll-behavior: smooth; }</code></li>
+            <li>Test on mobile in DevTools — fix anything broken</li>
+            <li>Share a screenshot of your finished page</li>
+          </ul>
+        </div>
+
+        <div class="next-lesson" onclick="showLesson('day7')">
+          <div>
+            <div class="next-label">Last day — Day 7</div>
+            <div class="next-title">Go Live on GitHub Pages 🚀</div>
+          </div>
+          <div class="next-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="right-panel">
+      <div>
+        <p class="panel-title">Your progress</p>
+        <div class="progress-card">
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 6 of 7</p>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar6"></div></div>
+          <p class="progress-pct" id="progressPct6">0% complete</p>
+        </div>
+      </div>
+      <div>
+        <p class="panel-title">Lesson checklist</p>
+        <ul class="checklist" id="checklist6">
+          <li onclick="toggleCheckN(this,'6')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
+          <li onclick="toggleCheckN(this,'6')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Build the full HTML</li>
+          <li onclick="toggleCheckN(this,'6')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Write the full CSS</li>
+          <li onclick="toggleCheckN(this,'6')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Add your real info & photo</li>
+          <li onclick="toggleCheckN(this,'6')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Test on mobile</li>
+          <li onclick="toggleCheckN(this,'6')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ===================== DAY 7 PAGE ===================== -->
+<div class="page" id="day7Page">
+  <div class="lesson-layout">
+    <aside class="sidebar">
+      <p class="sidebar-title">Day 7 — Sections</p>
+      <ul class="sidebar-nav">
+        <li><a href="#d7-github" class="active"><span class="sidebar-num">01</span> Create your repo</a></li>
+        <li><a href="#d7-upload"><span class="sidebar-num">02</span> Upload your files</a></li>
+        <li><a href="#d7-pages"><span class="sidebar-num">03</span> Enable GitHub Pages</a></li>
+        <li><a href="#d7-domain"><span class="sidebar-num">04</span> Custom domain</a></li>
+        <li><a href="#d7-live"><span class="sidebar-num">05</span> You're live</a></li>
+        <li><a href="#d7-next"><span class="sidebar-num">06</span> What's next</a></li>
+      </ul>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-title">All days</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day1')">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')">Day 2 — Text & Links <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day4')">Day 4 — Layout & Boxes <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day5')">Day 5 — Images & Media <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day7')" class="current">Day 7 — Go Live 🚀 <span class="day-free-badge">Free</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="lesson-main">
+      <div class="lesson-header">
+        <div class="lesson-meta">
+          <span class="lesson-day">Day 07 — Final Lesson 🎉</span>
+          <span class="lesson-time">~10 min read · 15 min video</span>
+        </div>
+        <h1 class="lesson-title">Go Live on GitHub Pages</h1>
+        <p class="lesson-intro">This is it. Today you take the portfolio you built on Day 6 and put it on the real internet — with a real URL that anyone in the world can visit. Forever. For free.</p>
+      </div>
+
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+          <p class="video-label">Watch: Day 7 Full Lesson (15 min)</p>
+        </div>
+      </div>
+
+      <div class="lesson-body">
+
+        <div class="lesson-section" id="d7-github">
+          <h2>Step 1 — Create your GitHub repository</h2>
+          <p>If you don't have a GitHub account, go to <strong>github.com</strong> and sign up free. It takes two minutes.</p>
+          <p>Once you're in:</p>
+          <ol style="padding-left:1.5rem;display:flex;flex-direction:column;gap:0.5rem;margin:1rem 0;color:#444;">
+            <li>Click the <strong>+</strong> icon top right → <strong>New repository</strong></li>
+            <li>Name it exactly: <code>yourusername.github.io</code> (replace yourusername with your GitHub username)</li>
+            <li>Set it to <strong>Public</strong></li>
+            <li>Leave everything else default and click <strong>Create repository</strong></li>
+          </ol>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>The name matters.</strong> If your GitHub username is <code>dras8u</code>, name your repo <code>dras8u.github.io</code>. This special naming convention activates GitHub Pages automatically for your main portfolio site.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d7-upload">
+          <h2>Step 2 — Upload your files</h2>
+          <p>Inside your new empty repository:</p>
+          <ol style="padding-left:1.5rem;display:flex;flex-direction:column;gap:0.5rem;margin:1rem 0;color:#444;">
+            <li>Click <strong>uploading an existing file</strong> or drag and drop</li>
+            <li>Upload your <code>index.html</code> and <code>style.css</code> from Day 6</li>
+            <li>If you have a <code>photo.jpg</code> — upload that too</li>
+            <li>Scroll down and click <strong>Commit changes</strong></li>
+          </ol>
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Your file MUST be named <code>index.html</code></strong> — not portfolio.html, not mysite.html. GitHub Pages looks specifically for index.html as the entry point.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d7-pages">
+          <h2>Step 3 — Enable GitHub Pages</h2>
+          <p>For the special <code>yourusername.github.io</code> repo, GitHub Pages is enabled automatically. Your site is already live — just wait 1–2 minutes then visit:</p>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">Your live URL</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-green">https://dras8u.github.io</span>
+            </div>
+          </div>
+          <p>If it's not live yet: go to your repo → <strong>Settings</strong> → <strong>Pages</strong> → under Branch select <strong>main</strong> → click <strong>Save</strong>.</p>
+          <div class="callout info">
+            <span class="callout-icon">💡</span>
+            <p><strong>HTTPS is free.</strong> GitHub Pages automatically gives you SSL — the padlock icon. Your site is secure by default. No setup needed.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d7-domain">
+          <h2>Step 4 — Connect your custom domain (optional)</h2>
+          <p>If you have a domain like <code>esdrasbuelvas.org</code>, you can point it to your GitHub Pages site so it shows your domain instead of <code>dras8u.github.io</code>.</p>
+          <ol style="padding-left:1.5rem;display:flex;flex-direction:column;gap:0.5rem;margin:1rem 0;color:#444;">
+            <li>In your repo → <strong>Settings</strong> → <strong>Pages</strong> → <strong>Custom domain</strong></li>
+            <li>Type your domain (e.g. <code>esdrasbuelvas.org</code>) and click Save</li>
+            <li>In your domain registrar (IONOS), add these 4 A records pointing to GitHub:</li>
+          </ol>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">DNS records in IONOS</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">Type  Host  Value</span><br>
+<span class="t-blue">A</span>     <span class="t-white">@</span>     <span class="t-green">185.199.108.153</span><br>
+<span class="t-blue">A</span>     <span class="t-white">@</span>     <span class="t-green">185.199.109.153</span><br>
+<span class="t-blue">A</span>     <span class="t-white">@</span>     <span class="t-green">185.199.110.153</span><br>
+<span class="t-blue">A</span>     <span class="t-white">@</span>     <span class="t-green">185.199.111.153</span><br>
+<span class="t-blue">CNAME</span> <span class="t-white">www</span>   <span class="t-green">dras8u.github.io</span>
+            </div>
+          </div>
+          <p>Wait up to 24 hours for DNS to propagate. Then check <strong>Enforce HTTPS</strong> in GitHub Pages settings.</p>
+        </div>
+
+        <div class="lesson-section" id="d7-live">
+          <h2>🎉 You're live</h2>
+          <p>You just shipped a real website. Not a tutorial. Not a CodePen. A real page on the real internet with a real URL that anyone on earth can visit right now.</p>
+          <p>In 7 days you went from zero to:</p>
+          <ul style="padding-left:1.5rem;display:flex;flex-direction:column;gap:0.5rem;margin:1rem 0;color:#444;">
+            <li>Understanding HTML structure and tags</li>
+            <li>Building links, lists, and navigation</li>
+li>Writing CSS — colors, fonts, selectors, and the box model</li>
+            <li>Building layouts with Flexbox</li>
+            <li>Adding images, media, and a hero section</li>
+            <li>Building a complete portfolio page</li>
+            <li>Deploying to the internet for free</li>
+          </ul>
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Share it.</strong> Post your URL on social media, send it to friends, put it in your bio. You built this. Show it off.</p>
+          </div>
+        </div>
+
+        <div class="lesson-section" id="d7-next">
+          <h2>What's next</h2>
+          <p>HTML and CSS are the foundation. Here's what to learn next to keep growing as a web developer:</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;margin:1.5rem 0;">
+            <div style="border:1px solid var(--gray-mid);border-radius:12px;padding:1.25rem;">
+              <strong style="color:var(--black);">JavaScript</strong>
+              <p style="font-size:0.875rem;color:var(--gray-text);margin-top:0.25rem;">Make your pages interactive — buttons that do things, forms that submit, animations. This is the next big step.</p>
+            </div>
+            <div style="border:1px solid var(--gray-mid);border-radius:12px;padding:1.25rem;">
+              <strong style="color:var(--black);">CSS Grid</strong>
+              <p style="font-size:0.875rem;color:var(--gray-text);margin-top:0.25rem;">A more powerful layout system than Flexbox for two-dimensional layouts. Learn it after you're comfortable with Flexbox.</p>
+            </div>
+            <div style="border:1px solid var(--gray-mid);border-radius:12px;padding:1.25rem;">
+              <strong style="color:var(--black);">Git & command line</strong>
+              <p style="font-size:0.875rem;color:var(--gray-text);margin-top:0.25rem;">Instead of uploading files manually, learn to push code from your terminal. This is how real developers work.</p>
+            </div>
+            <div style="border:1px solid var(--gray-mid);border-radius:12px;padding:1.25rem;">
+              <strong style="color:var(--black);">Keep building</strong>
+              <p style="font-size:0.875rem;color:var(--gray-text);margin-top:0.25rem;">The best way to learn is to build real things. Pick a project — a page for a local business, a fan site, a personal blog — and build it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="challenge" id="d7-challenge" style="background:var(--green);border-radius:16px;padding:2rem;color:white;">
+          <div style="font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;">You finished the course</div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:white;margin-bottom:0.875rem;">Congratulations. 🎉</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.8);line-height:1.8;">You started 7 days ago knowing nothing about HTML. Today you have a live website on the internet. That's real. Share your site URL with Esdras — he wants to see what you built.</p>
+        </div>
+
+        <div class="next-lesson" onclick="showHome()" style="margin-top:1.5rem;">
+          <div>
+            <div class="next-label">Back to</div>
+            <div class="next-title">Course Home</div>
+          </div>
+          <div class="next-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="right-panel">
+      <div>
+        <p class="panel-title">Your progress</p>
+        <div class="progress-card">
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 7 of 7 — Final!</p>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar7"></div></div>
+          <p class="progress-pct" id="progressPct7">0% complete</p>
+        </div>
+      </div>
+      <div>
+        <p class="panel-title">Lesson checklist</p>
+        <ul class="checklist" id="checklist7">
+          <li onclick="toggleCheckN(this,'7')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
+          <li onclick="toggleCheckN(this,'7')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Create GitHub repo</li>
+          <li onclick="toggleCheckN(this,'7')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Upload index.html & style.css</li>
+          <li onclick="toggleCheckN(this,'7')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Site is live on GitHub Pages</li>
+          <li onclick="toggleCheckN(this,'7')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Custom domain connected</li>
+          <li onclick="toggleCheckN(this,'7')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Shared your URL 🎉</li>
+        </ul>
+      </div>
+      <div>
+        <p class="panel-title">Resources</p>
+        <ul class="resource-list">
+          <li><a href="https://pages.github.com" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>GitHub Pages docs</a></li>
+          <li><a href="https://github.com/dras8u" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Esdras on GitHub</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
 <!-- ===== EMAIL MODAL ===== -->
 <div id="emailModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.7);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
   <div style="background:var(--white);border-radius:24px;padding:3rem;max-width:420px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.25);">
@@ -2506,7 +3272,7 @@
   // ===== PAGE ROUTING =====
   function showLesson(day) {
     day = day || 'day1';
-    ['homePage','lessonPage','day2Page','day3Page','day4Page'].forEach(id => {
+    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.remove('active');
     });
@@ -2518,6 +3284,9 @@
       day2: { page: 'day2Page',   label: 'Day 2 of 7', title: 'Day 2: Text, Links & Navigation — Esdras Buelvas' },
       day3: { page: 'day3Page',   label: 'Day 3 of 7', title: 'Day 3: Styling with CSS — Esdras Buelvas' },
       day4: { page: 'day4Page',   label: 'Day 4 of 7', title: 'Day 4: Layout & The Box Model — Esdras Buelvas' },
+      day5: { page: 'day5Page',   label: 'Day 5 of 7', title: 'Day 5: Images & Media — Esdras Buelvas' },
+      day6: { page: 'day6Page',   label: 'Day 6 of 7', title: 'Day 6: Full Page Build — Esdras Buelvas' },
+      day7: { page: 'day7Page',   label: 'Day 7 of 7', title: 'Day 7: Go Live — Esdras Buelvas' },
     };
     const target = dayMap[day] || dayMap.day1;
     document.getElementById(target.page).classList.add('active');
