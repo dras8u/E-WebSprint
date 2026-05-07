@@ -3259,6 +3259,7 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+  import { getFirestore, doc, setDoc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
   const firebaseConfig = {
     apiKey: "AIzaSyC0spicLEU2gL6cB2zeIJa02_Ve-rmdUdY",
@@ -3271,17 +3272,102 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // Checklist IDs mapped to day keys
+  const checklistMap = {
+    'checklist':  'day1',
+    'checklist2': 'day2',
+    'checklist3': 'day3',
+    'checklist4': 'day4',
+    'checklist5': 'day5',
+    'checklist6': 'day6',
+    'checklist7': 'day7',
+  };
 
   // ===== AUTH STATE LISTENER =====
-  onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, async (user) => {
     if (user) {
       const firstName = user.displayName ? user.displayName.split(' ')[0] : user.email.split('@')[0];
       updateNavForUser(firstName, user.email);
+      await loadProgress(user.uid);
     } else {
       updateNavForGuest();
+      clearAllProgress();
     }
   });
 
+  // ===== SAVE PROGRESS TO FIRESTORE =====
+  async function saveProgress(uid) {
+    const progress = {};
+    Object.keys(checklistMap).forEach(id => {
+      const cl = document.getElementById(id);
+      if (!cl) return;
+      const items = cl.querySelectorAll('li');
+      progress[checklistMap[id]] = Array.from(items).map(li => li.classList.contains('done'));
+    });
+    try {
+      await setDoc(doc(db, 'progress', uid), progress, { merge: true });
+    } catch(e) {
+      console.error('Save error:', e);
+    }
+  }
+
+  // ===== LOAD PROGRESS FROM FIRESTORE =====
+  async function loadProgress(uid) {
+    try {
+      const snap = await getDoc(doc(db, 'progress', uid));
+      if (!snap.exists()) return;
+      const data = snap.data();
+      Object.entries(checklistMap).forEach(([clId, dayKey]) => {
+        const cl = document.getElementById(clId);
+        if (!cl || !data[dayKey]) return;
+        const items = cl.querySelectorAll('li');
+        data[dayKey].forEach((done, i) => {
+          if (done && items[i]) {
+            items[i].classList.add('done');
+          }
+        });
+        // Update the progress bar for this checklist
+        const n = clId.replace('checklist', '') || '1';
+        const barId = n === '1' ? 'progressBar' : 'progressBar' + n;
+        const pctId = n === '1' ? 'progressPct' : 'progressPct' + n;
+        const doneCount = cl.querySelectorAll('li.done').length;
+        const total = items.length;
+        const pct = Math.round((doneCount / total) * 100);
+        const bar = document.getElementById(barId);
+        const pctEl = document.getElementById(pctId);
+        if (bar) bar.style.width = pct + '%';
+        if (pctEl) pctEl.textContent = pct + '% complete';
+      });
+    } catch(e) {
+      console.error('Load error:', e);
+    }
+  }
+
+  // ===== CLEAR PROGRESS FROM DOM ON LOGOUT =====
+  function clearAllProgress() {
+    Object.keys(checklistMap).forEach(id => {
+      const cl = document.getElementById(id);
+      if (!cl) return;
+      cl.querySelectorAll('li').forEach(li => li.classList.remove('done'));
+    });
+    // Reset all progress bars
+    ['','2','3','4','5','6','7'].forEach(n => {
+      const bar = document.getElementById('progressBar' + n);
+      const pct = document.getElementById('progressPct' + n);
+      if (bar) bar.style.width = '0%';
+      if (pct) pct.textContent = '0% complete';
+    });
+  }
+
+  // ===== EXPOSE saveProgress globally so checklist toggles can call it =====
+  window._saveProgress = () => {
+    const user = auth.currentUser;
+    if (user) saveProgress(user.uid);
+  };
+
+  // ===== NAV =====
   function updateNavForUser(name, email) {
     const initial = name ? name[0].toUpperCase() : '?';
     const navRight = document.getElementById('homeNav');
@@ -3295,8 +3381,6 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
         </a>
         <a onclick="showLesson('day1')" class="nav-cta">Continue →</a>
       </li>`;
-
-    // Update profile page header
     const avatarEl = document.getElementById('profileAvatar');
     const greetingEl = document.getElementById('profileGreeting');
     const emailEl = document.getElementById('profileEmail');
@@ -3320,15 +3404,12 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
     const email = document.getElementById('signupEmail').value.trim();
     const password = document.getElementById('signupPassword').value;
     const btn = document.getElementById('signupBtn');
-
     clearAuthError();
     if (!name) return showAuthError('Please enter your first name.');
     if (!email) return showAuthError('Please enter your email address.');
     if (password.length < 6) return showAuthError('Password must be at least 6 characters.');
-
     btn.textContent = 'Creating account...';
     btn.disabled = true;
-
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(cred.user, { displayName: name });
@@ -3346,13 +3427,10 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
     const email = document.getElementById('loginEmail').value.trim();
     const password = document.getElementById('loginPassword').value;
     const btn = document.getElementById('loginBtn');
-
     clearAuthError();
     if (!email || !password) return showAuthError('Please fill in all fields.');
-
     btn.textContent = 'Logging in...';
     btn.disabled = true;
-
     try {
       await signInWithEmailAndPassword(auth, email, password);
       closeAuthModal();
@@ -3410,6 +3488,7 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
     el.style.display = 'none';
     el.textContent = '';
   }
+  }
 </script>
 
 <script>
@@ -3450,6 +3529,7 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
     const pct = Math.round((done / items.length) * 100);
     document.getElementById('progressBar' + n).style.width = pct + '%';
     document.getElementById('progressPct' + n).textContent = pct + '% complete';
+    if (window._saveProgress) window._saveProgress();
   }
 
   // ===== PAGE ROUTING =====
@@ -3532,6 +3612,7 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
   function toggleCheck(li) {
     li.classList.toggle('done');
     updateProgress();
+    if (window._saveProgress) window._saveProgress();
   }
 
   function updateProgress() {
