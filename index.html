@@ -3274,25 +3274,34 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
   // ===== AUTH STATE LISTENER =====
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is logged in
       const firstName = user.displayName ? user.displayName.split(' ')[0] : user.email.split('@')[0];
-      updateNavForUser(firstName);
+      updateNavForUser(firstName, user.email);
     } else {
-      // User is logged out
       updateNavForGuest();
     }
   });
 
-  function updateNavForUser(name) {
+  function updateNavForUser(name, email) {
+    const initial = name ? name[0].toUpperCase() : '?';
     const navRight = document.getElementById('homeNav');
     navRight.innerHTML = `
       <li><a onclick="scrollToSection('curriculum')">Curriculum</a></li>
       <li><a onclick="scrollToSection('pricing')">About</a></li>
       <li style="display:flex;align-items:center;gap:0.75rem;">
-        <span style="font-size:0.875rem;color:var(--gray-text);">Hi, ${name} 👋</span>
-        <a onclick="window.handleLogout()" style="font-size:0.875rem;color:var(--gray-text);cursor:pointer;border:1px solid var(--gray-mid);padding:0.4rem 1rem;border-radius:100px;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--black)';this.style.color='var(--black)'" onmouseout="this.style.borderColor='var(--gray-mid)';this.style.color='var(--gray-text)'">Log out</a>
+        <a onclick="window.showProfile()" style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:var(--gray-text);cursor:pointer;padding:0.4rem 1rem;border:1px solid var(--gray-mid);border-radius:100px;transition:all 0.15s;text-decoration:none;" onmouseover="this.style.borderColor='var(--black)';this.style.color='var(--black)'" onmouseout="this.style.borderColor='var(--gray-mid)';this.style.color='var(--gray-text)'">
+          <span style="width:22px;height:22px;border-radius:50%;background:var(--black);color:white;font-size:0.6875rem;font-weight:500;display:flex;align-items:center;justify-content:center;">${initial}</span>
+          ${name}
+        </a>
         <a onclick="showLesson('day1')" class="nav-cta">Continue →</a>
       </li>`;
+
+    // Update profile page header
+    const avatarEl = document.getElementById('profileAvatar');
+    const greetingEl = document.getElementById('profileGreeting');
+    const emailEl = document.getElementById('profileEmail');
+    if (avatarEl) avatarEl.textContent = initial;
+    if (greetingEl) greetingEl.textContent = `Hey, ${name} 👋`;
+    if (emailEl) emailEl.textContent = email || '';
   }
 
   function updateNavForGuest() {
@@ -3445,7 +3454,7 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
   // ===== PAGE ROUTING =====
   function showLesson(day) {
     day = day || 'day1';
-    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page'].forEach(id => {
+    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','profilePage'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.remove('active');
     });
@@ -3469,7 +3478,10 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
   }
 
   function showHome() {
-    document.getElementById('lessonPage').classList.remove('active');
+    ['lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','profilePage'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
     document.getElementById('homePage').classList.add('active');
     document.getElementById('homeNav').style.display = 'flex';
     document.getElementById('lessonNav').style.display = 'none';
@@ -3477,6 +3489,21 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
     window.scrollTo(0, 0);
     document.title = 'Build Your First Website in 7 Days — Esdras Buelvas';
   }
+
+  window.showProfile = function() {
+    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
+    document.getElementById('profilePage').classList.add('active');
+    document.getElementById('homeNav').style.display = 'none';
+    document.getElementById('lessonNav').style.display = 'none';
+    document.getElementById('navCourse').style.display = 'none';
+    document.getElementById('profileNav').style.display = 'flex';
+    document.title = 'My Profile — Esdras Buelvas';
+    window.scrollTo(0, 0);
+    renderProfile();
+  };
 
   function scrollToSection(id, goHome) {
     if (goHome) {
@@ -3529,6 +3556,121 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
       if (a.getAttribute('href') === '#' + current) a.classList.add('active');
     });
   });
+
+  // ===== PROFILE RENDERER =====
+  function renderProfile() {
+    const days = [
+      { num: 1, title: 'Your First HTML Page',   id: 'checklist',  items: 6 },
+      { num: 2, title: 'Text, Links & Navigation', id: 'checklist2', items: 6 },
+      { num: 3, title: 'Styling with CSS',         id: 'checklist3', items: 6 },
+      { num: 4, title: 'Layout & The Box Model',   id: 'checklist4', items: 6 },
+      { num: 5, title: 'Images & Media',           id: 'checklist5', items: 6 },
+      { num: 6, title: 'Full Page Build',          id: 'checklist6', items: 6 },
+      { num: 7, title: 'Go Live',                  id: 'checklist7', items: 6 },
+    ];
+
+    let totalDone = 0;
+    const totalItems = days.reduce((a, d) => a + d.items, 0);
+
+    const cards = days.map(d => {
+      const checklist = document.getElementById(d.id);
+      const done = checklist ? checklist.querySelectorAll('li.done').length : 0;
+      totalDone += done;
+      const pct = Math.round((done / d.items) * 100);
+      const complete = pct === 100;
+      const started = done > 0;
+
+      return `
+        <div onclick="showLesson('day${d.num}')" style="border:1px solid ${complete ? 'var(--green)' : 'var(--gray-mid)'};border-radius:16px;padding:1.5rem;cursor:pointer;transition:all 0.2s;background:${complete ? 'var(--green-light)' : 'var(--white)'}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+            <div>
+              <div style="font-size:0.6875rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:0.35rem;">Day ${d.num}</div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1.0625rem;color:var(--black);letter-spacing:-0.02em;">${d.title}</div>
+            </div>
+            <div style="width:36px;height:36px;border-radius:50%;background:${complete ? 'var(--green)' : started ? 'var(--gray-light)' : 'var(--gray-light)'};border:1px solid ${complete ? 'var(--green)' : 'var(--gray-mid)'};display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              ${complete ? '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2"><polyline points="2,7 5.5,10.5 12,3.5"></polyline></svg>' : `<span style="font-size:0.75rem;font-weight:500;color:var(--gray-text);">${pct}%</span>`}
+            </div>
+          </div>
+          <div style="height:4px;background:var(--gray-light);border-radius:100px;overflow:hidden;">
+            <div style="height:100%;width:${pct}%;background:${complete ? 'var(--green)' : 'var(--black)'};border-radius:100px;transition:width 0.4s ease;"></div>
+          </div>
+          <div style="font-size:0.75rem;color:var(--gray-text);margin-top:0.5rem;">${done} of ${d.items} completed</div>
+        </div>`;
+    }).join('');
+
+    const overallPct = Math.round((totalDone / totalItems) * 100);
+    const daysCompleted = days.filter(d => {
+      const cl = document.getElementById(d.id);
+      return cl && cl.querySelectorAll('li.done').length === d.items;
+    }).length;
+
+    document.getElementById('profileContent').innerHTML = `
+      <!-- Overall progress -->
+      <div style="background:var(--black);border-radius:20px;padding:2.5rem;margin-bottom:2rem;color:white;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem;">
+          <div>
+            <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.5rem;">Overall progress</div>
+            <div style="font-family:'DM Serif Display',serif;font-size:3rem;letter-spacing:-0.04em;line-height:1;">${overallPct}%</div>
+            <div style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin-top:0.35rem;">${daysCompleted} of 7 days completed</div>
+          </div>
+          <div style="display:flex;gap:1.5rem;">
+            <div style="text-align:center;">
+              <div style="font-family:'DM Serif Display',serif;font-size:2rem;color:white;">${totalDone}</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Tasks done</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:'DM Serif Display',serif;font-size:2rem;color:white;">${totalItems - totalDone}</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Remaining</div>
+            </div>
+          </div>
+        </div>
+        <div style="height:6px;background:rgba(255,255,255,0.1);border-radius:100px;margin-top:2rem;overflow:hidden;">
+          <div style="height:100%;width:${overallPct}%;background:white;border-radius:100px;transition:width 0.6s ease;"></div>
+        </div>
+      </div>
+
+      <!-- Day cards grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;">
+        ${cards}
+      </div>
+
+      <!-- Next step -->
+      <div style="margin-top:2rem;border:1px solid var(--gray-mid);border-radius:16px;padding:1.75rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="showLesson('day${Math.min(daysCompleted + 1, 7)}')">
+        <div>
+          <div style="font-size:0.75rem;color:var(--gray-text);font-weight:500;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.35rem;">${daysCompleted === 7 ? 'You finished!' : 'Continue where you left off'}</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.25rem;letter-spacing:-0.02em;color:var(--black);">${daysCompleted === 7 ? '🎉 Course complete — share your site!' : `Day ${Math.min(daysCompleted + 1, 7)}`}</div>
+        </div>
+        <div style="width:40px;height:40px;border-radius:50%;border:1px solid var(--gray-mid);display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+        </div>
+      </div>`;
+  }
 </script>
+
+<!-- ===== PROFILE PAGE ===== -->
+<div class="page" id="profilePage">
+
+  <!-- Profile nav -->
+  <div id="profileNav" style="display:none;justify-content:space-between;align-items:center;" class="nav-placeholder">
+  </div>
+
+  <div style="max-width:900px;margin:0 auto;padding:5rem 2rem 4rem;">
+
+    <!-- Header -->
+    <div style="margin-bottom:2.5rem;">
+      <div id="profileAvatar" style="width:72px;height:72px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.75rem;color:white;letter-spacing:-0.03em;margin-bottom:1.25rem;">?</div>
+      <div id="profileGreeting" style="font-family:'DM Serif Display',serif;font-size:2rem;letter-spacing:-0.03em;color:var(--black);margin-bottom:0.35rem;">Your Dashboard</div>
+      <div id="profileEmail" style="font-size:0.9rem;color:var(--gray-text);margin-bottom:1.5rem;"></div>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+        <button onclick="showHome()" style="padding:0.5rem 1.25rem;border:1px solid var(--gray-mid);border-radius:100px;font-size:0.875rem;font-family:'DM Sans',sans-serif;background:none;cursor:pointer;color:var(--gray-text);transition:all 0.15s;" onmouseover="this.style.borderColor='var(--black)';this.style.color='var(--black)'" onmouseout="this.style.borderColor='var(--gray-mid)';this.style.color='var(--gray-text)'">← Home</button>
+        <button onclick="window.handleLogout()" style="padding:0.5rem 1.25rem;border:1px solid var(--gray-mid);border-radius:100px;font-size:0.875rem;font-family:'DM Sans',sans-serif;background:none;cursor:pointer;color:var(--gray-text);transition:all 0.15s;" onmouseover="this.style.borderColor='#dc2626';this.style.color='#dc2626'" onmouseout="this.style.borderColor='var(--gray-mid)';this.style.color='var(--gray-text)'">Log out</button>
+      </div>
+    </div>
+
+    <!-- Dynamic content -->
+    <div id="profileContent"></div>
+
+  </div>
+</div>
 </body>
 </html>
