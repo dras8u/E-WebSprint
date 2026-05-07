@@ -3234,8 +3234,8 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
       <div style="display:flex;flex-direction:column;gap:0.875rem;">
         <input id="signupName" type="text" placeholder="Your first name" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
         <input id="signupEmail" type="email" placeholder="Email address" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
-        <input id="signupPassword" type="password" placeholder="Create a password (min 6 chars)" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
-        <button onclick="handleSignup()" id="signupBtn" class="btn-primary" style="width:100%;text-align:center;padding:0.875rem;">Create account →</button>
+        <input id="signupPassword" type="password" placeholder="Create a password (min 6 chars)" onkeydown="if(event.key==='Enter')window.handleSignup()" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+        <button onclick="window.handleSignup()" id="signupBtn" class="btn-primary" style="width:100%;text-align:center;padding:0.875rem;">Create account →</button>
       </div>
       <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;margin-top:1rem;">Already have an account? <span onclick="switchTab('login')" style="color:var(--black);cursor:pointer;font-weight:500;">Log in</span></p>
     </div>
@@ -3246,9 +3246,9 @@ li>Writing CSS — colors, fonts, selectors, and the box model</li>
       <p style="font-size:0.875rem;color:var(--gray-text);margin-bottom:1.5rem;line-height:1.7;">Log in to continue your course progress.</p>
       <div style="display:flex;flex-direction:column;gap:0.875rem;">
         <input id="loginEmail" type="email" placeholder="Email address" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
-        <input id="loginPassword" type="password" placeholder="Password" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
-        <button onclick="handleLogin()" id="loginBtn" class="btn-primary" style="width:100%;text-align:center;padding:0.875rem;">Log in →</button>
-        <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;cursor:pointer;" onclick="handleForgotPassword()">Forgot password?</p>
+        <input id="loginPassword" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')window.handleLogin()" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
+        <button onclick="window.handleLogin()" id="loginBtn" class="btn-primary" style="width:100%;text-align:center;padding:0.875rem;">Log in →</button>
+        <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;cursor:pointer;" onclick="window.handleForgotPassword()">Forgot password?</p>
       </div>
       <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;margin-top:1rem;">No account yet? <span onclick="switchTab('signup')" style="color:var(--black);cursor:pointer;font-weight:500;">Create one free</span></p>
     </div>
