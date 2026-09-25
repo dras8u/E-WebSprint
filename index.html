@@ -1172,6 +1172,15 @@
   .pm-row .pm-state { font-size: 0.75rem; color: var(--gray-text); white-space: nowrap; }
   .pm-row.complete .pm-state { color: var(--green); font-weight: 500; }
   .lesson-body code, .challenge code { overflow-wrap: anywhere; }
+  .price-guarantee { font-size: 0.8125rem; color: rgba(255,255,255,0.55); margin-top: 0.9rem; }
+  .price-guarantee:empty { display: none; }
+  .coupon-link { background: none; border: none; color: rgba(255,255,255,0.6); text-decoration: underline; font: inherit; font-size: 0.8125rem; cursor: pointer; margin-top: 0.5rem; padding: 0; }
+  .paywall-fine { font-size: 0.75rem; color: var(--gray-text); margin-top: 0.75rem; line-height: 1.6; text-align: center; }
+  .paywall-fine a { color: var(--gray-text); cursor: pointer; }
+  .site-banner { position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%); z-index: 1000; background: var(--black); color: white; padding: 0.9rem 3rem 0.9rem 1.25rem; border-radius: 14px; font-size: 0.875rem; line-height: 1.5; max-width: min(560px, calc(100% - 2rem)); width: max-content; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+  .site-banner.good { background: var(--green); }
+  .site-banner a { color: white; }
+  .banner-close { position: absolute; top: 0.6rem; right: 0.75rem; background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 0.9rem; }
   .code-block { max-width: 100%; overflow: hidden; }
   .lesson-code-body { max-width: 100%; }
   @media (max-width: 900px) { .modules { grid-template-columns: 1fr; } }
@@ -1401,7 +1410,10 @@
           <li class="price-feature"><span class="price-feature-dot"></span>APIs, localStorage, Git &amp; going live</li>
           <li class="price-feature"><span class="price-feature-dot"></span>Certificate of completion</li>
         </ul>
-        <a class="btn-white js-checkout" href="https://square.link/u/FB4SOI7h" target="_blank" rel="noopener" style="margin-top:0.5rem;">Get the full course →</a>
+        <a class="btn-white js-checkout" href="https://square.link/u/FB4SOI7h" style="margin-top:0.5rem;">Get the full course →</a>
+        <p class="price-guarantee">14-day money-back guarantee</p>
+        <p class="price-guarantee js-code-note"></p>
+        <button class="coupon-link" style="display:none;" onclick="openCoupon()">Have a discount code?</button>
       </div>
     </div>
   </section>
@@ -1426,9 +1438,10 @@
         <img src="https://speaktechenglish.com/wp-content/uploads/2026/04/Screenshot_2026-04-09_at_17.40.44-removebg-preview.png" alt="Featured on Launch Llama" width="200" height="50" style="opacity:0.8;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
       </a>
       <ul class="footer-links">
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Terms</a></li>
-        <li><a href="mailto:hello@esdrasbuelvas.org">Contact</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="refund.html">Refunds</a></li>
+        <li><a href="mailto:esdrasbuelvas31@gmail.com">Contact</a></li>
       </ul>
     </div>
   </footer>
@@ -1938,6 +1951,19 @@
 <div class="page" id="day33Page"><div class="paywall-slot" data-day="33"></div></div>
 <div class="page" id="day34Page"><div class="paywall-slot" data-day="34"></div></div>
 
+
+<!-- ===== DISCOUNT CODE MODAL ===== -->
+<div id="couponModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;" onclick="if(event.target===this)closeCoupon()">
+  <div style="background:var(--white);border-radius:20px;padding:2rem;max-width:380px;width:90%;">
+    <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:1.5rem;margin-bottom:1rem;color:var(--black);">Discount code</h2>
+    <div style="display:flex;gap:0.5rem;">
+      <input id="couponInput" type="text" autocomplete="off" placeholder="Enter code" onkeydown="if(event.key==='Enter')submitCoupon()" style="flex:1;min-width:0;padding:0.75rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font:inherit;text-transform:uppercase;">
+      <button class="btn-primary" onclick="submitCoupon()">Apply</button>
+    </div>
+    <p id="couponMsg" style="color:#dc2626;font-size:0.8125rem;margin-top:0.6rem;min-height:1.2em;"></p>
+  </div>
+</div>
+
 <!-- ===== AUTH MODAL ===== -->
 <div id="authModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
   <div style="background:var(--white);border-radius:24px;padding:3rem;max-width:440px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.3);">
@@ -1948,6 +1974,7 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
     </div>
 
+    <p id="authNotice" style="display:none;background:var(--green-light);border:1px solid #b7ddc9;color:var(--black);border-radius:12px;padding:0.8rem 1rem;font-size:0.8125rem;line-height:1.6;margin-bottom:1rem;"></p>
     <!-- Tab switcher -->
     <div style="display:flex;gap:0;margin-bottom:2rem;border:1px solid var(--gray-mid);border-radius:10px;overflow:hidden;">
       <button id="tabSignup" onclick="switchTab('signup')" style="flex:1;padding:0.6rem;font-family:'DM Sans',sans-serif;font-size:0.875rem;font-weight:500;border:none;cursor:pointer;background:var(--black);color:white;transition:all 0.15s;">Create account</button>
@@ -1960,12 +1987,13 @@
     <!-- Signup form -->
     <div id="formSignup">
       <h2 style="font-family:'DM Serif Display',serif;font-size:1.5rem;letter-spacing:-0.03em;color:var(--black);margin-bottom:0.4rem;">Start learning free</h2>
-      <p style="font-size:0.875rem;color:var(--gray-text);margin-bottom:1.5rem;line-height:1.7;">All 7 days. No credit card. Your progress saves automatically.</p>
+      <p style="font-size:0.875rem;color:var(--gray-text);margin-bottom:1.5rem;line-height:1.7;">The first 2 lessons are free. No credit card. Your progress saves automatically.</p>
       <div style="display:flex;flex-direction:column;gap:0.875rem;">
         <input id="signupName" type="text" placeholder="Your first name" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
         <input id="signupEmail" type="email" placeholder="Email address" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
         <input id="signupPassword" type="password" placeholder="Create a password (min 6 chars)" onkeydown="if(event.key==='Enter')window.handleSignup()" style="width:100%;padding:0.8rem 1rem;border:1px solid var(--gray-mid);border-radius:10px;font-size:0.9375rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--black)'" onblur="this.style.borderColor='var(--gray-mid)'">
         <button onclick="window.handleSignup()" id="signupBtn" class="btn-primary" style="width:100%;text-align:center;padding:0.875rem;">Create account →</button>
+        <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;line-height:1.6;">By creating an account you agree to the <a href="terms.html" target="_blank" style="color:var(--black);">Terms</a> and <a href="privacy.html" target="_blank" style="color:var(--black);">Privacy Policy</a>.</p>
       </div>
       <p style="font-size:0.75rem;color:var(--gray-text);text-align:center;margin-top:1rem;">Already have an account? <span onclick="switchTab('login')" style="color:var(--black);cursor:pointer;font-weight:500;">Log in</span></p>
     </div>
@@ -1988,8 +2016,8 @@
 <!-- Firebase SDK -->
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
-  import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, sendPasswordResetEmail, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+  import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
   const firebaseConfig = {
     apiKey: "AIzaSyC0spicLEU2gL6cB2zeIJa02_Ve-rmdUdY",
@@ -2011,12 +2039,13 @@
     if (user) {
       const firstName = user.displayName ? user.displayName.split(' ')[0] : user.email.split('@')[0];
       updateNavForUser(firstName, user.email);
-      const paid = await checkPaid(user);
-      window._access = { user: { email: user.email }, paid, ready: true };
-      if (paid) await loadPaidLessons();
+      recordVisit(user);
+      await refreshAccess(user);
       try { await loadProgress(user.uid); } catch (e) { console.warn('Progress load failed:', e); }
+      if (window._purchaseFlow) window.startPurchaseCheck();
     } else {
-      window._access = { user: null, paid: false, ready: true };
+      window._access = { user: null, paid: false, verified: false, full: false, ready: true };
+      window.clearVideoCache();
       lockPaidLessons();
       updateNavForGuest();
       clearAllProgress();
@@ -2027,7 +2056,74 @@
       window.continueCourse();
     }
     if (document.getElementById('profilePage').classList.contains('active')) window.renderProfile();
+    window.refreshActiveLesson();
   });
+
+  // Works out what this person can open. Paid lessons need a purchase AND a verified email,
+  // so nobody can sign up with a buyer's email address before they do.
+  async function refreshAccess(user) {
+    const paid = await checkPaid(user);
+    const verified = !!user.emailVerified;
+    const full = paid && verified;
+    const hadFull = window._access && window._access.full;
+    window._access = { user: { email: user.email }, paid, verified, full, ready: true };
+    if (full) {
+      await loadPaidLessons();
+      if (!hadFull) window.clearVideoCache();
+    }
+    return full;
+  }
+
+  // Re-check after paying or verifying, without reloading the page
+  window.recheckAccess = async function() {
+    const user = auth.currentUser;
+    if (!user) return false;
+    try {
+      await user.reload();
+      await user.getIdToken(true);
+    } catch (e) { console.warn('Could not refresh user:', e); }
+    const full = await refreshAccess(user);
+    if (full) {
+      try { await loadProgress(user.uid); } catch (e) { console.warn(e); }
+    }
+    refreshActiveLockedPage();
+    window.refreshActiveLesson();
+    if (document.getElementById('profilePage').classList.contains('active')) window.renderProfile();
+    return full;
+  };
+
+  window.resendVerification = async function() {
+    const user = auth.currentUser;
+    if (!user) return false;
+    try {
+      await sendEmailVerification(user);
+      return true;
+    } catch (e) {
+      console.warn('Verification email failed:', e);
+      return false;
+    }
+  };
+
+  // Lets the admin page count sign-ups. Only you can read these.
+  function recordVisit(user) {
+    setDoc(doc(db, 'users', user.uid), {
+      email: user.email,
+      name: user.displayName || '',
+      createdAt: user.metadata.creationTime || '',
+      lastSeen: serverTimestamp(),
+    }, { merge: true }).catch((e) => console.warn('Could not record visit:', e));
+  }
+
+  // ===== VIDEOS =====
+  // YouTube IDs live in Firestore (videos/day1 … videos/day34), set from admin.html
+  window.fetchVideoId = async function(n) {
+    try {
+      const snap = await getDoc(doc(db, 'videos', 'day' + n));
+      return snap.exists() ? (snap.data().youtubeId || null) : null;
+    } catch (e) {
+      return null; // locked lesson, or no video yet
+    }
+  };
 
   // ===== FULL COURSE ACCESS =====
   // A buyer has access when a doc exists at paid/<their email, lowercase>.
@@ -2167,9 +2263,10 @@
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(cred.user, { displayName: name });
+      sendEmailVerification(cred.user).catch((e) => console.warn('Verification email failed:', e));
       updateNavForUser(name, email);
       closeAuthModal();
-      showLesson('day1');
+      if (!window._purchaseFlow) showLesson('day1');
     } catch (err) {
       btn.textContent = 'Create account →';
       btn.disabled = false;
@@ -2187,7 +2284,7 @@
     btn.textContent = 'Logging in...';
     btn.disabled = true;
     try {
-      window._afterLogin = true;   // go to the next unfinished lesson once progress loads
+      window._afterLogin = !window._purchaseFlow;   // go to the next unfinished lesson once progress loads
       await signInWithEmailAndPassword(auth, email, password);
       closeAuthModal();
     } catch (err) {
@@ -2251,7 +2348,15 @@
   // ===== COURSE CONFIG — edit these lines =====
   const COURSE_PRICE = '$97';
   const CHECKOUT_URL = 'https://square.link/u/FB4SOI7h';
-  const CONTACT_EMAIL = 'hello@esdrasbuelvas.org';
+  const CONTACT_EMAIL = 'esdrasbuelvas31@gmail.com';
+
+  // ===== DISCOUNT CODES =====
+  // 1) In Square, make a second payment link at the discounted price.
+  // 2) Add it here. Codes are not case-sensitive. Delete a line to end a code.
+  // Visitors can type the code, or use a link like esdrasbuelvas.org/?code=LAUNCH
+  const COUPONS = {
+    // 'LAUNCH': { price: '$67', url: 'https://square.link/u/XXXXXXXX' },
+  };
 
   // ===== COURSE STRUCTURE (generated) =====
   const COURSE = [{"n": 1, "module": "html", "short": "Your First Page", "title": "Your First HTML Page"}, {"n": 2, "module": "html", "short": "Text & Links", "title": "Text, Headings & Links"}, {"n": 3, "module": "html", "short": "Lists, Tables & Structure", "title": "Lists, Tables & Semantic HTML"}, {"n": 4, "module": "html", "short": "Images & Media", "title": "Images, Media & File Paths"}, {"n": 5, "module": "html", "short": "Forms", "title": "Forms & Inputs"}, {"n": 6, "module": "html", "short": "Accessibility & SEO", "title": "Accessibility & SEO Basics"}, {"n": 7, "module": "html", "short": "Project: Multi-Page Site", "title": "Project: A Multi-Page Website"}, {"n": 8, "module": "css", "short": "Selectors & Cascade", "title": "CSS Basics: Selectors & the Cascade"}, {"n": 9, "module": "css", "short": "Colors, Units & Type", "title": "Colors, Units & Typography"}, {"n": 10, "module": "css", "short": "The Box Model", "title": "The Box Model in Depth"}, {"n": 11, "module": "css", "short": "Positioning", "title": "Positioning & Layers"}, {"n": 12, "module": "css", "short": "Flexbox", "title": "Flexbox in Depth"}, {"n": 13, "module": "css", "short": "CSS Grid", "title": "CSS Grid"}, {"n": 14, "module": "css", "short": "Responsive Design", "title": "Responsive & Mobile-First Design"}, {"n": 15, "module": "css", "short": "Pseudo-classes & Specificity", "title": "Pseudo-classes, Pseudo-elements & Specificity"}, {"n": 16, "module": "css", "short": "CSS Variables", "title": "CSS Variables & Theming"}, {"n": 17, "module": "css", "short": "Animations", "title": "Transitions, Transforms & Animations"}, {"n": 18, "module": "css", "short": "Project: Business Landing Page", "title": "Project: A Landing Page for a Local Business"}, {"n": 19, "module": "css", "short": "Git & Going Live", "title": "Git, GitHub & Going Live"}, {"n": 20, "module": "js", "short": "Variables & Types", "title": "JavaScript Basics: Variables, Types & Operators"}, {"n": 21, "module": "js", "short": "Conditionals & Logic", "title": "Conditionals & Logic"}, {"n": 22, "module": "js", "short": "Functions & Scope", "title": "Functions & Scope"}, {"n": 23, "module": "js", "short": "Arrays", "title": "Arrays & Array Methods"}, {"n": 24, "module": "js", "short": "Objects & JSON", "title": "Objects & JSON"}, {"n": 25, "module": "js", "short": "Loops", "title": "Loops"}, {"n": 26, "module": "js", "short": "The DOM", "title": "The DOM"}, {"n": 27, "module": "js", "short": "Events", "title": "Events"}, {"n": 28, "module": "js", "short": "Form Validation", "title": "Forms & Validation with JavaScript"}, {"n": 29, "module": "js", "short": "localStorage", "title": "Saving Data with localStorage"}, {"n": 30, "module": "js", "short": "Fetch & APIs", "title": "Fetch & APIs"}, {"n": 31, "module": "js", "short": "async/await & Errors", "title": "async/await & Error Handling"}, {"n": 32, "module": "js", "short": "Debugging", "title": "Debugging with DevTools"}, {"n": 33, "module": "js", "short": "Project: To-Do App", "title": "Project: A To-Do App"}, {"n": 34, "module": "js", "short": "Final Project", "title": "Final Project: Interactive Portfolio"}];
@@ -2260,10 +2365,57 @@
   const FREE_LESSONS = 2;
   const CHECKLIST_ITEMS = 6;
 
-  window._access = { user: null, paid: false, ready: false };
+  window._access = { user: null, paid: false, verified: false, full: false, ready: false };
 
-  document.querySelectorAll('.js-price').forEach((el) => { el.textContent = COURSE_PRICE; });
-  document.querySelectorAll('.js-checkout').forEach((el) => { el.href = CHECKOUT_URL; });
+  // ===== PRICING & DISCOUNT CODES =====
+  let currentPrice = COURSE_PRICE;
+  let currentCheckout = CHECKOUT_URL;
+  let activeCode = null;
+
+  function applyPricing() {
+    document.querySelectorAll('.js-price').forEach((el) => { el.textContent = currentPrice; });
+    document.querySelectorAll('.js-checkout').forEach((el) => { el.href = currentCheckout; });
+    document.querySelectorAll('.js-code-note').forEach((el) => {
+      el.textContent = activeCode ? `Code ${activeCode} applied (was ${COURSE_PRICE})` : '';
+    });
+    document.querySelectorAll('.coupon-link').forEach((el) => {
+      el.style.display = Object.keys(COUPONS).length && !activeCode ? '' : 'none';
+    });
+  }
+
+  function applyCoupon(code) {
+    const key = String(code || '').trim().toUpperCase();
+    const coupon = COUPONS[key];
+    if (!coupon) return false;
+    activeCode = key;
+    currentPrice = coupon.price;
+    currentCheckout = coupon.url;
+    try { sessionStorage.setItem('coupon', key); } catch (e) {}
+    applyPricing();
+    refreshActiveLesson();
+    return true;
+  }
+
+  function openCoupon() {
+    document.getElementById('couponModal').style.display = 'flex';
+    document.getElementById('couponMsg').textContent = '';
+    const input = document.getElementById('couponInput');
+    input.value = '';
+    input.focus();
+  }
+
+  function closeCoupon() {
+    document.getElementById('couponModal').style.display = 'none';
+  }
+
+  function submitCoupon() {
+    const input = document.getElementById('couponInput');
+    if (applyCoupon(input.value)) {
+      closeCoupon();
+    } else {
+      document.getElementById('couponMsg').textContent = "That code isn't valid.";
+    }
+  }
 
   const PAGE_IDS = ['homePage', 'profilePage', 'certPage'];
   for (let n = 1; n <= TOTAL; n++) PAGE_IDS.push('day' + n + 'Page');
@@ -2284,17 +2436,24 @@
     const page = document.getElementById('day' + n + 'Page');
     if (!page || page.dataset.unlocked === '1') return;
     const a = window._access;
+    const safeEmail = a.user ? escapeText(a.user.email) : '';
     let note;
+    let showBuy = true;
     if (!a.ready) {
       note = 'Checking your account…';
     } else if (!a.user) {
       note = `Already bought it? <a onclick="window.showAuthModal('login')">Log in</a> with the email you used at checkout.`;
-    } else if (a.paid) {
+    } else if (a.paid && !a.verified) {
+      showBuy = false;
+      note = `<strong style="color:var(--black);">You own the full course 🎉 One last step:</strong> verify your email. We sent a link to <strong>${safeEmail}</strong> (check spam too). Click it, then come back here.<br><br>
+        <button class="btn-primary" onclick="checkAgain(this)">I've verified →</button>
+        <button class="paywall-back" style="margin-left:0.75rem;" onclick="resendEmail(this)">Resend email</button>`;
+    } else if (a.full) {
+      showBuy = false;
       note = `This lesson didn't load. Refresh the page, and if it keeps happening, email <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`;
     } else {
-      const div = document.createElement('div');
-      div.textContent = a.user.email;
-      note = `Already bought it? Access is turned on for <strong>${div.innerHTML}</strong>, usually within a few hours of your payment. If you paid with a different email, send both emails to <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`;
+      note = `Just bought it? Access turns on by itself within a minute, for the email you used at checkout. You're logged in as <strong>${safeEmail}</strong>.
+        <a onclick="checkAgain(this)">Check again</a>. Paid with a different email? Send both to <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`;
     }
     const info = lessonInfo(n);
     page.innerHTML = `
@@ -2310,14 +2469,159 @@
             <li>4 real projects, including a business site and a to-do app</li>
             <li>Certificate of completion</li>
           </ul>
-          <div class="paywall-price"><strong>${COURSE_PRICE}</strong><span>one payment · lifetime access</span></div>
-          <a class="btn-primary paywall-buy" href="${CHECKOUT_URL}" target="_blank" rel="noopener">Get the full course →</a>
+          ${showBuy ? `
+          <div class="paywall-price"><strong>${currentPrice}</strong><span>one payment · lifetime access</span></div>
+          <a class="btn-primary paywall-buy" href="${currentCheckout}">Get the full course →</a>
+          <p class="paywall-fine">14-day money-back guarantee · By buying you agree to the <a href="terms.html" target="_blank">Terms</a> and <a href="refund.html" target="_blank">Refund Policy</a>.
+            ${Object.keys(COUPONS).length && !activeCode ? '<a onclick="openCoupon()">Have a discount code?</a>' : ''}
+            ${activeCode ? `<br>Code ${activeCode} applied.` : ''}</p>` : ''}
           <p class="paywall-note">${note}</p>
           <button class="paywall-back" onclick="showLesson('day${FREE_LESSONS}')">← Back to Lesson ${FREE_LESSONS}</button>
         </div>
       </div>`;
   }
   window.renderPaywall = renderPaywall;
+
+  function escapeText(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  async function checkAgain(btn) {
+    const original = btn.textContent;
+    btn.textContent = 'Checking…';
+    btn.disabled = true;
+    const ok = window.recheckAccess ? await window.recheckAccess() : false;
+    if (!ok) {
+      const message = window._access.paid && !window._access.verified
+        ? "Not verified yet. Click the link in the email first, then try again."
+        : "No purchase found yet for this email. If you just paid, give it a minute.";
+      // the paywall may have been redrawn, so put the message on whatever is showing now
+      const page = document.querySelector('.page.active');
+      const target = (page && page.querySelector('.paywall-note')) || btn.parentElement;
+      let msg = target.querySelector('.check-msg');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'check-msg';
+        msg.style.cssText = 'display:block;margin-top:0.6rem;color:var(--black);font-weight:500;';
+        target.appendChild(msg);
+      }
+      msg.textContent = message;
+      if (btn.isConnected) { btn.textContent = original; btn.disabled = false; }
+    }
+  }
+
+  async function resendEmail(btn) {
+    btn.disabled = true;
+    const ok = window.resendVerification ? await window.resendVerification() : false;
+    btn.textContent = ok ? 'Sent ✓' : 'Try again in a minute';
+  }
+
+  // Re-draw whichever lesson is open (after access, pricing or video changes)
+  function refreshActiveLesson() {
+    const page = document.querySelector('.page.active');
+    if (!page || !page.id.startsWith('day')) return;
+    const n = parseInt(page.id.slice(3), 10);
+    if (n > FREE_LESSONS && page.dataset.unlocked !== '1') renderPaywall(n);
+    loadVideo(n);
+  }
+  window.refreshActiveLesson = refreshActiveLesson;
+
+  // ===== VIDEOS =====
+  const videoCache = {};
+  window.clearVideoCache = () => { for (const k in videoCache) delete videoCache[k]; };
+
+  async function loadVideo(n) {
+    if (!(n in videoCache)) {
+      if (!window.fetchVideoId) return;
+      videoCache[n] = await window.fetchVideoId(n);
+    }
+    const id = videoCache[n];
+    if (!id || !/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+    const page = document.getElementById('day' + n + 'Page');
+    const wrap = page && page.querySelector('.video-wrap');
+    if (!wrap || wrap.dataset.video === id) return;
+    wrap.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="Lesson ${n} video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen style="width:100%;height:100%;border:0;align-self:stretch;"></iframe>`;
+    wrap.dataset.video = id;
+    const time = page.querySelector('.lesson-time');
+    if (time) time.textContent = time.textContent.replace('Video coming soon', 'Video lesson');
+  }
+
+  // ===== AFTER CHECKOUT =====
+  // Set your Square link to redirect to esdrasbuelvas.org/?purchased=1 after payment.
+  window._purchaseFlow = false;
+  let purchaseTimer = null;
+
+  function showBanner(html, tone) {
+    let el = document.getElementById('siteBanner');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'siteBanner';
+      el.className = 'site-banner';
+      el.setAttribute('role', 'status');
+      document.body.appendChild(el);
+    }
+    el.className = 'site-banner ' + (tone || '');
+    el.innerHTML = html + '<button class="banner-close" aria-label="Close" onclick="this.parentElement.remove()">✕</button>';
+  }
+
+  window.startPurchaseCheck = function() {
+    if (purchaseTimer || !window.recheckAccess) return;
+    let tries = 0;
+    showBanner('🎉 Thanks for buying Web Sprint! Unlocking your lessons…');
+    const tick = async () => {
+      tries++;
+      const full = await window.recheckAccess();
+      if (full) {
+        purchaseTimer = null;
+        window._purchaseFlow = false;
+        showBanner("✓ You're in! All 34 lessons are unlocked.", 'good');
+        window.continueCourse();
+        return;
+      }
+      if (window._access.paid && !window._access.verified) {
+        purchaseTimer = null;
+        window._purchaseFlow = false;
+        showBanner('✓ Payment received! Verify your email to unlock your lessons.', 'good');
+        showLesson('day' + (FREE_LESSONS + 1));
+        return;
+      }
+      if (tries >= 20) {
+        purchaseTimer = null;
+        showBanner(`Your payment is taking a little longer than usual. Refresh in a few minutes, or email <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a> and we'll sort it out fast.`);
+        return;
+      }
+      purchaseTimer = setTimeout(tick, 3000);
+    };
+    purchaseTimer = setTimeout(tick, 500);
+  };
+
+  (function handleUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    let saved = null;
+    try { saved = sessionStorage.getItem('coupon'); } catch (e) {}
+    if (code) applyCoupon(code);
+    else if (saved) applyCoupon(saved);
+    applyPricing();
+
+    if (params.get('purchased') === '1') {
+      window._purchaseFlow = true;
+      history.replaceState(null, '', window.location.pathname);
+      setTimeout(() => {
+        if (!window._access.user) {
+          showBanner('🎉 Thanks for buying Web Sprint! Create your account (or log in) with the <strong>same email you used at checkout</strong>.');
+          const notice = document.getElementById('authNotice');
+          if (notice) {
+            notice.style.display = 'block';
+            notice.innerHTML = 'Use the <strong>same email you used at checkout</strong>, and your lessons unlock automatically.';
+          }
+          window.showAuthModal('signup');
+        }
+      }, 800);
+    }
+  })();
 
   // ===== AUTH MODAL CONTROLS =====
   function showEmailModal() { window.showAuthModal('signup'); }
@@ -2374,7 +2678,7 @@
   }
 
   function canOpen(n) {
-    return n <= FREE_LESSONS || window._access.paid;
+    return n <= FREE_LESSONS || window._access.full;
   }
 
   // ===== ROUTING =====
@@ -2391,6 +2695,7 @@
     document.title = `Lesson ${n}: ${lessonInfo(n).title} — Web Sprint`;
     window.scrollTo(0, 0);
     highlightSidebar();
+    loadVideo(n);
   }
   window.showLesson = showLesson;
 
@@ -2472,7 +2777,7 @@
 
   // ===== DASHBOARD =====
   function renderProfile() {
-    const paid = window._access.paid;
+    const paid = window._access.full;
     let totalDone = 0;
     let lessonsComplete = 0;
     const totalItems = TOTAL * CHECKLIST_ITEMS;
@@ -2514,13 +2819,18 @@
           <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">You completed all ${TOTAL} lessons of Web Sprint.</div>
         </div>
         <button onclick="window.showCertificate()" style="background:white;color:#1a3a2a;border:none;padding:0.875rem 1.75rem;border-radius:100px;font-size:0.9375rem;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;">View certificate →</button>
+      </div>` : (window._access.paid && !window._access.verified) ? `
+      <div style="background:var(--green-light);border:1px solid #b7ddc9;border-radius:20px;padding:1.75rem;margin-bottom:2rem;font-size:0.9375rem;color:var(--black);">
+        <strong>You own the full course 🎉</strong> Verify your email to unlock it: click the link we sent to ${escapeText(window._access.user.email)}, then
+        <a style="cursor:pointer;text-decoration:underline;" onclick="checkAgain(this)">check again</a> ·
+        <a style="cursor:pointer;text-decoration:underline;" onclick="resendEmail(this)">resend the email</a>
       </div>` : !paid ? `
       <div style="background:var(--black);border-radius:20px;padding:2rem;margin-bottom:2rem;color:white;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.25rem;">
         <div>
           <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;letter-spacing:-0.02em;margin-bottom:0.35rem;">Unlock all ${TOTAL} lessons</div>
-          <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">HTML, CSS &amp; JavaScript, 4 real projects, and a certificate. ${COURSE_PRICE}, one payment.</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">HTML, CSS &amp; JavaScript, 4 real projects, and a certificate. ${currentPrice}, one payment. 14-day money-back guarantee.</div>
         </div>
-        <a href="${CHECKOUT_URL}" target="_blank" rel="noopener" style="background:white;color:var(--black);padding:0.8rem 1.5rem;border-radius:100px;font-size:0.9375rem;font-weight:500;text-decoration:none;">Get the full course →</a>
+        <a href="${currentCheckout}" style="background:white;color:var(--black);padding:0.8rem 1.5rem;border-radius:100px;font-size:0.9375rem;font-weight:500;text-decoration:none;">Get the full course →</a>
       </div>` : `
       <div style="background:var(--gray-light);border-radius:20px;padding:1.5rem 1.75rem;margin-bottom:2rem;font-size:0.875rem;color:var(--gray-text);">
         <strong style="color:var(--black);">Certificate locked.</strong> Check off every item in all ${TOTAL} lessons to unlock it.
