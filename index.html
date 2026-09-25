@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Sprint — Build Your First Website — Esdras Buelvas</title>
+<title>Web Sprint — Learn HTML, CSS &amp; JavaScript — Esdras Buelvas</title>
 
 <!-- SEO -->
-<meta name="description" content="Learn HTML, CSS and JavaScript in 14 days. Zero experience needed. Build a real website in week one, make it interactive in week two. Start free.">
+<meta name="description" content="Learn HTML, CSS and JavaScript from zero. 34 lessons, 4 real projects, and your own website live on the internet. Start free.">
 <meta name="author" content="Esdras Buelvas">
 
 <!-- Open Graph (iMessage, WhatsApp, Facebook, Discord, Slack) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://esdrasbuelvas.org">
-<meta property="og:title" content="Web Sprint — Build Your First Website">
-<meta property="og:description" content="Zero experience needed. HTML, CSS and JavaScript in 14 days. A real website on the internet. Built by a 17-year-old. Start free.">
+<meta property="og:title" content="Web Sprint — Learn to build real websites">
+<meta property="og:description" content="HTML, CSS and JavaScript from zero. 34 lessons, 4 real projects. Built by a 17-year-old. Start free.">
 <meta property="og:image" content="https://esdrasbuelvas.org/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,8 +22,8 @@
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://esdrasbuelvas.org">
-<meta name="twitter:title" content="Web Sprint — Build Your First Website">
-<meta name="twitter:description" content="Zero experience needed. HTML, CSS and JavaScript in 14 days. A real website on the internet. Built by a 17-year-old. Start free.">
+<meta name="twitter:title" content="Web Sprint — Learn to build real websites">
+<meta name="twitter:description" content="HTML, CSS and JavaScript from zero. 34 lessons, 4 real projects. Built by a 17-year-old. Start free.">
 <meta name="twitter:image" content="https://esdrasbuelvas.org/preview.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -1141,6 +1141,42 @@
   .lesson-code-body { overflow-x: auto; color: #e8e8e8; }
   .lesson-main table { display:block; overflow-x:auto; }
 
+
+  /* ===== 34-LESSON COURSE ===== */
+  .nav-progress { display: flex; align-items: center; gap: 1rem; }
+  .nav-all { font-size: 0.8125rem; color: var(--gray-text); cursor: pointer; border: 1px solid var(--gray-mid); border-radius: 100px; padding: 0.3rem 0.85rem; }
+  .nav-all:hover { color: var(--black); border-color: var(--black); }
+  .sidebar-days a { gap: 0.5rem; }
+  .sidebar-days a > span:first-child { display: flex; gap: 0.5rem; }
+  .sidebar-days .sidebar-num { flex-shrink: 0; }
+  .lesson-prev { margin-top: 1rem; font-size: 0.875rem; }
+  .lesson-prev a { color: var(--gray-text); cursor: pointer; }
+  .lesson-prev a:hover { color: var(--black); }
+  .modules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .module-card { border: 1px solid var(--gray-mid); border-radius: 20px; padding: 2rem; background: var(--white); }
+  .module-num { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-text); }
+  .module-card h3 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.75rem; letter-spacing: -0.02em; margin: 0.35rem 0 0.5rem; color: var(--black); }
+  .module-card > p { font-size: 0.875rem; color: var(--gray-text); margin-bottom: 1.25rem; line-height: 1.6; }
+  .module-lessons { list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--gray-mid); }
+  .module-lessons li { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 0; border-bottom: 1px solid var(--gray-light); font-size: 0.875rem; color: var(--black); }
+  .module-lessons .ml-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--gray-text); width: 1.5rem; flex-shrink: 0; }
+  .module-lessons .ml-tag { margin-left: auto; font-size: 0.625rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 100px; flex-shrink: 0; }
+  .ml-tag.free { background: var(--green-light); color: var(--green); }
+  .ml-tag.project { background: var(--black); color: var(--white); }
+  .pm-module { margin-bottom: 1.5rem; border: 1px solid var(--gray-mid); border-radius: 16px; overflow: hidden; }
+  .pm-head { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: var(--gray-light); font-size: 0.875rem; font-weight: 500; color: var(--black); }
+  .pm-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1.25rem; border-top: 1px solid var(--gray-mid); cursor: pointer; font-size: 0.875rem; color: var(--black); }
+  .pm-row:hover { background: var(--gray-light); }
+  .pm-row .pm-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--gray-text); width: 1.5rem; }
+  .pm-row .pm-title { flex: 1; }
+  .pm-row .pm-state { font-size: 0.75rem; color: var(--gray-text); white-space: nowrap; }
+  .pm-row.complete .pm-state { color: var(--green); font-weight: 500; }
+  .lesson-body code, .challenge code { overflow-wrap: anywhere; }
+  .code-block { max-width: 100%; overflow: hidden; }
+  .lesson-code-body { max-width: 100%; }
+  @media (max-width: 900px) { .modules { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .nav-all { display: none; } }
+
   /* RESPONSIVE */
   @media (max-width: 1100px) {
     .lesson-layout { grid-template-columns: 220px 1fr; }
@@ -1192,23 +1228,8 @@
 
   <!-- Lesson nav -->
   <div class="nav-progress" id="lessonNav" style="display:none;">
-    <div class="progress-dots">
-      <div class="progress-dot active"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-      <div class="progress-dot"></div>
-    </div>
-    <span class="progress-label">Day 1 of 14</span>
+    <a class="nav-all" onclick="openLessonList()">All lessons</a>
+    <span class="progress-label">Lesson 1 of 34</span>
   </div>
 </nav>
 
@@ -1218,9 +1239,9 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <span class="hero-badge animate">Days 1 &amp; 2 free — no card needed</span>
-      <h1 class="hero-title animate animate-d1">Build your first<br>website <em>in 7 days.</em></h1>
-      <p class="hero-sub animate animate-d2">Learn HTML & CSS from zero and put a real website live in 7 days. Then spend week two making it interactive with JavaScript. No experience needed.</p>
+      <span class="hero-badge animate">First 2 lessons free — no card needed</span>
+      <h1 class="hero-title animate animate-d1">Learn to build<br><em>real websites.</em></h1>
+      <p class="hero-sub animate animate-d2">HTML, CSS and JavaScript from zero. 34 lessons, 4 real projects, and your own site live on the internet. No experience needed.</p>
       <div class="hero-actions animate animate-d3">
         <button class="btn-primary" onclick="showEmailModal()">Start for free →</button>
         <button class="btn-ghost" onclick="scrollToSection('curriculum')">See the curriculum ↓</button>
@@ -1229,11 +1250,11 @@
 
     <div class="hero-right">
       <div class="stat-row animate animate-d1">
-        <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Days to a live website</div></div>
-        <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Experience needed</div></div>
+        <div class="stat-card"><div class="stat-num">34</div><div class="stat-label">Lessons, HTML to JavaScript</div></div>
+        <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Real projects to show off</div></div>
       </div>
       <div class="stat-row animate animate-d2">
-        <div class="stat-card"><div class="stat-num">14</div><div class="stat-label">Lessons, HTML to JavaScript</div></div>
+        <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Experience needed</div></div>
       </div>
       <div class="preview-card animate animate-d3">
         <div class="preview-icon">
@@ -1243,8 +1264,8 @@
           </svg>
         </div>
         <div class="preview-text">
-          <strong>Hosted on GitHub Pages</strong>
-          <p>Free forever. Your domain. Real on the internet.</p>
+          <strong>Your site, live on the internet</strong>
+          <p>Free hosting with GitHub Pages, on your own domain.</p>
         </div>
       </div>
     </div>
@@ -1254,31 +1275,65 @@
   <section class="curriculum home-section" id="curriculum">
     <div class="curriculum-header">
       <p class="section-label">The curriculum</p>
-      <h2 class="section-title">Two weeks,<br>one real project.</h2>
-      <p class="section-sub">Week 1 you build and launch your site with HTML &amp; CSS. Week 2 you make it interactive with JavaScript. Every day, one concept, built straight into your project.</p>
+      <h2 class="section-title">Three modules.<br>Four real projects.</h2>
+      <p class="section-sub">Every lesson teaches one topic properly, with examples, a hands-on build, and a challenge to lock it in. Every module ends with a real project you can show people.</p>
     </div>
-    <div class="days-grid">
-      <p class="section-label" style="grid-column:1/-1;margin:0;">Week 1 — HTML &amp; CSS</p>
-      <div class="day-card free-day" onclick="showEmailModal()">
-        <div class="day-num">Day 01</div>
-        <div class="day-topic">Your First HTML Page</div>
-        <div class="day-desc">Tags, structure, and your first words on a screen.</div>
-        <span class="day-badge">Free</span>
+    <div class="modules">
+      <div class="module-card">
+        <span class="module-num">Module 1 · 7 lessons</span>
+        <h3>HTML</h3>
+        <p>Structure: everything a page is made of.</p>
+        <ol class="module-lessons">
+          <li><span class="ml-num">01</span>Your First HTML Page<span class="ml-tag free">Free</span></li>
+          <li><span class="ml-num">02</span>Text, Headings &amp; Links<span class="ml-tag free">Free</span></li>
+          <li><span class="ml-num">03</span>Lists, Tables &amp; Semantic HTML</li>
+          <li><span class="ml-num">04</span>Images, Media &amp; File Paths</li>
+          <li><span class="ml-num">05</span>Forms &amp; Inputs</li>
+          <li><span class="ml-num">06</span>Accessibility &amp; SEO Basics</li>
+          <li><span class="ml-num">07</span>A Multi-Page Website<span class="ml-tag project">Project</span></li>
+        </ol>
       </div>
-      <div class="day-card free-day" onclick="showEmailModal()"><div class="day-num">Day 02</div><div class="day-topic">Text & Links</div><div class="day-desc">Headings, paragraphs, and connecting pages together.</div><span class="day-badge">Free</span></div>
-      <div class="day-card"><div class="day-num">Day 03</div><div class="day-topic">Styling with CSS</div><div class="day-desc">Colors, fonts, and making things look the way you want.</div></div>
-      <div class="day-card"><div class="day-num">Day 04</div><div class="day-topic">Layout & Boxes</div><div class="day-desc">The box model, Flexbox, and controlling your layout.</div></div>
-      <div class="day-card"><div class="day-num">Day 05</div><div class="day-topic">Images & Media</div><div class="day-desc">Adding images, video embeds, and responsive visuals.</div></div>
-      <div class="day-card"><div class="day-num">Day 06</div><div class="day-topic">Full Page Build</div><div class="day-desc">Put it all together — build a real, complete page.</div></div>
-      <div class="day-card"><div class="day-num">Day 07</div><div class="day-topic">Go Live</div><div class="day-desc">Deploy to GitHub Pages. Your site is on the internet.</div></div>
-      <p class="section-label" style="grid-column:1/-1;margin:1.5rem 0 0;">Week 2 — JavaScript</p>
-      <div class="day-card"><div class="day-num">Day 08</div><div class="day-topic">Hello, JavaScript</div><div class="day-desc">The console, variables, and your first script.</div></div>
-      <div class="day-card"><div class="day-num">Day 09</div><div class="day-topic">The DOM</div><div class="day-desc">Change your page with code. A greeting that knows the time.</div></div>
-      <div class="day-card"><div class="day-num">Day 10</div><div class="day-topic">Events & Dark Mode</div><div class="day-desc">Respond to clicks. A theme toggle that remembers.</div></div>
-      <div class="day-card"><div class="day-num">Day 11</div><div class="day-topic">Arrays & Loops</div><div class="day-desc">Store data in lists and generate cards automatically.</div></div>
-      <div class="day-card"><div class="day-num">Day 12</div><div class="day-topic">Mobile Menu</div><div class="day-desc">A real hamburger menu and a back-to-top button.</div></div>
-      <div class="day-card"><div class="day-num">Day 13</div><div class="day-topic">Contact Form</div><div class="day-desc">Validate input and send messages to your inbox.</div></div>
-      <div class="day-card"><div class="day-num">Day 14</div><div class="day-topic">Ship It</div><div class="day-desc">Debug like a pro, polish, and push it live.</div></div>
+      <div class="module-card">
+        <span class="module-num">Module 2 · 12 lessons</span>
+        <h3>CSS</h3>
+        <p>Design: make it look exactly the way you want.</p>
+        <ol class="module-lessons">
+          <li><span class="ml-num">08</span>CSS Basics: Selectors &amp; the Cascade</li>
+          <li><span class="ml-num">09</span>Colors, Units &amp; Typography</li>
+          <li><span class="ml-num">10</span>The Box Model in Depth</li>
+          <li><span class="ml-num">11</span>Positioning &amp; Layers</li>
+          <li><span class="ml-num">12</span>Flexbox in Depth</li>
+          <li><span class="ml-num">13</span>CSS Grid</li>
+          <li><span class="ml-num">14</span>Responsive &amp; Mobile-First Design</li>
+          <li><span class="ml-num">15</span>Pseudo-classes, Pseudo-elements &amp; Specificity</li>
+          <li><span class="ml-num">16</span>CSS Variables &amp; Theming</li>
+          <li><span class="ml-num">17</span>Transitions, Transforms &amp; Animations</li>
+          <li><span class="ml-num">18</span>A Landing Page for a Local Business<span class="ml-tag project">Project</span></li>
+          <li><span class="ml-num">19</span>Git, GitHub &amp; Going Live</li>
+        </ol>
+      </div>
+      <div class="module-card">
+        <span class="module-num">Module 3 · 15 lessons</span>
+        <h3>JavaScript</h3>
+        <p>Behavior: make it do things.</p>
+        <ol class="module-lessons">
+          <li><span class="ml-num">20</span>JavaScript Basics: Variables, Types &amp; Operators</li>
+          <li><span class="ml-num">21</span>Conditionals &amp; Logic</li>
+          <li><span class="ml-num">22</span>Functions &amp; Scope</li>
+          <li><span class="ml-num">23</span>Arrays &amp; Array Methods</li>
+          <li><span class="ml-num">24</span>Objects &amp; JSON</li>
+          <li><span class="ml-num">25</span>Loops</li>
+          <li><span class="ml-num">26</span>The DOM</li>
+          <li><span class="ml-num">27</span>Events</li>
+          <li><span class="ml-num">28</span>Forms &amp; Validation with JavaScript</li>
+          <li><span class="ml-num">29</span>Saving Data with localStorage</li>
+          <li><span class="ml-num">30</span>Fetch &amp; APIs</li>
+          <li><span class="ml-num">31</span>async/await &amp; Error Handling</li>
+          <li><span class="ml-num">32</span>Debugging with DevTools</li>
+          <li><span class="ml-num">33</span>A To-Do App<span class="ml-tag project">Project</span></li>
+          <li><span class="ml-num">34</span>Final Interactive Portfolio<span class="ml-tag project">Project</span></li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -1286,13 +1341,13 @@
   <section class="build-section home-section">
     <div>
       <p class="section-label">What you'll build</p>
-      <h2 class="section-title">A real website.<br>Not a tutorial project.</h2>
+      <h2 class="section-title">Real projects.<br>Not tutorial exercises.</h2>
       <ul class="build-list">
-        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>A personal portfolio page with your name, bio, and links</li>
-        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>Responsive design that works on phones and computers</li>
-        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>Deployed live on GitHub Pages with a real URL</li>
-        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>Clean, readable code you fully understand and own</li>
-        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>Skills to keep building — this is just day one of forever</li>
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>A 3-page personal website with dark mode, live weather and a working contact form</li>
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>A responsive landing page for a local business, the kind businesses pay for</li>
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>A to-do app that saves your tasks, built the way real apps are</li>
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>Your own site live on the internet, pushed with Git to GitHub</li>
+        <li><span class="build-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="1.5,5 4,7.5 8.5,2.5"></polyline></svg></span>The skills to keep building: HTML, CSS, JavaScript, APIs and Git</li>
       </ul>
     </div>
     <div class="build-visual">
@@ -1320,32 +1375,33 @@
   <section class="pricing-section home-section" id="pricing">
     <div class="pricing-header">
       <p class="section-label">Pricing</p>
-      <h2 class="section-title">Start free.<br>Finish for <span class="js-price">$49</span>.</h2>
-      <p class="section-sub">Days 1 and 2 are free with an account, no card needed. When you're ready, unlock all 14 days with one payment.</p>
+      <h2 class="section-title">Start free.<br>Finish for <span class="js-price">$97</span>.</h2>
+      <p class="section-sub">The first two lessons are free with an account, no card needed. When you're ready, unlock all 34 lessons with one payment. No subscription.</p>
     </div>
     <div class="price-cards">
       <div class="price-card">
         <div class="price-label">Free</div>
         <div class="price-big">$0</div>
-        <div class="price-per">Days 1–2 · No card needed</div>
+        <div class="price-per">Lessons 1–2 · No card needed</div>
         <ul class="price-features" style="margin-top:1.5rem;">
           <li class="price-feature"><span class="price-feature-dot"></span>Your first HTML page</li>
-          <li class="price-feature"><span class="price-feature-dot"></span>Text, links &amp; navigation</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>Text, headings &amp; links</li>
           <li class="price-feature"><span class="price-feature-dot"></span>Progress saved to your account</li>
         </ul>
         <button class="btn-primary" onclick="showEmailModal()" style="margin-top:0.5rem;">Start free →</button>
       </div>
       <div class="price-card featured" style="padding:3rem;">
         <div class="price-label">The full course</div>
-        <div class="price-big js-price">$49</div>
+        <div class="price-big js-price">$97</div>
         <div class="price-per" style="color:rgba(255,255,255,0.5);">One payment · Lifetime access</div>
         <ul class="price-features" style="margin-top:1.5rem;">
-          <li class="price-feature"><span class="price-feature-dot"></span>All 14 days: HTML, CSS &amp; JavaScript</li>
-          <li class="price-feature"><span class="price-feature-dot"></span>Build a portfolio, put it live, then make it interactive</li>
-          <li class="price-feature"><span class="price-feature-dot"></span>Dark mode, mobile menu &amp; a working contact form</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>All 34 lessons: HTML, CSS &amp; JavaScript</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>4 real projects for your portfolio</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>Flexbox, Grid, responsive design &amp; animation</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>APIs, localStorage, Git &amp; going live</li>
           <li class="price-feature"><span class="price-feature-dot"></span>Certificate of completion</li>
         </ul>
-        <a class="btn-white js-checkout" href="#" target="_blank" rel="noopener" style="margin-top:0.5rem;">Get the full course →</a>
+        <a class="btn-white js-checkout" href="https://square.link/u/FB4SOI7h" target="_blank" rel="noopener" style="margin-top:0.5rem;">Get the full course →</a>
       </div>
     </div>
   </section>
@@ -1379,79 +1435,115 @@
 
 </div>
 
-<!-- ===================== LESSON PAGE ===================== -->
-<div class="page" id="lessonPage">
+<!-- ===================== LESSONS ===================== -->
+<div class="page" id="day1Page">
   <div class="lesson-layout">
-
-    <!-- SIDEBAR -->
     <aside class="sidebar">
-      <p class="sidebar-title">Day 1 — Sections</p>
+      <p class="sidebar-title">Lesson 1 — Sections</p>
       <ul class="sidebar-nav">
-        <li><a href="#intro" class="active"><span class="sidebar-num">01</span> What is HTML?</a></li>
-        <li><a href="#structure"><span class="sidebar-num">02</span> Basic structure</a></li>
-        <li><a href="#tags"><span class="sidebar-num">03</span> Essential tags</a></li>
-        <li><a href="#first-page"><span class="sidebar-num">04</span> Your first page</a></li>
-        <li><a href="#browser"><span class="sidebar-num">05</span> Open in browser</a></li>
-        <li><a href="#challenge"><span class="sidebar-num">06</span> Challenge</a></li>
+        <li><a href="#d1-intro" class="active"><span class="sidebar-num">01</span> What is HTML?</a></li>
+        <li><a href="#d1-setup"><span class="sidebar-num">02</span> Set up</a></li>
+        <li><a href="#d1-structure"><span class="sidebar-num">03</span> Basic structure</a></li>
+        <li><a href="#d1-tags"><span class="sidebar-num">04</span> Essential tags</a></li>
+        <li><a href="#d1-first-page"><span class="sidebar-num">05</span> Your first page</a></li>
+        <li><a href="#d1-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
       </ul>
       <div class="sidebar-divider"></div>
-      <p class="sidebar-title">Week 1 — HTML &amp; CSS</p>
+      <p class="sidebar-title" style="margin-top:1rem;">Module 1 — HTML</p>
       <ul class="sidebar-days">
-        <li><a onclick="showLesson('day1')" class="current">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
-        <li><a onclick="showLesson('day2')">Day 2 — Text &amp; Links <span class="day-free-badge">Free</span></a></li>
-        <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day4')">Day 4 — Layout &amp; Boxes <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day5')">Day 5 — Images &amp; Media <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day1')" class="current"><span><span class="sidebar-num">01</span> Your First Page</span> <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')"><span><span class="sidebar-num">02</span> Text &amp; Links</span> <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day3')"><span><span class="sidebar-num">03</span> Lists, Tables &amp; Structure</span></a></li>
+        <li><a onclick="showLesson('day4')"><span><span class="sidebar-num">04</span> Images &amp; Media</span></a></li>
+        <li><a onclick="showLesson('day5')"><span><span class="sidebar-num">05</span> Forms</span></a></li>
+        <li><a onclick="showLesson('day6')"><span><span class="sidebar-num">06</span> Accessibility &amp; SEO</span></a></li>
+        <li><a onclick="showLesson('day7')"><span><span class="sidebar-num">07</span> Project: Multi-Page Site</span></a></li>
       </ul>
-      <p class="sidebar-title" style="margin-top:1rem;">Week 2 — JavaScript</p>
+      <p class="sidebar-title" style="margin-top:1rem;">Module 2 — CSS</p>
       <ul class="sidebar-days">
-        <li><a onclick="showLesson('day8')">Day 8 — Hello, JavaScript <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day9')">Day 9 — The DOM <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day10')">Day 10 — Events &amp; Dark Mode <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day11')">Day 11 — Arrays &amp; Loops <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day12')">Day 12 — Mobile Menu <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day13')">Day 13 — Contact Form <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day14')">Day 14 — Ship It <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day8')"><span><span class="sidebar-num">08</span> Selectors &amp; Cascade</span></a></li>
+        <li><a onclick="showLesson('day9')"><span><span class="sidebar-num">09</span> Colors, Units &amp; Type</span></a></li>
+        <li><a onclick="showLesson('day10')"><span><span class="sidebar-num">10</span> The Box Model</span></a></li>
+        <li><a onclick="showLesson('day11')"><span><span class="sidebar-num">11</span> Positioning</span></a></li>
+        <li><a onclick="showLesson('day12')"><span><span class="sidebar-num">12</span> Flexbox</span></a></li>
+        <li><a onclick="showLesson('day13')"><span><span class="sidebar-num">13</span> CSS Grid</span></a></li>
+        <li><a onclick="showLesson('day14')"><span><span class="sidebar-num">14</span> Responsive Design</span></a></li>
+        <li><a onclick="showLesson('day15')"><span><span class="sidebar-num">15</span> Pseudo-classes &amp; Specificity</span></a></li>
+        <li><a onclick="showLesson('day16')"><span><span class="sidebar-num">16</span> CSS Variables</span></a></li>
+        <li><a onclick="showLesson('day17')"><span><span class="sidebar-num">17</span> Animations</span></a></li>
+        <li><a onclick="showLesson('day18')"><span><span class="sidebar-num">18</span> Project: Business Landing Page</span></a></li>
+        <li><a onclick="showLesson('day19')"><span><span class="sidebar-num">19</span> Git &amp; Going Live</span></a></li>
+      </ul>
+      <p class="sidebar-title" style="margin-top:1rem;">Module 3 — JavaScript</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day20')"><span><span class="sidebar-num">20</span> Variables &amp; Types</span></a></li>
+        <li><a onclick="showLesson('day21')"><span><span class="sidebar-num">21</span> Conditionals &amp; Logic</span></a></li>
+        <li><a onclick="showLesson('day22')"><span><span class="sidebar-num">22</span> Functions &amp; Scope</span></a></li>
+        <li><a onclick="showLesson('day23')"><span><span class="sidebar-num">23</span> Arrays</span></a></li>
+        <li><a onclick="showLesson('day24')"><span><span class="sidebar-num">24</span> Objects &amp; JSON</span></a></li>
+        <li><a onclick="showLesson('day25')"><span><span class="sidebar-num">25</span> Loops</span></a></li>
+        <li><a onclick="showLesson('day26')"><span><span class="sidebar-num">26</span> The DOM</span></a></li>
+        <li><a onclick="showLesson('day27')"><span><span class="sidebar-num">27</span> Events</span></a></li>
+        <li><a onclick="showLesson('day28')"><span><span class="sidebar-num">28</span> Form Validation</span></a></li>
+        <li><a onclick="showLesson('day29')"><span><span class="sidebar-num">29</span> localStorage</span></a></li>
+        <li><a onclick="showLesson('day30')"><span><span class="sidebar-num">30</span> Fetch &amp; APIs</span></a></li>
+        <li><a onclick="showLesson('day31')"><span><span class="sidebar-num">31</span> async/await &amp; Errors</span></a></li>
+        <li><a onclick="showLesson('day32')"><span><span class="sidebar-num">32</span> Debugging</span></a></li>
+        <li><a onclick="showLesson('day33')"><span><span class="sidebar-num">33</span> Project: To-Do App</span></a></li>
+        <li><a onclick="showLesson('day34')"><span><span class="sidebar-num">34</span> Final Project</span></a></li>
       </ul>
     </aside>
 
-    <!-- MAIN -->
     <main class="lesson-main">
       <div class="lesson-header">
         <div class="lesson-meta">
-          <span class="lesson-day">Day 01 — Free Lesson</span>
-          <span class="lesson-time">~15 min read · Video coming soon</span>
+          <span class="lesson-day">Lesson 01 — Free Lesson</span>
+          <span class="lesson-time">~15 min · Video coming soon</span>
         </div>
         <h1 class="lesson-title">Your First HTML Page</h1>
-        <p class="lesson-intro">Today you write your first line of code. By the end of this lesson you'll have a real HTML file open in your browser — created entirely by you, from scratch.</p>
+        <p class="lesson-intro">Today you write your first line of code. By the end of this lesson you'll have a real HTML file open in your browser, written entirely by you, from scratch.</p>
       </div>
 
       <div class="video-wrap">
         <div class="video-placeholder">
-          <div class="video-play">
-            <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg>
-          </div>
+          <div class="video-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
           <p class="video-label">🎬 Video coming soon...</p>
         </div>
       </div>
 
       <div class="lesson-body">
 
-        <div class="lesson-section" id="intro">
+        <div class="lesson-section" id="d1-intro">
           <h2>What is HTML?</h2>
-          <p>HTML stands for <strong>HyperText Markup Language</strong>. It is the language that every website in the world is built with. When you visit any page on the internet — Google, YouTube, any news site — your browser is reading HTML and turning it into what you see on screen.</p>
-          <p>HTML is not a programming language. You don't need to do math, logic, or algorithms. You just write structured text using something called <strong>tags</strong>, and the browser handles the rest.</p>
+          <p>HTML stands for <strong>HyperText Markup Language</strong>. Every website in the world is built with it. When you open Google, YouTube or any news site, your browser is reading HTML and turning it into what you see on screen.</p>
+
+          <p>HTML isn't a programming language. There's no math and no logic. You write your content and wrap it in <strong>tags</strong> that tell the browser what each piece is: this is a heading, this is a paragraph, this is a link.</p>
+
           <div class="callout info">
             <span class="callout-icon">💡</span>
-            <p><strong>Think of it this way:</strong> HTML is like the skeleton of a website. It defines what's there — the heading, the paragraph, the image, the link. CSS (which we'll learn on Day 3) is the skin and clothes — it defines how it looks.</p>
+            <p><strong>Think of it this way:</strong> HTML is the skeleton of a website. It says <em>what's there</em>. CSS (Module 2) is the skin and clothes: how it looks. JavaScript (Module 3) is the muscles: what it does.</p>
           </div>
         </div>
+        <div class="lesson-section" id="d1-setup">
+          <h2>Set up your tools</h2>
+          <p>You need two free things: a code editor and a browser. You already have a browser.</p>
 
-        <div class="lesson-section" id="structure">
-          <h2>The basic structure of every HTML file</h2>
-          <p>Every HTML page in the world starts with the same basic structure. You only need to memorize this once — your code editor will often write it for you automatically.</p>
+          <ol style="padding-left:1.5rem;display:flex;flex-direction:column;gap:0.5rem;margin:1rem 0;color:#444;">
+            <li>Download <strong>VS Code</strong> from code.visualstudio.com and install it</li>
+            <li>Make a new folder on your computer called <code>my-site</code></li>
+            <li>In VS Code, click <strong>File → Open Folder</strong> and pick <code>my-site</code></li>
+            <li>Click the new-file icon and name the file <code>index.html</code></li>
+          </ol>
+
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Why index.html?</strong> When someone visits a website, the browser looks for a file called <code>index.html</code> first. It's the front door of every site.</p>
+          </div>
+        </div>
+        <div class="lesson-section" id="d1-structure">
+          <h2>The structure of every HTML page</h2>
+          <p>Every HTML page starts with the same skeleton. Type this into <code>index.html</code>:</p>
+
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
@@ -1459,58 +1551,46 @@
               <button class="code-copy" onclick="copyCode(this)">Copy</button>
             </div>
             <div class="lesson-code-body">
-<span class="t-gray">&lt;!DOCTYPE html&gt;</span><br>
-<span class="t-blue">&lt;html</span> <span class="t-yellow">lang</span>=<span class="t-green">"en"</span><span class="t-blue">&gt;</span><br><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;head&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">charset</span>=<span class="t-green">"UTF-8"</span><span class="t-blue">&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;title&gt;</span><span class="t-white">My First Website</span><span class="t-blue">&lt;/title&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;/head&gt;</span><br><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;body&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-gray">&lt;!-- Your content goes here --&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;/body&gt;</span><br><br>
-<span class="t-blue">&lt;/html&gt;</span>
+<span class="t-blue">&lt;!DOCTYPE</span><span class="t-white"> html</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;html</span> <span class="t-yellow">lang</span>=<span class="t-green">&quot;en&quot;</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;head</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">charset</span>=<span class="t-green">&quot;UTF-8&quot;</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;title</span><span class="t-blue">&gt;</span><span class="t-white">My First Website</span><span class="t-blue">&lt;/title</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;/head</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;body</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-gray">&lt;!-- Your content goes here --&gt;</span><br><span class="t-blue">&lt;/body</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;/html</span><span class="t-blue">&gt;</span>
             </div>
           </div>
-          <p>Let's break down what each line does:</p>
-          <h3><code>&lt;!DOCTYPE html&gt;</code></h3>
-          <p>This tells the browser "this file is HTML5" — the modern version. It always goes on line 1. You'll never change this line.</p>
-          <h3><code>&lt;html lang="en"&gt;</code></h3>
-          <p>This opens the HTML document. The <code>lang="en"</code> tells the browser the page is in English. Everything on your page goes inside this tag.</p>
-          <h3><code>&lt;head&gt;</code></h3>
-          <p>The head section contains information <em>about</em> the page — not content that the visitor sees. The title of the tab in the browser goes here, along with links to CSS files later.</p>
-          <h3><code>&lt;body&gt;</code></h3>
-          <p>Everything inside the body is what the visitor actually sees. All your text, images, links — everything goes here.</p>
+
+          <ul style="padding-left:1.5rem;display:flex;flex-direction:column;gap:0.5rem;margin:1rem 0;color:#444;">
+            <li><code>&lt;!DOCTYPE html&gt;</code> tells the browser this is modern HTML. It always goes on line 1.</li>
+            <li><code>&lt;html lang="en"&gt;</code> wraps the whole page. <code>lang="en"</code> says it's in English.</li>
+            <li><code>&lt;head&gt;</code> holds information <em>about</em> the page, like the title in the browser tab. Visitors don't see it on the page.</li>
+            <li><code>&lt;body&gt;</code> holds everything visitors actually see.</li>
+          </ul>
+
           <div class="callout tip">
             <span class="callout-icon">✓</span>
-            <p><strong>Rule to remember:</strong> Every tag you open must be closed. <code>&lt;body&gt;</code> opens, <code>&lt;/body&gt;</code> closes. Notice the slash <code>/</code> in the closing tag — that's the signal that it's closing.</p>
+            <p><strong>Rule to remember:</strong> most tags come in pairs. <code>&lt;body&gt;</code> opens, <code>&lt;/body&gt;</code> closes. The slash means "closing". Everything between them is inside that element.</p>
           </div>
         </div>
-
-        <div class="lesson-section" id="tags">
-          <h2>The essential tags you need today</h2>
-          <p>You don't need to know every HTML tag. Here are the 8 tags that will get you through most of Day 1 — and honestly, most of your early web projects.</p>
+        <div class="lesson-section" id="d1-tags">
+          <h2>The tags you need today</h2>
           <table class="tags-table">
             <thead><tr><th>Tag</th><th>What it does</th><th>Example</th></tr></thead>
             <tbody>
-              <tr><td><span class="tag-code">&lt;h1&gt;</span></td><td>Main heading — the biggest title on the page</td><td><span class="tag-code">&lt;h1&gt;Hello&lt;/h1&gt;</span></td></tr>
-              <tr><td><span class="tag-code">&lt;h2&gt;</span></td><td>Sub-heading — smaller than h1, use for sections</td><td><span class="tag-code">&lt;h2&gt;About me&lt;/h2&gt;</span></td></tr>
-              <tr><td><span class="tag-code">&lt;p&gt;</span></td><td>Paragraph — for regular body text</td><td><span class="tag-code">&lt;p&gt;I am learning HTML.&lt;/p&gt;</span></td></tr>
-              <tr><td><span class="tag-code">&lt;strong&gt;</span></td><td>Bold text — makes words stand out</td><td><span class="tag-code">&lt;strong&gt;Important&lt;/strong&gt;</span></td></tr>
-              <tr><td><span class="tag-code">&lt;em&gt;</span></td><td>Italic text — for emphasis</td><td><span class="tag-code">&lt;em&gt;really&lt;/em&gt;</span></td></tr>
-              <tr><td><span class="tag-code">&lt;br&gt;</span></td><td>Line break — moves to the next line (no closing tag)</td><td><span class="tag-code">Line one&lt;br&gt;Line two</span></td></tr>
-              <tr><td><span class="tag-code">&lt;hr&gt;</span></td><td>Horizontal rule — a divider line (no closing tag)</td><td><span class="tag-code">&lt;hr&gt;</span></td></tr>
-              <tr><td><span class="tag-code">&lt;!-- --&gt;</span></td><td>Comment — notes for you, invisible in the browser</td><td><span class="tag-code">&lt;!-- note --&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;h1&gt;</span></td><td>Main heading, the biggest title on the page</td><td><span class="tag-code">&lt;h1&gt;Hello&lt;/h1&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;p&gt;</span></td><td>A paragraph of text</td><td><span class="tag-code">&lt;p&gt;I am learning HTML.&lt;/p&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;strong&gt;</span></td><td>Important text (shows bold)</td><td><span class="tag-code">&lt;strong&gt;Important&lt;/strong&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;em&gt;</span></td><td>Emphasis (shows italic)</td><td><span class="tag-code">&lt;em&gt;really&lt;/em&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;br&gt;</span></td><td>Line break. No closing tag</td><td><span class="tag-code">Line one&lt;br&gt;Line two</span></td></tr>
+              <tr><td><span class="tag-code">&lt;hr&gt;</span></td><td>A divider line. No closing tag</td><td><span class="tag-code">&lt;hr&gt;</span></td></tr>
+              <tr><td><span class="tag-code">&lt;!-- --&gt;</span></td><td>A comment. Invisible on the page</td><td><span class="tag-code">&lt;!-- note --&gt;</span></td></tr>
             </tbody>
           </table>
+
           <div class="callout warning">
             <span class="callout-icon">⚠</span>
-            <p><strong>Heads up:</strong> <code>&lt;br&gt;</code> and <code>&lt;hr&gt;</code> are self-closing — they don't need a closing tag. You'll learn more about these on Day 2 when we cover links and images.</p>
+            <p><strong>Heads up:</strong> <code>&lt;br&gt;</code> and <code>&lt;hr&gt;</code> are <em>empty elements</em>. They have nothing inside them, so they don't need a closing tag.</p>
           </div>
         </div>
-
-        <div class="lesson-section" id="first-page">
+        <div class="lesson-section" id="d1-first-page">
           <h2>Write your first page</h2>
-          <p>Open VS Code. Create a new file. Name it <code>index.html</code>. Then type — don't copy-paste — every single line of this code:</p>
+          <p>Replace the comment in your body with real content. Type it, don't paste it. Your hands learning the structure is part of the lesson.</p>
+
           <div class="code-block">
             <div class="code-header">
               <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
@@ -1518,172 +1598,154 @@
               <button class="code-copy" onclick="copyCode(this)">Copy</button>
             </div>
             <div class="lesson-code-body">
-<span class="t-gray">&lt;!DOCTYPE html&gt;</span><br>
-<span class="t-blue">&lt;html</span> <span class="t-yellow">lang</span>=<span class="t-green">"en"</span><span class="t-blue">&gt;</span><br><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;head&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">charset</span>=<span class="t-green">"UTF-8"</span><span class="t-blue">&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;title&gt;</span><span class="t-white">My First Page</span><span class="t-blue">&lt;/title&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;/head&gt;</span><br><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;body&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h1&gt;</span><span class="t-white">Hello, my name is Esdras.</span><span class="t-blue">&lt;/h1&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I am learning to build websites.</span><span class="t-blue">&lt;/p&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">This is my </span><span class="t-blue">&lt;strong&gt;</span><span class="t-white">first page</span><span class="t-blue">&lt;/strong&gt;</span><span class="t-white"> and I built it from scratch.</span><span class="t-blue">&lt;/p&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;hr&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2&gt;</span><span class="t-white">Why I'm learning HTML</span><span class="t-blue">&lt;/h2&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">Because I want to build things </span><span class="t-blue">&lt;em&gt;</span><span class="t-white">by myself.</span><span class="t-blue">&lt;/em&gt;&lt;/p&gt;</span><br><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;/body&gt;</span><br><br>
-<span class="t-blue">&lt;/html&gt;</span>
+<span class="t-blue">&lt;!DOCTYPE</span><span class="t-white"> html</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;html</span> <span class="t-yellow">lang</span>=<span class="t-green">&quot;en&quot;</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;head</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">charset</span>=<span class="t-green">&quot;UTF-8&quot;</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;title</span><span class="t-blue">&gt;</span><span class="t-white">My First Page</span><span class="t-blue">&lt;/title</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;/head</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;body</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;h1</span><span class="t-blue">&gt;</span><span class="t-white">Hello, my name is Esdras.</span><span class="t-blue">&lt;/h1</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;p</span><span class="t-blue">&gt;</span><span class="t-white">I am learning to build websites.</span><span class="t-blue">&lt;/p</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;p</span><span class="t-blue">&gt;</span><span class="t-white">This is my </span><span class="t-blue">&lt;strong</span><span class="t-blue">&gt;</span><span class="t-white">first page</span><span class="t-blue">&lt;/strong</span><span class="t-blue">&gt;</span><span class="t-white"> and I built it from scratch.</span><span class="t-blue">&lt;/p</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;hr</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;p</span><span class="t-blue">&gt;</span><span class="t-white">Why am I learning? Because I want to build things </span><span class="t-blue">&lt;em</span><span class="t-blue">&gt;</span><span class="t-white">by myself.</span><span class="t-blue">&lt;/em</span><span class="t-blue">&gt;</span><span class="t-blue">&lt;/p</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;/body</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;/html</span><span class="t-blue">&gt;</span>
             </div>
           </div>
+
+          <p>Save with <code>Ctrl+S</code> (<code>Cmd+S</code> on Mac). Then find <code>index.html</code> in your folder and double-click it. It opens in your browser. That's a real web page, and it's yours.</p>
+
           <div class="callout tip">
             <span class="callout-icon">✓</span>
-            <p><strong>Type it, don't paste it.</strong> Your hands learning the structure is part of the lesson. You'll remember it 10x better if you type every character yourself today.</p>
+            <p><strong>Install Live Server.</strong> In VS Code, click the Extensions icon, search <em>Live Server</em> and install it. Then right-click <code>index.html</code> → <strong>Open with Live Server</strong>. Now the browser refreshes by itself every time you save. You'll use this for the whole course.</p>
           </div>
         </div>
 
-        <div class="lesson-section" id="browser">
-          <h2>Open it in your browser</h2>
-          <p>Save your file (<code>Cmd+S</code> on Mac, <code>Ctrl+S</code> on Windows). Now open your file explorer, find <code>index.html</code>, and double-click it. It will open in your default browser.</p>
-          <p>You should see your heading, your paragraphs, a horizontal line, and bold/italic text — exactly as you wrote them. That is a real webpage. <em>Your</em> webpage.</p>
-          <div class="callout info">
-            <span class="callout-icon">💡</span>
-            <p><strong>Pro tip:</strong> Install the <strong>Live Server</strong> extension in VS Code. It auto-refreshes your browser every time you save. Right-click your file → "Open with Live Server".</p>
-          </div>
-          <p>Every time you change something in VS Code and save, your browser will update. This is your workflow for the entire course. Get comfortable with it.</p>
-        </div>
-
-        <div class="challenge" id="challenge">
-          <div class="challenge-label">Day 1 Challenge</div>
+        <div class="challenge" id="d1-challenge">
+          <div class="challenge-label">Lesson 1 Challenge</div>
           <h3>Make it yours.</h3>
-          <p>Don't move to Day 2 until you've done all of these. They'll take you 10–15 minutes and they'll lock in everything you just learned.</p>
+          <p>Don't move on until you've done all of these. They take 10–15 minutes and lock in everything you just learned.</p>
           <ul class="challenge-list">
-            <li>Change the <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;h1&gt;</code> to use your own name</li>
-            <li>Add a third <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;p&gt;</code> tag with something true about yourself</li>
-            <li>Add an <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;h2&gt;</code> with the title "My Hobbies"</li>
-            <li>Use <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;strong&gt;</code> on at least one word in your page</li>
+            <li>Change the <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;h1&gt;</code> to your own name</li>
+            <li>Add a third <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;p&gt;</code> with something true about yourself</li>
+            <li>Use <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;strong&gt;</code> and <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;em&gt;</code> at least once each</li>
             <li>Change the <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;title&gt;</code> and watch the browser tab update</li>
-            <li>Add a comment using <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;!-- --&gt;</code> that only you can see</li>
+            <li>Add a comment that only you can see</li>
+            <li>Delete a closing tag on purpose and see what the browser does</li>
           </ul>
         </div>
 
         <div class="next-lesson" onclick="showLesson('day2')">
           <div>
-            <div class="next-label">Up next — Day 2</div>
-            <div class="next-title">Text, Links & Navigation</div>
+            <div class="next-label">Up next — Lesson 2</div>
+            <div class="next-title">Text, Headings &amp; Links</div>
           </div>
-          <div class="next-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
-          </div>
+          <div class="next-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg></div>
         </div>
 
       </div>
     </main>
 
-    <!-- RIGHT PANEL -->
     <aside class="right-panel">
       <div>
         <p class="panel-title">Your progress</p>
         <div class="progress-card">
-          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 1 of 14</p>
-          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
-          <p class="progress-pct" id="progressPct">0% complete</p>
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Lesson 1 of 34</p>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar1"></div></div>
+          <p class="progress-pct" id="progressPct1">0% complete</p>
         </div>
       </div>
       <div>
         <p class="panel-title">Lesson checklist</p>
-        <ul class="checklist" id="checklist">
-          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
-          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Understand the structure</li>
-          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Learn the 8 essential tags</li>
-          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Write your first page</li>
-          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Open it in the browser</li>
-          <li onclick="toggleCheck(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
+        <ul class="checklist" id="checklist1">
+          <li onclick="toggleCheckN(this,'1')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
+          <li onclick="toggleCheckN(this,'1')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Install VS Code &amp; Live Server</li>
+          <li onclick="toggleCheckN(this,'1')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Understand the page structure</li>
+          <li onclick="toggleCheckN(this,'1')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Learn the essential tags</li>
+          <li onclick="toggleCheckN(this,'1')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Write your first page</li>
+          <li onclick="toggleCheckN(this,'1')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
         </ul>
       </div>
       <div>
         <p class="panel-title">Resources</p>
         <ul class="resource-list">
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN HTML Reference</a></li>
-          <li><a href="https://code.visualstudio.com" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Download VS Code</a></li>
-          <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Live Server Extension</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax" target="_blank" rel="noopener"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN: Getting started with HTML</a></li>
+          <li><a href="https://code.visualstudio.com" target="_blank" rel="noopener"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Download VS Code</a></li>
+          <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank" rel="noopener"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>Live Server extension</a></li>
         </ul>
       </div>
     </aside>
-
   </div>
 </div>
-
-<!-- ===================== DAY 2 PAGE ===================== -->
 <div class="page" id="day2Page">
   <div class="lesson-layout">
-
     <aside class="sidebar">
-      <p class="sidebar-title">Day 2 — Sections</p>
+      <p class="sidebar-title">Lesson 2 — Sections</p>
       <ul class="sidebar-nav">
-        <li><a href="#d2-intro" class="active"><span class="sidebar-num">01</span> Links in HTML</a></li>
-        <li><a href="#d2-anchor"><span class="sidebar-num">02</span> The anchor tag</a></li>
-        <li><a href="#d2-lists"><span class="sidebar-num">03</span> Lists</a></li>
+        <li><a href="#d2-headings" class="active"><span class="sidebar-num">01</span> Headings</a></li>
+        <li><a href="#d2-links"><span class="sidebar-num">02</span> Links</a></li>
+        <li><a href="#d2-paths"><span class="sidebar-num">03</span> Relative vs absolute</a></li>
         <li><a href="#d2-nav"><span class="sidebar-num">04</span> Navigation</a></li>
         <li><a href="#d2-build"><span class="sidebar-num">05</span> Build it</a></li>
         <li><a href="#d2-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
       </ul>
       <div class="sidebar-divider"></div>
-      <p class="sidebar-title">Week 1 — HTML &amp; CSS</p>
+      <p class="sidebar-title" style="margin-top:1rem;">Module 1 — HTML</p>
       <ul class="sidebar-days">
-        <li><a onclick="showLesson('day1')">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
-        <li><a onclick="showLesson('day2')" class="current">Day 2 — Text &amp; Links <span class="day-free-badge">Free</span></a></li>
-        <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day4')">Day 4 — Layout &amp; Boxes <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day5')">Day 5 — Images &amp; Media <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day1')"><span><span class="sidebar-num">01</span> Your First Page</span> <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')" class="current"><span><span class="sidebar-num">02</span> Text &amp; Links</span> <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day3')"><span><span class="sidebar-num">03</span> Lists, Tables &amp; Structure</span></a></li>
+        <li><a onclick="showLesson('day4')"><span><span class="sidebar-num">04</span> Images &amp; Media</span></a></li>
+        <li><a onclick="showLesson('day5')"><span><span class="sidebar-num">05</span> Forms</span></a></li>
+        <li><a onclick="showLesson('day6')"><span><span class="sidebar-num">06</span> Accessibility &amp; SEO</span></a></li>
+        <li><a onclick="showLesson('day7')"><span><span class="sidebar-num">07</span> Project: Multi-Page Site</span></a></li>
       </ul>
-      <p class="sidebar-title" style="margin-top:1rem;">Week 2 — JavaScript</p>
+      <p class="sidebar-title" style="margin-top:1rem;">Module 2 — CSS</p>
       <ul class="sidebar-days">
-        <li><a onclick="showLesson('day8')">Day 8 — Hello, JavaScript <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day9')">Day 9 — The DOM <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day10')">Day 10 — Events &amp; Dark Mode <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day11')">Day 11 — Arrays &amp; Loops <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day12')">Day 12 — Mobile Menu <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day13')">Day 13 — Contact Form <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day14')">Day 14 — Ship It <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day8')"><span><span class="sidebar-num">08</span> Selectors &amp; Cascade</span></a></li>
+        <li><a onclick="showLesson('day9')"><span><span class="sidebar-num">09</span> Colors, Units &amp; Type</span></a></li>
+        <li><a onclick="showLesson('day10')"><span><span class="sidebar-num">10</span> The Box Model</span></a></li>
+        <li><a onclick="showLesson('day11')"><span><span class="sidebar-num">11</span> Positioning</span></a></li>
+        <li><a onclick="showLesson('day12')"><span><span class="sidebar-num">12</span> Flexbox</span></a></li>
+        <li><a onclick="showLesson('day13')"><span><span class="sidebar-num">13</span> CSS Grid</span></a></li>
+        <li><a onclick="showLesson('day14')"><span><span class="sidebar-num">14</span> Responsive Design</span></a></li>
+        <li><a onclick="showLesson('day15')"><span><span class="sidebar-num">15</span> Pseudo-classes &amp; Specificity</span></a></li>
+        <li><a onclick="showLesson('day16')"><span><span class="sidebar-num">16</span> CSS Variables</span></a></li>
+        <li><a onclick="showLesson('day17')"><span><span class="sidebar-num">17</span> Animations</span></a></li>
+        <li><a onclick="showLesson('day18')"><span><span class="sidebar-num">18</span> Project: Business Landing Page</span></a></li>
+        <li><a onclick="showLesson('day19')"><span><span class="sidebar-num">19</span> Git &amp; Going Live</span></a></li>
+      </ul>
+      <p class="sidebar-title" style="margin-top:1rem;">Module 3 — JavaScript</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day20')"><span><span class="sidebar-num">20</span> Variables &amp; Types</span></a></li>
+        <li><a onclick="showLesson('day21')"><span><span class="sidebar-num">21</span> Conditionals &amp; Logic</span></a></li>
+        <li><a onclick="showLesson('day22')"><span><span class="sidebar-num">22</span> Functions &amp; Scope</span></a></li>
+        <li><a onclick="showLesson('day23')"><span><span class="sidebar-num">23</span> Arrays</span></a></li>
+        <li><a onclick="showLesson('day24')"><span><span class="sidebar-num">24</span> Objects &amp; JSON</span></a></li>
+        <li><a onclick="showLesson('day25')"><span><span class="sidebar-num">25</span> Loops</span></a></li>
+        <li><a onclick="showLesson('day26')"><span><span class="sidebar-num">26</span> The DOM</span></a></li>
+        <li><a onclick="showLesson('day27')"><span><span class="sidebar-num">27</span> Events</span></a></li>
+        <li><a onclick="showLesson('day28')"><span><span class="sidebar-num">28</span> Form Validation</span></a></li>
+        <li><a onclick="showLesson('day29')"><span><span class="sidebar-num">29</span> localStorage</span></a></li>
+        <li><a onclick="showLesson('day30')"><span><span class="sidebar-num">30</span> Fetch &amp; APIs</span></a></li>
+        <li><a onclick="showLesson('day31')"><span><span class="sidebar-num">31</span> async/await &amp; Errors</span></a></li>
+        <li><a onclick="showLesson('day32')"><span><span class="sidebar-num">32</span> Debugging</span></a></li>
+        <li><a onclick="showLesson('day33')"><span><span class="sidebar-num">33</span> Project: To-Do App</span></a></li>
+        <li><a onclick="showLesson('day34')"><span><span class="sidebar-num">34</span> Final Project</span></a></li>
       </ul>
     </aside>
 
     <main class="lesson-main">
       <div class="lesson-header">
         <div class="lesson-meta">
-          <span class="lesson-day">Day 02 — Free Lesson</span>
-          <span class="lesson-time">~15 min read · Video coming soon</span>
+          <span class="lesson-day">Lesson 02 — Free Lesson</span>
+          <span class="lesson-time">~18 min · Video coming soon</span>
         </div>
-        <h1 class="lesson-title">Text, Links & Navigation</h1>
-        <p class="lesson-intro">Today you make your pages connect. You'll learn how to create links, build lists, and set up a basic navigation — the building blocks of every website on the internet.</p>
+        <h1 class="lesson-title">Text, Headings &amp; Links</h1>
+        <p class="lesson-intro">A page with one heading isn't much of a website. Today you learn how to organize text with headings, and how links connect your page to the rest of the internet, and to other pages of your own.</p>
       </div>
 
       <div class="video-wrap">
         <div class="video-placeholder">
-          <div class="video-play">
-            <svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg>
-          </div>
+          <div class="video-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
           <p class="video-label">🎬 Video coming soon...</p>
         </div>
       </div>
 
       <div class="lesson-body">
 
-        <div class="lesson-section" id="d2-intro">
-          <h2>What we're building today</h2>
-          <p>On Day 1 you built a single page. Today you learn how to connect pages, create lists, and build navigation — so your site starts feeling like a real website with multiple sections and destinations.</p>
-          <p>By the end of today your page will have working links, an ordered and unordered list, and a simple navigation bar at the top.</p>
-          <div class="callout info">
-            <span class="callout-icon">💡</span>
-            <p><strong>Quick recap from Day 1:</strong> You know HTML structure, headings, paragraphs, bold, italic, and line breaks. Everything today builds directly on top of that.</p>
-          </div>
-        </div>
-
-        <div class="lesson-section" id="d2-anchor">
-          <h2>The anchor tag — how links work</h2>
-          <p>Links in HTML are made with the <code>&lt;a&gt;</code> tag — short for <strong>anchor</strong>. It wraps around any text and turns it into a clickable link.</p>
+        <div class="lesson-section" id="d2-headings">
+          <h2>Headings: h1 to h6</h2>
+          <p>HTML has six heading levels, from <code>&lt;h1&gt;</code> (most important) to <code>&lt;h6&gt;</code> (least important). They work like the outline of an essay:</p>
 
           <div class="code-block">
             <div class="code-header">
@@ -1692,111 +1754,18 @@
               <button class="code-copy" onclick="copyCode(this)">Copy</button>
             </div>
             <div class="lesson-code-body">
-<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"https://google.com"</span><span class="t-blue">&gt;</span><span class="t-white">Click here to visit Google</span><span class="t-blue">&lt;/a&gt;</span>
-            </div>
-          </div>
-
-          <p>The <code>href</code> attribute is where you put the destination URL. That's it. Any text between the opening and closing tag becomes the clickable link text.</p>
-
-          <h3>Opening links in a new tab</h3>
-          <p>By default, links open in the same tab. If you want a link to open in a new tab — which is best practice for external sites — add <code>target="_blank"</code>:</p>
-
-          <div class="code-block">
-            <div class="code-header">
-              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
-              <span class="code-filename">index.html</span>
-              <button class="code-copy" onclick="copyCode(this)">Copy</button>
-            </div>
-            <div class="lesson-code-body">
-<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"https://google.com"</span> <span class="t-yellow">target</span>=<span class="t-green">"_blank"</span><span class="t-blue">&gt;</span><span class="t-white">Visit Google</span><span class="t-blue">&lt;/a&gt;</span>
-            </div>
-          </div>
-
-          <h3>Linking to another page on your own site</h3>
-          <p>When linking between your own pages, you don't need the full URL — just the filename:</p>
-
-          <div class="code-block">
-            <div class="code-header">
-              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
-              <span class="code-filename">index.html</span>
-              <button class="code-copy" onclick="copyCode(this)">Copy</button>
-            </div>
-            <div class="lesson-code-body">
-<span class="t-gray">&lt;!-- Link to another page in your project --&gt;</span><br>
-<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"about.html"</span><span class="t-blue">&gt;</span><span class="t-white">About me</span><span class="t-blue">&lt;/a&gt;</span><br>
-<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"contact.html"</span><span class="t-blue">&gt;</span><span class="t-white">Contact</span><span class="t-blue">&lt;/a&gt;</span>
-            </div>
-          </div>
-
-          <h3>Linking to a section on the same page</h3>
-          <p>You can link to a specific section on the same page using an <code>id</code> and the <code>#</code> symbol:</p>
-
-          <div class="code-block">
-            <div class="code-header">
-              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
-              <span class="code-filename">index.html</span>
-              <button class="code-copy" onclick="copyCode(this)">Copy</button>
-            </div>
-            <div class="lesson-code-body">
-<span class="t-gray">&lt;!-- The link --&gt;</span><br>
-<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#about"</span><span class="t-blue">&gt;</span><span class="t-white">Jump to About section</span><span class="t-blue">&lt;/a&gt;</span><br>
-<br>
-<span class="t-gray">&lt;!-- The destination --&gt;</span><br>
-<span class="t-blue">&lt;h2</span> <span class="t-yellow">id</span>=<span class="t-green">"about"</span><span class="t-blue">&gt;</span><span class="t-white">About Me</span><span class="t-blue">&lt;/h2&gt;</span>
-            </div>
-          </div>
-
-          <div class="callout tip">
-            <span class="callout-icon">✓</span>
-            <p><strong>Good to know:</strong> The <code>id</code> attribute can be added to any HTML element — not just headings. It gives that element a unique name so you can link directly to it.</p>
-          </div>
-        </div>
-
-        <div class="lesson-section" id="d2-lists">
-          <h2>Lists — ordered and unordered</h2>
-          <p>HTML has two types of lists. An <strong>unordered list</strong> gives you bullet points. An <strong>ordered list</strong> gives you numbers. Both use the <code>&lt;li&gt;</code> tag for each item.</p>
-
-          <h3>Unordered list — bullet points</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
-              <span class="code-filename">index.html</span>
-              <button class="code-copy" onclick="copyCode(this)">Copy</button>
-            </div>
-            <div class="lesson-code-body">
-<span class="t-blue">&lt;ul&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">HTML</span><span class="t-blue">&lt;/li&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">CSS</span><span class="t-blue">&lt;/li&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">JavaScript</span><span class="t-blue">&lt;/li&gt;</span><br>
-<span class="t-blue">&lt;/ul&gt;</span>
-            </div>
-          </div>
-
-          <h3>Ordered list — numbered</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
-              <span class="code-filename">index.html</span>
-              <button class="code-copy" onclick="copyCode(this)">Copy</button>
-            </div>
-            <div class="lesson-code-body">
-<span class="t-blue">&lt;ol&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Buy groceries</span><span class="t-blue">&lt;/li&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Cook dinner</span><span class="t-blue">&lt;/li&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Eat</span><span class="t-blue">&lt;/li&gt;</span><br>
-<span class="t-blue">&lt;/ol&gt;</span>
+<span class="t-blue">&lt;h1</span><span class="t-blue">&gt;</span><span class="t-white">Esdras Buelvas</span><span class="t-blue">&lt;/h1</span><span class="t-blue">&gt;</span>          <span class="t-gray">&lt;!-- the page title: only one per page --&gt;</span><br><span class="t-blue">&lt;h2</span><span class="t-blue">&gt;</span><span class="t-white">About me</span><span class="t-blue">&lt;/h2</span><span class="t-blue">&gt;</span>               <span class="t-gray">&lt;!-- a main section --&gt;</span><br><span class="t-blue">&lt;h3</span><span class="t-blue">&gt;</span><span class="t-white">Where I&#x27;m from</span><span class="t-blue">&lt;/h3</span><span class="t-blue">&gt;</span>         <span class="t-gray">&lt;!-- a part of that section --&gt;</span><br><span class="t-blue">&lt;h2</span><span class="t-blue">&gt;</span><span class="t-white">My projects</span><span class="t-blue">&lt;/h2</span><span class="t-blue">&gt;</span>            <span class="t-gray">&lt;!-- the next main section --&gt;</span>
             </div>
           </div>
 
           <div class="callout warning">
             <span class="callout-icon">⚠</span>
-            <p><strong>Common mistake:</strong> Always put <code>&lt;li&gt;</code> items directly inside <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>. Never put raw text directly inside a list tag without wrapping it in <code>&lt;li&gt;</code>.</p>
+            <p><strong>Don't pick headings by size.</strong> Pick them by importance. If you want a heading smaller, you'll change that with CSS later. Skipping levels (h1 straight to h4) confuses screen readers and Google.</p>
           </div>
         </div>
-
-        <div class="lesson-section" id="d2-nav">
-          <h2>Building a simple navigation</h2>
-          <p>A navigation bar is just a list of links at the top of your page. In HTML, we use the <code>&lt;nav&gt;</code> tag to tell the browser "this is navigation", and a <code>&lt;ul&gt;</code> with links inside for the actual items.</p>
+        <div class="lesson-section" id="d2-links">
+          <h2>The anchor tag: links</h2>
+          <p>Links use the <code>&lt;a&gt;</code> tag, short for <em>anchor</em>. The <code>href</code> attribute says where the link goes:</p>
 
           <div class="code-block">
             <div class="code-header">
@@ -1805,28 +1774,46 @@
               <button class="code-copy" onclick="copyCode(this)">Copy</button>
             </div>
             <div class="lesson-code-body">
-<span class="t-blue">&lt;nav&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;ul&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"index.html"</span><span class="t-blue">&gt;</span><span class="t-white">Home</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#about"</span><span class="t-blue">&gt;</span><span class="t-white">About</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#hobbies"</span><span class="t-blue">&gt;</span><span class="t-white">Hobbies</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"contact.html"</span><span class="t-blue">&gt;</span><span class="t-white">Contact</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;/ul&gt;</span><br>
-<span class="t-blue">&lt;/nav&gt;</span>
+<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;https://github.com&quot;</span><span class="t-blue">&gt;</span><span class="t-white">Visit GitHub</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span>
             </div>
           </div>
 
-          <p>Right now it looks like a plain vertical list — that's normal. On Day 3 when we add CSS, you'll style it into a real horizontal navbar that looks professional. Today we focus on getting the structure right.</p>
+          <p>An <strong>attribute</strong> is extra information inside the opening tag, written as <code>name="value"</code>. You'll see attributes on almost every tag from here on.</p>
+
+          <h3>Four kinds of links</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-gray">&lt;!-- 1. Another website: the full URL --&gt;</span><br><span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;https://github.com&quot;</span> <span class="t-yellow">target</span>=<span class="t-green">&quot;_blank&quot;</span><span class="t-blue">&gt;</span><span class="t-white">GitHub</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br><br><span class="t-gray">&lt;!-- 2. Another page on your own site: just the file name --&gt;</span><br><span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;projects.html&quot;</span><span class="t-blue">&gt;</span><span class="t-white">My projects</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br><br><span class="t-gray">&lt;!-- 3. An email address --&gt;</span><br><span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;mailto:you@example.com&quot;</span><span class="t-blue">&gt;</span><span class="t-white">Email me</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br><br><span class="t-gray">&lt;!-- 4. A section on the same page, using an id --&gt;</span><br><span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;#about&quot;</span><span class="t-blue">&gt;</span><span class="t-white">Jump to About</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;h2</span> <span class="t-yellow">id</span>=<span class="t-green">&quot;about&quot;</span><span class="t-blue">&gt;</span><span class="t-white">About me</span><span class="t-blue">&lt;/h2</span><span class="t-blue">&gt;</span>
+            </div>
+          </div>
+
+          <p><code>target="_blank"</code> opens the link in a new tab. Use it for other websites so visitors don't lose your page.</p>
+
+          <div class="callout tip">
+            <span class="callout-icon">✓</span>
+            <p><strong>Write link text that makes sense on its own.</strong> "See my projects" beats "click here". Screen readers often read out a list of just the links, and "click here, click here, click here" tells nobody anything.</p>
+          </div>
+        </div>
+        <div class="lesson-section" id="d2-paths">
+          <h2>Absolute vs relative links</h2>
+          <p>An <strong>absolute</strong> link includes everything: <code>https://github.com/dras8u</code>. It works from anywhere.</p>
+
+          <p>A <strong>relative</strong> link is relative to where the current file is. <code>projects.html</code> means "the file called projects.html in the same folder as this page". You'll learn more about paths in Lesson 4.</p>
 
           <div class="callout info">
             <span class="callout-icon">💡</span>
-            <p><strong>Why use <code>&lt;nav&gt;</code>?</strong> It's a semantic tag — it tells the browser and screen readers that this section is navigation, not just a random list. Good habit to build early.</p>
+            <p><strong>Rule of thumb:</strong> other people's websites get absolute links. Your own pages get relative links, so your site still works after you move it online.</p>
           </div>
         </div>
-
-        <div class="lesson-section" id="d2-build">
-          <h2>Put it all together</h2>
-          <p>Open your <code>index.html</code> from Day 1. Add a navigation at the top, a list of your hobbies, and a few links. Type every line — don't paste.</p>
+        <div class="lesson-section" id="d2-nav">
+          <h2>Build a navigation bar</h2>
+          <p>A navigation bar is just a list of links, wrapped in a <code>&lt;nav&gt;</code> tag that tells browsers "this is navigation". Add this at the top of your body:</p>
 
           <div class="code-block">
             <div class="code-header">
@@ -1835,67 +1822,55 @@
               <button class="code-copy" onclick="copyCode(this)">Copy</button>
             </div>
             <div class="lesson-code-body">
-<span class="t-gray">&lt;!DOCTYPE html&gt;</span><br>
-<span class="t-blue">&lt;html</span> <span class="t-yellow">lang</span>=<span class="t-green">"en"</span><span class="t-blue">&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;head&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;meta</span> <span class="t-yellow">charset</span>=<span class="t-green">"UTF-8"</span><span class="t-blue">&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;title&gt;</span><span class="t-white">My Website</span><span class="t-blue">&lt;/title&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;/head&gt;</span><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;body&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;nav&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;ul&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#home"</span><span class="t-blue">&gt;</span><span class="t-white">Home</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#about"</span><span class="t-blue">&gt;</span><span class="t-white">About</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"#hobbies"</span><span class="t-blue">&gt;</span><span class="t-white">Hobbies</span><span class="t-blue">&lt;/a&gt;&lt;/li&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;/ul&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;/nav&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h1</span> <span class="t-yellow">id</span>=<span class="t-green">"home"</span><span class="t-blue">&gt;</span><span class="t-white">Hello, I'm Esdras.</span><span class="t-blue">&lt;/h1&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I'm learning to build websites from scratch.</span><span class="t-blue">&lt;/p&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;hr&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2</span> <span class="t-yellow">id</span>=<span class="t-green">"about"</span><span class="t-blue">&gt;</span><span class="t-white">About Me</span><span class="t-blue">&lt;/h2&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">I'm 17 and teaching myself to code.</span><span class="t-blue">&lt;/p&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;h2</span> <span class="t-yellow">id</span>=<span class="t-green">"hobbies"</span><span class="t-blue">&gt;</span><span class="t-white">My Hobbies</span><span class="t-blue">&lt;/h2&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;ul&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Building websites</span><span class="t-blue">&lt;/li&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Learning new things</span><span class="t-blue">&lt;/li&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;li&gt;</span><span class="t-white">Teaching others</span><span class="t-blue">&lt;/li&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;/ul&gt;</span><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;p&gt;</span><span class="t-white">Check out </span><span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">"https://github.com"</span> <span class="t-yellow">target</span>=<span class="t-green">"_blank"</span><span class="t-blue">&gt;</span><span class="t-white">my GitHub</span><span class="t-blue">&lt;/a&gt;</span><span class="t-white">.</span><span class="t-blue">&lt;/p&gt;</span><br><br>
-&nbsp;&nbsp;<span class="t-blue">&lt;/body&gt;</span><br>
-<span class="t-blue">&lt;/html&gt;</span>
+<span class="t-blue">&lt;nav</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;index.html&quot;</span><span class="t-blue">&gt;</span><span class="t-white">Home</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;#about&quot;</span><span class="t-blue">&gt;</span><span class="t-white">About</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;mailto:you@example.com&quot;</span><span class="t-blue">&gt;</span><span class="t-white">Contact</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;/nav</span><span class="t-blue">&gt;</span>
+            </div>
+          </div>
+
+          <p>Right now it's a plain row of blue links. That's normal. In Module 2 you'll turn it into a real navigation bar. Today is about getting the structure right.</p>
+        </div>
+        <div class="lesson-section" id="d2-build">
+          <h2>Put it together</h2>
+          <p>Update your <code>index.html</code> body so it has a nav, a clear heading structure, and links:</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span></div>
+              <span class="code-filename">index.html</span>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="lesson-code-body">
+<span class="t-blue">&lt;body</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;nav</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;index.html&quot;</span><span class="t-blue">&gt;</span><span class="t-white">Home</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;#about&quot;</span><span class="t-blue">&gt;</span><span class="t-white">About</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;mailto:you@example.com&quot;</span><span class="t-blue">&gt;</span><span class="t-white">Contact</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;/nav</span><span class="t-blue">&gt;</span><br><br>&nbsp;&nbsp;<span class="t-blue">&lt;h1</span><span class="t-blue">&gt;</span><span class="t-white">Hi, I&#x27;m Esdras.</span><span class="t-blue">&lt;/h1</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;p</span><span class="t-blue">&gt;</span><span class="t-white">I&#x27;m learning to build websites from scratch.</span><span class="t-blue">&lt;/p</span><span class="t-blue">&gt;</span><br><br>&nbsp;&nbsp;<span class="t-blue">&lt;h2</span> <span class="t-yellow">id</span>=<span class="t-green">&quot;about&quot;</span><span class="t-blue">&gt;</span><span class="t-white">About me</span><span class="t-blue">&lt;/h2</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;p</span><span class="t-blue">&gt;</span><span class="t-white">I started with zero experience. Now I&#x27;m building my own site.</span><span class="t-blue">&lt;/p</span><span class="t-blue">&gt;</span><br><br>&nbsp;&nbsp;<span class="t-blue">&lt;h2</span><span class="t-blue">&gt;</span><span class="t-white">Find me online</span><span class="t-blue">&lt;/h2</span><span class="t-blue">&gt;</span><br>&nbsp;&nbsp;<span class="t-blue">&lt;p</span><span class="t-blue">&gt;</span><span class="t-white">See my code on </span><span class="t-blue">&lt;a</span> <span class="t-yellow">href</span>=<span class="t-green">&quot;https://github.com&quot;</span> <span class="t-yellow">target</span>=<span class="t-green">&quot;_blank&quot;</span><span class="t-blue">&gt;</span><span class="t-white">GitHub</span><span class="t-blue">&lt;/a</span><span class="t-blue">&gt;</span><span class="t-white">.</span><span class="t-blue">&lt;/p</span><span class="t-blue">&gt;</span><br><span class="t-blue">&lt;/body</span><span class="t-blue">&gt;</span>
             </div>
           </div>
 
           <div class="callout tip">
             <span class="callout-icon">✓</span>
-            <p><strong>Notice:</strong> The nav links use <code>#home</code>, <code>#about</code>, <code>#hobbies</code> — and the headings have matching <code>id</code> attributes. Click a nav link and the page jumps straight to that section.</p>
+            <p><strong>Test every link.</strong> Click each one. The About link should jump down the page, the GitHub link should open a new tab, and the Contact link should try to open your email app.</p>
           </div>
         </div>
 
         <div class="challenge" id="d2-challenge">
-          <div class="challenge-label">Day 2 Challenge</div>
-          <h3>Make it yours.</h3>
-          <p>Complete all of these before moving to Day 3. Should take 10–15 minutes.</p>
+          <div class="challenge-label">Lesson 2 Challenge</div>
+          <h3>Connect it all.</h3>
+          <p>Do all of these before moving on.</p>
           <ul class="challenge-list">
-            <li>Add a 4th nav link that jumps to a new section you create</li>
-            <li>Add an ordered list ranking your top 3 favorite things</li>
+            <li>Add a section with an <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;h2&gt;</code> and an <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">id</code>, plus a nav link that jumps to it</li>
             <li>Add a link to your favorite website that opens in a new tab</li>
-            <li>Add an email link using <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">href="mailto:your@email.com"</code></li>
-            <li>Make sure every nav link jumps to the correct section</li>
-            <li>Add a "Back to top" link at the bottom of the page</li>
+            <li>Change the email link to your real email address</li>
+            <li>Add a "Back to top" link at the bottom that jumps to your <code style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">&lt;h1&gt;</code></li>
+            <li>Check that your headings go in order, with no skipped levels</li>
+            <li>Rewrite any "click here" link text so it makes sense on its own</li>
           </ul>
         </div>
 
         <div class="next-lesson" onclick="showLesson('day3')">
           <div>
-            <div class="next-label">Up next — Day 3</div>
-            <div class="next-title">Styling with CSS</div>
+            <div class="next-label">Up next — Lesson 3</div>
+            <div class="next-title">Lists, Tables &amp; Semantic HTML</div>
           </div>
-          <div class="next-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
-          </div>
+          <div class="next-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg></div>
         </div>
-
+        <div class="lesson-prev"><a onclick="showLesson('day1')">← Lesson 1: Your First HTML Page</a></div>
       </div>
     </main>
 
@@ -1903,7 +1878,7 @@
       <div>
         <p class="panel-title">Your progress</p>
         <div class="progress-card">
-          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 2 of 14</p>
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Lesson 2 of 34</p>
           <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar2"></div></div>
           <p class="progress-pct" id="progressPct2">0% complete</p>
         </div>
@@ -1911,56 +1886,57 @@
       <div>
         <p class="panel-title">Lesson checklist</p>
         <ul class="checklist" id="checklist2">
-          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
-          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Learn the anchor tag</li>
-          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Learn lists (ul & ol)</li>
-          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Build the navigation</li>
-          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the full page</li>
-          <li onclick="toggleCheck2(this)"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
+          <li onclick="toggleCheckN(this,'2')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Watch the video</li>
+          <li onclick="toggleCheckN(this,'2')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Use headings in order</li>
+          <li onclick="toggleCheckN(this,'2')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Write the four kinds of links</li>
+          <li onclick="toggleCheckN(this,'2')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Understand relative vs absolute</li>
+          <li onclick="toggleCheckN(this,'2')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Build the navigation</li>
+          <li onclick="toggleCheckN(this,'2')"><span class="check-box"><svg viewBox="0 0 9 9" fill="none" stroke="white" stroke-width="2"><polyline points="1,4.5 3.5,7 8,1.5"></polyline></svg></span>Complete the challenge</li>
         </ul>
       </div>
       <div>
-        <p class="panel-title">New tags today</p>
+        <p class="panel-title">Resources</p>
         <ul class="resource-list">
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>&lt;a&gt; — Anchor / Link</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>&lt;ul&gt; — Unordered List</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>&lt;ol&gt; — Ordered List</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" target="_blank"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>&lt;nav&gt; — Navigation</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank" rel="noopener"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN: &lt;a&gt; element</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" target="_blank" rel="noopener"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN: Headings</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" target="_blank" rel="noopener"><span class="resource-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 6L6 11M1 6H11"></path></svg></span>MDN: &lt;nav&gt; element</a></li>
         </ul>
       </div>
     </aside>
-
   </div>
 </div>
-
-<!-- ===================== DAY 3 PAGE ===================== -->
 <div class="page" id="day3Page"><div class="paywall-slot" data-day="3"></div></div>
-
-<!-- ===================== DAY 4 PAGE ===================== -->
 <div class="page" id="day4Page"><div class="paywall-slot" data-day="4"></div></div>
-
-<!-- ===================== DAY 5 PAGE ===================== -->
 <div class="page" id="day5Page"><div class="paywall-slot" data-day="5"></div></div>
-
-<!-- ===================== DAY 6 PAGE ===================== -->
 <div class="page" id="day6Page"><div class="paywall-slot" data-day="6"></div></div>
-
-<!-- ===================== DAY 7 PAGE ===================== -->
 <div class="page" id="day7Page"><div class="paywall-slot" data-day="7"></div></div>
-
 <div class="page" id="day8Page"><div class="paywall-slot" data-day="8"></div></div>
-
 <div class="page" id="day9Page"><div class="paywall-slot" data-day="9"></div></div>
-
 <div class="page" id="day10Page"><div class="paywall-slot" data-day="10"></div></div>
-
 <div class="page" id="day11Page"><div class="paywall-slot" data-day="11"></div></div>
-
 <div class="page" id="day12Page"><div class="paywall-slot" data-day="12"></div></div>
-
 <div class="page" id="day13Page"><div class="paywall-slot" data-day="13"></div></div>
-
 <div class="page" id="day14Page"><div class="paywall-slot" data-day="14"></div></div>
+<div class="page" id="day15Page"><div class="paywall-slot" data-day="15"></div></div>
+<div class="page" id="day16Page"><div class="paywall-slot" data-day="16"></div></div>
+<div class="page" id="day17Page"><div class="paywall-slot" data-day="17"></div></div>
+<div class="page" id="day18Page"><div class="paywall-slot" data-day="18"></div></div>
+<div class="page" id="day19Page"><div class="paywall-slot" data-day="19"></div></div>
+<div class="page" id="day20Page"><div class="paywall-slot" data-day="20"></div></div>
+<div class="page" id="day21Page"><div class="paywall-slot" data-day="21"></div></div>
+<div class="page" id="day22Page"><div class="paywall-slot" data-day="22"></div></div>
+<div class="page" id="day23Page"><div class="paywall-slot" data-day="23"></div></div>
+<div class="page" id="day24Page"><div class="paywall-slot" data-day="24"></div></div>
+<div class="page" id="day25Page"><div class="paywall-slot" data-day="25"></div></div>
+<div class="page" id="day26Page"><div class="paywall-slot" data-day="26"></div></div>
+<div class="page" id="day27Page"><div class="paywall-slot" data-day="27"></div></div>
+<div class="page" id="day28Page"><div class="paywall-slot" data-day="28"></div></div>
+<div class="page" id="day29Page"><div class="paywall-slot" data-day="29"></div></div>
+<div class="page" id="day30Page"><div class="paywall-slot" data-day="30"></div></div>
+<div class="page" id="day31Page"><div class="paywall-slot" data-day="31"></div></div>
+<div class="page" id="day32Page"><div class="paywall-slot" data-day="32"></div></div>
+<div class="page" id="day33Page"><div class="paywall-slot" data-day="33"></div></div>
+<div class="page" id="day34Page"><div class="paywall-slot" data-day="34"></div></div>
 
 <!-- ===== AUTH MODAL ===== -->
 <div id="authModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
@@ -2013,7 +1989,7 @@
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
-  import { getFirestore, doc, setDoc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+  import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
   const firebaseConfig = {
     apiKey: "AIzaSyC0spicLEU2gL6cB2zeIJa02_Ve-rmdUdY",
@@ -2027,26 +2003,10 @@
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
+  const TOTAL = 34;
+  const FREE_LESSONS = 2;
 
-  // Checklist IDs mapped to day keys
-  const checklistMap = {
-    'checklist':  'day1',
-    'checklist2': 'day2',
-    'checklist3': 'day3',
-    'checklist4': 'day4',
-    'checklist5': 'day5',
-    'checklist6': 'day6',
-    'checklist7': 'day7',
-    'checklist8': 'day8',
-    'checklist9': 'day9',
-    'checklist10': 'day10',
-    'checklist11': 'day11',
-    'checklist12': 'day12',
-    'checklist13': 'day13',
-    'checklist14': 'day14',
-  };
-
-  // ===== AUTH STATE LISTENER =====
+  // ===== AUTH STATE =====
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       const firstName = user.displayName ? user.displayName.split(' ')[0] : user.email.split('@')[0];
@@ -2054,7 +2014,7 @@
       const paid = await checkPaid(user);
       window._access = { user: { email: user.email }, paid, ready: true };
       if (paid) await loadPaidLessons();
-      try { await loadProgress(user.uid); } catch(e) { console.warn('Progress load failed:', e); }
+      try { await loadProgress(user.uid); } catch (e) { console.warn('Progress load failed:', e); }
     } else {
       window._access = { user: null, paid: false, ready: true };
       lockPaidLessons();
@@ -2062,6 +2022,11 @@
       clearAllProgress();
     }
     refreshActiveLockedPage();
+    if (window._afterLogin) {
+      window._afterLogin = false;
+      window.continueCourse();
+    }
+    if (document.getElementById('profilePage').classList.contains('active')) window.renderProfile();
   });
 
   // ===== FULL COURSE ACCESS =====
@@ -2075,25 +2040,23 @@
     }
   }
 
-  // Paid lessons live in Firestore (lessons/day3 … lessons/day7), not in this file,
-  // so they can't be read from the page source.
+  // Paid lessons live in Firestore (lessons/day3 … lessons/day34), not in this file.
   async function loadPaidLessons() {
-    for (let n = 3; n <= 14; n++) {
-      const page = document.getElementById('day' + n + 'Page');
-      try {
-        const snap = await getDoc(doc(db, 'lessons', 'day' + n));
+    const jobs = [];
+    for (let n = FREE_LESSONS + 1; n <= TOTAL; n++) {
+      jobs.push(getDoc(doc(db, 'lessons', 'day' + n)).then((snap) => {
+        const page = document.getElementById('day' + n + 'Page');
         if (snap.exists() && page) {
           page.innerHTML = snap.data().html;
           page.dataset.unlocked = '1';
         }
-      } catch (e) {
-        console.warn('Could not load day ' + n, e);
-      }
+      }).catch((e) => console.warn('Could not load lesson ' + n, e)));
     }
+    await Promise.all(jobs);
   }
 
   function lockPaidLessons() {
-    for (let n = 3; n <= 14; n++) {
+    for (let n = FREE_LESSONS + 1; n <= TOTAL; n++) {
       const page = document.getElementById('day' + n + 'Page');
       if (page && page.dataset.unlocked === '1') {
         page.innerHTML = '<div class="paywall-slot" data-day="' + n + '"></div>';
@@ -2103,109 +2066,88 @@
   }
 
   function refreshActiveLockedPage() {
-    for (let n = 3; n <= 14; n++) {
+    for (let n = FREE_LESSONS + 1; n <= TOTAL; n++) {
       const page = document.getElementById('day' + n + 'Page');
       if (page && page.classList.contains('active') && page.dataset.unlocked !== '1') window.renderPaywall(n);
     }
   }
 
-  // ===== SAVE PROGRESS TO FIRESTORE =====
+  // ===== PROGRESS =====
   async function saveProgress(uid) {
     const progress = {};
-    Object.keys(checklistMap).forEach(id => {
-      const cl = document.getElementById(id);
-      if (!cl) return;
-      const items = cl.querySelectorAll('li');
-      progress[checklistMap[id]] = Array.from(items).map(li => li.classList.contains('done'));
-    });
+    for (let n = 1; n <= TOTAL; n++) {
+      const cl = document.getElementById('checklist' + n);
+      if (!cl) continue;
+      progress['day' + n] = Array.from(cl.querySelectorAll('li')).map((li) => li.classList.contains('done'));
+    }
     try {
       await setDoc(doc(db, 'progress', uid), progress, { merge: true });
-    } catch(e) {
+    } catch (e) {
       console.error('Save error:', e);
     }
   }
 
-  // ===== LOAD PROGRESS FROM FIRESTORE =====
   async function loadProgress(uid) {
-    try {
-      const snap = await getDoc(doc(db, 'progress', uid));
-      if (!snap.exists()) return;
-      const data = snap.data();
-      Object.entries(checklistMap).forEach(([clId, dayKey]) => {
-        const cl = document.getElementById(clId);
-        if (!cl || !data[dayKey]) return;
-        const items = cl.querySelectorAll('li');
-        data[dayKey].forEach((done, i) => {
-          if (done && items[i]) {
-            items[i].classList.add('done');
-          }
-        });
-        // Update the progress bar for this checklist
-        const n = clId.replace('checklist', '') || '1';
-        const barId = n === '1' ? 'progressBar' : 'progressBar' + n;
-        const pctId = n === '1' ? 'progressPct' : 'progressPct' + n;
-        const doneCount = cl.querySelectorAll('li.done').length;
-        const total = items.length;
-        const pct = Math.round((doneCount / total) * 100);
-        const bar = document.getElementById(barId);
-        const pctEl = document.getElementById(pctId);
-        if (bar) bar.style.width = pct + '%';
-        if (pctEl) pctEl.textContent = pct + '% complete';
-      });
-    } catch(e) {
-      console.error('Load error:', e);
+    const snap = await getDoc(doc(db, 'progress', uid));
+    if (!snap.exists()) return;
+    const data = snap.data();
+    for (let n = 1; n <= TOTAL; n++) {
+      const cl = document.getElementById('checklist' + n);
+      const saved = data['day' + n];
+      if (!cl || !Array.isArray(saved)) continue;
+      const items = cl.querySelectorAll('li');
+      saved.forEach((done, i) => { if (items[i]) items[i].classList.toggle('done', !!done); });
+      window.updateLessonProgress(n);
     }
   }
 
-  // ===== CLEAR PROGRESS FROM DOM ON LOGOUT =====
   function clearAllProgress() {
-    Object.keys(checklistMap).forEach(id => {
-      const cl = document.getElementById(id);
-      if (!cl) return;
-      cl.querySelectorAll('li').forEach(li => li.classList.remove('done'));
-    });
-    // Reset all progress bars
-    ['','2','3','4','5','6','7','8','9','10','11','12','13','14'].forEach(n => {
-      const bar = document.getElementById('progressBar' + n);
-      const pct = document.getElementById('progressPct' + n);
-      if (bar) bar.style.width = '0%';
-      if (pct) pct.textContent = '0% complete';
-    });
+    for (let n = 1; n <= TOTAL; n++) {
+      const cl = document.getElementById('checklist' + n);
+      if (!cl) continue;
+      cl.querySelectorAll('li').forEach((li) => li.classList.remove('done'));
+      window.updateLessonProgress(n);
+    }
   }
 
-  // ===== EXPOSE saveProgress globally so checklist toggles can call it =====
   window._saveProgress = () => {
     const user = auth.currentUser;
-    if (user) saveProgress(user.uid).catch(e => console.warn('Save failed:', e));
+    if (user) saveProgress(user.uid);
   };
 
   // ===== NAV =====
+  function escapeHTML(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
   function updateNavForUser(name, email) {
-    const initial = name ? name[0].toUpperCase() : '?';
-    const navRight = document.getElementById('homeNav');
-    navRight.innerHTML = `
+    const safeName = escapeHTML(name);
+    const initial = name ? escapeHTML(name[0].toUpperCase()) : '?';
+    document.getElementById('homeNav').innerHTML = `
       <li><a onclick="scrollToSection('curriculum')">Curriculum</a></li>
       <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
       <li style="display:flex;align-items:center;gap:0.75rem;">
         <a onclick="window.showProfile()" style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:var(--gray-text);cursor:pointer;padding:0.4rem 1rem;border:1px solid var(--gray-mid);border-radius:100px;transition:all 0.15s;text-decoration:none;" onmouseover="this.style.borderColor='var(--black)';this.style.color='var(--black)'" onmouseout="this.style.borderColor='var(--gray-mid)';this.style.color='var(--gray-text)'">
           <span style="width:22px;height:22px;border-radius:50%;background:var(--black);color:white;font-size:0.6875rem;font-weight:500;display:flex;align-items:center;justify-content:center;">${initial}</span>
-          ${name}
+          ${safeName}
         </a>
-        <a onclick="showLesson('day1')" class="nav-cta">Continue →</a>
+        <a onclick="window.continueCourse()" class="nav-cta">Continue →</a>
       </li>`;
     const avatarEl = document.getElementById('profileAvatar');
     const greetingEl = document.getElementById('profileGreeting');
     const emailEl = document.getElementById('profileEmail');
-    if (avatarEl) avatarEl.textContent = initial;
+    if (avatarEl) avatarEl.textContent = name ? name[0].toUpperCase() : '?';
     if (greetingEl) greetingEl.textContent = `Hey, ${name} 👋`;
     if (emailEl) emailEl.textContent = email || '';
   }
 
   function updateNavForGuest() {
-    const navRight = document.getElementById('homeNav');
-    navRight.innerHTML = `
+    document.getElementById('homeNav').innerHTML = `
       <li><a onclick="scrollToSection('curriculum')">Curriculum</a></li>
       <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
+      <li><a onclick="scrollToSection('instructor')">About</a></li>
       <li><a onclick="window.showAuthModal('login')" style="font-size:0.875rem;color:var(--gray-text);cursor:pointer;">Log in</a></li>
       <li><a onclick="window.showAuthModal('signup')" class="nav-cta">Start Free →</a></li>`;
   }
@@ -2225,6 +2167,7 @@
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(cred.user, { displayName: name });
+      updateNavForUser(name, email);
       closeAuthModal();
       showLesson('day1');
     } catch (err) {
@@ -2244,10 +2187,11 @@
     btn.textContent = 'Logging in...';
     btn.disabled = true;
     try {
+      window._afterLogin = true;   // go to the next unfinished lesson once progress loads
       await signInWithEmailAndPassword(auth, email, password);
       closeAuthModal();
-      showLesson('day1');
     } catch (err) {
+      window._afterLogin = false;
       btn.textContent = 'Log in →';
       btn.disabled = false;
       showAuthError(friendlyError(err.code));
@@ -2267,7 +2211,7 @@
     try {
       await sendPasswordResetEmail(auth, email);
       showAuthError('✓ Reset email sent — check your inbox.', true);
-    } catch(err) {
+    } catch (err) {
       showAuthError(friendlyError(err.code));
     }
   };
@@ -2300,22 +2244,42 @@
     el.style.display = 'none';
     el.textContent = '';
   }
+
 </script>
 
 <script>
-  // ===== FULL COURSE CONFIG — edit these two lines =====
-  const COURSE_PRICE = '$49';
+  // ===== COURSE CONFIG — edit these lines =====
+  const COURSE_PRICE = '$97';
   const CHECKOUT_URL = 'https://square.link/u/FB4SOI7h';
   const CONTACT_EMAIL = 'hello@esdrasbuelvas.org';
 
-  // Access state (filled in by the Firebase script)
+  // ===== COURSE STRUCTURE (generated) =====
+  const COURSE = [{"n": 1, "module": "html", "short": "Your First Page", "title": "Your First HTML Page"}, {"n": 2, "module": "html", "short": "Text & Links", "title": "Text, Headings & Links"}, {"n": 3, "module": "html", "short": "Lists, Tables & Structure", "title": "Lists, Tables & Semantic HTML"}, {"n": 4, "module": "html", "short": "Images & Media", "title": "Images, Media & File Paths"}, {"n": 5, "module": "html", "short": "Forms", "title": "Forms & Inputs"}, {"n": 6, "module": "html", "short": "Accessibility & SEO", "title": "Accessibility & SEO Basics"}, {"n": 7, "module": "html", "short": "Project: Multi-Page Site", "title": "Project: A Multi-Page Website"}, {"n": 8, "module": "css", "short": "Selectors & Cascade", "title": "CSS Basics: Selectors & the Cascade"}, {"n": 9, "module": "css", "short": "Colors, Units & Type", "title": "Colors, Units & Typography"}, {"n": 10, "module": "css", "short": "The Box Model", "title": "The Box Model in Depth"}, {"n": 11, "module": "css", "short": "Positioning", "title": "Positioning & Layers"}, {"n": 12, "module": "css", "short": "Flexbox", "title": "Flexbox in Depth"}, {"n": 13, "module": "css", "short": "CSS Grid", "title": "CSS Grid"}, {"n": 14, "module": "css", "short": "Responsive Design", "title": "Responsive & Mobile-First Design"}, {"n": 15, "module": "css", "short": "Pseudo-classes & Specificity", "title": "Pseudo-classes, Pseudo-elements & Specificity"}, {"n": 16, "module": "css", "short": "CSS Variables", "title": "CSS Variables & Theming"}, {"n": 17, "module": "css", "short": "Animations", "title": "Transitions, Transforms & Animations"}, {"n": 18, "module": "css", "short": "Project: Business Landing Page", "title": "Project: A Landing Page for a Local Business"}, {"n": 19, "module": "css", "short": "Git & Going Live", "title": "Git, GitHub & Going Live"}, {"n": 20, "module": "js", "short": "Variables & Types", "title": "JavaScript Basics: Variables, Types & Operators"}, {"n": 21, "module": "js", "short": "Conditionals & Logic", "title": "Conditionals & Logic"}, {"n": 22, "module": "js", "short": "Functions & Scope", "title": "Functions & Scope"}, {"n": 23, "module": "js", "short": "Arrays", "title": "Arrays & Array Methods"}, {"n": 24, "module": "js", "short": "Objects & JSON", "title": "Objects & JSON"}, {"n": 25, "module": "js", "short": "Loops", "title": "Loops"}, {"n": 26, "module": "js", "short": "The DOM", "title": "The DOM"}, {"n": 27, "module": "js", "short": "Events", "title": "Events"}, {"n": 28, "module": "js", "short": "Form Validation", "title": "Forms & Validation with JavaScript"}, {"n": 29, "module": "js", "short": "localStorage", "title": "Saving Data with localStorage"}, {"n": 30, "module": "js", "short": "Fetch & APIs", "title": "Fetch & APIs"}, {"n": 31, "module": "js", "short": "async/await & Errors", "title": "async/await & Error Handling"}, {"n": 32, "module": "js", "short": "Debugging", "title": "Debugging with DevTools"}, {"n": 33, "module": "js", "short": "Project: To-Do App", "title": "Project: A To-Do App"}, {"n": 34, "module": "js", "short": "Final Project", "title": "Final Project: Interactive Portfolio"}];
+  const MODULES = [{"key": "html", "name": "Module 1 \u2014 HTML"}, {"key": "css", "name": "Module 2 \u2014 CSS"}, {"key": "js", "name": "Module 3 \u2014 JavaScript"}];
+  const TOTAL = 34;
+  const FREE_LESSONS = 2;
+  const CHECKLIST_ITEMS = 6;
+
   window._access = { user: null, paid: false, ready: false };
 
-  const LESSON_TITLES = { 3: 'Styling with CSS', 4: 'Layout & The Box Model', 5: 'Images & Media', 6: 'Full Page Build', 7: 'Go Live on GitHub Pages', 8: 'Hello, JavaScript', 9: 'The DOM: Change Your Page', 10: 'Events & Dark Mode', 11: 'Arrays, Loops & Functions', 12: 'Mobile Menu & Scrolling', 13: 'Build a Contact Form', 14: 'Debug, Polish & Ship' };
+  document.querySelectorAll('.js-price').forEach((el) => { el.textContent = COURSE_PRICE; });
+  document.querySelectorAll('.js-checkout').forEach((el) => { el.href = CHECKOUT_URL; });
 
-  document.querySelectorAll('.js-price').forEach(el => el.textContent = COURSE_PRICE);
-  document.querySelectorAll('.js-checkout').forEach(el => el.href = CHECKOUT_URL);
+  const PAGE_IDS = ['homePage', 'profilePage', 'certPage'];
+  for (let n = 1; n <= TOTAL; n++) PAGE_IDS.push('day' + n + 'Page');
 
+  function hideAllPages() {
+    PAGE_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
+  }
+
+  function lessonInfo(n) {
+    return COURSE[n - 1];
+  }
+
+  // ===== PAYWALL =====
   function renderPaywall(n) {
     const page = document.getElementById('day' + n + 'Page');
     if (!page || page.dataset.unlocked === '1') return;
@@ -2325,32 +2289,38 @@
       note = 'Checking your account…';
     } else if (!a.user) {
       note = `Already bought it? <a onclick="window.showAuthModal('login')">Log in</a> with the email you used at checkout.`;
+    } else if (a.paid) {
+      note = `This lesson didn't load. Refresh the page, and if it keeps happening, email <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`;
     } else {
-      note = `Already bought it? Access is turned on for <strong>${a.user.email}</strong>, usually within a few hours of your payment. If you paid with a different email, send both emails to <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`;
+      const div = document.createElement('div');
+      div.textContent = a.user.email;
+      note = `Already bought it? Access is turned on for <strong>${div.innerHTML}</strong>, usually within a few hours of your payment. If you paid with a different email, send both emails to <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`;
     }
+    const info = lessonInfo(n);
     page.innerHTML = `
       <div class="paywall">
         <div class="paywall-card">
-          <p class="paywall-kicker">Day ${n} of 14 · Full course</p>
-          <h1 class="paywall-title">${LESSON_TITLES[n]}</h1>
-          <p class="paywall-sub">You finished the free days. The rest of the course is where your page starts looking like a real website, goes online, and then becomes interactive with JavaScript.</p>
+          <p class="paywall-kicker">Lesson ${n} of ${TOTAL} · Full course</p>
+          <h1 class="paywall-title">${info.title}</h1>
+          <p class="paywall-sub">You finished the free lessons. The full course takes you from here to building real websites with HTML, CSS and JavaScript.</p>
           <ul class="paywall-list">
-            <li>Week 1: CSS, Flexbox, responsive design, and putting your site live</li>
-            <li>Week 2: JavaScript — dark mode, a mobile menu, dynamic content, and a working contact form</li>
-            <li>12 more lessons with daily challenges</li>
+            <li>Module 1 — HTML: tables, images, forms, accessibility &amp; SEO</li>
+            <li>Module 2 — CSS: Flexbox, Grid, responsive design, animations &amp; Git</li>
+            <li>Module 3 — JavaScript: the DOM, events, APIs, localStorage &amp; debugging</li>
+            <li>4 real projects, including a business site and a to-do app</li>
             <li>Certificate of completion</li>
           </ul>
           <div class="paywall-price"><strong>${COURSE_PRICE}</strong><span>one payment · lifetime access</span></div>
           <a class="btn-primary paywall-buy" href="${CHECKOUT_URL}" target="_blank" rel="noopener">Get the full course →</a>
           <p class="paywall-note">${note}</p>
-          <button class="paywall-back" onclick="showLesson('day2')">← Back to Day 2</button>
+          <button class="paywall-back" onclick="showLesson('day${FREE_LESSONS}')">← Back to Lesson ${FREE_LESSONS}</button>
         </div>
       </div>`;
   }
   window.renderPaywall = renderPaywall;
 
   // ===== AUTH MODAL CONTROLS =====
-  function showEmailModal() { showAuthModal('signup'); }
+  function showEmailModal() { window.showAuthModal('signup'); }
 
   window.showAuthModal = function(tab = 'signup') {
     switchTab(tab);
@@ -2379,244 +2349,201 @@
     if (e.target === this) closeAuthModal();
   });
 
-  function toggleCheckN(li, n) {
-    li.classList.toggle('done');
+  // ===== CHECKLISTS & PROGRESS =====
+  function updateLessonProgress(n) {
     const items = document.querySelectorAll('#checklist' + n + ' li');
+    if (!items.length) return;
     const done = document.querySelectorAll('#checklist' + n + ' li.done').length;
     const pct = Math.round((done / items.length) * 100);
-    document.getElementById('progressBar' + n).style.width = pct + '%';
-    document.getElementById('progressPct' + n).textContent = pct + '% complete';
+    const bar = document.getElementById('progressBar' + n);
+    const label = document.getElementById('progressPct' + n);
+    if (bar) bar.style.width = pct + '%';
+    if (label) label.textContent = pct + '% complete';
+  }
+  window.updateLessonProgress = updateLessonProgress;
+
+  function toggleCheckN(li, n) {
+    li.classList.toggle('done');
+    updateLessonProgress(n);
     if (window._saveProgress) window._saveProgress();
   }
 
-  // ===== PAGE ROUTING =====
+  function lessonDoneCount(n) {
+    const cl = document.getElementById('checklist' + n);
+    return cl ? cl.querySelectorAll('li.done').length : 0;
+  }
+
+  function canOpen(n) {
+    return n <= FREE_LESSONS || window._access.paid;
+  }
+
+  // ===== ROUTING =====
   function showLesson(day) {
-    day = day || 'day1';
-    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','day8Page','day9Page','day10Page','day11Page','day12Page','day13Page','day14Page','profilePage','certPage'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.classList.remove('active');
-    });
+    let n = parseInt(String(day).replace('day', ''), 10);
+    if (!(n >= 1 && n <= TOTAL)) n = 1;
+    hideAllPages();
     document.getElementById('homeNav').style.display = 'none';
     document.getElementById('lessonNav').style.display = 'flex';
     document.getElementById('navCourse').style.display = 'inline';
-    const dayMap = {
-      day1: { page: 'lessonPage', label: 'Day 1 of 14', title: 'Day 1: Your First HTML Page — Esdras Buelvas' },
-      day2: { page: 'day2Page',   label: 'Day 2 of 14', title: 'Day 2: Text, Links & Navigation — Esdras Buelvas' },
-      day3: { page: 'day3Page',   label: 'Day 3 of 14', title: 'Day 3: Styling with CSS — Esdras Buelvas' },
-      day4: { page: 'day4Page',   label: 'Day 4 of 14', title: 'Day 4: Layout & The Box Model — Esdras Buelvas' },
-      day5: { page: 'day5Page',   label: 'Day 5 of 14', title: 'Day 5: Images & Media — Esdras Buelvas' },
-      day6: { page: 'day6Page',   label: 'Day 6 of 14', title: 'Day 6: Full Page Build — Esdras Buelvas' },
-      day7: { page: 'day7Page',   label: 'Day 7 of 14', title: 'Day 7: Go Live — Esdras Buelvas' },
-      day8: { page: 'day8Page', label: 'Day 8 of 14', title: 'Day 8: Hello, JavaScript — Esdras Buelvas' },
-      day9: { page: 'day9Page', label: 'Day 9 of 14', title: 'Day 9: The DOM: Change Your Page — Esdras Buelvas' },
-      day10: { page: 'day10Page', label: 'Day 10 of 14', title: 'Day 10: Events & Dark Mode — Esdras Buelvas' },
-      day11: { page: 'day11Page', label: 'Day 11 of 14', title: 'Day 11: Arrays, Loops & Functions — Esdras Buelvas' },
-      day12: { page: 'day12Page', label: 'Day 12 of 14', title: 'Day 12: Mobile Menu & Scrolling — Esdras Buelvas' },
-      day13: { page: 'day13Page', label: 'Day 13 of 14', title: 'Day 13: Build a Contact Form — Esdras Buelvas' },
-      day14: { page: 'day14Page', label: 'Day 14 of 14', title: 'Day 14: Debug, Polish & Ship — Esdras Buelvas' },
-    };
-    const target = dayMap[day] || dayMap.day1;
-    const dayNum = parseInt(day.replace('day', ''), 10);
-    if (dayNum >= 3) renderPaywall(dayNum);
-    document.getElementById(target.page).classList.add('active');
-    document.getElementById('lessonNav').querySelector('.progress-label').textContent = target.label;
-    document.querySelectorAll('#lessonNav .progress-dot').forEach((d, i) => d.classList.toggle('active', i === dayNum - 1));
-    document.title = target.title;
+    if (n > FREE_LESSONS) renderPaywall(n);
+    document.getElementById('day' + n + 'Page').classList.add('active');
+    document.getElementById('lessonNav').querySelector('.progress-label').textContent = `Lesson ${n} of ${TOTAL}`;
+    document.title = `Lesson ${n}: ${lessonInfo(n).title} — Web Sprint`;
     window.scrollTo(0, 0);
+    highlightSidebar();
   }
+  window.showLesson = showLesson;
 
   function showHome() {
-    ['lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','day8Page','day9Page','day10Page','day11Page','day12Page','day13Page','day14Page','profilePage','certPage'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.classList.remove('active');
-    });
+    hideAllPages();
     document.getElementById('homePage').classList.add('active');
     document.getElementById('homeNav').style.display = 'flex';
     document.getElementById('lessonNav').style.display = 'none';
     document.getElementById('navCourse').style.display = 'none';
     window.scrollTo(0, 0);
-    document.title = 'Web Sprint — Build Your First Website — Esdras Buelvas';
+    document.title = 'Web Sprint — Learn HTML, CSS & JavaScript — Esdras Buelvas';
   }
+  window.showHome = showHome;
 
   window.showProfile = function() {
-    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','day8Page','day9Page','day10Page','day11Page','day12Page','day13Page','day14Page'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.classList.remove('active');
-    });
+    hideAllPages();
     document.getElementById('profilePage').classList.add('active');
     document.getElementById('homeNav').style.display = 'none';
     document.getElementById('lessonNav').style.display = 'none';
     document.getElementById('navCourse').style.display = 'none';
-    document.getElementById('profileNav').style.display = 'flex';
-    document.title = 'My Profile — Esdras Buelvas';
+    document.title = 'My Dashboard — Web Sprint';
     window.scrollTo(0, 0);
     renderProfile();
   };
 
+  // Next lesson that isn't fully checked off (and that this person can open)
+  window.continueCourse = function() {
+    for (let n = 1; n <= TOTAL; n++) {
+      if (!canOpen(n)) return showLesson('day' + n);
+      if (lessonDoneCount(n) < CHECKLIST_ITEMS) return showLesson('day' + n);
+    }
+    window.showProfile();
+  };
+
+  function openLessonList() {
+    if (window._access.user) window.showProfile();
+    else scrollToSection('curriculum', true);
+  }
+
   function scrollToSection(id, goHome) {
-    if (goHome) {
-      showHome();
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
+    const go = () => {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
+    };
+    if (goHome || !document.getElementById('homePage').classList.contains('active')) {
+      showHome();
+      setTimeout(go, 100);
+    } else {
+      go();
     }
   }
 
   // ===== CODE COPY =====
   function copyCode(btn) {
     const body = btn.closest('.code-block').querySelector('.lesson-code-body');
-    navigator.clipboard.writeText(body.innerText).then(() => {
+    const text = body.innerText.replace(/ /g, ' ');
+    navigator.clipboard.writeText(text).then(() => {
       btn.textContent = 'Copied!';
-      setTimeout(() => btn.textContent = 'Copy', 2000);
+      setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
     });
-  }
-
-  // ===== CHECKLIST =====
-  function toggleCheck(li) {
-    li.classList.toggle('done');
-    updateProgress();
-    if (window._saveProgress) window._saveProgress();
-  }
-
-  function updateProgress() {
-    const items = document.querySelectorAll('#checklist li');
-    const done = document.querySelectorAll('#checklist li.done').length;
-    const pct = Math.round((done / items.length) * 100);
-    document.getElementById('progressBar').style.width = pct + '%';
-    document.getElementById('progressPct').textContent = pct + '% complete';
   }
 
   // ===== SIDEBAR SCROLL HIGHLIGHT =====
-  const lessonSections = document.querySelectorAll('.lesson-section, .challenge');
-  const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
-
-  window.addEventListener('scroll', () => {
-    if (!document.getElementById('lessonPage').classList.contains('active')) return;
+  function highlightSidebar() {
+    const page = document.querySelector('.page.active');
+    if (!page || !page.id.startsWith('day')) return;
+    const links = page.querySelectorAll('.sidebar-nav a');
+    if (!links.length) return;
     let current = '';
-    lessonSections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    page.querySelectorAll('.lesson-section, .challenge').forEach((section) => {
+      if (section.getBoundingClientRect().top <= 120) current = section.id;
     });
-    sidebarLinks.forEach(a => {
-      a.classList.remove('active');
-      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    links.forEach((a, i) => {
+      const active = current ? a.getAttribute('href') === '#' + current : i === 0;
+      a.classList.toggle('active', active);
     });
-  });
+  }
+  window.addEventListener('scroll', highlightSidebar, { passive: true });
 
-  // ===== PROFILE RENDERER =====
+  // ===== DASHBOARD =====
   function renderProfile() {
-    const days = [
-      { num: 1, title: 'Your First HTML Page',    id: 'checklist',  items: 6 },
-      { num: 2, title: 'Text, Links & Navigation', id: 'checklist2', items: 6 },
-      { num: 3, title: 'Styling with CSS',          id: 'checklist3', items: 6 },
-      { num: 4, title: 'Layout & The Box Model',    id: 'checklist4', items: 6 },
-      { num: 5, title: 'Images & Media',            id: 'checklist5', items: 6 },
-      { num: 6, title: 'Full Page Build',           id: 'checklist6', items: 6 },
-      { num: 7, title: 'Go Live',                   id: 'checklist7', items: 6 },
-      { num: 8, title: 'Hello, JavaScript', id: 'checklist8', items: 6 },
-      { num: 9, title: 'The DOM: Change Your Page', id: 'checklist9', items: 6 },
-      { num: 10, title: 'Events & Dark Mode', id: 'checklist10', items: 6 },
-      { num: 11, title: 'Arrays, Loops & Functions', id: 'checklist11', items: 6 },
-      { num: 12, title: 'Mobile Menu & Scrolling', id: 'checklist12', items: 6 },
-      { num: 13, title: 'Build a Contact Form', id: 'checklist13', items: 6 },
-      { num: 14, title: 'Debug, Polish & Ship', id: 'checklist14', items: 6 },
-    ];
-
+    const paid = window._access.paid;
     let totalDone = 0;
-    const totalItems = days.reduce((a, d) => a + d.items, 0);
+    let lessonsComplete = 0;
+    const totalItems = TOTAL * CHECKLIST_ITEMS;
 
-    const cards = days.map(d => {
-      const checklist = document.getElementById(d.id);
-      const done = checklist ? checklist.querySelectorAll('li.done').length : 0;
-      totalDone += done;
-      const pct = Math.round((done / d.items) * 100);
-      const complete = pct === 100;
-      const started = done > 0;
-      return `
-        <div onclick="showLesson('day${d.num}')" style="border:1px solid ${complete ? 'var(--green)' : 'var(--gray-mid)'};border-radius:16px;padding:1.5rem;cursor:pointer;transition:all 0.2s;background:${complete ? 'var(--green-light)' : 'var(--white)'}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-            <div>
-              <div style="font-size:0.6875rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:0.35rem;">Day ${d.num}</div>
-              <div style="font-family:'DM Serif Display',serif;font-size:1.0625rem;color:var(--black);letter-spacing:-0.02em;">${d.title}</div>
-            </div>
-            <div style="width:36px;height:36px;border-radius:50%;background:${complete ? 'var(--green)' : 'var(--gray-light)'};border:1px solid ${complete ? 'var(--green)' : 'var(--gray-mid)'};display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              ${complete ? '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2"><polyline points="2,7 5.5,10.5 12,3.5"></polyline></svg>' : `<span style="font-size:0.75rem;font-weight:500;color:var(--gray-text);">${pct}%</span>`}
-            </div>
-          </div>
-          <div style="height:4px;background:var(--gray-light);border-radius:100px;overflow:hidden;">
-            <div style="height:100%;width:${pct}%;background:${complete ? 'var(--green)' : 'var(--black)'};border-radius:100px;transition:width 0.4s ease;"></div>
-          </div>
-          <div style="font-size:0.75rem;color:var(--gray-text);margin-top:0.5rem;">${(d.num >= 3 && !(window._access && window._access.paid)) ? '🔒 Full course' : `${done} of ${d.items} completed`}</div>
+    const modulesHTML = MODULES.map((mod) => {
+      const lessons = COURSE.filter((l) => l.module === mod.key);
+      let modComplete = 0;
+      const rows = lessons.map((l) => {
+        const open = canOpen(l.n);
+        const done = open ? lessonDoneCount(l.n) : 0;
+        totalDone += done;
+        const complete = done >= CHECKLIST_ITEMS;
+        if (complete) { lessonsComplete++; modComplete++; }
+        let state;
+        if (!open) state = '🔒 Full course';
+        else if (complete) state = '✓ Done';
+        else if (done > 0) state = `${done} / ${CHECKLIST_ITEMS}`;
+        else state = 'Not started';
+        return `<div class="pm-row${complete ? ' complete' : ''}" onclick="showLesson('day${l.n}')">
+            <span class="pm-num">${String(l.n).padStart(2, '0')}</span>
+            <span class="pm-title">${l.title}</span>
+            <span class="pm-state">${state}</span>
+          </div>`;
+      }).join('');
+      return `<div class="pm-module">
+          <div class="pm-head"><span>${mod.name}</span><span style="color:var(--gray-text);font-weight:400;">${modComplete} / ${lessons.length}</span></div>
+          ${rows}
         </div>`;
     }).join('');
 
     const overallPct = Math.round((totalDone / totalItems) * 100);
-    const daysCompleted = days.filter(d => {
-      const cl = document.getElementById(d.id);
-      return cl && cl.querySelectorAll('li.done').length === d.items;
-    }).length;
-    const courseComplete = daysCompleted === days.length;
+    const courseComplete = lessonsComplete === TOTAL;
 
-    // Certificate banner shown only when fully complete
-    const certBanner = courseComplete ? `
+    const banner = courseComplete ? `
       <div style="background:linear-gradient(135deg,#1a3a2a,#2d6a4f);border-radius:20px;padding:2.5rem;margin-bottom:2rem;color:white;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;">
         <div>
           <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">🎉 Course complete</div>
           <div style="font-family:'DM Serif Display',serif;font-size:1.75rem;letter-spacing:-0.03em;margin-bottom:0.5rem;">Your certificate is ready</div>
-          <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">You completed all 14 days of Web Sprint.</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">You completed all ${TOTAL} lessons of Web Sprint.</div>
         </div>
-        <button onclick="window.showCertificate()" style="background:white;color:#1a3a2a;border:none;padding:0.875rem 1.75rem;border-radius:100px;font-size:0.9375rem;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;white-space:nowrap;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">View certificate →</button>
-      </div>` : `
-      <div style="background:var(--gray-light);border-radius:20px;padding:1.75rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.25rem;">
-        <div style="width:44px;height:44px;border-radius:50%;background:var(--gray-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gray-text)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M8 14l-2 7 6-3 6 3-2-7"/></svg>
-        </div>
+        <button onclick="window.showCertificate()" style="background:white;color:#1a3a2a;border:none;padding:0.875rem 1.75rem;border-radius:100px;font-size:0.9375rem;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;">View certificate →</button>
+      </div>` : !paid ? `
+      <div style="background:var(--black);border-radius:20px;padding:2rem;margin-bottom:2rem;color:white;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.25rem;">
         <div>
-          <div style="font-size:0.9rem;font-weight:500;color:var(--black);margin-bottom:0.2rem;">Certificate locked</div>
-          <div style="font-size:0.8125rem;color:var(--gray-text);">Complete all 14 days to unlock your certificate of completion.</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;letter-spacing:-0.02em;margin-bottom:0.35rem;">Unlock all ${TOTAL} lessons</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">HTML, CSS &amp; JavaScript, 4 real projects, and a certificate. ${COURSE_PRICE}, one payment.</div>
         </div>
+        <a href="${CHECKOUT_URL}" target="_blank" rel="noopener" style="background:white;color:var(--black);padding:0.8rem 1.5rem;border-radius:100px;font-size:0.9375rem;font-weight:500;text-decoration:none;">Get the full course →</a>
+      </div>` : `
+      <div style="background:var(--gray-light);border-radius:20px;padding:1.5rem 1.75rem;margin-bottom:2rem;font-size:0.875rem;color:var(--gray-text);">
+        <strong style="color:var(--black);">Certificate locked.</strong> Check off every item in all ${TOTAL} lessons to unlock it.
       </div>`;
 
     document.getElementById('profileContent').innerHTML = `
-      ${certBanner}
-      <div style="background:var(--black);border-radius:20px;padding:2.5rem;margin-bottom:2rem;color:white;">
+      ${banner}
+      <div style="background:var(--black);border-radius:20px;padding:2.25rem;margin-bottom:2rem;color:white;">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem;">
           <div>
             <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.5rem;">Overall progress</div>
             <div style="font-family:'DM Serif Display',serif;font-size:3rem;letter-spacing:-0.04em;line-height:1;">${overallPct}%</div>
-            <div style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin-top:0.35rem;">${daysCompleted} of 14 days completed</div>
+            <div style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin-top:0.35rem;">${lessonsComplete} of ${TOTAL} lessons complete</div>
           </div>
-          <div style="display:flex;gap:1.5rem;">
-            <div style="text-align:center;">
-              <div style="font-family:'DM Serif Display',serif;font-size:2rem;color:white;">${totalDone}</div>
-              <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Tasks done</div>
-            </div>
-            <div style="text-align:center;">
-              <div style="font-family:'DM Serif Display',serif;font-size:2rem;color:white;">${totalItems - totalDone}</div>
-              <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Remaining</div>
-            </div>
-          </div>
+          <button onclick="window.continueCourse()" style="background:white;color:var(--black);border:none;padding:0.8rem 1.5rem;border-radius:100px;font-size:0.9375rem;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;">Continue →</button>
         </div>
         <div style="height:6px;background:rgba(255,255,255,0.1);border-radius:100px;margin-top:2rem;overflow:hidden;">
           <div style="height:100%;width:${overallPct}%;background:white;border-radius:100px;transition:width 0.6s ease;"></div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;">
-        ${cards}
-      </div>
-      <div style="margin-top:2rem;border:1px solid var(--gray-mid);border-radius:16px;padding:1.75rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="${courseComplete ? "window.showCertificate()" : `showLesson('day${Math.min(daysCompleted + 1, 14)}')`}">
-        <div>
-          <div style="font-size:0.75rem;color:var(--gray-text);font-weight:500;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.35rem;">${courseComplete ? 'You finished! 🎉' : 'Continue where you left off'}</div>
-          <div style="font-family:'DM Serif Display',serif;font-size:1.25rem;letter-spacing:-0.02em;color:var(--black);">${courseComplete ? 'View your certificate' : `Day ${Math.min(daysCompleted + 1, 14)}`}</div>
-        </div>
-        <div style="width:40px;height:40px;border-radius:50%;border:1px solid var(--gray-mid);display:flex;align-items:center;justify-content:center;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
-        </div>
-      </div>`;
+      ${modulesHTML}`;
   }
+  window.renderProfile = renderProfile;
 
   // ===== CERTIFICATE =====
   window.showCertificate = function() {
@@ -2624,27 +2551,23 @@
     const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     document.getElementById('certName').textContent = name;
     document.getElementById('certDate').textContent = date;
-    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','day8Page','day9Page','day10Page','day11Page','day12Page','day13Page','day14Page','profilePage','certPage'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.classList.remove('active');
-    });
+    hideAllPages();
     document.getElementById('certPage').classList.add('active');
     document.getElementById('homeNav').style.display = 'none';
     document.getElementById('lessonNav').style.display = 'none';
     document.getElementById('navCourse').style.display = 'none';
     window.scrollTo(0, 0);
-    document.title = 'Certificate of Completion — Esdras Buelvas';
+    document.title = 'Certificate of Completion — Web Sprint';
   };
 
   window.downloadCert = function() {
     const cert = document.getElementById('certCard');
-    // Use html2canvas to capture
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
     script.onload = () => {
-      html2canvas(cert, { scale: 2, useCORS: true, backgroundColor: '#0d0d0d' }).then(canvas => {
+      html2canvas(cert, { scale: 2, useCORS: true, backgroundColor: '#0d0d0d' }).then((canvas) => {
         const a = document.createElement('a');
-        a.download = 'esdrasbuelvas-certificate.png';
+        a.download = 'web-sprint-certificate.png';
         a.href = canvas.toDataURL('image/png');
         a.click();
       });
@@ -2655,6 +2578,7 @@
   window.printCert = function() {
     window.print();
   };
+
 </script>
 
 <!-- ===== CERTIFICATE PAGE ===== -->
@@ -2694,7 +2618,7 @@
       <div style="margin-bottom:3.5rem;">
         <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1rem;">This certifies that</div>
         <div id="certName" style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3.5rem);color:white;letter-spacing:-0.04em;line-height:1.1;margin-bottom:1.5rem;">Student Name</div>
-        <div style="font-size:1.0625rem;color:rgba(255,255,255,0.55);line-height:1.7;max-width:520px;">has successfully completed the <span style="color:white;font-weight:500;">Web Sprint</span> 14-day course — mastering HTML structure, CSS styling, Flexbox layout, responsive design, JavaScript, and deploying a live, interactive website to the internet.</div>
+        <div style="font-size:1.0625rem;color:rgba(255,255,255,0.55);line-height:1.7;max-width:520px;">has successfully completed <span style="color:white;font-weight:500;">Web Sprint</span>, a 34-lesson course in HTML, CSS and JavaScript — including responsive layouts with Flexbox and Grid, APIs, Git, and building and deploying four real projects.</div>
       </div>
 
       <!-- Bottom row -->
@@ -2710,7 +2634,7 @@
         </div>
         <!-- Skills badges -->
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;width:100%;margin-top:0.5rem;">
-          <span class="cert-badge">HTML</span><span class="cert-badge">CSS</span><span class="cert-badge">Flexbox</span><span class="cert-badge">Responsive Design</span><span class="cert-badge">JavaScript</span><span class="cert-badge">GitHub Pages</span>
+          <span class="cert-badge">HTML</span><span class="cert-badge">CSS</span><span class="cert-badge">Flexbox &amp; Grid</span><span class="cert-badge">Responsive Design</span><span class="cert-badge">JavaScript</span><span class="cert-badge">APIs</span><span class="cert-badge">Git</span>
         </div>
       </div>
     </div>
