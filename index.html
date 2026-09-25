@@ -1183,6 +1183,82 @@
   .banner-close { position: absolute; top: 0.6rem; right: 0.75rem; background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 0.9rem; }
   .code-block { max-width: 100%; overflow: hidden; }
   .lesson-code-body { max-width: 100%; }
+
+  /* ===== QUIZZES, TESTS, TURN-IN ===== */
+  .quiz { background: var(--gray-light); border-radius: 20px; padding: 2rem; }
+  .quiz h2 { margin-top: 0; }
+  .quiz-intro { color: var(--gray-text); font-size: 0.9375rem; }
+  .quiz-best { font-size: 0.8125rem; font-weight: 500; color: var(--green); margin-top: -0.5rem; }
+  .quiz-q { background: var(--white); border: 1px solid var(--gray-mid); border-radius: 14px; padding: 1.25rem; margin-top: 1rem; }
+  .quiz-question { font-weight: 500; color: var(--black) !important; display: flex; gap: 0.65rem; align-items: flex-start; margin-bottom: 0.9rem !important; }
+  .quiz-num { flex-shrink: 0; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--black); color: var(--white); font-size: 0.75rem; display: inline-flex; align-items: center; justify-content: center; margin-top: 0.1rem; }
+  .quiz-options { display: grid; gap: 0.5rem; }
+  .quiz-opt { text-align: left; font: inherit; font-size: 0.9rem; padding: 0.7rem 0.95rem; border: 1px solid var(--gray-mid); border-radius: 10px; background: var(--white); color: var(--black); cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+  .quiz-opt:hover:not(:disabled) { border-color: var(--black); }
+  .quiz-opt:disabled { cursor: default; }
+  .quiz-opt.correct { border-color: var(--green); background: var(--green-light); }
+  .quiz-opt.wrong { border-color: #dc2626; background: #fef2f2; }
+  .quiz-explain { margin: 0.8rem 0 0 !important; font-size: 0.875rem; color: var(--gray-text) !important; }
+  .quiz-q.got-it .quiz-explain::before { content: '✓ Correct. '; color: var(--green); font-weight: 500; }
+  .quiz-q.missed .quiz-explain::before { content: '✗ Not quite. '; color: #dc2626; font-weight: 500; }
+  .quiz-result:not(:empty) { margin-top: 1.25rem; font-size: 0.9375rem; color: var(--black); }
+  .quiz-retry { margin-left: 0.5rem; background: none; border: 1px solid var(--gray-mid); border-radius: 100px; padding: 0.3rem 0.9rem; font: inherit; font-size: 0.8125rem; cursor: pointer; }
+  .test-wrap { max-width: 760px; margin: 0 auto; padding: 7rem 1.5rem 5rem; }
+  .test-status { font-size: 0.875rem; color: var(--gray-text); margin: 1.25rem 0 1.5rem; }
+  .test-status:empty { display: none; }
+  .test-status.passed { color: var(--green); font-weight: 500; }
+  .test-q { border: 1px solid var(--gray-mid); border-radius: 14px; padding: 1.25rem; margin: 0 0 1rem; background: var(--white); min-width: 0; }
+  .test-q legend { font-weight: 500; display: flex; gap: 0.65rem; align-items: flex-start; float: left; width: 100%; margin-bottom: 0.9rem; }
+  .test-options { clear: both; display: grid; gap: 0.5rem; }
+  .test-opt { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.65rem 0.9rem; border: 1px solid var(--gray-mid); border-radius: 10px; cursor: pointer; font-size: 0.9rem; }
+  .test-opt input { margin-top: 0.25rem; }
+  .test-opt:has(input:checked) { border-color: var(--black); }
+  .test-opt.correct { border-color: var(--green); background: var(--green-light); }
+  .test-opt.wrong { border-color: #dc2626; background: #fef2f2; }
+  .test-explain { margin: 0.8rem 0 0; font-size: 0.875rem; color: var(--gray-text); }
+  .test-q.got-it .test-explain::before { content: '✓ Correct. '; color: var(--green); font-weight: 500; }
+  .test-q.missed .test-explain::before { content: '✗ '; color: #dc2626; font-weight: 500; }
+  .test-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .test-warning { color: #dc2626; font-size: 0.875rem; }
+  .test-result { border-radius: 16px; padding: 1.5rem; margin-top: 1.5rem; background: var(--gray-light); }
+  .test-result.passed { background: var(--green-light); border: 1px solid #b7ddc9; }
+  .test-score { font-size: 0.9375rem; line-height: 1.6; }
+  .test-score strong { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 2rem; margin-right: 0.5rem; }
+  .test-result-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+  .ti-box { border: 2px dashed var(--gray-mid); border-radius: 16px; padding: 1.5rem; }
+  .ti-pick { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .ti-btn { border: 1px solid var(--gray-mid); border-radius: 100px; padding: 0.55rem 1.1rem; font-size: 0.875rem; cursor: pointer; background: var(--white); }
+  .ti-btn:hover { border-color: var(--black); }
+  .ti-files { list-style: none; margin: 1rem 0 0; font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--black); }
+  .ti-files li { padding: 0.2rem 0; overflow-wrap: anywhere; }
+  .ti-hint { font-size: 0.8125rem !important; color: var(--gray-text) !important; margin: 0.75rem 0 1rem !important; }
+  .ti-submit:disabled { opacity: 0.4; cursor: default; }
+  .ti-status { font-size: 0.875rem !important; margin: 0.75rem 0 0 !important; color: var(--black) !important; }
+  .ti-card { margin-top: 1.5rem; border: 1px solid var(--gray-mid); border-radius: 16px; padding: 1.5rem; background: var(--white); }
+  .ti-card.passed { border-color: #b7ddc9; }
+  .ti-head { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+  .ti-score { width: 3.5rem; height: 3.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.5rem; background: var(--gray-light); flex-shrink: 0; }
+  .ti-card.passed .ti-score { background: var(--green); color: var(--white); }
+  .ti-verdict { font-weight: 500; color: var(--black); }
+  .ti-card.passed .ti-verdict { color: var(--green); }
+  .ti-meta { font-size: 0.8125rem; color: var(--gray-text); }
+  .ti-card h4 { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-text); margin: 1.25rem 0 0.6rem; font-weight: 500; }
+  .ti-summary { color: var(--black) !important; }
+  .ti-checks, .ti-list { list-style: none; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; }
+  .ti-checks li { display: flex; gap: 0.6rem; align-items: flex-start; }
+  .ti-mark { font-weight: 600; flex-shrink: 0; width: 1rem; }
+  .ti-checks .met .ti-mark { color: var(--green); }
+  .ti-checks .unmet .ti-mark { color: #dc2626; }
+  .ti-note { color: var(--gray-text); }
+  .ti-list li::before { content: '+ '; color: var(--green); font-weight: 600; }
+  .ti-fix { border-left: 3px solid var(--gray-mid); padding: 0.25rem 0 0.25rem 1rem; margin: 0.75rem 0; }
+  .ti-file { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; background: var(--gray-light); border-radius: 4px; padding: 0.1rem 0.4rem; }
+  .ti-problem { margin: 0.4rem 0 0.25rem !important; color: var(--black) !important; font-size: 0.9rem; }
+  .ti-solution { margin: 0 !important; font-size: 0.875rem; color: var(--gray-text) !important; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .ti-disclaimer { font-size: 0.75rem !important; color: var(--gray-text) !important; margin: 1.25rem 0 0 !important; }
+  .pm-test .pm-title { font-weight: 500; }
+  .test-wrap code, .quiz code, .ti-card code { overflow-wrap: anywhere; }
+  .test-opt span, .test-q legend { min-width: 0; overflow-wrap: anywhere; }
   @media (max-width: 900px) { .modules { grid-template-columns: 1fr; } }
   @media (max-width: 600px) { .nav-all { display: none; } }
 
@@ -1285,7 +1361,7 @@
     <div class="curriculum-header">
       <p class="section-label">The curriculum</p>
       <h2 class="section-title">Three modules.<br>Four real projects.</h2>
-      <p class="section-sub">Every lesson teaches one topic properly, with examples, a hands-on build, and a challenge to lock it in. Every module ends with a real project you can show people.</p>
+      <p class="section-sub">Every lesson teaches one topic properly, with examples, a hands-on build, a quiz and a challenge to lock it in. Every module ends with a real project and a test.</p>
     </div>
     <div class="modules">
       <div class="module-card">
@@ -1406,6 +1482,8 @@
         <ul class="price-features" style="margin-top:1.5rem;">
           <li class="price-feature"><span class="price-feature-dot"></span>All 34 lessons: HTML, CSS &amp; JavaScript</li>
           <li class="price-feature"><span class="price-feature-dot"></span>4 real projects for your portfolio</li>
+          <li class="price-feature js-ai-only"><span class="price-feature-dot"></span>AI feedback on every project you turn in</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>A quiz in every lesson + 3 module tests</li>
           <li class="price-feature"><span class="price-feature-dot"></span>Flexbox, Grid, responsive design &amp; animation</li>
           <li class="price-feature"><span class="price-feature-dot"></span>APIs, localStorage, Git &amp; going live</li>
           <li class="price-feature"><span class="price-feature-dot"></span>Certificate of completion</li>
@@ -1459,7 +1537,8 @@
         <li><a href="#d1-structure"><span class="sidebar-num">03</span> Basic structure</a></li>
         <li><a href="#d1-tags"><span class="sidebar-num">04</span> Essential tags</a></li>
         <li><a href="#d1-first-page"><span class="sidebar-num">05</span> Your first page</a></li>
-        <li><a href="#d1-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
+        <li><a href="#d1-quiz"><span class="sidebar-num">06</span> Quiz</a></li>
+        <li><a href="#d1-challenge"><span class="sidebar-num">07</span> Challenge</a></li>
       </ul>
       <div class="sidebar-divider"></div>
       <p class="sidebar-title" style="margin-top:1rem;">Module 1 — HTML</p>
@@ -1471,6 +1550,7 @@
         <li><a onclick="showLesson('day5')"><span><span class="sidebar-num">05</span> Forms</span></a></li>
         <li><a onclick="showLesson('day6')"><span><span class="sidebar-num">06</span> Accessibility &amp; SEO</span></a></li>
         <li><a onclick="showLesson('day7')"><span><span class="sidebar-num">07</span> Project: Multi-Page Site</span></a></li>
+        <li><a onclick="showTest(1)"><span><span class="sidebar-num">✎</span> Module 1 Test</span></a></li>
       </ul>
       <p class="sidebar-title" style="margin-top:1rem;">Module 2 — CSS</p>
       <ul class="sidebar-days">
@@ -1486,6 +1566,7 @@
         <li><a onclick="showLesson('day17')"><span><span class="sidebar-num">17</span> Animations</span></a></li>
         <li><a onclick="showLesson('day18')"><span><span class="sidebar-num">18</span> Project: Business Landing Page</span></a></li>
         <li><a onclick="showLesson('day19')"><span><span class="sidebar-num">19</span> Git &amp; Going Live</span></a></li>
+        <li><a onclick="showTest(2)"><span><span class="sidebar-num">✎</span> Module 2 Test</span></a></li>
       </ul>
       <p class="sidebar-title" style="margin-top:1rem;">Module 3 — JavaScript</p>
       <ul class="sidebar-days">
@@ -1504,6 +1585,7 @@
         <li><a onclick="showLesson('day32')"><span><span class="sidebar-num">32</span> Debugging</span></a></li>
         <li><a onclick="showLesson('day33')"><span><span class="sidebar-num">33</span> Project: To-Do App</span></a></li>
         <li><a onclick="showLesson('day34')"><span><span class="sidebar-num">34</span> Final Project</span></a></li>
+        <li><a onclick="showTest(3)"><span><span class="sidebar-num">✎</span> Module 3 Test</span></a></li>
       </ul>
     </aside>
 
@@ -1622,6 +1704,51 @@
             <p><strong>Install Live Server.</strong> In VS Code, click the Extensions icon, search <em>Live Server</em> and install it. Then right-click <code>index.html</code> → <strong>Open with Live Server</strong>. Now the browser refreshes by itself every time you save. You'll use this for the whole course.</p>
           </div>
         </div>
+        <div class="lesson-section quiz" id="d1-quiz" data-quiz="1">
+          <h2>Quick quiz</h2>
+          <p class="quiz-intro">4 questions to check you've got it. Pick an answer to see if you're right.</p>
+          <div class="quiz-q" data-correct="2">
+            <p class="quiz-question"><span class="quiz-num">1</span>Which file does a browser look for first when someone visits a website?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" type="button" data-i="0"><code>home.html</code></button>
+              <button class="quiz-opt" type="button" data-i="1"><code>main.html</code></button>
+              <button class="quiz-opt" type="button" data-i="2"><code>index.html</code></button>
+              <button class="quiz-opt" type="button" data-i="3"><code>start.html</code></button>
+            </div>
+            <p class="quiz-explain" hidden><code>index.html</code> is the front door of every site. Servers load it automatically when someone visits a folder or domain.</p>
+          </div>
+          <div class="quiz-q" data-correct="3">
+            <p class="quiz-question"><span class="quiz-num">2</span>What goes inside the <code>&lt;head&gt;</code>?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" type="button" data-i="0">Only images</button>
+              <button class="quiz-opt" type="button" data-i="1">The footer</button>
+              <button class="quiz-opt" type="button" data-i="2">The main content visitors see</button>
+              <button class="quiz-opt" type="button" data-i="3">Information about the page, like its title</button>
+            </div>
+            <p class="quiz-explain" hidden>The head holds information about the page, like the <code>&lt;title&gt;</code> in the browser tab. Visible content goes in the <code>&lt;body&gt;</code>.</p>
+          </div>
+          <div class="quiz-q" data-correct="2">
+            <p class="quiz-question"><span class="quiz-num">3</span>Which tag does NOT need a closing tag?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" type="button" data-i="0"><code>&lt;strong&gt;</code></button>
+              <button class="quiz-opt" type="button" data-i="1"><code>&lt;h1&gt;</code></button>
+              <button class="quiz-opt" type="button" data-i="2"><code>&lt;br&gt;</code></button>
+              <button class="quiz-opt" type="button" data-i="3"><code>&lt;p&gt;</code></button>
+            </div>
+            <p class="quiz-explain" hidden><code>&lt;br&gt;</code> is an empty element: it has nothing inside it, so there&#x27;s nothing to close.</p>
+          </div>
+          <div class="quiz-q" data-correct="1">
+            <p class="quiz-question"><span class="quiz-num">4</span>What does <code>&lt;!-- note --&gt;</code> do?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" type="button" data-i="0">Breaks the page</button>
+              <button class="quiz-opt" type="button" data-i="1">Adds a comment that visitors don&#x27;t see</button>
+              <button class="quiz-opt" type="button" data-i="2">Shows a note in bold</button>
+              <button class="quiz-opt" type="button" data-i="3">Makes a pop-up</button>
+            </div>
+            <p class="quiz-explain" hidden>It&#x27;s an HTML comment. The browser ignores it, so it&#x27;s a note for you and other developers.</p>
+          </div>
+          <div class="quiz-result" aria-live="polite"></div>
+        </div>
 
         <div class="challenge" id="d1-challenge">
           <div class="challenge-label">Lesson 1 Challenge</div>
@@ -1689,7 +1816,8 @@
         <li><a href="#d2-paths"><span class="sidebar-num">03</span> Relative vs absolute</a></li>
         <li><a href="#d2-nav"><span class="sidebar-num">04</span> Navigation</a></li>
         <li><a href="#d2-build"><span class="sidebar-num">05</span> Build it</a></li>
-        <li><a href="#d2-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
+        <li><a href="#d2-quiz"><span class="sidebar-num">06</span> Quiz</a></li>
+        <li><a href="#d2-challenge"><span class="sidebar-num">07</span> Challenge</a></li>
       </ul>
       <div class="sidebar-divider"></div>
       <p class="sidebar-title" style="margin-top:1rem;">Module 1 — HTML</p>
@@ -1701,6 +1829,7 @@
         <li><a onclick="showLesson('day5')"><span><span class="sidebar-num">05</span> Forms</span></a></li>
         <li><a onclick="showLesson('day6')"><span><span class="sidebar-num">06</span> Accessibility &amp; SEO</span></a></li>
         <li><a onclick="showLesson('day7')"><span><span class="sidebar-num">07</span> Project: Multi-Page Site</span></a></li>
+        <li><a onclick="showTest(1)"><span><span class="sidebar-num">✎</span> Module 1 Test</span></a></li>
       </ul>
       <p class="sidebar-title" style="margin-top:1rem;">Module 2 — CSS</p>
       <ul class="sidebar-days">
@@ -1716,6 +1845,7 @@
         <li><a onclick="showLesson('day17')"><span><span class="sidebar-num">17</span> Animations</span></a></li>
         <li><a onclick="showLesson('day18')"><span><span class="sidebar-num">18</span> Project: Business Landing Page</span></a></li>
         <li><a onclick="showLesson('day19')"><span><span class="sidebar-num">19</span> Git &amp; Going Live</span></a></li>
+        <li><a onclick="showTest(2)"><span><span class="sidebar-num">✎</span> Module 2 Test</span></a></li>
       </ul>
       <p class="sidebar-title" style="margin-top:1rem;">Module 3 — JavaScript</p>
       <ul class="sidebar-days">
@@ -1734,6 +1864,7 @@
         <li><a onclick="showLesson('day32')"><span><span class="sidebar-num">32</span> Debugging</span></a></li>
         <li><a onclick="showLesson('day33')"><span><span class="sidebar-num">33</span> Project: To-Do App</span></a></li>
         <li><a onclick="showLesson('day34')"><span><span class="sidebar-num">34</span> Final Project</span></a></li>
+        <li><a onclick="showTest(3)"><span><span class="sidebar-num">✎</span> Module 3 Test</span></a></li>
       </ul>
     </aside>
 
@@ -1861,6 +1992,51 @@
             <p><strong>Test every link.</strong> Click each one. The About link should jump down the page, the GitHub link should open a new tab, and the Contact link should try to open your email app.</p>
           </div>
         </div>
+        <div class="lesson-section quiz" id="d2-quiz" data-quiz="2">
+          <h2>Quick quiz</h2>
+          <p class="quiz-intro">4 questions to check you've got it. Pick an answer to see if you're right.</p>
+          <div class="quiz-q" data-correct="0">
+            <p class="quiz-question"><span class="quiz-num">1</span>How many <code>&lt;h1&gt;</code> headings should a page usually have?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" type="button" data-i="0">One</button>
+              <button class="quiz-opt" type="button" data-i="1">Two</button>
+              <button class="quiz-opt" type="button" data-i="2">As many as you want</button>
+              <button class="quiz-opt" type="button" data-i="3">One per section</button>
+            </div>
+            <p class="quiz-explain" hidden>One <code>&lt;h1&gt;</code> for the page&#x27;s main title. Sections use <code>&lt;h2&gt;</code>, parts of sections use <code>&lt;h3&gt;</code>, and so on.</p>
+          </div>
+          <div class="quiz-q" data-correct="1">
+            <p class="quiz-question"><span class="quiz-num">2</span>Which link opens in a new tab?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" type="button" data-i="0"><code>&lt;a href=&quot;https://github.com&quot; tab=&quot;new&quot;&gt;</code></button>
+              <button class="quiz-opt" type="button" data-i="1"><code>&lt;a href=&quot;https://github.com&quot; target=&quot;_blank&quot;&gt;</code></button>
+              <button class="quiz-opt" type="button" data-i="2"><code>&lt;a href=&quot;https://github.com&quot; new&gt;</code></button>
+              <button class="quiz-opt" type="button" data-i="3"><code>&lt;link href=&quot;https://github.com&quot;&gt;</code></button>
+            </div>
+            <p class="quiz-explain" hidden><code>target=&quot;_blank&quot;</code> tells the browser to open the link in a new tab.</p>
+          </div>
+          <div class="quiz-q" data-correct="1">
+            <p class="quiz-question"><span class="quiz-num">3</span>What does <code>&lt;a href=&quot;#about&quot;&gt;</code> do?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" type="button" data-i="0">Nothing: # links are broken</button>
+              <button class="quiz-opt" type="button" data-i="1">Jumps to the element with <code>id=&quot;about&quot;</code> on the same page</button>
+              <button class="quiz-opt" type="button" data-i="2">Emails someone called about</button>
+              <button class="quiz-opt" type="button" data-i="3">Opens a page called about.html</button>
+            </div>
+            <p class="quiz-explain" hidden>A <code>#</code> link jumps to the element on the same page whose <code>id</code> matches.</p>
+          </div>
+          <div class="quiz-q" data-correct="3">
+            <p class="quiz-question"><span class="quiz-num">4</span>Which is the best link text?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" type="button" data-i="0">Here</button>
+              <button class="quiz-opt" type="button" data-i="1">Link</button>
+              <button class="quiz-opt" type="button" data-i="2">Click here</button>
+              <button class="quiz-opt" type="button" data-i="3">See my projects</button>
+            </div>
+            <p class="quiz-explain" hidden>Link text should make sense on its own. Screen reader users often hear a list of just the links.</p>
+          </div>
+          <div class="quiz-result" aria-live="polite"></div>
+        </div>
 
         <div class="challenge" id="d2-challenge">
           <div class="challenge-label">Lesson 2 Challenge</div>
@@ -1950,6 +2126,9 @@
 <div class="page" id="day32Page"><div class="paywall-slot" data-day="32"></div></div>
 <div class="page" id="day33Page"><div class="paywall-slot" data-day="33"></div></div>
 <div class="page" id="day34Page"><div class="paywall-slot" data-day="34"></div></div>
+<div class="page" id="test1Page"><div class="paywall-slot"></div></div>
+<div class="page" id="test2Page"><div class="paywall-slot"></div></div>
+<div class="page" id="test3Page"><div class="paywall-slot"></div></div>
 
 
 <!-- ===== DISCOUNT CODE MODAL ===== -->
@@ -2046,6 +2225,7 @@
     } else {
       window._access = { user: null, paid: false, verified: false, full: false, ready: true };
       window.clearVideoCache();
+      if (window.resetResults) window.resetResults();
       lockPaidLessons();
       updateNavForGuest();
       clearAllProgress();
@@ -2148,10 +2328,27 @@
         }
       }).catch((e) => console.warn('Could not load lesson ' + n, e)));
     }
+    for (let m = 1; m <= 3; m++) {
+      jobs.push(getDoc(doc(db, 'lessons', 'test' + m)).then((snap) => {
+        const page = document.getElementById('test' + m + 'Page');
+        if (snap.exists() && page) {
+          page.innerHTML = snap.data().html;
+          page.dataset.unlocked = '1';
+        }
+      }).catch((e) => console.warn('Could not load test ' + m, e)));
+    }
     await Promise.all(jobs);
+    if (window.applyResults) window.applyResults();
   }
 
   function lockPaidLessons() {
+    for (let m = 1; m <= 3; m++) {
+      const page = document.getElementById('test' + m + 'Page');
+      if (page && page.dataset.unlocked === '1') {
+        page.innerHTML = '<div class="paywall-slot"></div>';
+        delete page.dataset.unlocked;
+      }
+    }
     for (let n = FREE_LESSONS + 1; n <= TOTAL; n++) {
       const page = document.getElementById('day' + n + 'Page');
       if (page && page.dataset.unlocked === '1') {
@@ -2187,6 +2384,7 @@
     const snap = await getDoc(doc(db, 'progress', uid));
     if (!snap.exists()) return;
     const data = snap.data();
+    if (window.applyResults) window.applyResults(data);
     for (let n = 1; n <= TOTAL; n++) {
       const cl = document.getElementById('checklist' + n);
       const saved = data['day' + n];
@@ -2205,6 +2403,27 @@
       window.updateLessonProgress(n);
     }
   }
+
+  // Quiz and test results live in the same progress doc: quiz7: {score, total}, test1: {...}
+  window._saveResult = (key, value) => {
+    const user = auth.currentUser;
+    if (!user) return;
+    setDoc(doc(db, 'progress', user.uid), { [key]: value }, { merge: true }).catch((e) => console.warn('Result save failed:', e));
+  };
+
+  window.getIdToken = async () => (auth.currentUser ? auth.currentUser.getIdToken() : null);
+
+  // Your latest AI review for a project lesson (written by the server)
+  window.fetchSubmission = async (n) => {
+    const user = auth.currentUser;
+    if (!user) return null;
+    try {
+      const snap = await getDoc(doc(db, 'submissions', user.uid + '_day' + n));
+      return snap.exists() ? snap.data() : null;
+    } catch (e) {
+      return null;
+    }
+  };
 
   window._saveProgress = () => {
     const user = auth.currentUser;
@@ -2350,6 +2569,11 @@
   const CHECKOUT_URL = 'https://square.link/u/FB4SOI7h';
   const CONTACT_EMAIL = 'esdrasbuelvas31@gmail.com';
 
+  // ===== AI PROJECT REVIEWS =====
+  // Your Cloudflare worker URL + /review. Leave empty to hide project reviews
+  // (then they're not needed for the certificate either).
+  const REVIEW_URL = '';
+
   // ===== DISCOUNT CODES =====
   // 1) In Square, make a second payment link at the discounted price.
   // 2) Add it here. Codes are not case-sensitive. Delete a line to end a code.
@@ -2364,8 +2588,13 @@
   const TOTAL = 34;
   const FREE_LESSONS = 2;
   const CHECKLIST_ITEMS = 6;
+  const MODULE_END = { 7: 1, 19: 2, 34: 3 };        // last lesson of each module -> its test
+  const PROJECT_LESSONS = [7, 18, 33, 34];
+  const TEST_PASS = 0.7;
 
   window._access = { user: null, paid: false, verified: false, full: false, ready: false };
+  let results = {};        // quiz & test scores
+  let submissions = {};    // AI project reviews, by lesson number
 
   // ===== PRICING & DISCOUNT CODES =====
   let currentPrice = COURSE_PRICE;
@@ -2378,6 +2607,7 @@
     document.querySelectorAll('.js-code-note').forEach((el) => {
       el.textContent = activeCode ? `Code ${activeCode} applied (was ${COURSE_PRICE})` : '';
     });
+    document.querySelectorAll('.js-ai-only').forEach((el) => { el.hidden = !REVIEW_URL; });
     document.querySelectorAll('.coupon-link').forEach((el) => {
       el.style.display = Object.keys(COUPONS).length && !activeCode ? '' : 'none';
     });
@@ -2419,6 +2649,7 @@
 
   const PAGE_IDS = ['homePage', 'profilePage', 'certPage'];
   for (let n = 1; n <= TOTAL; n++) PAGE_IDS.push('day' + n + 'Page');
+  for (let m = 1; m <= 3; m++) PAGE_IDS.push('test' + m + 'Page');
 
   function hideAllPages() {
     PAGE_IDS.forEach((id) => {
@@ -2432,8 +2663,8 @@
   }
 
   // ===== PAYWALL =====
-  function renderPaywall(n) {
-    const page = document.getElementById('day' + n + 'Page');
+  function renderPaywall(n, opts = {}) {
+    const page = document.getElementById(opts.pageId || 'day' + n + 'Page');
     if (!page || page.dataset.unlocked === '1') return;
     const a = window._access;
     const safeEmail = a.user ? escapeText(a.user.email) : '';
@@ -2459,14 +2690,15 @@
     page.innerHTML = `
       <div class="paywall">
         <div class="paywall-card">
-          <p class="paywall-kicker">Lesson ${n} of ${TOTAL} · Full course</p>
-          <h1 class="paywall-title">${info.title}</h1>
+          <p class="paywall-kicker">${opts.kicker || `Lesson ${n} of ${TOTAL} · Full course`}</p>
+          <h1 class="paywall-title">${opts.title || info.title}</h1>
           <p class="paywall-sub">You finished the free lessons. The full course takes you from here to building real websites with HTML, CSS and JavaScript.</p>
           <ul class="paywall-list">
             <li>Module 1 — HTML: tables, images, forms, accessibility &amp; SEO</li>
             <li>Module 2 — CSS: Flexbox, Grid, responsive design, animations &amp; Git</li>
             <li>Module 3 — JavaScript: the DOM, events, APIs, localStorage &amp; debugging</li>
-            <li>4 real projects, including a business site and a to-do app</li>
+            <li>4 real projects, including a business site and a to-do app${REVIEW_URL ? ', with AI feedback on your code' : ''}</li>
+            <li>A quiz in every lesson and a test for each module</li>
             <li>Certificate of completion</li>
           </ul>
           ${showBuy ? `
@@ -2521,10 +2753,19 @@
   // Re-draw whichever lesson is open (after access, pricing or video changes)
   function refreshActiveLesson() {
     const page = document.querySelector('.page.active');
-    if (!page || !page.id.startsWith('day')) return;
+    if (!page) return;
+    if (page.id.startsWith('test')) {
+      const m = parseInt(page.id.slice(4), 10);
+      if (page.dataset.unlocked !== '1') renderTestLocked(m);
+      else applyTestState(m);
+      return;
+    }
+    if (!page.id.startsWith('day')) return;
     const n = parseInt(page.id.slice(3), 10);
     if (n > FREE_LESSONS && page.dataset.unlocked !== '1') renderPaywall(n);
     loadVideo(n);
+    applyQuizState(n);
+    renderTurnin(n);
   }
   window.refreshActiveLesson = refreshActiveLesson;
 
@@ -2696,8 +2937,365 @@
     window.scrollTo(0, 0);
     highlightSidebar();
     loadVideo(n);
+    applyQuizState(n);
+    renderTurnin(n);
   }
   window.showLesson = showLesson;
+
+  function moduleName(m) {
+    return MODULES[m - 1].name.split(' — ')[1];
+  }
+
+  function renderTestLocked(m) {
+    renderPaywall(FREE_LESSONS + 1, {
+      pageId: 'test' + m + 'Page',
+      kicker: `Module ${m} Test · Full course`,
+      title: `${moduleName(m)} Test`,
+    });
+  }
+
+  function showTest(m) {
+    m = Math.min(3, Math.max(1, parseInt(m, 10) || 1));
+    hideAllPages();
+    document.getElementById('homeNav').style.display = 'none';
+    document.getElementById('lessonNav').style.display = 'flex';
+    document.getElementById('navCourse').style.display = 'inline';
+    const page = document.getElementById('test' + m + 'Page');
+    if (page.dataset.unlocked !== '1') renderTestLocked(m);
+    page.classList.add('active');
+    document.getElementById('lessonNav').querySelector('.progress-label').textContent = `Module ${m} Test`;
+    document.title = `${moduleName(m)} Test — Web Sprint`;
+    window.scrollTo(0, 0);
+    applyTestState(m);
+  }
+  window.showTest = showTest;
+
+  // ===== QUIZ & TEST RESULTS =====
+  // Saved in the progress doc as quiz7: {score, total} and test1: {score, total, passed}
+
+  window.applyResults = function(data) {
+    if (data) {
+      for (const [k, v] of Object.entries(data)) {
+        if (/^(quiz|test)\d+$/.test(k)) results[k] = v;
+      }
+    }
+    for (let n = 1; n <= TOTAL; n++) applyQuizState(n);
+    for (let m = 1; m <= 3; m++) applyTestState(m);
+  };
+
+  window.resetResults = function() {
+    results = {};
+    submissions = {};
+  };
+
+  function saveResult(key, value) {
+    results[key] = value;
+    if (window._saveResult) window._saveResult(key, value);
+  }
+
+  function testPassed(m) {
+    return !!(results['test' + m] && results['test' + m].passed);
+  }
+
+  function applyQuizState(n) {
+    const quiz = document.querySelector(`#day${n}Page .quiz`);
+    if (!quiz) return;
+    const best = results['quiz' + n];
+    let badge = quiz.querySelector('.quiz-best');
+    if (!best) { if (badge) badge.remove(); return; }
+    if (!badge) {
+      badge = document.createElement('p');
+      badge.className = 'quiz-best';
+      quiz.querySelector('.quiz-intro').after(badge);
+    }
+    badge.textContent = `Your best score: ${best.score} / ${best.total}` + (best.score === best.total ? ' 🎉' : '');
+  }
+
+  document.addEventListener('click', (event) => {
+    const btn = event.target.closest('.quiz-opt');
+    if (btn) return answerQuiz(btn);
+    const retry = event.target.closest('.quiz-retry');
+    if (retry) return resetQuiz(retry.closest('.quiz'));
+  });
+
+  function answerQuiz(btn) {
+    const q = btn.closest('.quiz-q');
+    if (q.classList.contains('answered')) return;
+    const correct = Number(q.dataset.correct);
+    const chosen = Number(btn.dataset.i);
+    q.classList.add('answered');
+    q.querySelectorAll('.quiz-opt').forEach((b) => {
+      b.disabled = true;
+      if (Number(b.dataset.i) === correct) b.classList.add('correct');
+    });
+    if (chosen !== correct) btn.classList.add('wrong');
+    q.classList.add(chosen === correct ? 'got-it' : 'missed');
+    q.querySelector('.quiz-explain').hidden = false;
+
+    const quiz = q.closest('.quiz');
+    const all = quiz.querySelectorAll('.quiz-q');
+    const answered = quiz.querySelectorAll('.quiz-q.answered');
+    if (answered.length === all.length) {
+      const score = quiz.querySelectorAll('.quiz-q.got-it').length;
+      const n = Number(quiz.dataset.quiz);
+      const result = quiz.querySelector('.quiz-result');
+      const msg = score === all.length ? 'Perfect! You nailed it. 🎉' : score >= all.length / 2 ? 'Nice work. Read the explanations for the ones you missed.' : 'Worth another look. Re-read the lesson, then try again.';
+      result.innerHTML = `<strong>${score} / ${all.length}</strong> ${msg} <button class="quiz-retry" type="button">Try again</button>`;
+      const prev = results['quiz' + n];
+      if (!prev || score > prev.score) saveResult('quiz' + n, { score, total: all.length });
+      applyQuizState(n);
+    }
+  }
+
+  function resetQuiz(quiz) {
+    quiz.querySelectorAll('.quiz-q').forEach((q) => {
+      q.classList.remove('answered', 'got-it', 'missed');
+      q.querySelector('.quiz-explain').hidden = true;
+      q.querySelectorAll('.quiz-opt').forEach((b) => { b.disabled = false; b.classList.remove('correct', 'wrong'); });
+    });
+    quiz.querySelector('.quiz-result').innerHTML = '';
+    quiz.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function applyTestState(m) {
+    const status = document.getElementById('testStatus' + m);
+    if (!status) return;
+    const r = results['test' + m];
+    if (!r) { status.textContent = ''; status.className = 'test-status'; return; }
+    status.className = 'test-status ' + (r.passed ? 'passed' : '');
+    status.textContent = r.passed
+      ? `✓ You passed this test (best: ${r.score} / ${r.total}).`
+      : `Best so far: ${r.score} / ${r.total}. You need ${Math.ceil(r.total * TEST_PASS)} to pass.`;
+  }
+
+  function submitTest(event, m) {
+    event.preventDefault();
+    const form = event.target;
+    const questions = [...form.querySelectorAll('.test-q')];
+    const warning = form.querySelector('.test-warning');
+    const unanswered = questions.filter((q) => !q.querySelector('input:checked'));
+    if (unanswered.length) {
+      warning.textContent = `Answer all the questions first (${unanswered.length} left).`;
+      unanswered[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    warning.textContent = '';
+    let score = 0;
+    for (const q of questions) {
+      const correct = Number(q.dataset.correct);
+      const chosen = Number(q.querySelector('input:checked').value);
+      const right = chosen === correct;
+      if (right) score++;
+      q.classList.add(right ? 'got-it' : 'missed');
+      q.querySelectorAll('.test-opt').forEach((label) => {
+        const input = label.querySelector('input');
+        input.disabled = true;
+        if (Number(input.value) === correct) label.classList.add('correct');
+        else if (input.checked) label.classList.add('wrong');
+      });
+      q.querySelector('.test-explain').hidden = false;
+    }
+    const total = questions.length;
+    const passed = score >= Math.ceil(total * TEST_PASS);
+    form.querySelector('.test-actions').hidden = true;
+    const box = document.getElementById('testResult' + m);
+    box.hidden = false;
+    box.classList.toggle('passed', passed);
+    box.querySelector('.test-score').innerHTML = passed
+      ? `<strong>${score} / ${total}</strong> You passed! 🎉 Scroll up to see the explanations.`
+      : `<strong>${score} / ${total}</strong> You need ${Math.ceil(total * TEST_PASS)} to pass. Check the explanations above, review those lessons, and retake it whenever you're ready.`;
+    const prev = results['test' + m];
+    if (!prev || score > prev.score || (passed && !prev.passed)) {
+      saveResult('test' + m, { score, total, passed: passed || !!(prev && prev.passed) });
+    }
+    applyTestState(m);
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function retakeTest(m) {
+    const form = document.querySelector(`#test${m}Page .test-form`);
+    form.reset();
+    form.querySelectorAll('.test-q').forEach((q) => {
+      q.classList.remove('got-it', 'missed');
+      q.querySelector('.test-explain').hidden = true;
+      q.querySelectorAll('.test-opt').forEach((label) => {
+        label.classList.remove('correct', 'wrong');
+        label.querySelector('input').disabled = false;
+      });
+    });
+    form.querySelector('.test-actions').hidden = false;
+    document.getElementById('testResult' + m).hidden = true;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ===== PROJECT TURN-IN (AI review) =====
+  const REVIEW_EXT = /\.(html|css|js)$/i;
+  const REVIEW_MAX = 200 * 1024;
+
+  async function renderTurnin(n) {
+    const page = document.getElementById('day' + n + 'Page');
+    const box = page && page.querySelector('.turnin');
+    if (!box) return;
+    const section = page.querySelector(`#d${n}-turnin`);
+    const navLink = page.querySelector(`.sidebar-nav a[href="#d${n}-turnin"]`);
+    if (!REVIEW_URL) {
+      if (section) section.hidden = true;
+      if (navLink) navLink.parentElement.hidden = true;
+      return;
+    }
+    if (box.dataset.ready !== '1') {
+      box.dataset.ready = '1';
+      box.innerHTML = `
+        <div class="ti-box">
+          <div class="ti-pick">
+            <label class="ti-btn">📄 Choose files<input type="file" multiple accept=".html,.css,.js" hidden></label>
+            <label class="ti-btn">📁 Choose a folder<input type="file" webkitdirectory multiple hidden></label>
+          </div>
+          <ul class="ti-files"></ul>
+          <p class="ti-hint">Upload your .html, .css and .js files. Images aren't needed. 200 KB max.</p>
+          <button class="btn-primary ti-submit" type="button" disabled>Get feedback →</button>
+          <p class="ti-status" aria-live="polite"></p>
+        </div>
+        <div class="ti-result" aria-live="polite"></div>`;
+      const chosen = [];
+      const list = box.querySelector('.ti-files');
+      const submit = box.querySelector('.ti-submit');
+      const status = box.querySelector('.ti-status');
+      const refreshList = () => {
+        list.innerHTML = '';
+        let total = 0;
+        for (const f of chosen) {
+          total += f.size;
+          const li = document.createElement('li');
+          li.textContent = `${f.webkitRelativePath || f.name} · ${Math.max(1, Math.round(f.size / 1024))} KB`;
+          list.appendChild(li);
+        }
+        submit.disabled = !chosen.length || total > REVIEW_MAX;
+        status.textContent = total > REVIEW_MAX ? 'Those files are over 200 KB. Leave out libraries and anything you didn\'t write.' : '';
+      };
+      box.querySelectorAll('input[type=file]').forEach((input) => {
+        input.addEventListener('change', () => {
+          chosen.length = 0;
+          for (const f of input.files) {
+            const path = f.webkitRelativePath || f.name;
+            if (REVIEW_EXT.test(f.name) && !/node_modules|\.git\//.test(path)) chosen.push(f);
+          }
+          if (!chosen.length) status.textContent = 'No .html, .css or .js files found there.';
+          refreshList();
+          input.value = '';
+        });
+      });
+      submit.addEventListener('click', () => submitProject(n, chosen, box));
+    }
+    if (!(n in submissions) && window.fetchSubmission) {
+      submissions[n] = await window.fetchSubmission(n);
+    }
+    if (submissions[n]) showReview(box.querySelector('.ti-result'), submissions[n], true);
+  }
+
+  async function submitProject(n, files, box) {
+    const submit = box.querySelector('.ti-submit');
+    const status = box.querySelector('.ti-status');
+    if (!window._access.full) { status.textContent = 'Project reviews are part of the full course.'; return; }
+    submit.disabled = true;
+    const started = Date.now();
+    const tick = setInterval(() => {
+      status.textContent = `Reviewing your code… ${Math.round((Date.now() - started) / 1000)}s (usually 20–40 seconds)`;
+    }, 1000);
+    status.textContent = 'Reviewing your code…';
+    try {
+      const payload = [];
+      for (const f of files) payload.push({ name: f.webkitRelativePath || f.name, content: await f.text() });
+      const token = await window.getIdToken();
+      const response = await fetch(REVIEW_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        body: JSON.stringify({ lesson: n, files: payload }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || 'Something went wrong. Please try again.');
+      submissions[n] = data;
+      showReview(box.querySelector('.ti-result'), data, false);
+      status.textContent = typeof data.remainingToday === 'number' ? `Reviews left today: ${data.remainingToday}` : '';
+    } catch (error) {
+      status.textContent = error.message === 'Failed to fetch' ? "Couldn't reach the review server. Check your connection and try again." : error.message;
+    } finally {
+      clearInterval(tick);
+      submit.disabled = false;
+    }
+  }
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  // Built with textContent only: AI output is never inserted as HTML
+  function showReview(target, r, old) {
+    target.innerHTML = '';
+    const card = el('div', 'ti-card ' + (r.passed ? 'passed' : 'not-yet'));
+    const head = el('div', 'ti-head');
+    head.appendChild(el('div', 'ti-score', String(r.score)));
+    const headText = el('div');
+    headText.appendChild(el('div', 'ti-verdict', r.passed ? '✓ Passed' : 'Not quite yet: 70 needed to pass'));
+    const date = r.submittedAt ? new Date(r.submittedAt).toLocaleString() : '';
+    headText.appendChild(el('div', 'ti-meta', (old ? 'Your last review' : 'Just now') + (date && old ? ' · ' + date : '') + (r.everPassed && !r.passed ? ' · You passed this project before ✓' : '')));
+    head.appendChild(headText);
+    card.appendChild(head);
+    card.appendChild(el('p', 'ti-summary', r.summary || ''));
+
+    if (r.checks && r.checks.length) {
+      card.appendChild(el('h4', '', 'Requirements'));
+      const ul = el('ul', 'ti-checks');
+      for (const c of r.checks) {
+        const li = el('li', c.met ? 'met' : 'unmet');
+        li.appendChild(el('span', 'ti-mark', c.met ? '✓' : '✗'));
+        const body = el('div');
+        body.appendChild(el('strong', '', c.requirement));
+        if (c.note) body.appendChild(el('span', 'ti-note', ' ' + c.note));
+        li.appendChild(body);
+        ul.appendChild(li);
+      }
+      card.appendChild(ul);
+    }
+    if (r.strengths && r.strengths.length) {
+      card.appendChild(el('h4', '', 'What you did well'));
+      const ul = el('ul', 'ti-list');
+      for (const s of r.strengths) ul.appendChild(el('li', '', s));
+      card.appendChild(ul);
+    }
+    if (r.improvements && r.improvements.length) {
+      card.appendChild(el('h4', '', 'What to improve'));
+      for (const i of r.improvements) {
+        const item = el('div', 'ti-fix');
+        if (i.file) item.appendChild(el('span', 'ti-file', i.file));
+        item.appendChild(el('p', 'ti-problem', i.problem));
+        item.appendChild(el('p', 'ti-solution', i.fix));
+        card.appendChild(item);
+      }
+    }
+    card.appendChild(el('p', 'ti-disclaimer', 'Feedback is written by AI. It can occasionally be wrong. If something looks off, trust the lesson and your browser.'));
+    target.appendChild(card);
+  }
+
+  // ===== CERTIFICATE REQUIREMENTS =====
+  function projectPassed(n) {
+    const s = submissions[n];
+    return !!(s && (s.everPassed || s.passed));
+  }
+
+  function certificateStatus() {
+    const missing = [];
+    const lessonsLeft = COURSE.filter((l) => lessonDoneCount(l.n) < CHECKLIST_ITEMS).length;
+    if (lessonsLeft) missing.push(`${lessonsLeft} lesson${lessonsLeft === 1 ? '' : 's'} to check off`);
+    for (let m = 1; m <= 3; m++) if (!testPassed(m)) missing.push(`Module ${m} test`);
+    if (REVIEW_URL) {
+      for (const n of PROJECT_LESSONS) if (!projectPassed(n)) missing.push(`Lesson ${n} project review`);
+    }
+    return missing;
+  }
 
   function showHome() {
     hideAllPages();
@@ -2710,7 +3308,19 @@
   }
   window.showHome = showHome;
 
+  async function loadSubmissions() {
+    if (!REVIEW_URL || !window.fetchSubmission || !window._access.full) return false;
+    let changed = false;
+    for (const n of PROJECT_LESSONS) {
+      if (!(n in submissions)) { submissions[n] = await window.fetchSubmission(n); changed = true; }
+    }
+    return changed;
+  }
+
   window.showProfile = function() {
+    loadSubmissions().then((changed) => {
+      if (changed && document.getElementById('profilePage').classList.contains('active')) renderProfile();
+    });
     hideAllPages();
     document.getElementById('profilePage').classList.add('active');
     document.getElementById('homeNav').style.display = 'none';
@@ -2726,6 +3336,7 @@
     for (let n = 1; n <= TOTAL; n++) {
       if (!canOpen(n)) return showLesson('day' + n);
       if (lessonDoneCount(n) < CHECKLIST_ITEMS) return showLesson('day' + n);
+      if (MODULE_END[n] && !testPassed(MODULE_END[n])) return showTest(MODULE_END[n]);
     }
     window.showProfile();
   };
@@ -2796,27 +3407,43 @@
         else if (complete) state = '✓ Done';
         else if (done > 0) state = `${done} / ${CHECKLIST_ITEMS}`;
         else state = 'Not started';
+        const quiz = results['quiz' + l.n];
+        if (open && quiz) state += ` · Quiz ${quiz.score}/${quiz.total}`;
+        if (open && REVIEW_URL && PROJECT_LESSONS.includes(l.n)) {
+          const sub = submissions[l.n];
+          state += projectPassed(l.n) ? ' · Project ✓' : sub ? ` · Project ${sub.score}` : ' · Project not turned in';
+        }
         return `<div class="pm-row${complete ? ' complete' : ''}" onclick="showLesson('day${l.n}')">
             <span class="pm-num">${String(l.n).padStart(2, '0')}</span>
             <span class="pm-title">${l.title}</span>
             <span class="pm-state">${state}</span>
           </div>`;
       }).join('');
+      const m = MODULES.indexOf(mod) + 1;
+      const t = results['test' + m];
+      const testState = !paid ? '🔒 Full course' : t ? (t.passed ? `✓ Passed · ${t.score}/${t.total}` : `Best ${t.score}/${t.total}`) : 'Not taken';
+      const testRow = `<div class="pm-row pm-test${t && t.passed ? ' complete' : ''}" onclick="showTest(${m})">
+            <span class="pm-num">✎</span>
+            <span class="pm-title">Module ${m} Test</span>
+            <span class="pm-state">${testState}</span>
+          </div>`;
       return `<div class="pm-module">
           <div class="pm-head"><span>${mod.name}</span><span style="color:var(--gray-text);font-weight:400;">${modComplete} / ${lessons.length}</span></div>
           ${rows}
+          ${testRow}
         </div>`;
     }).join('');
 
     const overallPct = Math.round((totalDone / totalItems) * 100);
-    const courseComplete = lessonsComplete === TOTAL;
+    const missing = certificateStatus();
+    const courseComplete = paid && missing.length === 0;
 
     const banner = courseComplete ? `
       <div style="background:linear-gradient(135deg,#1a3a2a,#2d6a4f);border-radius:20px;padding:2.5rem;margin-bottom:2rem;color:white;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;">
         <div>
           <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">🎉 Course complete</div>
           <div style="font-family:'DM Serif Display',serif;font-size:1.75rem;letter-spacing:-0.03em;margin-bottom:0.5rem;">Your certificate is ready</div>
-          <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">You completed all ${TOTAL} lessons of Web Sprint.</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">You completed all ${TOTAL} lessons, passed all 3 module tests${REVIEW_URL ? ' and all 4 projects' : ''}.</div>
         </div>
         <button onclick="window.showCertificate()" style="background:white;color:#1a3a2a;border:none;padding:0.875rem 1.75rem;border-radius:100px;font-size:0.9375rem;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;">View certificate →</button>
       </div>` : (window._access.paid && !window._access.verified) ? `
@@ -2833,7 +3460,7 @@
         <a href="${currentCheckout}" style="background:white;color:var(--black);padding:0.8rem 1.5rem;border-radius:100px;font-size:0.9375rem;font-weight:500;text-decoration:none;">Get the full course →</a>
       </div>` : `
       <div style="background:var(--gray-light);border-radius:20px;padding:1.5rem 1.75rem;margin-bottom:2rem;font-size:0.875rem;color:var(--gray-text);">
-        <strong style="color:var(--black);">Certificate locked.</strong> Check off every item in all ${TOTAL} lessons to unlock it.
+        <strong style="color:var(--black);">Certificate locked.</strong> Still to do: ${missing.join(' · ')}.
       </div>`;
 
     document.getElementById('profileContent').innerHTML = `
