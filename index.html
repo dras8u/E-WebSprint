@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Build Your First Website in 7 Days — Esdras Buelvas</title>
+<title>Web Sprint — Build Your First Website — Esdras Buelvas</title>
 
 <!-- SEO -->
-<meta name="description" content="7-day HTML & CSS course. Zero experience needed. By the end you have a real website live on the internet. Start free — Days 1 and 2 cost nothing.">
+<meta name="description" content="Learn HTML, CSS and JavaScript in 14 days. Zero experience needed. Build a real website in week one, make it interactive in week two. Start free.">
 <meta name="author" content="Esdras Buelvas">
 
 <!-- Open Graph (iMessage, WhatsApp, Facebook, Discord, Slack) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://esdrasbuelvas.org">
-<meta property="og:title" content="Build Your First Website in 7 Days">
-<meta property="og:description" content="Zero experience needed. 7 days. A real website on the internet. Built by a 17-year-old. Start free.">
+<meta property="og:title" content="Web Sprint — Build Your First Website">
+<meta property="og:description" content="Zero experience needed. HTML, CSS and JavaScript in 14 days. A real website on the internet. Built by a 17-year-old. Start free.">
 <meta property="og:image" content="https://esdrasbuelvas.org/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,8 +22,8 @@
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://esdrasbuelvas.org">
-<meta name="twitter:title" content="Build Your First Website in 7 Days">
-<meta name="twitter:description" content="Zero experience needed. 7 days. A real website on the internet. Built by a 17-year-old. Start free.">
+<meta name="twitter:title" content="Web Sprint — Build Your First Website">
+<meta name="twitter:description" content="Zero experience needed. HTML, CSS and JavaScript in 14 days. A real website on the internet. Built by a 17-year-old. Start free.">
 <meta name="twitter:image" content="https://esdrasbuelvas.org/preview.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -1138,7 +1138,7 @@
   .price-card.featured .btn-white { display:inline-block; text-decoration:none; }
   .price-card .btn-primary { display:inline-block; text-decoration:none; }
   .lesson-main, .lesson-layout > * { min-width: 0; }
-  .lesson-code-body { overflow-x: auto; }
+  .lesson-code-body { overflow-x: auto; color: #e8e8e8; }
   .lesson-main table { display:block; overflow-x:auto; }
 
   /* RESPONSIVE */
@@ -1178,7 +1178,7 @@
 <nav id="mainNav">
   <div class="nav-left">
     <span class="nav-logo" onclick="showHome()">Esdras Buelvas</span>
-    <span class="nav-course" id="navCourse" style="display:none;">Build Your First Website in 7 Days</span>
+    <span class="nav-course" id="navCourse" style="display:none;">Web Sprint</span>
   </div>
 
   <!-- Home nav -->
@@ -1200,8 +1200,15 @@
       <div class="progress-dot"></div>
       <div class="progress-dot"></div>
       <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
+      <div class="progress-dot"></div>
     </div>
-    <span class="progress-label">Day 1 of 7</span>
+    <span class="progress-label">Day 1 of 14</span>
   </div>
 </nav>
 
@@ -1213,7 +1220,7 @@
     <div class="hero-left">
       <span class="hero-badge animate">Days 1 &amp; 2 free — no card needed</span>
       <h1 class="hero-title animate animate-d1">Build your first<br>website <em>in 7 days.</em></h1>
-      <p class="hero-sub animate animate-d2">Learn HTML & CSS from zero. No experience needed. By the end, you'll have a real, live website — deployed and yours forever.</p>
+      <p class="hero-sub animate animate-d2">Learn HTML & CSS from zero and put a real website live in 7 days. Then spend week two making it interactive with JavaScript. No experience needed.</p>
       <div class="hero-actions animate animate-d3">
         <button class="btn-primary" onclick="showEmailModal()">Start for free →</button>
         <button class="btn-ghost" onclick="scrollToSection('curriculum')">See the curriculum ↓</button>
@@ -1226,7 +1233,7 @@
         <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Experience needed</div></div>
       </div>
       <div class="stat-row animate animate-d2">
-        <div class="stat-card"><div class="stat-num">EN</div><div class="stat-label">English lessons</div></div>
+        <div class="stat-card"><div class="stat-num">14</div><div class="stat-label">Lessons, HTML to JavaScript</div></div>
       </div>
       <div class="preview-card animate animate-d3">
         <div class="preview-icon">
@@ -1247,10 +1254,11 @@
   <section class="curriculum home-section" id="curriculum">
     <div class="curriculum-header">
       <p class="section-label">The curriculum</p>
-      <h2 class="section-title">Seven days,<br>one real project.</h2>
-      <p class="section-sub">Every day you learn one concept and immediately build something with it. No fluff. No theory overload. Just code you can see.</p>
+      <h2 class="section-title">Two weeks,<br>one real project.</h2>
+      <p class="section-sub">Week 1 you build and launch your site with HTML &amp; CSS. Week 2 you make it interactive with JavaScript. Every day, one concept, built straight into your project.</p>
     </div>
     <div class="days-grid">
+      <p class="section-label" style="grid-column:1/-1;margin:0;">Week 1 — HTML &amp; CSS</p>
       <div class="day-card free-day" onclick="showEmailModal()">
         <div class="day-num">Day 01</div>
         <div class="day-topic">Your First HTML Page</div>
@@ -1263,6 +1271,14 @@
       <div class="day-card"><div class="day-num">Day 05</div><div class="day-topic">Images & Media</div><div class="day-desc">Adding images, video embeds, and responsive visuals.</div></div>
       <div class="day-card"><div class="day-num">Day 06</div><div class="day-topic">Full Page Build</div><div class="day-desc">Put it all together — build a real, complete page.</div></div>
       <div class="day-card"><div class="day-num">Day 07</div><div class="day-topic">Go Live</div><div class="day-desc">Deploy to GitHub Pages. Your site is on the internet.</div></div>
+      <p class="section-label" style="grid-column:1/-1;margin:1.5rem 0 0;">Week 2 — JavaScript</p>
+      <div class="day-card"><div class="day-num">Day 08</div><div class="day-topic">Hello, JavaScript</div><div class="day-desc">The console, variables, and your first script.</div></div>
+      <div class="day-card"><div class="day-num">Day 09</div><div class="day-topic">The DOM</div><div class="day-desc">Change your page with code. A greeting that knows the time.</div></div>
+      <div class="day-card"><div class="day-num">Day 10</div><div class="day-topic">Events & Dark Mode</div><div class="day-desc">Respond to clicks. A theme toggle that remembers.</div></div>
+      <div class="day-card"><div class="day-num">Day 11</div><div class="day-topic">Arrays & Loops</div><div class="day-desc">Store data in lists and generate cards automatically.</div></div>
+      <div class="day-card"><div class="day-num">Day 12</div><div class="day-topic">Mobile Menu</div><div class="day-desc">A real hamburger menu and a back-to-top button.</div></div>
+      <div class="day-card"><div class="day-num">Day 13</div><div class="day-topic">Contact Form</div><div class="day-desc">Validate input and send messages to your inbox.</div></div>
+      <div class="day-card"><div class="day-num">Day 14</div><div class="day-topic">Ship It</div><div class="day-desc">Debug like a pro, polish, and push it live.</div></div>
     </div>
   </section>
 
@@ -1304,8 +1320,8 @@
   <section class="pricing-section home-section" id="pricing">
     <div class="pricing-header">
       <p class="section-label">Pricing</p>
-      <h2 class="section-title">Start free.<br>Finish for <span class="js-price">$49.99</span>.</h2>
-      <p class="section-sub">Days 1 and 2 are free with an account, no card needed. When you're ready to make it look good and put it online, unlock the rest of the course with one payment.</p>
+      <h2 class="section-title">Start free.<br>Finish for <span class="js-price">$49</span>.</h2>
+      <p class="section-sub">Days 1 and 2 are free with an account, no card needed. When you're ready, unlock all 14 days with one payment.</p>
     </div>
     <div class="price-cards">
       <div class="price-card">
@@ -1321,12 +1337,12 @@
       </div>
       <div class="price-card featured" style="padding:3rem;">
         <div class="price-label">The full course</div>
-        <div class="price-big js-price">$49.99</div>
+        <div class="price-big js-price">$49</div>
         <div class="price-per" style="color:rgba(255,255,255,0.5);">One payment · Lifetime access</div>
         <ul class="price-features" style="margin-top:1.5rem;">
-          <li class="price-feature"><span class="price-feature-dot"></span>All 7 days, including CSS, Flexbox &amp; responsive design</li>
-          <li class="price-feature"><span class="price-feature-dot"></span>Build a full portfolio site and put it live</li>
-          <li class="price-feature"><span class="price-feature-dot"></span>GitHub Pages + custom domain guide</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>All 14 days: HTML, CSS &amp; JavaScript</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>Build a portfolio, put it live, then make it interactive</li>
+          <li class="price-feature"><span class="price-feature-dot"></span>Dark mode, mobile menu &amp; a working contact form</li>
           <li class="price-feature"><span class="price-feature-dot"></span>Certificate of completion</li>
         </ul>
         <a class="btn-white js-checkout" href="#" target="_blank" rel="noopener" style="margin-top:0.5rem;">Get the full course →</a>
@@ -1379,15 +1395,25 @@
         <li><a href="#challenge"><span class="sidebar-num">06</span> Challenge</a></li>
       </ul>
       <div class="sidebar-divider"></div>
-      <p class="sidebar-title">All days</p>
+      <p class="sidebar-title">Week 1 — HTML &amp; CSS</p>
       <ul class="sidebar-days">
         <li><a onclick="showLesson('day1')" class="current">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
-        <li><a onclick="showLesson('day2')">Day 2 — Text & Links <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')">Day 2 — Text &amp; Links <span class="day-free-badge">Free</span></a></li>
         <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day4')">Day 4 — Layout & Boxes <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day5')">Day 5 — Images & Media <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day4')">Day 4 — Layout &amp; Boxes <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day5')">Day 5 — Images &amp; Media <span class="day-free-badge day-pro-badge">Full</span></a></li>
         <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge day-pro-badge">Full</span></a></li>
         <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge day-pro-badge">Full</span></a></li>
+      </ul>
+      <p class="sidebar-title" style="margin-top:1rem;">Week 2 — JavaScript</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day8')">Day 8 — Hello, JavaScript <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day9')">Day 9 — The DOM <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day10')">Day 10 — Events &amp; Dark Mode <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day11')">Day 11 — Arrays &amp; Loops <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day12')">Day 12 — Mobile Menu <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day13')">Day 13 — Contact Form <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day14')">Day 14 — Ship It <span class="day-free-badge day-pro-badge">Full</span></a></li>
       </ul>
     </aside>
 
@@ -1558,7 +1584,7 @@
       <div>
         <p class="panel-title">Your progress</p>
         <div class="progress-card">
-          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 1 of 7</p>
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 1 of 14</p>
           <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
           <p class="progress-pct" id="progressPct">0% complete</p>
         </div>
@@ -1602,15 +1628,25 @@
         <li><a href="#d2-challenge"><span class="sidebar-num">06</span> Challenge</a></li>
       </ul>
       <div class="sidebar-divider"></div>
-      <p class="sidebar-title">All days</p>
+      <p class="sidebar-title">Week 1 — HTML &amp; CSS</p>
       <ul class="sidebar-days">
         <li><a onclick="showLesson('day1')">Day 1 — Your First Page <span class="day-free-badge">Free</span></a></li>
-        <li><a onclick="showLesson('day2')" class="current">Day 2 — Text & Links <span class="day-free-badge">Free</span></a></li>
+        <li><a onclick="showLesson('day2')" class="current">Day 2 — Text &amp; Links <span class="day-free-badge">Free</span></a></li>
         <li><a onclick="showLesson('day3')">Day 3 — CSS Styling <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day4')">Day 4 — Layout & Boxes <span class="day-free-badge day-pro-badge">Full</span></a></li>
-        <li><a onclick="showLesson('day5')">Day 5 — Images & Media <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day4')">Day 4 — Layout &amp; Boxes <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day5')">Day 5 — Images &amp; Media <span class="day-free-badge day-pro-badge">Full</span></a></li>
         <li><a onclick="showLesson('day6')">Day 6 — Full Page Build <span class="day-free-badge day-pro-badge">Full</span></a></li>
         <li><a onclick="showLesson('day7')">Day 7 — Go Live <span class="day-free-badge day-pro-badge">Full</span></a></li>
+      </ul>
+      <p class="sidebar-title" style="margin-top:1rem;">Week 2 — JavaScript</p>
+      <ul class="sidebar-days">
+        <li><a onclick="showLesson('day8')">Day 8 — Hello, JavaScript <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day9')">Day 9 — The DOM <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day10')">Day 10 — Events &amp; Dark Mode <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day11')">Day 11 — Arrays &amp; Loops <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day12')">Day 12 — Mobile Menu <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day13')">Day 13 — Contact Form <span class="day-free-badge day-pro-badge">Full</span></a></li>
+        <li><a onclick="showLesson('day14')">Day 14 — Ship It <span class="day-free-badge day-pro-badge">Full</span></a></li>
       </ul>
     </aside>
 
@@ -1867,7 +1903,7 @@
       <div>
         <p class="panel-title">Your progress</p>
         <div class="progress-card">
-          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 2 of 7</p>
+          <p style="font-size:0.8125rem;font-weight:500;color:var(--black);">Day 2 of 14</p>
           <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar2"></div></div>
           <p class="progress-pct" id="progressPct2">0% complete</p>
         </div>
@@ -1911,6 +1947,20 @@
 
 <!-- ===================== DAY 7 PAGE ===================== -->
 <div class="page" id="day7Page"><div class="paywall-slot" data-day="7"></div></div>
+
+<div class="page" id="day8Page"><div class="paywall-slot" data-day="8"></div></div>
+
+<div class="page" id="day9Page"><div class="paywall-slot" data-day="9"></div></div>
+
+<div class="page" id="day10Page"><div class="paywall-slot" data-day="10"></div></div>
+
+<div class="page" id="day11Page"><div class="paywall-slot" data-day="11"></div></div>
+
+<div class="page" id="day12Page"><div class="paywall-slot" data-day="12"></div></div>
+
+<div class="page" id="day13Page"><div class="paywall-slot" data-day="13"></div></div>
+
+<div class="page" id="day14Page"><div class="paywall-slot" data-day="14"></div></div>
 
 <!-- ===== AUTH MODAL ===== -->
 <div id="authModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
@@ -1987,6 +2037,13 @@
     'checklist5': 'day5',
     'checklist6': 'day6',
     'checklist7': 'day7',
+    'checklist8': 'day8',
+    'checklist9': 'day9',
+    'checklist10': 'day10',
+    'checklist11': 'day11',
+    'checklist12': 'day12',
+    'checklist13': 'day13',
+    'checklist14': 'day14',
   };
 
   // ===== AUTH STATE LISTENER =====
@@ -2021,7 +2078,7 @@
   // Paid lessons live in Firestore (lessons/day3 … lessons/day7), not in this file,
   // so they can't be read from the page source.
   async function loadPaidLessons() {
-    for (let n = 3; n <= 7; n++) {
+    for (let n = 3; n <= 14; n++) {
       const page = document.getElementById('day' + n + 'Page');
       try {
         const snap = await getDoc(doc(db, 'lessons', 'day' + n));
@@ -2036,7 +2093,7 @@
   }
 
   function lockPaidLessons() {
-    for (let n = 3; n <= 7; n++) {
+    for (let n = 3; n <= 14; n++) {
       const page = document.getElementById('day' + n + 'Page');
       if (page && page.dataset.unlocked === '1') {
         page.innerHTML = '<div class="paywall-slot" data-day="' + n + '"></div>';
@@ -2046,7 +2103,7 @@
   }
 
   function refreshActiveLockedPage() {
-    for (let n = 3; n <= 7; n++) {
+    for (let n = 3; n <= 14; n++) {
       const page = document.getElementById('day' + n + 'Page');
       if (page && page.classList.contains('active') && page.dataset.unlocked !== '1') window.renderPaywall(n);
     }
@@ -2108,7 +2165,7 @@
       cl.querySelectorAll('li').forEach(li => li.classList.remove('done'));
     });
     // Reset all progress bars
-    ['','2','3','4','5','6','7'].forEach(n => {
+    ['','2','3','4','5','6','7','8','9','10','11','12','13','14'].forEach(n => {
       const bar = document.getElementById('progressBar' + n);
       const pct = document.getElementById('progressPct' + n);
       if (bar) bar.style.width = '0%';
@@ -2247,14 +2304,14 @@
 
 <script>
   // ===== FULL COURSE CONFIG — edit these two lines =====
-  const COURSE_PRICE = '49.99';
+  const COURSE_PRICE = '$49';
   const CHECKOUT_URL = 'https://square.link/u/8tOZctW9';
   const CONTACT_EMAIL = 'hello@esdrasbuelvas.org';
 
   // Access state (filled in by the Firebase script)
   window._access = { user: null, paid: false, ready: false };
 
-  const LESSON_TITLES = { 3: 'Styling with CSS', 4: 'Layout & The Box Model', 5: 'Images & Media', 6: 'Full Page Build', 7: 'Go Live on GitHub Pages' };
+  const LESSON_TITLES = { 3: 'Styling with CSS', 4: 'Layout & The Box Model', 5: 'Images & Media', 6: 'Full Page Build', 7: 'Go Live on GitHub Pages', 8: 'Hello, JavaScript', 9: 'The DOM: Change Your Page', 10: 'Events & Dark Mode', 11: 'Arrays, Loops & Functions', 12: 'Mobile Menu & Scrolling', 13: 'Build a Contact Form', 14: 'Debug, Polish & Ship' };
 
   document.querySelectorAll('.js-price').forEach(el => el.textContent = COURSE_PRICE);
   document.querySelectorAll('.js-checkout').forEach(el => el.href = CHECKOUT_URL);
@@ -2274,15 +2331,13 @@
     page.innerHTML = `
       <div class="paywall">
         <div class="paywall-card">
-          <p class="paywall-kicker">Day ${n} of 7 · Full course</p>
+          <p class="paywall-kicker">Day ${n} of 14 · Full course</p>
           <h1 class="paywall-title">${LESSON_TITLES[n]}</h1>
-          <p class="paywall-sub">You finished the free days. The rest of the course is where your page starts looking like a real website, and where you put it online.</p>
+          <p class="paywall-sub">You finished the free days. The rest of the course is where your page starts looking like a real website, goes online, and then becomes interactive with JavaScript.</p>
           <ul class="paywall-list">
-            <li>Day 3: Styling with CSS</li>
-            <li>Day 4: Layout, the box model &amp; Flexbox</li>
-            <li>Day 5: Images, video &amp; responsive design</li>
-            <li>Day 6: Build a full portfolio page</li>
-            <li>Day 7: Put it live on the internet</li>
+            <li>Week 1: CSS, Flexbox, responsive design, and putting your site live</li>
+            <li>Week 2: JavaScript — dark mode, a mobile menu, dynamic content, and a working contact form</li>
+            <li>12 more lessons with daily challenges</li>
             <li>Certificate of completion</li>
           </ul>
           <div class="paywall-price"><strong>${COURSE_PRICE}</strong><span>one payment · lifetime access</span></div>
@@ -2337,7 +2392,7 @@
   // ===== PAGE ROUTING =====
   function showLesson(day) {
     day = day || 'day1';
-    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','profilePage','certPage'].forEach(id => {
+    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','day8Page','day9Page','day10Page','day11Page','day12Page','day13Page','day14Page','profilePage','certPage'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.remove('active');
     });
@@ -2345,25 +2400,33 @@
     document.getElementById('lessonNav').style.display = 'flex';
     document.getElementById('navCourse').style.display = 'inline';
     const dayMap = {
-      day1: { page: 'lessonPage', label: 'Day 1 of 7', title: 'Day 1: Your First HTML Page — Esdras Buelvas' },
-      day2: { page: 'day2Page',   label: 'Day 2 of 7', title: 'Day 2: Text, Links & Navigation — Esdras Buelvas' },
-      day3: { page: 'day3Page',   label: 'Day 3 of 7', title: 'Day 3: Styling with CSS — Esdras Buelvas' },
-      day4: { page: 'day4Page',   label: 'Day 4 of 7', title: 'Day 4: Layout & The Box Model — Esdras Buelvas' },
-      day5: { page: 'day5Page',   label: 'Day 5 of 7', title: 'Day 5: Images & Media — Esdras Buelvas' },
-      day6: { page: 'day6Page',   label: 'Day 6 of 7', title: 'Day 6: Full Page Build — Esdras Buelvas' },
-      day7: { page: 'day7Page',   label: 'Day 7 of 7', title: 'Day 7: Go Live — Esdras Buelvas' },
+      day1: { page: 'lessonPage', label: 'Day 1 of 14', title: 'Day 1: Your First HTML Page — Esdras Buelvas' },
+      day2: { page: 'day2Page',   label: 'Day 2 of 14', title: 'Day 2: Text, Links & Navigation — Esdras Buelvas' },
+      day3: { page: 'day3Page',   label: 'Day 3 of 14', title: 'Day 3: Styling with CSS — Esdras Buelvas' },
+      day4: { page: 'day4Page',   label: 'Day 4 of 14', title: 'Day 4: Layout & The Box Model — Esdras Buelvas' },
+      day5: { page: 'day5Page',   label: 'Day 5 of 14', title: 'Day 5: Images & Media — Esdras Buelvas' },
+      day6: { page: 'day6Page',   label: 'Day 6 of 14', title: 'Day 6: Full Page Build — Esdras Buelvas' },
+      day7: { page: 'day7Page',   label: 'Day 7 of 14', title: 'Day 7: Go Live — Esdras Buelvas' },
+      day8: { page: 'day8Page', label: 'Day 8 of 14', title: 'Day 8: Hello, JavaScript — Esdras Buelvas' },
+      day9: { page: 'day9Page', label: 'Day 9 of 14', title: 'Day 9: The DOM: Change Your Page — Esdras Buelvas' },
+      day10: { page: 'day10Page', label: 'Day 10 of 14', title: 'Day 10: Events & Dark Mode — Esdras Buelvas' },
+      day11: { page: 'day11Page', label: 'Day 11 of 14', title: 'Day 11: Arrays, Loops & Functions — Esdras Buelvas' },
+      day12: { page: 'day12Page', label: 'Day 12 of 14', title: 'Day 12: Mobile Menu & Scrolling — Esdras Buelvas' },
+      day13: { page: 'day13Page', label: 'Day 13 of 14', title: 'Day 13: Build a Contact Form — Esdras Buelvas' },
+      day14: { page: 'day14Page', label: 'Day 14 of 14', title: 'Day 14: Debug, Polish & Ship — Esdras Buelvas' },
     };
     const target = dayMap[day] || dayMap.day1;
     const dayNum = parseInt(day.replace('day', ''), 10);
     if (dayNum >= 3) renderPaywall(dayNum);
     document.getElementById(target.page).classList.add('active');
     document.getElementById('lessonNav').querySelector('.progress-label').textContent = target.label;
+    document.querySelectorAll('#lessonNav .progress-dot').forEach((d, i) => d.classList.toggle('active', i === dayNum - 1));
     document.title = target.title;
     window.scrollTo(0, 0);
   }
 
   function showHome() {
-    ['lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','profilePage','certPage'].forEach(id => {
+    ['lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','day8Page','day9Page','day10Page','day11Page','day12Page','day13Page','day14Page','profilePage','certPage'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.remove('active');
     });
@@ -2372,11 +2435,11 @@
     document.getElementById('lessonNav').style.display = 'none';
     document.getElementById('navCourse').style.display = 'none';
     window.scrollTo(0, 0);
-    document.title = 'Build Your First Website in 7 Days — Esdras Buelvas';
+    document.title = 'Web Sprint — Build Your First Website — Esdras Buelvas';
   }
 
   window.showProfile = function() {
-    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page'].forEach(id => {
+    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','day8Page','day9Page','day10Page','day11Page','day12Page','day13Page','day14Page'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.remove('active');
     });
@@ -2453,6 +2516,13 @@
       { num: 5, title: 'Images & Media',            id: 'checklist5', items: 6 },
       { num: 6, title: 'Full Page Build',           id: 'checklist6', items: 6 },
       { num: 7, title: 'Go Live',                   id: 'checklist7', items: 6 },
+      { num: 8, title: 'Hello, JavaScript', id: 'checklist8', items: 6 },
+      { num: 9, title: 'The DOM: Change Your Page', id: 'checklist9', items: 6 },
+      { num: 10, title: 'Events & Dark Mode', id: 'checklist10', items: 6 },
+      { num: 11, title: 'Arrays, Loops & Functions', id: 'checklist11', items: 6 },
+      { num: 12, title: 'Mobile Menu & Scrolling', id: 'checklist12', items: 6 },
+      { num: 13, title: 'Build a Contact Form', id: 'checklist13', items: 6 },
+      { num: 14, title: 'Debug, Polish & Ship', id: 'checklist14', items: 6 },
     ];
 
     let totalDone = 0;
@@ -2488,7 +2558,7 @@
       const cl = document.getElementById(d.id);
       return cl && cl.querySelectorAll('li.done').length === d.items;
     }).length;
-    const courseComplete = daysCompleted === 7;
+    const courseComplete = daysCompleted === days.length;
 
     // Certificate banner shown only when fully complete
     const certBanner = courseComplete ? `
@@ -2496,7 +2566,7 @@
         <div>
           <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">🎉 Course complete</div>
           <div style="font-family:'DM Serif Display',serif;font-size:1.75rem;letter-spacing:-0.03em;margin-bottom:0.5rem;">Your certificate is ready</div>
-          <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">You completed all 7 days of Build Your First Website.</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.6);">You completed all 14 days of Web Sprint.</div>
         </div>
         <button onclick="window.showCertificate()" style="background:white;color:#1a3a2a;border:none;padding:0.875rem 1.75rem;border-radius:100px;font-size:0.9375rem;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;white-space:nowrap;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">View certificate →</button>
       </div>` : `
@@ -2506,7 +2576,7 @@
         </div>
         <div>
           <div style="font-size:0.9rem;font-weight:500;color:var(--black);margin-bottom:0.2rem;">Certificate locked</div>
-          <div style="font-size:0.8125rem;color:var(--gray-text);">Complete all 7 days to unlock your certificate of completion.</div>
+          <div style="font-size:0.8125rem;color:var(--gray-text);">Complete all 14 days to unlock your certificate of completion.</div>
         </div>
       </div>`;
 
@@ -2517,7 +2587,7 @@
           <div>
             <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.5rem;">Overall progress</div>
             <div style="font-family:'DM Serif Display',serif;font-size:3rem;letter-spacing:-0.04em;line-height:1;">${overallPct}%</div>
-            <div style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin-top:0.35rem;">${daysCompleted} of 7 days completed</div>
+            <div style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin-top:0.35rem;">${daysCompleted} of 14 days completed</div>
           </div>
           <div style="display:flex;gap:1.5rem;">
             <div style="text-align:center;">
@@ -2537,10 +2607,10 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;">
         ${cards}
       </div>
-      <div style="margin-top:2rem;border:1px solid var(--gray-mid);border-radius:16px;padding:1.75rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="${courseComplete ? "window.showCertificate()" : `showLesson('day${Math.min(daysCompleted + 1, 7)}')`}">
+      <div style="margin-top:2rem;border:1px solid var(--gray-mid);border-radius:16px;padding:1.75rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="${courseComplete ? "window.showCertificate()" : `showLesson('day${Math.min(daysCompleted + 1, 14)}')`}">
         <div>
           <div style="font-size:0.75rem;color:var(--gray-text);font-weight:500;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.35rem;">${courseComplete ? 'You finished! 🎉' : 'Continue where you left off'}</div>
-          <div style="font-family:'DM Serif Display',serif;font-size:1.25rem;letter-spacing:-0.02em;color:var(--black);">${courseComplete ? 'View your certificate' : `Day ${Math.min(daysCompleted + 1, 7)}`}</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.25rem;letter-spacing:-0.02em;color:var(--black);">${courseComplete ? 'View your certificate' : `Day ${Math.min(daysCompleted + 1, 14)}`}</div>
         </div>
         <div style="width:40px;height:40px;border-radius:50%;border:1px solid var(--gray-mid);display:flex;align-items:center;justify-content:center;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
@@ -2554,7 +2624,7 @@
     const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     document.getElementById('certName').textContent = name;
     document.getElementById('certDate').textContent = date;
-    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','profilePage','certPage'].forEach(id => {
+    ['homePage','lessonPage','day2Page','day3Page','day4Page','day5Page','day6Page','day7Page','day8Page','day9Page','day10Page','day11Page','day12Page','day13Page','day14Page','profilePage','certPage'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.remove('active');
     });
@@ -2598,7 +2668,7 @@
 </style>
 
 <div class="page" id="certPage">
-  <div style="min-height:100vh;background:#f5f4f0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;">
+  <div style="min-height:100vh;background:#f5f4f0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6rem 2rem 2rem;">
 
     <!-- Actions bar -->
     <div id="certActions" style="display:flex;gap:0.75rem;margin-bottom:2rem;flex-wrap:wrap;justify-content:center;">
@@ -2624,7 +2694,7 @@
       <div style="margin-bottom:3.5rem;">
         <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1rem;">This certifies that</div>
         <div id="certName" style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3.5rem);color:white;letter-spacing:-0.04em;line-height:1.1;margin-bottom:1.5rem;">Student Name</div>
-        <div style="font-size:1.0625rem;color:rgba(255,255,255,0.55);line-height:1.7;max-width:520px;">has successfully completed the <span style="color:white;font-weight:500;">Build Your First Website in 7 Days</span> sprint — mastering HTML structure, CSS styling, Flexbox layout, responsive design, and deploying a live website to the internet.</div>
+        <div style="font-size:1.0625rem;color:rgba(255,255,255,0.55);line-height:1.7;max-width:520px;">has successfully completed the <span style="color:white;font-weight:500;">Web Sprint</span> 14-day course — mastering HTML structure, CSS styling, Flexbox layout, responsive design, JavaScript, and deploying a live, interactive website to the internet.</div>
       </div>
 
       <!-- Bottom row -->
@@ -2640,7 +2710,7 @@
         </div>
         <!-- Skills badges -->
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;width:100%;margin-top:0.5rem;">
-          <span class="cert-badge">HTML</span><span class="cert-badge">CSS</span><span class="cert-badge">Flexbox</span><span class="cert-badge">Responsive Design</span><span class="cert-badge">GitHub Pages</span>
+          <span class="cert-badge">HTML</span><span class="cert-badge">CSS</span><span class="cert-badge">Flexbox</span><span class="cert-badge">Responsive Design</span><span class="cert-badge">JavaScript</span><span class="cert-badge">GitHub Pages</span>
         </div>
       </div>
     </div>
