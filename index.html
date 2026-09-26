@@ -1330,8 +1330,7 @@
     --danger: #f87171; --danger-bg: #2a1414; --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.35); color-scheme: dark;
   }
   [data-theme="dark"] nav { background: rgba(17,17,19,0.82); }
-  [data-theme="dark"] .btn-primary, [data-theme="dark"] .nav-cta { background: var(--ink); color: var(--on-ink); }
-  [data-theme="dark"] .btn-white { background: var(--ink); color: var(--on-ink); }
+  [data-theme="dark"] .btn-white { background: #ecebe7; color: #111113; }
   [data-theme="dark"] .callout.info { background: #121c28; border-color: #23384f; }
   [data-theme="dark"] .callout.tip { border-color: #1f4a35; }
   [data-theme="dark"] .callout.warning { background: #221d0e; border-color: #4a3d14; }
@@ -1383,6 +1382,12 @@
   .verify-note { background: #fdf6e3; border: 1px solid #f0d98a; border-radius: 16px; padding: 1.1rem 1.4rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #3d3310; }
   [data-theme="dark"] .verify-note { background: #221d0e; border-color: #4a3d14; color: #f0e2b6; }
   .verify-note a { text-decoration: underline; cursor: pointer; color: inherit; }
+  [hidden] { display: none !important; }
+  [data-theme="dark"] .btn-primary, [data-theme="dark"] .nav-cta { background: #ecebe7; color: #111113 !important; }
+  .hero-right .stat-row + .stat-row .stat-card:only-child { grid-column: 1 / -1; }
+  .footer-links { flex-wrap: wrap; justify-content: center; row-gap: 0.6rem; }
+  footer { gap: 1.25rem; }
+  @media (max-width: 900px) { footer { flex-wrap: wrap; justify-content: center; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 
   /* RESPONSIVE */
@@ -1415,6 +1420,7 @@
   }
 </style>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d0d0d'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='white' letter-spacing='-0.5'>EB</text></svg>">
+<link rel="apple-touch-icon" href="/logo.png">
 <script>
   // Pick the theme before the page draws, so it never flashes the wrong one
   (function () {
@@ -1660,7 +1666,7 @@
       <p class="section-label">Your instructor</p>
       <h2 class="instructor-name">Esdras Buelvas</h2>
       <p class="instructor-role">Web developer · Teacher · Builder</p>
-      <p class="instructor-bio">I've been building websites with HTML & CSS for years, and I know exactly where beginners get lost — because I was one. This course is the guide I wish I had when I started. No jargon. No filler. Just the stuff that actually matters, taught in a way that sticks.</p>
+      <p class="instructor-bio">I've been building websites with HTML, CSS and JavaScript for years, and I know exactly where beginners get lost — because I was one. This course is the guide I wish I had when I started. No jargon. No filler. Just the stuff that actually matters, taught in a way that sticks.</p>
     </div>
   </section>
 
@@ -2834,7 +2840,7 @@
   // ===== AI PROJECT REVIEWS =====
   // Your Cloudflare worker URL + /review. Leave empty to hide project reviews
   // (then they're not needed for the certificate either).
-  const REVIEW_URL = '';
+  const REVIEW_URL = 'https://web-sprint-webhook.esdrasbuelvas31.workers.dev/review';
 
   // ===== COMMUNITY =====
   // Your Discord invite link (set it to never expire). Leave empty to hide it.
