@@ -7,23 +7,30 @@
 <meta name="description" content="The terms for using and buying Web Sprint.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d0d0d'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='white'>EB</text></svg>">
+<script>
+  (function () { var t = null; try { t = localStorage.getItem('ws_theme'); } catch (e) {}
+    if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t); })();
+</script>
 <style>
+  :root { --bg: #fafaf8; --text: #0d0d0d; --text-2: #333; --muted: #888680; --line: #e8e6e1; --panel: #f0efea; color-scheme: light; }
+  [data-theme="dark"] { --bg: #111113; --text: #ecebe7; --text-2: #c9c7c1; --muted: #9c9a94; --line: #2e2e33; --panel: #1b1b1e; color-scheme: dark; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', Arial, sans-serif; background: #fafaf8; color: #0d0d0d; line-height: 1.7; }
-  header { border-bottom: 1px solid #e8e6e1; padding: 1.1rem 1.5rem; }
-  header a { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: #0d0d0d; text-decoration: none; }
+  body { font-family: 'DM Sans', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  header { border-bottom: 1px solid var(--line); padding: 1.1rem 1.5rem; }
+  header a { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--text); text-decoration: none; }
   main { max-width: 720px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
-  .kicker { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888680; margin-bottom: 0.75rem; }
+  .kicker { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
   h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(2.25rem, 6vw, 3rem); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.75rem; }
-  .updated { color: #888680; font-size: 0.875rem; margin-bottom: 2.5rem; }
-  .summary { background: #f0efea; border-radius: 16px; padding: 1.5rem 1.75rem; margin-bottom: 2.5rem; }
+  .updated { color: var(--muted); font-size: 0.875rem; margin-bottom: 2.5rem; }
+  .summary { background: var(--panel); border-radius: 16px; padding: 1.5rem 1.75rem; margin-bottom: 2.5rem; }
   .summary p { margin: 0; }
   h2 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.5rem; letter-spacing: -0.02em; margin: 2.5rem 0 0.75rem; }
-  p, li { color: #333; margin-bottom: 0.9rem; }
+  p, li { color: var(--text-2); margin-bottom: 0.9rem; }
   ul { padding-left: 1.25rem; margin-bottom: 1rem; }
-  a { color: #0d0d0d; }
-  footer { border-top: 1px solid #e8e6e1; padding: 2rem 1.5rem; text-align: center; font-size: 0.875rem; color: #888680; }
-  footer a { color: #888680; margin: 0 0.6rem; }
+  a { color: var(--text); }
+  footer { border-top: 1px solid var(--line); padding: 2rem 1.5rem; text-align: center; font-size: 0.875rem; color: var(--muted); }
+  footer a { color: var(--muted); margin: 0 0.6rem; }
 </style>
 </head>
 <body>
@@ -32,7 +39,7 @@
   <p class="kicker">Web Sprint</p>
   <h1>Terms of Service</h1>
   <p class="updated">Last updated September 25, 2026</p>
-  <div class="summary"><p><strong>The short version:</strong> buy once, and the lessons are yours to use for your own learning. Please don't share your account or copy the lessons somewhere else. Everything you build while learning belongs to you. If the course isn't for you, you have 14 days to ask for a refund.</p></div>
+  <div class="summary"><p><strong>The short version:</strong> buy once, and the lessons are yours to use for your own learning. Please don't share your account or copy the lessons somewhere else. Everything you build while learning belongs to you. Try the two free lessons before buying, since refunds are only for problems like double charges.</p></div>
 
   <h2>1. Agreement</h2>
   <p>These terms apply when you use Web Sprint at esdrasbuelvas.org, run by Esdras Buelvas ("we", "us"). By creating an account or buying the course, you agree to them. If you're under 18, you need a parent or guardian's permission to buy the course, and they agree to these terms for you.</p>
@@ -61,13 +68,13 @@
   <p>Everything you build while taking the course, including your websites, apps and code, belongs to you. You're free to use it, publish it or sell it.</p>
 
   <h2>7. Refunds</h2>
-  <p>You can get a full refund within 14 days of buying. See the <a href="refund.html">Refund Policy</a> for how. Access to the paid lessons ends when a refund is processed.</p>
+  <p>Refunds are available for problems, like double charges or not being able to access the course, but not for changing your mind. See the <a href="refund.html">Refund Policy</a> for details. Access to the paid lessons ends when a refund is processed.</p>
 
   <h2>8. Be decent</h2>
   <p>Don't try to break, overload or get around the security of the site, and don't use it for anything illegal. We can suspend or close accounts that do. If we close an account without a good reason, we'll refund the purchase.</p>
 
   <h2>9. AI project feedback</h2>
-  <p>Project reviews are written by AI (Anthropic's Claude). They're meant to help you learn, and they can occasionally be wrong or miss things. Each student gets a limited number of reviews per day. Please only upload your own code for your own projects.</p>
+  <p>Project reviews are written by AI. They're meant to help you learn, and they can occasionally be wrong or miss things. Each student gets a limited number of reviews per day. Please only upload your own code for your own projects.</p>
 
   <h2>10. No guarantees about results</h2>
   <p>We work hard to make the course accurate and useful, but we can't promise that it'll get you a job, clients or any particular income. The course is provided "as is". Websites and tools change over time, and some details in lessons may go out of date. Email us if you spot something and we'll fix it.</p>
