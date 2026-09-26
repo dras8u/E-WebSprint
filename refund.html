@@ -4,26 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Refund Policy — Web Sprint</title>
-<meta name="description" content="Web Sprint has a 14-day money-back guarantee.">
+<meta name="description" content="When Web Sprint gives refunds, and how to ask for one.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d0d0d'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='white'>EB</text></svg>">
+<script>
+  (function () { var t = null; try { t = localStorage.getItem('ws_theme'); } catch (e) {}
+    if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t); })();
+</script>
 <style>
+  :root { --bg: #fafaf8; --text: #0d0d0d; --text-2: #333; --muted: #888680; --line: #e8e6e1; --panel: #f0efea; color-scheme: light; }
+  [data-theme="dark"] { --bg: #111113; --text: #ecebe7; --text-2: #c9c7c1; --muted: #9c9a94; --line: #2e2e33; --panel: #1b1b1e; color-scheme: dark; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', Arial, sans-serif; background: #fafaf8; color: #0d0d0d; line-height: 1.7; }
-  header { border-bottom: 1px solid #e8e6e1; padding: 1.1rem 1.5rem; }
-  header a { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: #0d0d0d; text-decoration: none; }
+  body { font-family: 'DM Sans', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  header { border-bottom: 1px solid var(--line); padding: 1.1rem 1.5rem; }
+  header a { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--text); text-decoration: none; }
   main { max-width: 720px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
-  .kicker { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888680; margin-bottom: 0.75rem; }
+  .kicker { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
   h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(2.25rem, 6vw, 3rem); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.75rem; }
-  .updated { color: #888680; font-size: 0.875rem; margin-bottom: 2.5rem; }
-  .summary { background: #f0efea; border-radius: 16px; padding: 1.5rem 1.75rem; margin-bottom: 2.5rem; }
+  .updated { color: var(--muted); font-size: 0.875rem; margin-bottom: 2.5rem; }
+  .summary { background: var(--panel); border-radius: 16px; padding: 1.5rem 1.75rem; margin-bottom: 2.5rem; }
   .summary p { margin: 0; }
   h2 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.5rem; letter-spacing: -0.02em; margin: 2.5rem 0 0.75rem; }
-  p, li { color: #333; margin-bottom: 0.9rem; }
+  p, li { color: var(--text-2); margin-bottom: 0.9rem; }
   ul { padding-left: 1.25rem; margin-bottom: 1rem; }
-  a { color: #0d0d0d; }
-  footer { border-top: 1px solid #e8e6e1; padding: 2rem 1.5rem; text-align: center; font-size: 0.875rem; color: #888680; }
-  footer a { color: #888680; margin: 0 0.6rem; }
+  a { color: var(--text); }
+  footer { border-top: 1px solid var(--line); padding: 2rem 1.5rem; text-align: center; font-size: 0.875rem; color: var(--muted); }
+  footer a { color: var(--muted); margin: 0 0.6rem; }
 </style>
 </head>
 <body>
@@ -32,27 +39,32 @@
   <p class="kicker">Web Sprint</p>
   <h1>Refund Policy</h1>
   <p class="updated">Last updated September 25, 2026</p>
-  <div class="summary"><p><strong>14-day money-back guarantee.</strong> If Web Sprint isn't right for you, email us within 14 days of buying and you'll get a full refund. No questions asked.</p></div>
+  <div class="summary"><p><strong>The short version:</strong> the first two lessons are free, so you can try the course before you pay. Because you get instant access to all the lessons, we don't give refunds for changing your mind. If something goes wrong on our side, like a double charge or not being able to get into the course, we'll make it right.</p></div>
 
-  <h2>How to get a refund</h2>
-  <ol style="padding-left:1.25rem;margin-bottom:1rem;">
-    <li>Email <a href="mailto:esdrasbuelvas31@gmail.com">esdrasbuelvas31@gmail.com</a> within 14 days of your purchase.</li>
-    <li>Send it from the email address you used at checkout, or include that address in your message.</li>
-    <li>That's it. You don't have to give a reason, but we'd love to hear one so we can improve the course.</li>
-  </ol>
+  <h2>Try before you buy</h2>
+  <p>Lessons 1 and 2 are completely free with an account, along with their quizzes. Please try them before buying, so you know the teaching style works for you.</p>
 
-  <h2>What happens next</h2>
+  <h2>When you can get a refund</h2>
+  <p>We'll give you a full refund if:</p>
   <ul>
-    <li>We'll process your refund within 3 business days.</li>
-    <li>The money goes back to your original payment method through Square. Banks usually take 5–10 business days to show it.</li>
-    <li>Your access to the paid lessons ends when the refund is processed. Your account, and the free lessons, stay available.</li>
+    <li><strong>You were charged twice</strong> for the same course, or bought it twice by accident.</li>
+    <li><strong>You paid but can't access the course,</strong> and we can't fix it within 3 business days of you contacting us.</li>
+    <li><strong>The payment wasn't made by you</strong> or someone allowed to use your card. Contact us within 30 days.</li>
+    <li><strong>The course is shut down</strong> within 12 months of your purchase without the 60 days' notice promised in our <a href="terms.html">Terms</a>.</li>
   </ul>
 
-  <h2>After 14 days</h2>
-  <p>Refunds aren't available after 14 days, except where the law requires them. If something went wrong, like being charged twice or not being able to access the course, email us any time and we'll make it right.</p>
+  <h2>When refunds aren't available</h2>
+  <p>Because the whole course unlocks right after you pay, we don't offer refunds for changing your mind, not having time, or having finished the course. This applies except where the law requires otherwise.</p>
 
-  <h2>Buying again</h2>
-  <p>If you get a refund and decide to come back later, you're welcome to buy again. A second refund isn't available on a repeat purchase.</p>
+  <h2>How to ask</h2>
+  <ol style="padding-left:1.25rem;margin-bottom:1rem;">
+    <li>Message us from the help button inside the course, or email <a href="mailto:esdrasbuelvas31@gmail.com">esdrasbuelvas31@gmail.com</a>.</li>
+    <li>Use the email address you bought with, and tell us what happened.</li>
+    <li>We'll reply within 2 business days. Approved refunds go back to your original payment method through Square, usually within 5–10 business days. Access to the paid lessons ends when the refund is processed.</li>
+  </ol>
+
+  <h2>Please talk to us first</h2>
+  <p>If something's wrong, message us before disputing the charge with your bank. We can almost always fix it faster, and disputes can take weeks to resolve.</p>
 
 </main>
 <footer>
