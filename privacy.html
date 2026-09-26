@@ -7,23 +7,30 @@
 <meta name="description" content="How Web Sprint collects, uses and protects your information.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d0d0d'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='white'>EB</text></svg>">
+<script>
+  (function () { var t = null; try { t = localStorage.getItem('ws_theme'); } catch (e) {}
+    if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t); })();
+</script>
 <style>
+  :root { --bg: #fafaf8; --text: #0d0d0d; --text-2: #333; --muted: #888680; --line: #e8e6e1; --panel: #f0efea; color-scheme: light; }
+  [data-theme="dark"] { --bg: #111113; --text: #ecebe7; --text-2: #c9c7c1; --muted: #9c9a94; --line: #2e2e33; --panel: #1b1b1e; color-scheme: dark; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', Arial, sans-serif; background: #fafaf8; color: #0d0d0d; line-height: 1.7; }
-  header { border-bottom: 1px solid #e8e6e1; padding: 1.1rem 1.5rem; }
-  header a { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: #0d0d0d; text-decoration: none; }
+  body { font-family: 'DM Sans', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  header { border-bottom: 1px solid var(--line); padding: 1.1rem 1.5rem; }
+  header a { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--text); text-decoration: none; }
   main { max-width: 720px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
-  .kicker { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888680; margin-bottom: 0.75rem; }
+  .kicker { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
   h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(2.25rem, 6vw, 3rem); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.75rem; }
-  .updated { color: #888680; font-size: 0.875rem; margin-bottom: 2.5rem; }
-  .summary { background: #f0efea; border-radius: 16px; padding: 1.5rem 1.75rem; margin-bottom: 2.5rem; }
+  .updated { color: var(--muted); font-size: 0.875rem; margin-bottom: 2.5rem; }
+  .summary { background: var(--panel); border-radius: 16px; padding: 1.5rem 1.75rem; margin-bottom: 2.5rem; }
   .summary p { margin: 0; }
   h2 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.5rem; letter-spacing: -0.02em; margin: 2.5rem 0 0.75rem; }
-  p, li { color: #333; margin-bottom: 0.9rem; }
+  p, li { color: var(--text-2); margin-bottom: 0.9rem; }
   ul { padding-left: 1.25rem; margin-bottom: 1rem; }
-  a { color: #0d0d0d; }
-  footer { border-top: 1px solid #e8e6e1; padding: 2rem 1.5rem; text-align: center; font-size: 0.875rem; color: #888680; }
-  footer a { color: #888680; margin: 0 0.6rem; }
+  a { color: var(--text); }
+  footer { border-top: 1px solid var(--line); padding: 2rem 1.5rem; text-align: center; font-size: 0.875rem; color: var(--muted); }
+  footer a { color: var(--muted); margin: 0 0.6rem; }
 </style>
 </head>
 <body>
@@ -41,7 +48,9 @@
   <ul>
     <li><strong>Your account:</strong> the first name and email address you sign up with, and your password. Passwords are handled by Google Firebase Authentication. We never see or store your password ourselves.</li>
     <li><strong>Your progress:</strong> which checklist items you've ticked in each lesson and your quiz and test scores, so your progress follows you between devices.</li>
-    <li><strong>Projects you turn in:</strong> if you ask for AI feedback on a project, the code files you upload are sent to our server and to Anthropic's Claude to be reviewed. We keep the feedback, your score and the names of your files, but not the code itself. Don't put passwords or personal information in files you upload.</li>
+    <li><strong>Projects you turn in:</strong> if you ask for AI feedback on a project, the code files you upload are sent to our server and to an AI model (run by Cloudflare, or Anthropic's Claude) to be reviewed. We keep the feedback, your score and the names of your files, but not the code itself. Don't put passwords or personal information in files you upload.</li>
+    <li><strong>Help chat messages:</strong> messages you send with the Help button, your name and email, and which lesson you were on, so we can answer you.</li>
+    <li><strong>Module reviews:</strong> the star rating and comments you leave after a module test. If you tick the box to share it, your rating, the "what did you like" comment and your first name may be shown on our homepage. You can ask us to remove it any time.</li>
     <li><strong>Your purchase:</strong> when you buy the full course, our payment processor, Square, tells us the email address used at checkout, a payment ID, the amount and the date. We use this to unlock your lessons.</li>
     <li><strong>Basic account activity:</strong> when you created your account and when you last used it.</li>
   </ul>
@@ -57,7 +66,8 @@
     <li>To create your account and log you in</li>
     <li>To save your progress and show your certificate</li>
     <li>To unlock the full course after you pay, and remove access if you're refunded</li>
-    <li>To answer you when you contact us</li>
+    <li>To answer you when you contact us or use the help chat</li>
+    <li>To improve the course using your reviews, and to show shared reviews on the homepage</li>
     <li>To review projects you turn in and show you the feedback</li>
     <li>To count how many people sign up and buy, so we can improve the course</li>
   </ul>
@@ -69,8 +79,9 @@
     <li><strong>Google Firebase</strong> stores your account and progress. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy</a></li>
     <li><strong>Square</strong> processes payments. <a href="https://squareup.com/us/en/legal/general/privacy" target="_blank" rel="noopener">Square privacy</a></li>
     <li><strong>GitHub Pages</strong> hosts the website and may log visitors' IP addresses for security. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub privacy</a></li>
-    <li><strong>Cloudflare</strong> runs the small server that receives payment notifications from Square and sends projects for review. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare privacy</a></li>
-    <li><strong>Anthropic</strong> provides Claude, the AI that reviews projects you turn in. Anthropic doesn't use data sent through its commercial API to train its models by default. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic privacy</a></li>
+    <li><strong>Cloudflare</strong> runs the small server that receives payment notifications from Square and sends projects for review. Its Workers AI service may run the AI that reviews your projects. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare privacy</a></li>
+    <li><strong>Anthropic</strong> provides Claude, which may review projects you turn in. Anthropic doesn't use data sent through its commercial API to train its models by default. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic privacy</a></li>
+    <li><strong>Discord</strong> hosts our optional student community. Joining is up to you, and anything you post there is covered by Discord's own terms and privacy policy.</li>
     <li><strong>Google Fonts</strong> serves the fonts on this site, so your browser connects to Google when pages load.</li>
     <li><strong>YouTube</strong> hosts lesson videos. Videos use YouTube's privacy-enhanced mode, but YouTube may still collect data when you play one.</li>
   </ul>
