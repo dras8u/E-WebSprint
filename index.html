@@ -1383,6 +1383,9 @@
   [data-theme="dark"] .verify-note { background: #221d0e; border-color: #4a3d14; color: #f0e2b6; }
   .verify-note a { text-decoration: underline; cursor: pointer; color: inherit; }
   [hidden] { display: none !important; }
+  .guest-note { background: var(--green-light); border: 1px solid var(--gray-mid); border-radius: 12px; padding: 0.75rem 1rem; font-size: 0.875rem; color: var(--black); margin-bottom: 1.5rem; }
+  .guest-note a, .quiz-nudge a { text-decoration: underline; cursor: pointer; color: inherit; font-weight: 500; }
+  .quiz-nudge { margin-top: 0.5rem; font-size: 0.875rem; color: var(--black); }
   [data-theme="dark"] .btn-primary, [data-theme="dark"] .nav-cta { background: #ecebe7; color: #111113 !important; }
   .hero-right .stat-row + .stat-row .stat-card:only-child { grid-column: 1 / -1; }
   .footer-links { flex-wrap: wrap; justify-content: center; row-gap: 0.6rem; }
@@ -1458,7 +1461,7 @@
     <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
     <li><a onclick="scrollToSection('instructor')">About</a></li>
     <li><a onclick="window.showAuthModal('login')" style="font-size:0.875rem;color:var(--gray-text);cursor:pointer;">Log in</a></li>
-    <li><a onclick="window.showAuthModal('signup')" class="nav-cta">Start Free →</a></li>
+    <li><a onclick="startFree()" class="nav-cta">Start Free →</a></li>
   </ul>
 
   <!-- Lesson nav -->
@@ -1481,7 +1484,7 @@
       <h1 class="hero-title animate animate-d1">Learn to build<br><em>real websites.</em></h1>
       <p class="hero-sub animate animate-d2">HTML, CSS and JavaScript from zero. 34 lessons, 4 real projects, and your own site live on the internet. No experience needed.</p>
       <div class="hero-actions animate animate-d3">
-        <button class="btn-primary" onclick="showEmailModal()">Start for free →</button>
+        <button class="btn-primary" onclick="showEmailModal()">Start Lesson 1 free →</button>
         <button class="btn-ghost" onclick="scrollToSection('curriculum')">See the curriculum ↓</button>
       </div>
     </div>
@@ -1636,7 +1639,7 @@
           <li class="price-feature"><span class="price-feature-dot"></span>Text, headings &amp; links</li>
           <li class="price-feature"><span class="price-feature-dot"></span>Progress saved to your account</li>
         </ul>
-        <button class="btn-primary" onclick="showEmailModal()" style="margin-top:0.5rem;">Start free →</button>
+        <button class="btn-primary" onclick="showEmailModal()" style="margin-top:0.5rem;">Start Lesson 1 →</button>
       </div>
       <div class="price-card featured" style="padding:3rem;">
         <div class="price-label">The full course</div>
@@ -2726,7 +2729,7 @@
       <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
       <li><a onclick="scrollToSection('instructor')">About</a></li>
       <li><a onclick="window.showAuthModal('login')" style="font-size:0.875rem;color:var(--gray-text);cursor:pointer;">Log in</a></li>
-      <li><a onclick="window.showAuthModal('signup')" class="nav-cta">Start Free →</a></li>`;
+      <li><a onclick="window.startFree()" class="nav-cta">Start Free →</a></li>`;
   }
 
   // ===== SIGNUP =====
@@ -2845,6 +2848,17 @@
   // ===== COMMUNITY =====
   // Your Discord invite link (set it to never expire). Leave empty to hide it.
   const DISCORD_URL = 'https://discord.gg/fpvkEFeQkx';
+
+  // ===== VISITOR STATS (Cloudflare Web Analytics, free, no cookies) =====
+  // Paste your token from Cloudflare → Analytics & Logs → Web Analytics. Leave empty to turn off.
+  const CF_ANALYTICS_TOKEN = '';
+  if (CF_ANALYTICS_TOKEN) {
+    const beacon = document.createElement('script');
+    beacon.defer = true;
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_ANALYTICS_TOKEN }));
+    document.head.appendChild(beacon);
+  }
 
   // ===== DISCOUNT CODES =====
   // 1) In Square, make a second payment link at the discounted price.
@@ -3153,7 +3167,9 @@
   })();
 
   // ===== AUTH MODAL CONTROLS =====
-  function showEmailModal() { window.showAuthModal('signup'); }
+  // "Start" buttons open Lesson 1 right away. No account needed to try the free lessons.
+  function showEmailModal() { showLesson('day1'); }
+  window.startFree = () => showLesson('day1');
 
   window.showAuthModal = function(tab = 'signup') {
     switchTab(tab);
@@ -3211,6 +3227,17 @@
   }
 
   // ===== ROUTING =====
+  function guestNote(n) {
+    const main = document.querySelector('#day' + n + 'Page .lesson-main');
+    if (!main) return;
+    let note = main.querySelector('.guest-note');
+    if (window._access.user || n > FREE_LESSONS) { if (note) note.remove(); return; }
+    if (note) return;
+    note = el('div', 'guest-note');
+    note.innerHTML = `👋 You're trying this lesson as a guest. <a onclick="window.showAuthModal('signup')">Create a free account</a> to save your progress.`;
+    main.prepend(note);
+  }
+
   function showLesson(day) {
     let n = parseInt(String(day).replace('day', ''), 10);
     if (!(n >= 1 && n <= TOTAL)) n = 1;
@@ -3229,6 +3256,7 @@
     document.title = `Lesson ${n}: ${lessonInfo(n).title} — Web Sprint`;
     window.scrollTo(0, 0);
     highlightSidebar();
+    guestNote(n);
     loadVideo(n);
     applyQuizState(n);
     renderTurnin(n);
@@ -3319,7 +3347,14 @@
   }
 
   // ===== LESSON GATES =====
+  // A lesson that's loaded but has no quiz (an older copy in the database) never blocks anyone
+  function hasNoQuiz(n) {
+    const page = document.getElementById('day' + n + 'Page');
+    return !!(page && page.querySelector('.lesson-title') && !page.querySelector('.quiz-q'));
+  }
+
   function quizPassed(n) {
+    if (hasNoQuiz(n)) return true;
     const r = results['quiz' + n];
     return !!(r && r.score >= Math.ceil(r.total * QUIZ_PASS));
   }
@@ -3398,6 +3433,8 @@
   }
 
   function testPassed(m) {
+    const tp = document.getElementById('test' + m + 'Page');
+    if (tp && tp.dataset.unlocked === '1' && !tp.querySelector('.test-q')) return true;   // test missing from the database
     return !!(results['test' + m] && results['test' + m].passed);
   }
 
@@ -3456,6 +3493,11 @@
         ? (MODULE_END[n] ? `✓ Module ${MODULE_END[n]} Test unlocked.` : `✓ Lesson ${n + 1} unlocked.`)
         : (quizPassed(n) ? `You already passed this quiz earlier, so the next step stays unlocked.` : `You need ${need} of ${all.length} to unlock the next lesson. Read the explanations above, then try again.`);
       result.appendChild(unlockMsg);
+      if (!window._access.user && score >= need) {
+        const nudge = el('div', 'quiz-nudge');
+        nudge.innerHTML = `Nice! <a onclick="window.showAuthModal('signup')">Create a free account</a> so you don't lose your progress.`;
+        result.appendChild(nudge);
+      }
     }
   }
 
